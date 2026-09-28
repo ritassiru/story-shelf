@@ -106,5 +106,6 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 ## Pendências e ideias
 
 - Licença do repositório ainda não definida.
-- Ideia: GitHub Action que rode `checar.py` e `build.py` sempre que algo em
-  `fonte/` mudar.
+- `.github/workflows/build.yml` roda `checar.py` e `build.py` a cada push em
+  `fonte/` na `main` e salva o `index.html` gerado. Se o `checar.py` falhar,
+  nada é salvo.
