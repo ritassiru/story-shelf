@@ -147,12 +147,16 @@ alunos. Depois:
 - `text`: parágrafos. `{"msg": ...}` vira um balão de mensagem de celular;
   `if`/`unless` mostram um parágrafo só para quem passou (ou não) por uma
   escolha; `[[palavra|tradução]]` cria o glossário de toque.
-- `scene` e `sceneIf`: a ilustração, e uma troca conforme o caminho.
+- `scene` e `sceneIf`: a ilustração, e uma troca conforme o caminho. Os nomes
+  das cenas são simples, só letras, números e `_` (`phone_night`, não
+  `phone-night`).
 - `question`: as opções são embaralhadas na tela, então a certa pode ficar em
   qualquer posição no arquivo.
 - `choices`: `to` é o próximo capítulo ou final; `set` marca algo que o leitor
   fez; `alt` muda o destino conforme essas marcas
-  (`"alt": [{"if": "posted", "to": "e6"}]`).
+  (`"alt": [{"if": "posted", "to": "e6"}]`). Se mais de um `alt` (ou
+  `sceneIf`) combinar com as marcas do leitor, vale o **último** da lista, no
+  jogo e no `checar.py`.
 - `event`/`eventPt`: o que aconteceu, no passado e em português. Vão para a
   lista do reconto e para o montador de frases.
 - Finais (`endings`) têm também `rank` (ordem no mapa, do melhor ao pior),

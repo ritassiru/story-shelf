@@ -1,0 +1,677 @@
+{
+ "meta": {
+  "slug": "who-posted-it",
+  "title": "Who Posted It?",
+  "level": "A2",
+  "audience": "1º ano",
+  "grammar": [
+   "Simple past",
+   "Question words",
+   "Sequence words"
+  ],
+  "blurb": "A screenshot says the June party is cancelled, and everybody believes it. But who posted it first? Help Davi find the truth!",
+  "cover": "phone_night",
+  "chapters": 4,
+  "choicePrompt": "What does Davi do?",
+  "keywords": [
+   {
+    "title": "Story words",
+    "pt": "palavras da história",
+    "words": [
+     [
+      "💬",
+      "group chat",
+      "grupo de conversa"
+     ],
+     [
+      "📸",
+      "screenshot",
+      "print de tela"
+     ],
+     [
+      "➡️",
+      "forward",
+      "encaminhar"
+     ],
+     [
+      "🗣️",
+      "rumor",
+      "boato"
+     ],
+     [
+      "🔎",
+      "proof",
+      "prova"
+     ],
+     [
+      "🌽",
+      "June party",
+      "festa junina"
+     ],
+     [
+      "💃",
+      "rehearsal",
+      "ensaio"
+     ],
+     [
+      "👩‍💼",
+      "coordinator",
+      "coordenadora"
+     ]
+    ]
+   },
+   "sequence",
+   "question"
+  ],
+  "retell": {
+   "sentences": 5,
+   "minSequence": 3,
+   "maxHelp": 3
+  }
+ },
+ "start": "p1",
+ "nodes": {
+  "p1": {
+   "chapter": 1,
+   "title": "The Message",
+   "scene": "phone_night",
+   "text": [
+    "It was Monday night. Davi was in bed with his phone. Suddenly, the class group chat exploded with messages.",
+    {
+     "msg": "📸 THE JUNE PARTY IS CANCELLED 😢 — forwarded many times"
+    },
+    "First, Davi read the screenshot. Then he read the comments. Everybody was sad. “No party? No corn cake? No [[quadrilha|dança típica da festa junina]]?”",
+    "His best friend, Lia, sent him a private message: “Is it true?? I bought a new dress for the party!”",
+    "Davi looked at the screenshot for a long time. Was it true? He didn't know."
+   ],
+   "event": "Davi saw a strange message in the group chat",
+   "eventPt": "o Davi viu uma mensagem estranha no grupo da turma",
+   "question": {
+    "wh": "When",
+    "q": "When did Davi see the message?",
+    "options": [
+     "On Monday night",
+     "On Saturday morning",
+     "At school",
+     "On Friday afternoon"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   },
+   "choices": [
+    {
+     "label": "Forward it to other groups",
+     "to": "p2a",
+     "event": "he forwarded the message to other groups",
+     "eventPt": "ele encaminhou a mensagem para outros grupos",
+     "set": [
+      "forwarded"
+     ]
+    },
+    {
+     "label": "Ask the coordinator first",
+     "to": "p2b",
+     "event": "he decided to ask the coordinator",
+     "eventPt": "ele decidiu perguntar à coordenadora"
+    }
+   ]
+  },
+  "p2a": {
+   "chapter": 2,
+   "title": "Everybody Knows",
+   "scene": "hall",
+   "text": [
+    "Davi forwarded the screenshot to three groups: his family, his football team and his neighbors. Then he went to sleep.",
+    "On Tuesday morning, everybody at school knew. The [[food stands|barracas de comida]] stopped their plans, and the dancers didn't go to the [[rehearsal|ensaio]].",
+    "At lunch, Pedro laughed: “No party? Great! No dancing for me!” Pedro always made jokes, and some students looked at him. “Maybe Pedro wrote it,” said a girl.",
+    "Davi looked at the screenshot again. Something was strange: it had no date, and the top part was cut."
+   ],
+   "event": "everybody at school believed the rumor",
+   "eventPt": "todo mundo na escola acreditou no boato",
+   "question": {
+    "wh": "What",
+    "q": "What was strange about the screenshot?",
+    "options": [
+     "It had no date",
+     "It was in Portuguese",
+     "It had a photo of Pedro",
+     "It was very long"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   },
+   "choices": [
+    {
+     "label": "Say in the group that Pedro did it",
+     "to": "p3y",
+     "event": "he said in the group that Pedro did it",
+     "eventPt": "ele disse no grupo que foi o Pedro",
+     "set": [
+      "accused"
+     ]
+    },
+    {
+     "label": "Look for proof first",
+     "to": "p3x",
+     "event": "he looked for proof first",
+     "eventPt": "ele procurou provas primeiro"
+    }
+   ]
+  },
+  "p2b": {
+   "chapter": 2,
+   "title": "The Coordinator",
+   "scene": "office",
+   "text": [
+    "On Tuesday morning, Davi went to the office of the coordinator, Dona Sônia. He showed her the screenshot.",
+    "“Cancelled? No! Nobody told me that!” she said. She looked very surprised.",
+    "Then her phone rang. And rang again. And again. Worried families wanted to know about the party.",
+    "“Davi, please help me,” said Dona Sônia. “We need to know where this message came from. The party is on Saturday!”"
+   ],
+   "event": "he showed the screenshot to Dona Sônia",
+   "eventPt": "ele mostrou o print para a Dona Sônia",
+   "question": {
+    "wh": "Why",
+    "q": "Why was Dona Sônia's phone ringing?",
+    "options": [
+     "Families wanted to know about the party",
+     "Pedro wanted to talk to her",
+     "The school bus was late",
+     "It was her birthday"
+    ],
+    "answer": 0,
+    "hint": "Read the third paragraph."
+   },
+   "choices": [
+    {
+     "label": "Investigate alone",
+     "to": "p3x",
+     "event": "he started to investigate alone",
+     "eventPt": "ele começou a investigar sozinho"
+    },
+    {
+     "label": "Ask Lia to help",
+     "to": "p3z",
+     "event": "he asked Lia to help",
+     "eventPt": "ele pediu ajuda à Lia",
+     "set": [
+      "team"
+     ]
+    }
+   ]
+  },
+  "p3x": {
+   "chapter": 3,
+   "title": "The Clues",
+   "scene": "clues",
+   "text": [
+    {
+     "if": "forwarded",
+     "text": "Davi felt bad. He forwarded the screenshot on Monday, and now the whole town believed it. He wanted to fix his mistake."
+    },
+    {
+     "unless": "forwarded",
+     "text": "Davi sat in the library with the screenshot. He wanted to find the truth before Saturday."
+    },
+    "First, he looked at the time on the message: 7:12 p.m. Then he looked at the top of the screenshot. It was cut, but he saw part of a group name and a small corn: “...ha IFAL 🌽”.",
+    "“Quadrilha IFAL!” thought Davi. “It's the dance group!” The leader of the dance group was Mariana.",
+    "After that, he remembered something. At 7:12 p.m. on Monday, he saw Pedro at football practice. So Pedro probably didn't write it."
+   ],
+   "event": "he found clues in the screenshot",
+   "eventPt": "ele encontrou pistas no print",
+   "question": {
+    "wh": "Where",
+    "q": "Where did the screenshot come from?",
+    "options": [
+     "From the dance group",
+     "From the football team",
+     "From Pedro's phone",
+     "From the school website"
+    ],
+    "answer": 0,
+    "hint": "Look at the group name with the corn."
+   },
+   "choices": [
+    {
+     "label": "Talk to Mariana alone",
+     "to": "p4a",
+     "event": "he went to talk to Mariana",
+     "eventPt": "ele foi falar com a Mariana"
+    },
+    {
+     "label": "Take the clues to Dona Sônia",
+     "to": "p4b",
+     "event": "he took the clues to Dona Sônia",
+     "eventPt": "ele levou as pistas para a Dona Sônia"
+    }
+   ]
+  },
+  "p3y": {
+   "chapter": 3,
+   "title": "Pedro Is Angry",
+   "scene": "chatwar",
+   "text": [
+    "Davi wrote in the class group: “It was Pedro! He hates the quadrilha!” In five minutes, his message had fifty replies.",
+    "Then Pedro answered with a photo of the football team. It was from Monday at 7:12 p.m., and Pedro was in the photo, with no phone.",
+    {
+     "msg": "Pedro: I was at football practice!! Why did you say that about me? 😡"
+    },
+    "Some students stopped talking to Davi. Lia sent him a message: “You needed proof, Davi. Now what?”"
+   ],
+   "event": "Pedro showed that he was at football practice",
+   "eventPt": "o Pedro mostrou que estava no treino de futebol",
+   "question": {
+    "wh": "Where",
+    "q": "Where was Pedro at 7:12 p.m. on Monday?",
+    "options": [
+     "At football practice",
+     "At home",
+     "At the dance rehearsal",
+     "In the library"
+    ],
+    "answer": 0,
+    "hint": "Look at Pedro's photo."
+   },
+   "choices": [
+    {
+     "label": "Say sorry and look for the truth",
+     "to": "p4b",
+     "event": "he said sorry and looked for the truth",
+     "eventPt": "ele pediu desculpas e procurou a verdade"
+    },
+    {
+     "label": "Keep blaming Pedro",
+     "to": "p4c",
+     "event": "he kept blaming Pedro",
+     "eventPt": "ele continuou culpando o Pedro"
+    }
+   ]
+  },
+  "p3z": {
+   "chapter": 3,
+   "title": "A Team of Two",
+   "scene": "library",
+   "text": [
+    "Lia loved mysteries, so she said yes. First, they made a list in a notebook: Who? When? Where?",
+    "Then they scrolled up in the class group. They found the first screenshot, on Monday at 7:30 p.m. Caio posted it.",
+    "After that, they found Caio at the school gate. He looked nervous. “I didn't write it!” he said. “My cousin Mariana sent it to our family group. I only forwarded it to the class!”",
+    "“So we need to see the original message,” said Lia."
+   ],
+   "event": "they found the first person who posted it",
+   "eventPt": "eles acharam a primeira pessoa que postou",
+   "question": {
+    "wh": "Who",
+    "q": "Who posted the screenshot first in the class group?",
+    "options": [
+     "Caio",
+     "Pedro",
+     "Mariana",
+     "Lia"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   },
+   "choices": [
+    {
+     "label": "Post a correction with Caio's help",
+     "to": "p4d",
+     "event": "they posted a correction with Caio",
+     "eventPt": "eles postaram uma correção com o Caio"
+    },
+    {
+     "label": "Take the information to Dona Sônia",
+     "to": "p4b",
+     "event": "they took the information to Dona Sônia",
+     "eventPt": "eles levaram a informação para a Dona Sônia"
+    }
+   ]
+  },
+  "p4a": {
+   "chapter": 4,
+   "title": "Mariana",
+   "scene": "dance",
+   "text": [
+    "Davi found Mariana at the gym, with the dancers. He showed her the screenshot.",
+    "“That's my message!” she said. “But it's only part of it!” She opened her phone and showed him the original:",
+    {
+     "msg": "Today's REHEARSAL is cancelled because of the rain. The June party is on Saturday! See you there! 🌽"
+    },
+    "“I sent it at 7:12 p.m.,” said Mariana. “Somebody cut my message, and now everybody thinks the party is cancelled!” She was almost crying."
+   ],
+   "event": "he found Mariana's original message",
+   "eventPt": "ele achou a mensagem original da Mariana",
+   "question": {
+    "wh": "What time",
+    "q": "What time did Mariana send her message?",
+    "options": [
+     "At 7:12 p.m.",
+     "At 7:30 p.m.",
+     "At 6 a.m.",
+     "At noon"
+    ],
+    "answer": 0,
+    "hint": "Read what Mariana said at the end."
+   },
+   "choices": [
+    {
+     "label": "Help Mariana send the full message",
+     "to": "e2",
+     "event": "he helped Mariana send the full message",
+     "eventPt": "ele ajudou a Mariana a enviar a mensagem completa"
+    },
+    {
+     "label": "Say it was Mariana's fault",
+     "to": "e4",
+     "event": "he said it was Mariana's fault",
+     "eventPt": "ele disse que a culpa era da Mariana"
+    }
+   ]
+  },
+  "p4b": {
+   "chapter": 4,
+   "title": "In the Office",
+   "scene": "office",
+   "text": [
+    "Davi went to Dona Sônia's office.",
+    {
+     "if": "team",
+     "text": "Lia went with him, with their notebook full of clues."
+    },
+    {
+     "if": "accused",
+     "text": "Pedro was there too, very angry. Davi looked at the floor."
+    },
+    "Dona Sônia listened carefully. Then she looked at the calendar. There were only three days before the party.",
+    "“The [[food stands|barracas de comida]], the dancers, the families... Everybody thinks the party is cancelled,” she said. “We need to tell the truth, and fast. Will you help me?”"
+   ],
+   "event": "Dona Sônia heard the whole story",
+   "eventPt": "a Dona Sônia ouviu a história toda",
+   "question": {
+    "wh": "How many",
+    "q": "How many days were there before the party?",
+    "options": [
+     "Three",
+     "Five",
+     "One",
+     "Ten"
+    ],
+    "answer": 0,
+    "hint": "Read the fourth paragraph."
+   },
+   "choices": [
+    {
+     "label": "Write an official message together",
+     "to": "e1",
+     "event": "they wrote an official message together",
+     "eventPt": "eles escreveram juntos um comunicado oficial",
+     "alt": [
+      {
+       "if": "accused",
+       "to": "e3"
+      }
+     ]
+    },
+    {
+     "label": "Let Dona Sônia do it alone",
+     "to": "e4",
+     "event": "he let Dona Sônia do it alone",
+     "eventPt": "ele deixou a Dona Sônia fazer isso sozinha",
+     "alt": [
+      {
+       "if": "forwarded",
+       "to": "e5"
+      }
+     ]
+    }
+   ]
+  },
+  "p4c": {
+   "chapter": 4,
+   "title": "The Group Chat War",
+   "scene": "chatwar",
+   "text": [
+    "Davi wrote more messages about Pedro. Pedro's friends answered. Then Davi's friends answered. The class group became a war.",
+    "Nobody talked about the party anymore. Everybody talked about the fight, and some messages were really [[mean|maldosas]].",
+    "On Wednesday, Dona Sônia saw the messages. She called both boys to her office. She looked very tired.",
+    "“This is not about a party anymore,” she said. “This is a problem.”"
+   ],
+   "event": "the group chat became a war",
+   "eventPt": "o grupo da turma virou uma guerra",
+   "question": {
+    "wh": "Who",
+    "q": "Who did Dona Sônia call to her office?",
+    "options": [
+     "Davi and Pedro",
+     "Lia and Mariana",
+     "Caio and Lia",
+     "Only Pedro"
+    ],
+    "answer": 0,
+    "hint": "Read the third paragraph."
+   },
+   "choices": [
+    {
+     "label": "Stop and say sorry to Pedro",
+     "to": "e3",
+     "event": "he stopped and said sorry to Pedro",
+     "eventPt": "ele parou e pediu desculpas ao Pedro"
+    },
+    {
+     "label": "Keep fighting in the group",
+     "to": "e6",
+     "event": "he kept fighting in the group",
+     "eventPt": "ele continuou brigando no grupo"
+    }
+   ]
+  },
+  "p4d": {
+   "chapter": 4,
+   "title": "The Correction",
+   "scene": "phone_day",
+   "text": [
+    "Davi, Lia and Caio called Mariana. She sent them a photo of her original message:",
+    {
+     "msg": "Today's REHEARSAL is cancelled because of the rain. The June party is on Saturday! See you there! 🌽"
+    },
+    "“The word rehearsal was at the top,” said Caio. “My screenshot cut it! I'm so sorry.”",
+    "Then the three friends posted the full message in the class group, with a note: “The party is NOT cancelled!” Some students believed them, but others didn't. “Is this the real message now?” asked a girl."
+   ],
+   "event": "they posted the full message",
+   "eventPt": "eles postaram a mensagem completa",
+   "question": {
+    "wh": "How",
+    "q": "How did they prove the truth?",
+    "options": [
+     "They posted Mariana's full message",
+     "They called the police",
+     "They made a video",
+     "They went to Pedro's house"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   },
+   "choices": [
+    {
+     "label": "Ask Dona Sônia to confirm it",
+     "to": "e1",
+     "event": "they asked Dona Sônia to confirm it",
+     "eventPt": "eles pediram à Dona Sônia para confirmar"
+    },
+    {
+     "label": "Post more messages in capital letters",
+     "to": "e4",
+     "event": "they posted many messages in capital letters",
+     "eventPt": "eles postaram muitas mensagens em letras maiúsculas"
+    }
+   ]
+  }
+ },
+ "endings": {
+  "e1": {
+   "rank": 0,
+   "tier": "good",
+   "emoji": "🎉",
+   "short": "Party is on",
+   "title": "The Party Is On",
+   "scene": "party",
+   "text": [
+    "On Wednesday, the school sent an official message to every family: “The June party is NOT cancelled. See you on Saturday!”",
+    {
+     "if": "forwarded",
+     "text": "Davi felt a little guilty. On Monday, he forwarded the wrong message. But this time, he helped to fix it."
+    },
+    "On Saturday, the school was full. There was corn, music and a big [[bonfire|fogueira]]. Mariana's group danced the quadrilha, and everybody clapped.",
+    "In the end, Lia pulled Davi's arm. “Come on, detective! Dance with us!”"
+   ],
+   "event": "the party happened on Saturday",
+   "eventPt": "a festa aconteceu no sábado",
+   "question": {
+    "wh": "What",
+    "q": "What did the school send on Wednesday?",
+    "options": [
+     "An official message",
+     "A new screenshot",
+     "A video of the dance",
+     "A letter to Pedro"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   }
+  },
+  "e2": {
+   "rank": 1,
+   "tier": "good",
+   "emoji": "🔍",
+   "short": "Just a mistake",
+   "title": "Just a Mistake",
+   "scene": "party",
+   "text": [
+    "Mariana sent her full message to every group, and Davi forwarded it everywhere. This time, it was the true message.",
+    "Later, Davi discovered the whole story. Mariana sent her message to her family group. Her cousin Caio took a screenshot, but his phone cut the top part by accident. Then Caio forwarded it to the class.",
+    "“Nobody lied,” said Davi. “It was just a mistake.” On Saturday, the party was full, and Mariana gave Davi a big piece of corn cake."
+   ],
+   "event": "Davi discovered the whole story",
+   "eventPt": "o Davi descobriu a história toda",
+   "question": {
+    "wh": "Why",
+    "q": "Why was the screenshot incomplete?",
+    "options": [
+     "Caio's phone cut the top part by accident",
+     "Pedro changed it",
+     "Mariana wrote it wrong",
+     "Davi deleted a word"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  },
+  "e3": {
+   "rank": 2,
+   "tier": "mixed",
+   "emoji": "😬",
+   "short": "Wrong suspect",
+   "title": "The Wrong Suspect",
+   "scene": "apology",
+   "text": [
+    "The party happened on Saturday, and it was great. But first, Davi had a problem to fix.",
+    "In front of the whole class, he said: “Pedro, I'm sorry. You didn't write the message. I was wrong.”",
+    "Pedro looked at him for a long time. Then he said: “OK. But next time, look for proof first.” Davi never forgot that."
+   ],
+   "event": "he said sorry to Pedro in front of the class",
+   "eventPt": "ele pediu desculpas ao Pedro na frente da turma",
+   "question": {
+    "wh": "What",
+    "q": "What did Davi say to Pedro?",
+    "options": [
+     "I'm sorry",
+     "It was you",
+     "Let's dance",
+     "See you on Monday"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  },
+  "e4": {
+   "rank": 3,
+   "tier": "mixed",
+   "emoji": "📉",
+   "short": "Half empty",
+   "title": "Half Empty",
+   "scene": "empty",
+   "text": [
+    "The true message arrived, but it arrived late. Many families already had other plans for Saturday.",
+    "On the night of the party, only half of the students were there. Two [[food stands|barracas de comida]] never came, and the quadrilha danced for a small audience.",
+    "It was a nice party, but it was not the big party everybody wanted. On the way home, Davi thought: “A lie travels fast. The truth needs help.”"
+   ],
+   "event": "only half of the students came to the party",
+   "eventPt": "só metade dos alunos foi à festa",
+   "question": {
+    "wh": "How many",
+    "q": "How many students came to the party?",
+    "options": [
+     "Only half of them",
+     "All of them",
+     "Nobody",
+     "Only the dancers"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  },
+  "e5": {
+   "rank": 4,
+   "tier": "bad",
+   "emoji": "🔁",
+   "short": "Part of the problem",
+   "title": "Part of the Problem",
+   "scene": "empty",
+   "text": [
+    "Dona Sônia sent an official message, but Davi's screenshot was faster. It was in his family group, his football group and his neighbors' group. From there, it went to hundreds of phones.",
+    "On Saturday, many families stayed at home. They saw the wrong message first, and they never saw the correction.",
+    "Davi looked at the empty chairs. He didn't write the rumor, but he helped it grow. That night, he deleted it from every group, but it was too late."
+   ],
+   "event": "his forwarded message reached hundreds of phones",
+   "eventPt": "a mensagem que ele encaminhou chegou a centenas de celulares",
+   "question": {
+    "wh": "Why",
+    "q": "Why did many families stay at home?",
+    "options": [
+     "They saw the wrong message first",
+     "It rained a lot",
+     "The school was closed",
+     "They didn't like corn"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  },
+  "e6": {
+   "rank": 5,
+   "tier": "bad",
+   "emoji": "❌",
+   "short": "Really cancelled",
+   "title": "Really Cancelled",
+   "scene": "cancelled",
+   "text": [
+    "The fight in the group chat continued for two more days. Families called the school, and some students didn't want to go to the party with the other side.",
+    "On Friday, Dona Sônia made a hard decision. She put a sign on the school gate: “The June party is cancelled.”",
+    "This time, the message was true. Davi read the sign again and again. The rumor was a lie, but the fight made it real."
+   ],
+   "event": "the school really cancelled the party",
+   "eventPt": "a escola cancelou a festa de verdade",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Dona Sônia cancel the party?",
+    "options": [
+     "Because of the fight in the group chat",
+     "Because of the rain",
+     "Because Mariana was sick",
+     "Because of Pedro's jokes"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  }
+ }
+}

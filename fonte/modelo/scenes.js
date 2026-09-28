@@ -4,7 +4,8 @@
                                                               style: long, short, curly, bun, cap, bald; s = escala
      SKY(corDeCima, corDeBaixo)                             -> céu em degradê
      GROUND(cor)                                            -> chão
-   Cada cena devolve o conteúdo de um SVG de 540 x 220. */
+   Cada cena devolve o conteúdo de um SVG de 540 x 220.
+   Nomes de cena só com letras, números e _ (phone_night, não phone-night). */
 SCENE_LIB["modelo"] = (() => {
   const HERO = { skin: "#C88A5E", hair: "#2B1B16", shirt: "#6D2E46", style: "long" };
   return {

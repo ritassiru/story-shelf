@@ -90,6 +90,10 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 - **Não nomeie globais com nomes que já existem na janela do navegador**
   (`top`, `name`, `status`, `parent`, `length`...). Uma função `top` impediu o
   jogo de carregar.
+- **Nomes de cena só com letras, números e `_`** (`phone_night`, não
+  `phone-night`): o `checar.py` não reconhece nomes com hífen ou entre aspas.
+- **Vários `alt` ou `sceneIf` que combinam: vale o último da lista**, no
+  `template.html` e no `checar.py`. Se mudar essa regra, mude nos dois.
 - **Identificadores dentro dos SVGs precisam ser únicos** (o `SKY()` já gera
   um id novo a cada chamada).
 - **Ao substituir texto em arquivos, confira o resultado, não só a ausência do

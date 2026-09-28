@@ -219,7 +219,8 @@ function rich(text) {
     const g = seg.match(/^\[\[([^|\]]+)\|([^\]]+)\]\]$/);
     return g ? `<button type="button" class="gloss" data-pt="${esc(g[2])}">${esc(g[1])}</button>` : plainRich(seg);
   }).join("");
-  return html.replace(/(<button type="button" class="gloss[^>]*>[^<]*<\/button>)((?:<\/span>)?[,.;:!?”’)]+)/g, '<span class="nw">$1$2</span>');
+  // a pontuação colada à palavra (antes: “ ‘ ( ; depois: , . ! ” ...) fica na mesma linha que ela
+  return html.replace(/([“‘(]+)?(<button type="button" class="gloss[^>]*>[^<]*<\/button>)((?:<\/span>)?[,.;:!?”’)]+)?/g, (m, antes, _, depois) => antes || depois ? `<span class="nw">${m}</span>` : m);
 }
 
 /* ---------------- ilustrações: ajudantes genéricos + cenas de cada livro ---------------- */
