@@ -104,7 +104,7 @@ words diferentes (*When, What, Why, Where, Who, What time, How many, How*).
 | Final | Faixa | O que acontece | Caminhos |
 |---|---|---|---|
 | 🎉 **The Party Is On** | bom | Comunicado oficial, festa cheia, fogueira; a Lia puxa o "detetive" para dançar. | 4 de 16 |
-| 🔍 **Just a Mistake** | bom | A mensagem completa circula, e Davi reconstrói a cadeia: Mariana → família → Caio → turma. "Nobody lied." | 2 de 16 |
+| 🔍 **Just a Mistake** | bom | A mensagem completa circula, e Davi reconstrói a cadeia: Mariana → grupo da dança → Caio → turma. "Nobody lied." | 2 de 16 |
 | 😬 **The Wrong Suspect** | intermediário | A festa acontece, mas antes Davi pede desculpas ao Pedro na frente da turma. "Next time, look for proof first." | 2 de 16 |
 | 📉 **Half Empty** | intermediário | A verdade chega tarde; metade dos alunos vai à festa. "A lie travels fast. The truth needs help." | 5 de 16 |
 | 🔁 **Part of the Problem** | ruim | O print que Davi repassou chegou a centenas de celulares; muitas famílias ficam em casa. | 2 de 16 |

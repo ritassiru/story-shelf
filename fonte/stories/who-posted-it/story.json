@@ -294,7 +294,7 @@
    "text": [
     "Lia loved mysteries, so she said yes. First, they made a list in a notebook: Who? When? Where?",
     "Then they scrolled up in the class group. They found the first screenshot, on Monday at 7:30 p.m. Caio posted it.",
-    "After that, they found Caio at the school gate. He looked nervous. “I didn't write it!” he said. “My cousin Mariana sent it to our family group. I only forwarded it to the class!”",
+    "After that, they found Caio at the school gate. He looked nervous. “I didn't write it!” he said. “My cousin Mariana wrote it in the dance group. I'm in the group too, so I took a screenshot and forwarded it to the class!”",
     "“So we need to see the original message,” said Lia."
    ],
    "event": "they found the first person who posted it",
@@ -372,7 +372,7 @@
    "title": "In the Office",
    "scene": "office",
    "text": [
-    "Davi went to Dona Sônia's office.",
+    "Later that day, Davi went to Dona Sônia's office and told her everything.",
     {
      "if": "team",
      "text": "Lia went with him, with their notebook full of clues."
@@ -547,7 +547,7 @@
    "scene": "party",
    "text": [
     "Mariana sent her full message to every group, and Davi forwarded it everywhere. This time, it was the true message.",
-    "Later, Davi discovered the whole story. Mariana sent her message to her family group. Her cousin Caio took a screenshot, but his phone cut the top part by accident. Then Caio forwarded it to the class.",
+    "Later, Davi discovered the whole story. Mariana wrote her message in the dance group. Her cousin Caio took a screenshot there, but his phone cut the top part by accident. Then Caio forwarded it to the class.",
     "“Nobody lied,” said Davi. “It was just a mistake.” On Saturday, the party was full, and Mariana gave Davi a big piece of corn cake."
    ],
    "event": "Davi discovered the whole story",
