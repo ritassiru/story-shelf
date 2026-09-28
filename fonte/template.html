@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>__TITLE__</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F6F0E6; --panel: #FFFDF8; --ink: #2B1721; --muted: #6E5C63; --berry: #6D2E46; --rose: #A26769;
+  --cream: #ECE2D0; --line: #D9CBBE; --ok: #3E8E6B; --gold: #C08A2E; --bad: #B0413E; --btn-text: #FFFFFF; --msg: #E3EEF3;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1E1318; --panel: #2A1C23; --ink: #F1E7EA; --muted: #BFA9B1; --berry: #C77A98; --rose: #D19A9C;
+    --cream: #3A2830; --line: #4A3540; --ok: #62B891; --gold: #E0AE55; --bad: #E07571; --btn-text: #1E1318; --msg: #243540;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1E1318; --panel: #2A1C23; --ink: #F1E7EA; --muted: #BFA9B1; --berry: #C77A98; --rose: #D19A9C;
+  --cream: #3A2830; --line: #4A3540; --ok: #62B891; --gold: #E0AE55; --bad: #E07571; --btn-text: #1E1318; --msg: #243540;
+}
+:root { box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+*, *::before, *::after { box-sizing: inherit; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif; font-size: 18px; line-height: 1.55; }
+.wrap { max-width: 560px; margin: 0 auto; padding: 14px 14px 36px; }
+h1, h2, h3, .ch-title, .brand { font-family: "Fraunces", Georgia, "Times New Roman", serif; font-weight: 800; letter-spacing: -0.01em; }
+h1 { font-size: 2.2rem; line-height: 1.05; margin: 0 0 6px; color: var(--berry); }
+h2 { font-size: 1.6rem; line-height: 1.15; margin: 0 0 10px; color: var(--berry); }
+p { margin: 0 0 12px; }
+.hint { color: var(--muted); font-size: 0.95rem; }
+button { font: inherit; }
+
+.top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.brand { font-size: 1.05rem; color: var(--berry); }
+.step { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
+.dots { display: flex; gap: 5px; }
+.dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: inline-block; }
+.dots i.on { background: var(--berry); }
+
+/* página do livro */
+.page { background: var(--panel); border: 1px solid var(--line); border-radius: 6px 14px 14px 6px; box-shadow: 0 1px 0 var(--line), 0 6px 18px rgba(43,23,33,.06); overflow: hidden; margin-bottom: 14px; }
+.page .scene svg { display: block; width: 100%; height: auto; }
+.page-body { padding: 16px 18px 18px; }
+.ch-kicker { font-size: 0.8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rose); font-weight: 700; margin: 0 0 2px; }
+.ch-title { font-size: 1.55rem; color: var(--berry); margin: 0 0 12px; line-height: 1.15; }
+.story p { font-size: 1.1rem; }
+.story p.first::first-letter { font-family: "Fraunces", Georgia, serif; font-weight: 800; float: left; font-size: 3.1em; line-height: .82; padding: 4px 6px 0 0; color: var(--berry); }
+.msg { background: var(--msg); border-radius: 14px 14px 14px 4px; padding: 10px 14px; margin: 0 0 12px; font-size: 1.02rem; max-width: 92%; }
+.msg::before { content: "💬 New message"; display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 2px; }
+.seq { font-weight: 700; color: var(--berry); }
+.pageno { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+/* glossário */
+.gloss { background: none; border: 0; padding: 0; margin: 0; cursor: pointer; color: inherit; font: inherit; text-decoration: underline dotted var(--rose); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.gloss.verb { text-decoration-style: dashed; text-decoration-color: var(--berry); }
+.seq .gloss { font-weight: inherit; color: inherit; }
+.nw { white-space: nowrap; }
+#tip { position: absolute; z-index: 20; max-width: 280px; display: none; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 0.95rem; padding: 6px 10px; border-radius: 8px; }
+#tip.on { display: block; }
+#tip .vt { display: grid; grid-template-columns: repeat(2, auto); gap: 4px 14px; }
+#tip .vc { padding: 2px 6px; border-radius: 6px; border: 2px solid transparent; }
+#tip .vc.on { border-color: var(--gold); }
+#tip .vc span { display: block; font-size: 0.72rem; opacity: .8; }
+#tip .vpt { margin-top: 6px; }
+
+/* caderno de detetive */
+.note { background: var(--panel); border: 2px dashed var(--rose); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
+.note-k { font-weight: 700; font-size: 0.85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--rose); margin: 0 0 4px; }
+.note-q { font-size: 1.12rem; font-weight: 700; margin: 0 0 10px; }
+.note-q b { color: var(--berry); }
+.opts { display: grid; gap: 8px; }
+.opt { text-align: left; padding: 10px 12px; border-radius: 10px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.opt.wrong { border-color: var(--bad); color: var(--bad); text-decoration: line-through; }
+.opt.right { border-color: var(--ok); background: var(--cream); font-weight: 700; }
+.opt:disabled { cursor: default; }
+.fb { font-size: 0.95rem; margin-top: 8px; min-height: 1.3em; }
+.fb.ok { color: var(--ok); font-weight: 700; } .fb.no { color: var(--bad); }
+
+.choices { display: grid; gap: 10px; margin-top: 8px; }
+.choose-t { font-family: "Fraunces", Georgia, serif; font-weight: 800; color: var(--berry); font-size: 1.2rem; margin: 4px 0 6px; }
+.btn { display: block; width: 100%; text-align: left; cursor: pointer; padding: 14px 16px; border-radius: 12px; font-size: 1.06rem; font-weight: 700; background: var(--panel); color: var(--berry); border: 2px solid var(--berry); }
+.btn.primary { background: var(--berry); color: var(--btn-text); text-align: center; }
+.btn.center { text-align: center; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.btn:focus-visible, .opt:focus-visible, .gloss:focus-visible, .chip:focus-visible, .help-btn:focus-visible, textarea:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+.kw-g { font-weight: 700; margin: 14px 0 6px; } .kw-g span { font-weight: 400; color: var(--muted); }
+.kw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.kw { display: flex; gap: 8px; align-items: center; padding: 6px 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.kw-e { font-size: 1.25rem; } .kw b { display: block; } .kw span.pt { display: block; font-size: .8rem; color: var(--muted); line-height: 1.2; }
+
+.ending-emoji { font-size: 3rem; line-height: 1; margin-bottom: 4px; }
+.tier-good { border-top: 6px solid var(--ok); } .tier-mixed { border-top: 6px solid var(--gold); } .tier-bad { border-top: 6px solid var(--bad); }
+.new-end { display: inline-block; font-weight: 700; font-size: .88rem; color: var(--berry); border: 2px solid var(--berry); border-radius: 999px; padding: 1px 10px; margin: 0 0 8px; }
+.sec-t { font-weight: 700; margin: 16px 0 8px; } .sec-t span { font-weight: 400; color: var(--muted); }
+.emap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.ecell { border: 2px solid var(--line); border-radius: 10px; padding: 6px 4px; text-align: center; background: var(--panel); display: grid; gap: 2px; }
+.ecell .ee { font-size: 1.3rem; line-height: 1; } .ecell .en { font-size: .72rem; line-height: 1.15; }
+.ecell.unk { color: var(--muted); border-style: dashed; background: transparent; }
+.ecell.cur { border-color: var(--berry); background: var(--cream); box-shadow: 0 0 0 2px var(--berry); }
+.nb-list { list-style: none; padding: 0; margin: 0; }
+.nb-list li { padding: 8px 0; border-top: 1px solid var(--line); font-size: .98rem; }
+.nb-list li:first-child { border-top: 0; }
+.nb-list .mk { font-weight: 700; margin-right: 6px; } .nb-list .mk.y { color: var(--ok); } .nb-list .mk.n { color: var(--gold); }
+.score { font-size: 1.15rem; font-weight: 700; color: var(--berry); }
+.events { margin: 0; padding-left: 22px; } .events li { margin-bottom: 4px; }
+
+.sent { margin-bottom: 14px; }
+label.lbl { display: block; font-weight: 700; margin-bottom: 6px; }
+textarea { width: 100%; font: inherit; font-size: 1.02rem; color: var(--ink); background: var(--bg); border: 2px solid var(--line); border-radius: 10px; padding: 10px 12px; min-height: 64px; resize: vertical; }
+.tag { font-weight: 400; font-size: .78rem; margin-left: 6px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--rose); color: var(--rose); white-space: nowrap; }
+.help-btn { display: block; text-align: left; margin-top: 4px; background: none; border: 0; padding: 4px 0; cursor: pointer; color: var(--berry); font-weight: 700; font-size: .98rem; text-decoration: underline; text-underline-offset: 3px; }
+.help-btn span, .step-t span, .grp span { font-weight: 400; color: var(--muted); }
+.own { font-size: .92rem; color: var(--muted); margin: 6px 0 0; padding-left: 10px; border-left: 3px solid var(--gold); }
+.builder { margin-top: 8px; padding: 12px; border: 2px solid var(--line); border-radius: 12px; background: var(--bg); }
+.step-t { font-weight: 700; margin: 10px 0 6px; } .step-t:first-child { margin-top: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { cursor: pointer; text-align: left; padding: 6px 10px; border-radius: 10px; border: 2px solid var(--line); background: var(--panel); color: var(--ink); line-height: 1.25; }
+.chip b { display: block; font-size: .98rem; } .chip span { display: block; font-size: .8rem; color: var(--muted); }
+.chip.on { border-color: var(--berry); background: var(--cream); }
+.pv-bar { position: sticky; bottom: env(safe-area-inset-bottom, 0px); margin: 14px -12px -12px; padding: 10px 12px 12px; background: var(--bg); border-top: 2px solid var(--line); border-radius: 0 0 10px 10px; }
+.preview { margin: 0 0 10px; padding: 10px 12px; border-radius: 10px; background: var(--cream); font-size: 1.05rem; min-height: 2.6em; }
+.done { font-weight: 700; color: var(--ok); margin: 12px 0 0; }
+.again-hint { text-align: center; margin: 8px 0 0; }
+.resume { font-weight: 700; color: var(--bad); margin: 0 0 10px; padding: 8px 10px; border: 2px solid var(--bad); border-radius: 10px; }
+.past-list { list-style: none; padding: 0; margin: 0 0 6px; }
+.past-list li { display: flex; gap: 10px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); }
+.past-list .pe { font-size: 1.4rem; width: 1.8rem; text-align: center; } .past-list .pm { font-size: .85rem; color: var(--muted); }
+.cover-t { text-align: center; padding: 6px 4px 2px; }
+.cover-t .lvl { display: inline-block; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--rose); border: 1px solid var(--rose); border-radius: 999px; padding: 1px 10px; margin-bottom: 8px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* estante */
+.shelf-head { text-align: center; margin: 6px 0 14px; }
+.shelf-head h1 { margin-bottom: 2px; }
+.shelf-plank { height: 10px; background: linear-gradient(#8E6A55, #6B4A32); border-radius: 3px; margin: -4px 4px 18px; box-shadow: 0 3px 6px rgba(43,23,33,.2); }
+.book { display: grid; grid-template-columns: 118px 1fr; gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px 12px 12px 6px; padding: 10px; margin-bottom: 8px; box-shadow: 0 1px 0 var(--line); }
+.book .thumb { border-radius: 4px; overflow: hidden; align-self: start; border-left: 6px solid var(--berry); }
+.book .thumb svg { display: block; width: 100%; height: auto; }
+.book h3 { font-size: 1.2rem; margin: 0 0 2px; color: var(--berry); line-height: 1.15; }
+.book p { font-size: .95rem; margin: 0 0 6px; }
+.chiprow { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+.mini { font-size: .72rem; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--rose); color: var(--rose); white-space: nowrap; }
+.mini.lvl { border-color: var(--berry); color: var(--berry); font-weight: 700; }
+.book .prog { font-size: .85rem; color: var(--muted); margin-bottom: 8px; }
+.book .btn { padding: 9px 12px; font-size: .98rem; }
+.back { background: none; border: 0; color: var(--berry); font-weight: 700; cursor: pointer; padding: 4px 0; margin-bottom: 6px; text-decoration: underline; text-underline-offset: 3px; }
+.locked-note { font-size: .88rem; color: var(--bad); margin: 0 0 6px; }
+</style>
+</head>
+<body>
+<main class="wrap" id="app" aria-live="polite"></main>
+<div id="tip" role="tooltip"></div>
+<script>
+const SHELF = __SHELF__;   // { title, subtitle, books: [ { slug, title, level, ..., story: { start, nodes, endings } } ] }
+const IRREG = __IRREG__;   // [infinitive, past, participle, tradução]; o balão mostra só infinitive e past
+const SEQ_WORDS = [["First", "primeiro"], ["Then", "então, depois"], ["After that", "depois disso"], ["Suddenly", "de repente"], ["Later", "mais tarde"], ["Finally", "finalmente"], ["In the end", "no final"]];
+const SEQ_RX = /\b(first|then|after that|next|suddenly|later|finally|in the end)\b/gi;
+const BUILTIN_KW = {
+  sequence: { title: "Sequence words", pt: "palavras de sequência", words: SEQ_WORDS.map(([en, pt]) => ["➡️", en, pt]) },
+  question: { title: "Question words", pt: "palavras de pergunta", words: [["👤", "Who?", "quem?"], ["❓", "What?", "o quê?"], ["📍", "Where?", "onde?"], ["📅", "When?", "quando?"], ["🤔", "Why?", "por quê?"], ["🛠️", "How?", "como?"], ["🧾", "Whose?", "de quem?"], ["🎂", "How old?", "quantos anos?"]] }
+};
+
+/* ---------------- utilidades ---------------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* sem armazenamento */ } },
+  del(k) { try { localStorage.removeItem(k); } catch (e) { /* sem armazenamento */ } }
+};
+/* armazenamento: finais por livro; histórico e reconto pendente valem para a estante toda */
+const KEY = { found: slug => `reader:${slug}:endings`, history: "reader:history", pending: "reader:pending" };
+const foundOf = slug => new Set(store.get(KEY.found(slug), []));
+
+/* verbos irregulares: forma escrita -> { i, cols } */
+const VERB = new Map();
+(function () {
+  const NO_BASE = new Set(["have", "do"]);
+  const DOUBLE = new Set(["get", "run", "win", "put", "cut", "set", "let", "begin", "sit", "forget"]);
+  const sForm = b => /(s|sh|ch|x|o)$/.test(b) ? b + "es" : /[^aeiou]y$/.test(b) ? b.slice(0, -1) + "ies" : b + "s";
+  const ing = b => (b === "be" || b === "see") ? b + "ing" : DOUBLE.has(b) ? b + b.slice(-1) + "ing" : /ie$/.test(b) ? b.slice(0, -2) + "ying" : /[^e]e$/.test(b) ? b.slice(0, -1) + "ing" : b + "ing";
+  const add = (k, i, col) => { if (!VERB.has(k)) VERB.set(k, { i, cols: [] }); if (col !== null && !VERB.get(k).cols.includes(col)) VERB.get(k).cols.push(col); };
+  IRREG.forEach(([b, p], i) => {
+    if (!NO_BASE.has(b)) { add(b, i, 0); if (b !== "be") add(sForm(b), i, 0); add(ing(b), i, null); }
+    p.split(" / ").forEach(f => add(f, i, 1));
+  });
+  const idx = b => IRREG.findIndex(v => v[0] === b);
+  [["didn't", "do"], ["wasn't", "be"], ["weren't", "be"], ["hadn't", "have"], ["couldn't", "can"]].forEach(([k, b]) => { if (idx(b) >= 0) add(k, idx(b), 1); });
+})();
+const PAST = new Set([...IRREG.flatMap(v => v[1].toLowerCase().split(" / ")), "didn't", "couldn't", "wasn't", "weren't", "hadn't", "could"]);
+const NOT_PAST = new Set(["need", "feed", "seed", "speed", "red", "bed", "indeed", "shed"]);
+const hasPast = s => (s.toLowerCase().match(/[a-z']+/g) || []).some(w => PAST.has(w) || (w.endsWith("ed") && w.length > 3 && !NOT_PAST.has(w)));
+
+function verbWrap(plain) {
+  return plain.split(/([A-Za-z]+(?:['’][A-Za-z]+)?)/).map((part, i) => {
+    if (i % 2 === 0) return esc(part);
+    const v = VERB.get(part.toLowerCase().replace("’", "'"));
+    return v ? `<button type="button" class="gloss verb" data-v="${v.i}" data-cols="${v.cols.join(",")}">${esc(part)}</button>` : esc(part);
+  }).join("");
+}
+function plainRich(seg) {
+  return seg.split(/(\b(?:first|then|after that|next|suddenly|later|finally|in the end)\b)/i).map((s, i) =>
+    i % 2 ? `<span class="seq">${verbWrap(s)}</span>` : verbWrap(s)).join("");
+}
+function rich(text) {
+  const html = text.split(/(\[\[[^\]]+\]\])/).map(seg => {
+    const g = seg.match(/^\[\[([^|\]]+)\|([^\]]+)\]\]$/);
+    return g ? `<button type="button" class="gloss" data-pt="${esc(g[2])}">${esc(g[1])}</button>` : plainRich(seg);
+  }).join("");
+  return html.replace(/(<button type="button" class="gloss[^>]*>[^<]*<\/button>)((?:<\/span>)?[,.;:!?”’)]+)/g, '<span class="nw">$1$2</span>');
+}
+
+/* ---------------- ilustrações: ajudantes genéricos + cenas de cada livro ---------------- */
+const SCENE_LIB = {};
+function person(x, y, o) {
+  // y = linha dos pés; o = { skin, hair, shirt, style, s (escala), extra }
+  const s = o.s || 1, sk = o.skin || "#D9A57E", hr = o.hair || "#2B1B16", sh = o.shirt || "#6D2E46";
+  const hairs = {
+    long: `<path d="M-15 -70 Q-15 -85 0 -86 Q15 -85 15 -70 Q8 -79 0 -79 Q-8 -79 -15 -70 Z" fill="${hr}"/>`,
+    short: `<path d="M-13 -70 Q-12 -86 0 -86 Q12 -86 13 -70 Q6 -78 0 -78 Q-6 -78 -13 -70 Z" fill="${hr}"/>`,
+    curly: `<g fill="${hr}"><circle cx="-10" cy="-80" r="7"/><circle cx="0" cy="-84" r="7"/><circle cx="10" cy="-80" r="7"/><circle cx="-13" cy="-71" r="5"/><circle cx="13" cy="-71" r="5"/></g>`,
+    bun: `<circle cx="0" cy="-90" r="7" fill="${hr}"/><path d="M-14 -68 Q-13 -86 0 -86 Q13 -86 14 -68 Q7 -77 0 -77 Q-7 -77 -14 -68 Z" fill="${hr}"/>`,
+    cap: `<path d="M-14 -72 Q-13 -88 0 -88 Q13 -88 14 -72 Z" fill="${hr}"/><rect x="0" y="-76" width="18" height="4" rx="2" fill="${hr}"/>`,
+    bald: `<path d="M-14 -70 Q-15 -62 -13 -58 M14 -70 Q15 -62 13 -58" stroke="${hr}" stroke-width="5" fill="none"/>`
+  };
+  const back = o.style === "long" ? `<path d="M-17 -70 Q-18 -88 0 -88 Q18 -88 17 -70 L18 -40 Q0 -34 -18 -40 Z" fill="${hr}"/>` : "";
+  return `<g transform="translate(${x} ${y}) scale(${s})">${back}
+    <path d="M-20 0 L-20 -30 Q-20 -46 0 -46 Q20 -46 20 -30 L20 0 Z" fill="${sh}"/>
+    <rect x="-5" y="-54" width="10" height="10" fill="${sk}"/>
+    <circle cx="0" cy="-68" r="15" fill="${sk}"/>
+    ${hairs[o.style || "short"]}
+    <circle cx="-5" cy="-68" r="1.8" fill="#2B1721"/><circle cx="5" cy="-68" r="1.8" fill="#2B1721"/>
+    <path d="M-4 -61 Q0 -58 4 -61" stroke="#5A2A2A" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    ${o.extra || ""}</g>`;
+}
+
+let skyN = 0;
+const SKY = (a, b) => { const id = "sky" + (++skyN); return `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="540" height="220" fill="url(#${id})"/>`; };
+const GROUND = c => `<rect y="190" width="540" height="30" fill="${c || "#B9A48C"}"/>`;
+__SCENES__
+const scene = (slug, k, label) => `<div class="scene"><svg viewBox="0 0 540 220" role="img" aria-label="${esc(label)}">${SCENE_LIB[slug][k]()}</svg></div>`;
+
+/* ---------------- estado ---------------- */
+let book = null, state = null;
+const BOOKS = SHELF.books;
+const bookBy = slug => BOOKS.find(b => b.slug === slug);
+function openBook(slug) { book = bookBy(slug); document.title = `${book.title} · ${SHELF.title}`; }
+function newGame() { state = { slug: book.slug, flags: [], node: book.story.start, path: [], answers: [], ended: null, saved: false, resumed: false }; }
+const visible = p => typeof p === "string" || ((!p.if || state.flags.includes(p.if)) && (!p.unless || !state.flags.includes(p.unless)));
+const endingOrder = b => Object.keys(b.story.endings).sort((x, y) => b.story.endings[x].rank - b.story.endings[y].rank);
+const R = () => Object.assign({ sentences: 5, minSequence: 3, maxHelp: 3 }, book.retell || {});
+
+function topBar(step) {
+  const n = state.path.length, total = book.chapters + 1;
+  const dots = Array.from({ length: total }, (_, i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("");
+  return `<div class="top"><div class="brand">${esc(book.title)}</div><div class="step">${step}</div></div><div class="top" style="justify-content:center"><div class="dots" aria-hidden="true">${dots}</div></div>`;
+}
+
+/* ---------------- navegação: #slug abre direto a capa de um livro ---------------- */
+function route() {
+  const pend = store.get(KEY.pending, null);
+  if (pend && bookBy(pend.slug) && pend.state && pend.state.ended) {
+    // leitura terminada sem o reconto: volta para onde parou, venha de onde vier
+    openBook(pend.slug); state = Object.assign(pend.state, { resumed: true });
+    if (state.saved) screenRetell(); else screenEnding(state.ended);
+    return;
+  }
+  const slug = decodeURIComponent(location.hash.slice(1));
+  if (slug && bookBy(slug)) { openBook(slug); screenCover(); } else screenShelf();
+}
+window.addEventListener("hashchange", route);
+const goShelf = () => { if (location.hash) location.hash = ""; else route(); };
+const goBook = slug => { if (location.hash === "#" + slug) route(); else location.hash = slug; };
+
+/* ---------------- estante ---------------- */
+function screenShelf() {
+  book = null; document.title = SHELF.title;
+  $("#app").innerHTML = `<div class="shelf-head"><h1>${esc(SHELF.title)}</h1><p class="hint">${esc(SHELF.subtitle)}</p></div>
+    ${BOOKS.map(b => {
+      const found = foundOf(b.slug).size, total = Object.keys(b.story.endings).length;
+      const reads = store.get(KEY.history, []).filter(h => h.slug === b.slug).length;
+      return `<div class="book"><div class="thumb">${scene(b.slug, b.cover, b.title)}</div><div>
+        <h3>${esc(b.title)}</h3><div class="chiprow"><span class="mini lvl">${esc(b.level)}</span>${b.grammar.map(g => `<span class="mini">${esc(g)}</span>`).join("")}</div>
+        <p>${esc(b.blurb)}</p><div class="prog">${found ? `🗺️ ${found} of ${total} endings found` : `${total} endings to discover`}${reads ? ` · read ${reads}×` : ""}</div>
+        <button class="btn primary" data-book="${esc(b.slug)}">Read</button></div></div>`;
+    }).join("")}<div class="shelf-plank" aria-hidden="true"></div>`;
+  document.querySelectorAll("[data-book]").forEach(b => b.onclick = () => goBook(b.dataset.book));
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- capa do livro ---------------- */
+function screenCover() {
+  const total = Object.keys(book.story.endings).length;
+  $("#app").innerHTML = `<button class="back" id="shelf">← ${esc(SHELF.title)}</button>` +
+    `<div class="page">${scene(book.slug, book.cover, book.title)}
+    <div class="page-body cover-t"><span class="lvl">Graded reader · ${esc(book.level)}</span><h1>${esc(book.title)}</h1>
+      <p>${esc(book.blurb)}</p>
+      <p class="hint">${book.chapters} choices · ${total} different endings · a detective notebook</p>
+      <button class="btn primary" id="go">Open the book</button></div></div>` + historyHTML();
+  $("#shelf").onclick = goShelf;
+  $("#go").onclick = () => { newGame(); screenBefore(); };
+  const clr = $("#clear");
+  if (clr) { let armed = null; clr.onclick = () => {
+    if (armed) { clearTimeout(armed); store.del(KEY.found(book.slug)); store.set(KEY.history, store.get(KEY.history, []).filter(h => h.slug !== book.slug)); screenCover(); return; }
+    clr.innerHTML = "Tap again to delete <span>· toque de novo para apagar</span>";
+    armed = setTimeout(() => { armed = null; clr.innerHTML = "Clear my history <span>· apagar meu histórico deste livro</span>"; }, 4000); }; }
+  window.scrollTo(0, 0);
+}
+
+function screenBefore() {
+  const groups = book.keywords.map(g => typeof g === "string" ? BUILTIN_KW[g] : g);
+  $("#app").innerHTML = `<div class="card"><p class="ch-kicker">Before you read</p><h2>Key words</h2>
+    <p class="hint">Palavras importantes da história. Leia antes de começar.</p>
+    ${groups.map(g => `<p class="kw-g">${esc(g.title)} <span>· ${esc(g.pt)}</span></p><div class="kw-grid">${g.words.map(([e, en, pt]) => {
+      const v = IRREG.find(x => x[0] === en); return `<div class="kw"><span class="kw-e" aria-hidden="true">${e}</span><div><b>${esc(en)}</b><span class="pt">${esc(pt)}${v ? " · past: " + esc(v[1]) : ""}</span></div></div>`; }).join("")}</div>`).join("")}
+    <p class="hint" style="margin-top:14px">Depois de cada capítulo, o seu <b>caderno de detetive</b> faz uma pergunta sobre o que você leu. Acerte para continuar!</p>
+    <button class="btn primary" id="go">Start reading</button></div>`;
+  $("#go").onclick = () => screenNode(book.story.start);
+  window.scrollTo(0, 0);
+}
+
+function paragraphs(list) {
+  let first = true;
+  return list.filter(visible).map(p => {
+    if (typeof p === "object" && p.msg) return `<div class="msg">${rich(p.msg)}</div>`;
+    const t = typeof p === "string" ? p : p.text;
+    const cls = first ? ' class="first"' : ""; first = false;
+    return `<p${cls}>${rich(t)}</p>`;
+  }).join("");
+}
+function questionHTML(q) {
+  const opts = shuffle(q.options.map((o, i) => [o, i]));
+  const qt = esc(q.q).replace(new RegExp("^(" + esc(q.wh) + ")", "i"), "<b>$1</b>");
+  return `<div class="note" id="note"><p class="note-k">🔍 Detective notebook</p><p class="note-q">${qt}</p>
+    <div class="opts">${opts.map(([o, i]) => `<button type="button" class="opt" data-i="${i}">${esc(o)}</button>`).join("")}</div>
+    <div class="fb" id="qfb"></div></div>`;
+}
+function wireQuestion(id, q, onRight) {
+  let tries = 0;
+  document.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+    const i = +b.dataset.i;
+    if (i === q.answer) {
+      b.classList.add("right"); document.querySelectorAll(".opt").forEach(x => x.disabled = true);
+      $("#qfb").textContent = tries === 0 ? "✓ Correct! Great detective work." : "✓ Correct!"; $("#qfb").className = "fb ok";
+      state.answers.push({ id, wh: q.wh, q: q.q, a: q.options[q.answer], first: tries === 0 });
+      onRight();
+    } else {
+      tries++; b.classList.add("wrong"); b.disabled = true;
+      $("#qfb").textContent = "Not this one. Tip: " + q.hint; $("#qfb").className = "fb no";
+    }
+  });
+}
+
+function screenNode(id) {
+  state.node = id;
+  const n = book.story.nodes[id];
+  let sc = n.scene; (n.sceneIf || []).forEach(a => { if (state.flags.includes(a.if)) sc = a.scene; });
+  $("#app").innerHTML = topBar(`Chapter ${n.chapter} of ${book.chapters}`) + `<div class="page">${scene(book.slug, sc, n.title)}
+    <div class="page-body"><p class="ch-kicker">Chapter ${n.chapter}</p><div class="ch-title">${esc(n.title)}</div>
+    <div class="story">${paragraphs(n.text)}</div><div class="pageno">— ${n.chapter * 2 + 1} —</div></div></div>
+    ${questionHTML(n.question)}<div id="choices" hidden><p class="choose-t">${esc(book.choicePrompt)}</p><div class="choices">
+      ${n.choices.map((c, i) => `<button type="button" class="btn" data-choice="${i}">${esc(c.label)}</button>`).join("")}</div></div>`;
+  wireQuestion(id, n.question, () => { $("#choices").hidden = false; $("#choices").scrollIntoView({ behavior: "smooth", block: "nearest" }); });
+  document.querySelectorAll("#choices [data-choice]").forEach(b => b.onclick = () => choose(id, n.choices[+b.dataset.choice]));
+  window.scrollTo(0, 0);
+}
+function choose(id, c) {
+  const n = book.story.nodes[id];
+  (c.set || []).forEach(f => { if (!state.flags.includes(f)) state.flags.push(f); });
+  state.path.push({ id, event: n.event, eventPt: n.eventPt, choice: { label: c.label, event: c.event, eventPt: c.eventPt } });
+  let to = c.to; (c.alt || []).forEach(a => { if (state.flags.includes(a.if)) to = a.to; });
+  if (book.story.endings[to]) screenEnding(to); else screenNode(to);
+}
+
+const savePending = () => store.set(KEY.pending, { slug: book.slug, state });
+const firstTry = () => state.answers.filter(a => a.first).length;
+function screenEnding(id) {
+  const e = book.story.endings[id], total = Object.keys(book.story.endings).length;
+  state.ended = id;
+  const found = foundOf(book.slug); const isNew = !found.has(id); found.add(id); store.set(KEY.found(book.slug), [...found]);
+  savePending();
+  $("#app").innerHTML = topBar("The end") + `<div class="page tier-${e.tier}">${scene(book.slug, e.scene, e.title)}
+    <div class="page-body"><div class="ending-emoji" aria-hidden="true">${e.emoji}</div>
+    ${isNew && found.size > 1 ? '<p class="new-end">New ending! · Final novo!</p>' : ""}
+    <p class="ch-kicker">The end</p><div class="ch-title">${esc(e.title)}</div>
+    <div class="story">${paragraphs(e.text)}</div></div></div>
+    ${questionHTML(e.question)}<div id="after" hidden></div>`;
+  wireQuestion(id, e.question, () => {
+    if (!state.saved) {
+      state.saved = true;
+      store.set(KEY.history, [{ slug: book.slug, ending: id, score: firstTry(), total: state.answers.length, t: Date.now() }, ...store.get(KEY.history, [])].slice(0, 40));
+    }
+    savePending();
+    const a = $("#after");
+    a.innerHTML = `<div class="card"><p class="sec-t">Endings discovered: ${found.size} of ${total} <span>· finais descobertos</span></p>${endingMap(id, found)}
+      <div class="choices" style="margin-top:14px"><button class="btn primary" id="next">Open your detective notebook</button></div></div>`;
+    a.hidden = false; a.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    $("#next").onclick = screenRetell;
+  });
+  window.scrollTo(0, 0);
+}
+function endingMap(cur, found) {
+  return `<div class="emap">${endingOrder(book).map(k => { const e = book.story.endings[k], kn = found.has(k);
+    return `<div class="ecell tier-${e.tier}${k === cur ? " cur" : ""}${kn ? "" : " unk"}"><span class="ee">${kn ? e.emoji : "?"}</span><span class="en">${kn ? esc(e.short) : "???"}</span></div>`; }).join("")}</div>`;
+}
+
+/* ---------------- caderno + reconto ---------------- */
+let helped = new Set(), build = null;
+function storyEvents() {
+  const ev = [];
+  state.path.forEach(p => { ev.push([p.event, p.eventPt]); ev.push([p.choice.event, p.choice.eventPt]); });
+  const e = book.story.endings[state.ended]; ev.push([e.event, e.eventPt]);
+  return ev;
+}
+function screenRetell() {
+  const total = state.answers.length, ok = firstTry(), cfg = R();
+  const ph = ["First, ...", "Then ...", "After that, ...", "Later, ...", "Finally, ...", "In the end, ..."];
+  $("#app").innerHTML = topBar("Your notebook") + `
+    <div class="card">${state.resumed ? `<p class="resume">Você ainda precisa terminar o reconto de <i>${esc(book.title)}</i>. · Finish your story first.</p>` : ""}
+      <p class="ch-kicker">🔍 Detective notebook</p><h2>Case closed!</h2>
+      <p class="score">You answered ${ok} of ${total} questions on the first try.</p>
+      <ul class="nb-list">${state.answers.map(a => `<li><span class="mk ${a.first ? "y" : "n"}">${a.first ? "✓" : "↻"}</span><b>${esc(a.q)}</b><br>${esc(a.a)}</li>`).join("")}</ul>
+      <p class="hint" style="margin-top:8px">✓ = de primeira · ↻ = depois de tentar de novo</p></div>
+    <div class="card"><h2>Tell the story</h2>
+      <p>Tell the story <b>you</b> read in <b>${cfg.sentences} sentences</b>. Use the <b>past</b> and at least <b>${cfg.minSequence} different sequence words</b>: <span class="seq">First, Then, After that, Later, Finally...</span></p>
+      <p class="sec-t">What happened in your story <span>· o que aconteceu na sua história</span></p>
+      <ol class="events">${storyEvents().map(([en]) => `<li>${verbWrap(en.charAt(0).toUpperCase() + en.slice(1))}.</li>`).join("")}</ol>
+      <p class="hint" style="margin-top:12px">Você pode usar o <b>Help me write</b> em até ${cfg.maxHelp} frases. Pelo menos ${cfg.sentences - cfg.maxHelp} precisam ser escritas por você.</p>
+      ${Array.from({ length: cfg.sentences }, (_, k) => { const n = k + 1; return `<div class="sent"><label class="lbl" for="s${n}">Sentence ${n} <span class="tag" id="tag${n}" hidden>montada com ajuda</span></label>
+        <textarea id="s${n}" placeholder="${ph[Math.min(k, ph.length - 1)]}"></textarea><div class="fb" id="fb${n}"></div>
+        <button type="button" class="help-btn" data-n="${n}">Help me write <span>· monte a frase com ajuda</span></button>
+        <p class="own" id="own${n}" hidden>Esta frase é sua: escreva sem o montador. Use a lista de acontecimentos lá em cima.</p><div class="builder" id="b${n}" hidden></div></div>`; }).join("")}
+      <button class="btn primary" id="check">Check my story</button><p class="fb" id="overall"></p><p class="done" id="done" hidden></p></div>
+    <button class="btn center" id="again" disabled>Read again: find a new ending</button>
+    ${BOOKS.length > 1 ? `<button class="btn center" id="toShelf" disabled style="margin-top:8px">Choose another book</button>` : ""}
+    <p class="hint again-hint" id="again-hint">🔒 Para ler de novo${BOOKS.length > 1 ? " ou escolher outro livro" : ""}, escreva as ${cfg.sentences} frases e toque em <b>Check my story</b>. · Finish your story first.</p>`;
+  helped = new Set(); build = null;
+  document.querySelectorAll(".help-btn").forEach(b => b.onclick = () => openBuilder(+b.dataset.n));
+  for (let n = 1; n <= cfg.sentences; n++) $("#s" + n).addEventListener("input", () => {
+    if ($("#s" + n).value.trim() === "" && helped.delete(n)) updateHelpUI();
+    $("#done").hidden = true; lockAgain(true);
+  });
+  $("#check").onclick = checkAll;
+  $("#again").onclick = () => { if ($("#again").disabled) return; newGame(); goBook(book.slug); };
+  if ($("#toShelf")) $("#toShelf").onclick = () => { if ($("#toShelf").disabled) return; goShelf(); };
+  updateHelpUI(); window.scrollTo(0, 0);
+}
+function checkSentence(s) {
+  const t = s.trim();
+  if (t.split(/\s+/).filter(Boolean).length < 4) return { ok: false, msg: "Write a complete sentence (at least 4 words)." };
+  if (!hasPast(t)) return { ok: false, msg: "Use a verb in the past: found, went, called, looked..." };
+  return { ok: true, msg: "Good!" };
+}
+function checkAll() {
+  const cfg = R(); let all = true; const seq = new Set();
+  for (let n = 1; n <= cfg.sentences; n++) {
+    const v = $("#s" + n).value, r = checkSentence(v);
+    const fb = $("#fb" + n); fb.textContent = r.msg; fb.className = "fb " + (r.ok ? "ok" : "no");
+    all = all && r.ok;
+    (v.toLowerCase().match(SEQ_RX) || []).forEach(w => seq.add(w));
+  }
+  const ov = $("#overall");
+  if (seq.size < cfg.minSequence) { ov.textContent = `Use at least ${cfg.minSequence} different sequence words. You used ${seq.size}: ${[...seq].join(", ") || "none"}.`; ov.className = "fb no"; all = false; }
+  else { ov.textContent = `Sequence words: ${[...seq].join(", ")} ✓`; ov.className = "fb ok"; }
+  lockAgain(!all);
+  const done = $("#done");
+  if (all) { const own = cfg.sentences - helped.size; done.textContent = `Your story is ready! Copy it into your notebook. (${helped.size} com ajuda, ${own} ${own === 1 ? "escrita" : "escritas"} por você)`; done.hidden = false; }
+  else done.hidden = true;
+}
+function lockAgain(locked) {
+  const b = $("#again"); if (!b) return;
+  b.disabled = locked; if ($("#toShelf")) $("#toShelf").disabled = locked; $("#again-hint").hidden = !locked;
+  if (!locked) { store.del(KEY.pending); state.resumed = false; }
+}
+function updateHelpUI() {
+  const cfg = R();
+  for (let n = 1; n <= cfg.sentences; n++) {
+    const mine = helped.has(n), blocked = !mine && helped.size >= cfg.maxHelp;
+    $("#tag" + n).hidden = !mine; $(`.help-btn[data-n="${n}"]`).hidden = blocked; $("#own" + n).hidden = !blocked;
+    if (blocked && build && build.n === n) openBuilder(n);
+  }
+}
+function openBuilder(n) {
+  if (!helped.has(n) && helped.size >= R().maxHelp && !(build && build.n === n)) return;
+  document.querySelectorAll(".builder").forEach(el => { el.hidden = true; el.innerHTML = ""; });
+  if (build && build.n === n) { build = null; return; }
+  build = { n, seq: null, ev: null }; renderBuilder();
+}
+const chip = (g, v, en, pt, on) => `<button type="button" class="chip${on ? " on" : ""}" aria-pressed="${on}" data-g="${g}" data-v="${esc(v)}"><b>${esc(en)}</b><span>${esc(pt)}</span></button>`;
+const builtSentence = () => build && build.seq && build.ev ? `${build.seq}, ${build.ev}.` : "";
+function renderBuilder() {
+  const box = $("#b" + build.n), s = builtSentence();
+  box.innerHTML = `<p class="step-t">1. Sequence word <span>· palavra de sequência</span></p>
+    <div class="chips">${SEQ_WORDS.map(([en, pt]) => chip("seq", en, en + ",", pt, build.seq === en)).join("")}</div>
+    <p class="step-t">2. What happened? <span>· o que aconteceu?</span></p>
+    <div class="chips">${storyEvents().map(([en, pt]) => chip("ev", en, en, pt, build.ev === en)).join("")}</div>
+    <div class="pv-bar"><div class="preview">${s ? plainRich(s) : '<span class="hint">Choose one option in each step. · Escolha uma opção em cada passo.</span>'}</div>
+    <button type="button" class="btn primary" id="use" ${s ? "" : "disabled"}>Use this sentence</button></div>`;
+  box.hidden = false;
+  box.querySelectorAll(".chip").forEach(c => c.onclick = () => {
+    build[c.dataset.g] = c.dataset.v; const y = box.getBoundingClientRect().top; renderBuilder(); window.scrollBy(0, box.getBoundingClientRect().top - y);
+  });
+  $("#use").onclick = () => {
+    const n = build.n, ta = $("#s" + n); ta.value = s; helped.add(n);
+    const r = checkSentence(s), fb = $("#fb" + n); fb.textContent = r.msg; fb.className = "fb " + (r.ok ? "ok" : "no");
+    $("#done").hidden = true; lockAgain(true); openBuilder(n); updateHelpUI(); ta.focus();
+  };
+}
+
+/* ---------------- histórico do livro ---------------- */
+function historyHTML() {
+  const g = store.get(KEY.history, []).filter(h => h.slug === book.slug); if (!g.length) return "";
+  const when = ms => { const d = new Date(ms); return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }) + " " + d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }); };
+  const total = Object.keys(book.story.endings).length;
+  return `<div class="card"><p class="sec-t" style="margin-top:0">Your last readings <span>· suas últimas leituras</span></p>
+    <p>Endings discovered: <b>${foundOf(book.slug).size} of ${total}</b></p>
+    <ul class="past-list">${g.slice(0, 5).map(x => { const e = book.story.endings[x.ending]; return e ? `<li><span class="pe" aria-hidden="true">${e.emoji}</span><div><b>${esc(e.short)}</b><div class="pm">🔍 ${x.score}/${x.total} de primeira · ${when(x.t)}</div></div></li>` : ""; }).join("")}</ul>
+    <button type="button" class="help-btn" id="clear">Clear my history <span>· apagar meu histórico deste livro</span></button></div>`;
+}
+
+/* ---------------- glossário: balão e 1ª ocorrência ---------------- */
+document.addEventListener("click", e => {
+  const tip = $("#tip"), g = e.target.closest(".gloss");
+  if (!g) { tip.classList.remove("on"); return; }
+  if (g.classList.contains("verb")) {
+    const [b, p, , pt] = IRREG[+g.dataset.v], on = g.dataset.cols ? g.dataset.cols.split(",").map(Number) : [];
+    tip.innerHTML = `<div class="vt">${[["infinitive", b], ["past", p]].map(([l, f], i) => `<div class="vc${on.includes(i) ? " on" : ""}"><span>${l}</span><b>${esc(f)}</b></div>`).join("")}</div><div class="vpt">= ${esc(pt)}</div>`;
+  } else tip.textContent = g.textContent + " = " + g.dataset.pt;
+  tip.classList.add("on");
+  const r = g.getBoundingClientRect();
+  tip.style.left = Math.max(8, Math.min(window.scrollX + r.left, window.scrollX + document.documentElement.clientWidth - tip.offsetWidth - 8)) + "px";
+  const above = r.top - tip.offsetHeight - 6;
+  tip.style.top = (window.scrollY + (above > 8 ? above : r.bottom + 6)) + "px";
+});
+function dedupeGloss() {
+  const seen = new Set();
+  $("#app").querySelectorAll(".gloss").forEach(el => {
+    const key = (el.classList.contains("verb") ? "v:" : "g:") + el.textContent.trim().toLowerCase();
+    if (seen.has(key)) el.replaceWith(...el.childNodes); else seen.add(key);
+  });
+}
+new MutationObserver(dedupeGloss).observe($("#app"), { childList: true, subtree: true });
+
+route();
+</script>
+</body>
+</html>

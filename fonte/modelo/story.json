@@ -1,0 +1,259 @@
+{
+ "meta": {
+  "slug": "modelo",
+  "title": "[Story Title]",
+  "level": "A2",
+  "audience": "[turma]",
+  "grammar": [
+   "Simple past",
+   "Question words",
+   "Sequence words"
+  ],
+  "blurb": "[One or two sentences to make students want to read. End with: You decide what happens!]",
+  "cover": "cover",
+  "chapters": 2,
+  "choicePrompt": "What does [the main character] do?",
+  "keywords": [
+   {
+    "title": "Story words",
+    "pt": "palavras da história",
+    "words": [
+     [
+      "🔑",
+      "key",
+      "chave"
+     ],
+     [
+      "📦",
+      "box",
+      "caixa"
+     ]
+    ]
+   },
+   "sequence",
+   "question"
+  ],
+  "retell": {
+   "sentences": 5,
+   "minSequence": 3,
+   "maxHelp": 3
+  }
+ },
+ "start": "p1",
+ "nodes": {
+  "p1": {
+   "chapter": 1,
+   "title": "[Chapter title]",
+   "scene": "cover",
+   "text": [
+    "[First paragraph. Write in the simple past, with short sentences.] First, the character woke up. Then she looked out of the window.",
+    {
+     "msg": "[A phone message appears in a speech bubble like this.]"
+    },
+    "[Use [[difficult word|tradução]] to add a tap glossary. Irregular verbs like went and saw get one automatically.] After that, she had a choice."
+   ],
+   "event": "the character woke up",
+   "eventPt": "a personagem acordou",
+   "question": {
+    "wh": "Who",
+    "q": "Who woke up?",
+    "options": [
+     "[resposta certa]",
+     "[opção errada 1]",
+     "[opção errada 2]",
+     "[opção errada 3]"
+    ],
+    "answer": 0,
+    "hint": "[Dica: onde está a resposta no texto.]"
+   },
+   "choices": [
+    {
+     "label": "[Choice A]",
+     "to": "p2a",
+     "set": [
+      "flagA"
+     ],
+     "event": "she chose option A",
+     "eventPt": "ela escolheu a opção A"
+    },
+    {
+     "label": "[Choice B]",
+     "to": "p2b",
+     "event": "she chose option B",
+     "eventPt": "ela escolheu a opção B"
+    }
+   ]
+  },
+  "p2a": {
+   "chapter": 2,
+   "title": "[Chapter title]",
+   "scene": "room",
+   "text": [
+    "[Chapter 2, path A.] Then something happened.",
+    {
+     "if": "flagA",
+     "text": "[This paragraph only appears for readers who made choice A.]"
+    },
+    "Finally, she decided."
+   ],
+   "event": "something happened",
+   "eventPt": "algo aconteceu",
+   "question": {
+    "wh": "What",
+    "q": "What happened?",
+    "options": [
+     "[resposta certa]",
+     "[opção errada 1]",
+     "[opção errada 2]",
+     "[opção errada 3]"
+    ],
+    "answer": 0,
+    "hint": "[Dica]"
+   },
+   "choices": [
+    {
+     "label": "[Choice C]",
+     "to": "e1",
+     "event": "she chose option C",
+     "eventPt": "ela escolheu a opção C"
+    },
+    {
+     "label": "[Choice D]",
+     "to": "e2",
+     "event": "she chose option D",
+     "eventPt": "ela escolheu a opção D"
+    }
+   ]
+  },
+  "p2b": {
+   "chapter": 2,
+   "title": "[Chapter title]",
+   "scene": "room",
+   "sceneIf": [
+    {
+     "if": "flagA",
+     "scene": "outside"
+    }
+   ],
+   "text": [
+    "[Chapter 2, path B.] Then she went outside.",
+    {
+     "unless": "flagA",
+     "text": "[This paragraph only appears for readers who did NOT make choice A.]"
+    },
+    "Finally, she decided."
+   ],
+   "event": "she went outside",
+   "eventPt": "ela saiu",
+   "question": {
+    "wh": "Where",
+    "q": "Where did she go?",
+    "options": [
+     "[resposta certa]",
+     "[opção errada 1]",
+     "[opção errada 2]",
+     "[opção errada 3]"
+    ],
+    "answer": 0,
+    "hint": "[Dica]"
+   },
+   "choices": [
+    {
+     "label": "[Choice E]",
+     "to": "e2",
+     "alt": [
+      {
+       "if": "flagA",
+       "to": "e1"
+      }
+     ],
+     "event": "she chose option E",
+     "eventPt": "ela escolheu a opção E"
+    },
+    {
+     "label": "[Choice F]",
+     "to": "e3",
+     "event": "she chose option F",
+     "eventPt": "ela escolheu a opção F"
+    }
+   ]
+  }
+ },
+ "endings": {
+  "e1": {
+   "rank": 0,
+   "tier": "good",
+   "emoji": "🌟",
+   "short": "[Good]",
+   "title": "[Good Ending]",
+   "scene": "outside",
+   "text": [
+    "[The best ending.] In the end, everybody was happy."
+   ],
+   "event": "everybody was happy",
+   "eventPt": "todo mundo ficou feliz",
+   "question": {
+    "wh": "Why",
+    "q": "Why was everybody happy?",
+    "options": [
+     "[resposta certa]",
+     "[opção errada 1]",
+     "[opção errada 2]",
+     "[opção errada 3]"
+    ],
+    "answer": 0,
+    "hint": "[Dica]"
+   }
+  },
+  "e2": {
+   "rank": 1,
+   "tier": "mixed",
+   "emoji": "😐",
+   "short": "[Mixed]",
+   "title": "[Mixed Ending]",
+   "scene": "room",
+   "text": [
+    "[A middle ending.] In the end, it was OK."
+   ],
+   "event": "it was OK",
+   "eventPt": "ficou tudo mais ou menos",
+   "question": {
+    "wh": "How",
+    "q": "How was the end?",
+    "options": [
+     "[resposta certa]",
+     "[opção errada 1]",
+     "[opção errada 2]",
+     "[opção errada 3]"
+    ],
+    "answer": 0,
+    "hint": "[Dica]"
+   }
+  },
+  "e3": {
+   "rank": 2,
+   "tier": "bad",
+   "emoji": "💥",
+   "short": "[Bad]",
+   "title": "[Bad Ending]",
+   "scene": "room",
+   "text": [
+    "[A bad ending.] In the end, something went wrong."
+   ],
+   "event": "something went wrong",
+   "eventPt": "algo deu errado",
+   "question": {
+    "wh": "What",
+    "q": "What went wrong?",
+    "options": [
+     "[resposta certa]",
+     "[opção errada 1]",
+     "[opção errada 2]",
+     "[opção errada 3]"
+    ],
+    "answer": 0,
+    "hint": "[Dica]"
+   }
+  }
+ }
+}

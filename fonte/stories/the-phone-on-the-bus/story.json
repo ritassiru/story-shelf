@@ -1,0 +1,700 @@
+{
+ "meta": {
+  "slug": "the-phone-on-the-bus",
+  "title": "The Phone on the Bus",
+  "level": "A2",
+  "audience": "1º ano",
+  "grammar": [
+   "Simple past",
+   "Question words",
+   "Sequence words"
+  ],
+  "blurb": "Lia finds a phone on the bus. Then a strange message appears on the screen... You decide what she does next!",
+  "cover": "bus",
+  "chapters": 4,
+  "choicePrompt": "What does Lia do?",
+  "keywords": [
+   {
+    "title": "Story words",
+    "pt": "palavras da história",
+    "words": [
+     [
+      "📱",
+      "phone",
+      "celular"
+     ],
+     [
+      "🚌",
+      "bus",
+      "ônibus"
+     ],
+     [
+      "🔑",
+      "key",
+      "chave"
+     ],
+     [
+      "💬",
+      "message",
+      "mensagem"
+     ],
+     [
+      "📦",
+      "box",
+      "caixa"
+     ],
+     [
+      "🎞️",
+      "old cinema",
+      "cinema antigo"
+     ],
+     [
+      "🤫",
+      "secret",
+      "segredo"
+     ],
+     [
+      "👴",
+      "grandpa",
+      "vovô"
+     ]
+    ]
+   },
+   "sequence",
+   "question"
+  ],
+  "retell": {
+   "sentences": 5,
+   "minSequence": 3,
+   "maxHelp": 3
+  }
+ },
+ "start": "p1",
+ "nodes": {
+  "p1": {
+   "chapter": 1,
+   "title": "The Phone",
+   "scene": "bus",
+   "text": [
+    "It was Monday afternoon. Lia was on the bus from school to Viçosa. She was tired, and the bus was hot.",
+    "Suddenly, she saw something under the seat in front of her: a phone! It had a small [[key|chave]] on the phone case.",
+    "First, Lia looked around. Nobody was there. Then the phone [[vibrated|vibrou]], and a message appeared on the screen:",
+    {
+     "msg": "Don't forget the key! Saturday, 6 p.m., at the old cinema. Nobody can know about the box. — B"
+    },
+    "Lia looked at the key. Then she looked at the message again. What was the box? And who was B?"
+   ],
+   "event": "Lia found a phone on the bus",
+   "eventPt": "Lia achou um celular no ônibus",
+   "question": {
+    "wh": "Who",
+    "q": "Who found the phone?",
+    "options": [
+     "Lia",
+     "Davi",
+     "The bus driver",
+     "Rafa"
+    ],
+    "answer": 0,
+    "hint": "Read the first two paragraphs again."
+   },
+   "choices": [
+    {
+     "label": "Read the new messages",
+     "to": "p2a",
+     "event": "she read the new messages",
+     "eventPt": "ela leu as novas mensagens",
+     "set": [
+      "read"
+     ]
+    },
+    {
+     "label": "Give the phone to the driver",
+     "to": "p2b",
+     "event": "she gave the phone to the driver",
+     "eventPt": "ela entregou o celular ao motorista"
+    }
+   ]
+  },
+  "p2a": {
+   "chapter": 2,
+   "title": "Secret Messages",
+   "scene": "night",
+   "text": [
+    "That night, Lia stayed in her room with the phone. She didn't open it, but new messages appeared on the screen.",
+    {
+     "msg": "Did you find the key?? — B"
+    },
+    {
+     "msg": "Grandpa CAN'T know. It's a [[secret|segredo]]! — B"
+    },
+    "Lia was worried. First, she called her best friend, Davi.",
+    "“A secret? A box? A key?” said Davi. “Maybe it's a [[crime|crime]]! Or maybe it's nothing.”",
+    "“The meeting is on Saturday,” said Lia. “What can I do?”"
+   ],
+   "event": "she called her friend Davi",
+   "eventPt": "ela ligou para o amigo Davi",
+   "question": {
+    "wh": "When",
+    "q": "When did the new messages appear?",
+    "options": [
+     "That night",
+     "On Saturday",
+     "On Monday morning",
+     "At school"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence of this chapter."
+   },
+   "choices": [
+    {
+     "label": "Post a photo of the messages online",
+     "to": "p3y",
+     "event": "she posted the messages online",
+     "eventPt": "ela postou as mensagens na internet",
+     "set": [
+      "posted"
+     ]
+    },
+    {
+     "label": "Go to the old cinema on Saturday",
+     "to": "p3x",
+     "event": "she decided to go to the old cinema",
+     "eventPt": "ela decidiu ir ao cinema antigo"
+    }
+   ]
+  },
+  "p2b": {
+   "chapter": 2,
+   "title": "The Driver",
+   "scene": "driver",
+   "text": [
+    "Lia walked to the front of the bus. The driver, Seu Antônio, looked at the phone.",
+    "“I know this phone,” he said. “A boy with a [[guitar|violão]] sits there every Monday. His name is Rafa. He studied at IFAL, like you.”",
+    "“Can you keep it for him?” asked Lia.",
+    "“Sorry, I can't. I drive all day,” said Seu Antônio. “Take it with you. You can leave it at the school office, or you can find Rafa.”",
+    "Then the phone vibrated again. Lia read the new message on the screen:",
+    {
+     "msg": "Where is the key??? — B"
+    }
+   ],
+   "event": "she talked to the bus driver",
+   "eventPt": "ela conversou com o motorista do ônibus",
+   "question": {
+    "wh": "Where",
+    "q": "Where did Rafa study before?",
+    "options": [
+     "At IFAL",
+     "In Maceió",
+     "At a music school",
+     "On the bus"
+    ],
+    "answer": 0,
+    "hint": "Read what Seu Antônio said."
+   },
+   "choices": [
+    {
+     "label": "Take it to the school office",
+     "to": "p3z",
+     "event": "she took the phone to the school office",
+     "eventPt": "ela levou o celular à secretaria da escola"
+    },
+    {
+     "label": "Look for Rafa",
+     "to": "p3y",
+     "event": "she looked for Rafa",
+     "eventPt": "ela procurou o Rafa"
+    }
+   ]
+  },
+  "p3x": {
+   "chapter": 3,
+   "title": "Saturday",
+   "scene": "cinema",
+   "text": [
+    "On Saturday, Lia and Davi arrived at the old cinema at five o'clock. The cinema was closed. It was very old, and the walls were dirty.",
+    "They waited behind a tree. At half past five, a young man with a guitar case arrived. After that, a girl came with a big box in her arms.",
+    "“Where is the key?” said the girl. “We need to open the door now! Nobody can see us!”",
+    "Davi looked at Lia. “They want to go in secretly,” he said. “Maybe they are [[thieves|ladrões]]!”",
+    "Lia had the phone and the key in her pocket. Her heart [[beat|bateu]] fast."
+   ],
+   "event": "she went to the old cinema with Davi",
+   "eventPt": "ela foi ao cinema antigo com o Davi",
+   "question": {
+    "wh": "What",
+    "q": "What did the girl have in her arms?",
+    "options": [
+     "A big box",
+     "A guitar",
+     "A phone",
+     "A key"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph again."
+   },
+   "choices": [
+    {
+     "label": "Watch them and wait",
+     "to": "p4b",
+     "event": "they watched and waited",
+     "eventPt": "eles observaram e esperaram",
+     "set": [
+      "hid"
+     ]
+    },
+    {
+     "label": "Call the police",
+     "to": "p4a",
+     "event": "she called the police",
+     "eventPt": "ela ligou para a polícia"
+    }
+   ]
+  },
+  "p3y": {
+   "chapter": 3,
+   "title": "Looking for Rafa",
+   "scene": "school",
+   "text": [
+    {
+     "if": "posted",
+     "text": "Lia's post got more than two hundred [[likes|curtidas]]. Everybody wanted to know the secret."
+    },
+    {
+     "if": "posted",
+     "text": "Then a girl wrote a comment: “That's my cousin Rafa's phone! Please delete the photo. These messages are [[private|particulares]]!”"
+    },
+    {
+     "if": "posted",
+     "text": "Lia felt bad. She deleted the post, but many people already knew about the box."
+    },
+    {
+     "unless": "posted",
+     "text": "On Tuesday, Lia asked about Rafa at school. A teacher smiled: “Rafa? He was my student! He studies in Maceió now, but he comes home on Saturdays.”"
+    },
+    "On Friday, a new message appeared on the phone:",
+    {
+     "msg": "Rafa arrives at the bus station on Saturday at 4 p.m. Then we go to the cinema. — B"
+    },
+    "Now Lia knew the owner's name. But what was the secret?"
+   ],
+   "event": "she discovered the owner's name",
+   "eventPt": "ela descobriu o nome do dono",
+   "question": {
+    "wh": "Whose",
+    "q": "Whose phone was it?",
+    "options": [
+     "Rafa's",
+     "Bia's",
+     "Davi's",
+     "Seu Antônio's"
+    ],
+    "answer": 0,
+    "hint": "Look for the owner's name in this chapter."
+   },
+   "choices": [
+    {
+     "label": "Meet Rafa at the bus station",
+     "to": "p4c",
+     "event": "she went to the bus station to meet Rafa",
+     "eventPt": "ela foi à rodoviária encontrar o Rafa"
+    },
+    {
+     "label": "Go straight to the old cinema",
+     "to": "p4b",
+     "event": "she went straight to the old cinema",
+     "eventPt": "ela foi direto ao cinema antigo"
+    }
+   ],
+   "sceneIf": [
+    {
+     "if": "posted",
+     "scene": "search"
+    }
+   ]
+  },
+  "p3z": {
+   "chapter": 3,
+   "title": "The School Office",
+   "scene": "office",
+   "text": [
+    "On Tuesday, Lia took the phone to the school office. Dona Célia, the secretary, put it in a box for lost things.",
+    "“The owner can come here and get it,” she said.",
+    "But nobody came. On Friday, Dona Célia called Lia to the office. The phone was ringing!",
+    "Lia answered. A girl was on the phone. “Hello? Who has my cousin's phone? I'm Bia. We need that key tomorrow! It's very important!”"
+   ],
+   "event": "Dona Célia kept the phone for some days",
+   "eventPt": "a Dona Célia guardou o celular por alguns dias",
+   "question": {
+    "wh": "How",
+    "q": "How did Bia contact Lia?",
+    "options": [
+     "She called the phone",
+     "She sent a letter",
+     "She came to the school",
+     "She wrote on the internet"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph again."
+   },
+   "choices": [
+    {
+     "label": "Ask Bia to come to the school",
+     "to": "p4d",
+     "event": "she asked Bia to come to the school",
+     "eventPt": "ela pediu para a Bia vir à escola"
+    },
+    {
+     "label": "Take the phone to the cinema yourself",
+     "to": "p4b",
+     "event": "she took the phone to the cinema",
+     "eventPt": "ela levou o celular ao cinema"
+    }
+   ]
+  },
+  "p4a": {
+   "chapter": 4,
+   "title": "The Police",
+   "scene": "police",
+   "text": [
+    "Lia called the police. “There are two thieves at the old cinema!” she said. Ten minutes later, a police car arrived.",
+    "The young man and the girl were very surprised. “Thieves? No, no!” said the young man. “I'm Rafa. This is my cousin, Bia. We lost our key!”",
+    "Then an old man walked slowly to the cinema. “Rafa? Bia? What's happening?” he asked.",
+    "“Oh no,” said Bia. “It's Grandpa! The surprise!”",
+    "Lia looked at the key in her hand. Now she understood."
+   ],
+   "event": "the police arrived at the cinema",
+   "eventPt": "a polícia chegou ao cinema",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Lia call the police?",
+    "options": [
+     "She thought they were thieves",
+     "She lost her phone",
+     "She wanted to see a film",
+     "Davi was sick"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph and what Davi said in Chapter 3."
+   },
+   "choices": [
+    {
+     "label": "Give the key to Rafa and say sorry",
+     "to": "e3",
+     "event": "she gave the key back and said sorry",
+     "eventPt": "ela devolveu a chave e pediu desculpas"
+    },
+    {
+     "label": "Run away with the key",
+     "to": "e5",
+     "event": "she ran away with the key",
+     "eventPt": "ela fugiu com a chave"
+    }
+   ]
+  },
+  "p4b": {
+   "chapter": 4,
+   "title": "At the Cinema Door",
+   "scene": "door",
+   "text": [
+    {
+     "if": "hid",
+     "text": "Lia and Davi watched for a few minutes. The young man and the girl looked sad, not dangerous."
+    },
+    {
+     "unless": "hid",
+     "text": "At half past five, Lia arrived at the old cinema. A young man and a girl were at the door. They looked worried."
+    },
+    "Lia walked to them with the phone. “Is this your phone?” she asked.",
+    "“My phone! And the key!” said the young man. “Thank you! I'm Rafa, and this is my cousin, Bia.”",
+    "Bia explained: “Our grandpa, Manoel, was the [[projectionist|projecionista]] here many years ago. Today is his birthday. He is eighty years old! We have a surprise for him: his favorite old film, here, in his old cinema!”",
+    "“And the box?” asked Lia. “The old film is in the box,” said Rafa. “Grandpa arrives in twenty minutes!”"
+   ],
+   "event": "she met Rafa and his cousin Bia",
+   "eventPt": "ela conheceu o Rafa e a prima dele, Bia",
+   "question": {
+    "wh": "How old",
+    "q": "How old is Grandpa Manoel today?",
+    "options": [
+     "Eighty",
+     "Seventy",
+     "Ninety",
+     "Eighteen"
+    ],
+    "answer": 0,
+    "hint": "Read what Bia explained."
+   },
+   "choices": [
+    {
+     "label": "Give them the phone and the key",
+     "to": "e1",
+     "event": "she gave them the phone and the key",
+     "eventPt": "ela entregou o celular e a chave a eles",
+     "alt": [
+      {
+       "if": "posted",
+       "to": "e6"
+      }
+     ]
+    },
+    {
+     "label": "Ask to see the box first",
+     "to": "e2",
+     "event": "she asked to see the box first",
+     "eventPt": "ela pediu para ver a caixa primeiro"
+    }
+   ]
+  },
+  "p4c": {
+   "chapter": 4,
+   "title": "At the Bus Station",
+   "scene": "station",
+   "text": [
+    "On Saturday, Lia waited at the bus station. At four o'clock, a bus from Maceió arrived. A young man with a guitar got off.",
+    "“Rafa?” asked Lia. She showed him the phone. “Is this yours?”",
+    "“Yes! My phone! And the key!” Rafa smiled. “Thank you! I looked for it everywhere.”",
+    {
+     "if": "posted",
+     "text": "“My cousin Bia told me about your post,” he said. “Please, don't share more. It's a surprise.”"
+    },
+    "Then he explained: “Today is my grandpa's birthday. He is eighty. Many years ago, he was the [[projectionist|projecionista]] at the old cinema. Tonight, we want to show him his favorite film there!”"
+   ],
+   "event": "she met Rafa at the bus station",
+   "eventPt": "ela encontrou o Rafa na rodoviária",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Rafa need the key?",
+    "options": [
+     "To open the old cinema",
+     "To open his house",
+     "To open the bus",
+     "To open his guitar case"
+    ],
+    "answer": 0,
+    "hint": "Read Rafa's explanation."
+   },
+   "choices": [
+    {
+     "label": "Go to the cinema with Rafa",
+     "to": "e1",
+     "event": "she went to the cinema with Rafa",
+     "eventPt": "ela foi ao cinema com o Rafa",
+     "alt": [
+      {
+       "if": "posted",
+       "to": "e6"
+      }
+     ]
+    },
+    {
+     "label": "Ask Rafa for a reward",
+     "to": "e2",
+     "event": "she asked Rafa for a reward",
+     "eventPt": "ela pediu uma recompensa ao Rafa"
+    }
+   ]
+  },
+  "p4d": {
+   "chapter": 4,
+   "title": "A Difficult Friday",
+   "scene": "office",
+   "text": [
+    "“I can't go to the school today,” said Bia. “I'm in Maceió. But we need the key tomorrow!”",
+    "Lia didn't know what to do. The school closes on the weekend.",
+    "Then Dona Célia had an idea. “I live near the old cinema,” she said. “I can take the phone and the key there tomorrow.”",
+    "“Or I can take them home,” said Lia, “and go to the cinema myself.”"
+   ],
+   "event": "Bia called from Maceió",
+   "eventPt": "a Bia ligou de Maceió",
+   "question": {
+    "wh": "When",
+    "q": "When does Bia need the key?",
+    "options": [
+     "Tomorrow",
+     "Next week",
+     "Today",
+     "On Monday"
+    ],
+    "answer": 0,
+    "hint": "Read what Bia said."
+   },
+   "choices": [
+    {
+     "label": "Let Dona Célia take them",
+     "to": "e4",
+     "event": "Dona Célia took the phone and the key",
+     "eventPt": "a Dona Célia levou o celular e a chave"
+    },
+    {
+     "label": "Take them home",
+     "to": "e5",
+     "event": "she took the phone and the key home",
+     "eventPt": "ela levou o celular e a chave para casa"
+    }
+   ]
+  }
+ },
+ "endings": {
+  "e1": {
+   "rank": 0,
+   "tier": "good",
+   "emoji": "🎬",
+   "short": "Best surprise",
+   "title": "The Best Surprise",
+   "scene": "screen",
+   "text": [
+    "At six o'clock, Grandpa Manoel arrived at the old cinema. The lights were off. Suddenly, the old projector started, and his favorite film appeared on the screen.",
+    "Grandpa cried with happiness. “My cinema! My film!” he said.",
+    "Rafa smiled at Lia. “Please, stay with us,” he said. So Lia watched the film with the family. It was the best Saturday of her life."
+   ],
+   "event": "Lia watched the film with the family",
+   "eventPt": "a Lia assistiu ao filme com a família",
+   "question": {
+    "wh": "What",
+    "q": "What happened at six o'clock?",
+    "options": [
+     "Grandpa arrived at the cinema",
+     "The bus arrived",
+     "The police arrived",
+     "Lia went home"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   }
+  },
+  "e2": {
+   "rank": 1,
+   "tier": "good",
+   "emoji": "🕰️",
+   "short": "Almost too late",
+   "title": "Almost Too Late",
+   "scene": "screen",
+   "text": [
+    "Rafa and Bia got the key late. They ran into the cinema, but the old projector didn't start. First, Rafa tried. Then Bia tried. Finally, it worked!",
+    "The film started twenty minutes late. Grandpa almost went home! But in the end, he watched his favorite film, and he was very happy.",
+    "Lia didn't stay for the film. On the way home, she thought: “I was too slow.”"
+   ],
+   "event": "the film started late",
+   "eventPt": "o filme começou atrasado",
+   "question": {
+    "wh": "Why",
+    "q": "Why did the film start late?",
+    "options": [
+     "They got the key late",
+     "The film was lost",
+     "Grandpa was late",
+     "It rained"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   }
+  },
+  "e3": {
+   "rank": 2,
+   "tier": "mixed",
+   "emoji": "🚓",
+   "short": "Wrong idea",
+   "title": "The Wrong Idea",
+   "scene": "police",
+   "text": [
+    "Lia gave the key to Rafa. “I'm so sorry,” she said. “I thought you were thieves!”",
+    "The police officers laughed. Grandpa Manoel laughed too. “Thieves? In my old cinema?”",
+    "The surprise was not a surprise anymore, but it was a very funny party. Now everybody in Viçosa knows the story of the girl who called the police."
+   ],
+   "event": "everybody laughed about the mistake",
+   "eventPt": "todo mundo riu do engano",
+   "question": {
+    "wh": "What",
+    "q": "What did the police officers do?",
+    "options": [
+     "They laughed",
+     "They arrested Rafa",
+     "They went home",
+     "They opened the box"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  },
+  "e4": {
+   "rank": 3,
+   "tier": "mixed",
+   "emoji": "📰",
+   "short": "Newspaper",
+   "title": "The Newspaper Photo",
+   "scene": "newspaper",
+   "text": [
+    "On Saturday, Dona Célia took the phone and the key to the old cinema. Lia stayed at home and watched TV.",
+    "On Monday, Lia saw a photo in the newspaper: an old man with a big smile, and the old cinema with its lights on. The title said: “Old cinema opens for one night: a surprise for Mr. Manoel, 80.”",
+    "Lia looked at the photo for a long time. “The box… the key… the old cinema!” Now she understood. But she wasn't there."
+   ],
+   "event": "she saw the story in the newspaper",
+   "eventPt": "ela viu a história no jornal",
+   "question": {
+    "wh": "Where",
+    "q": "Where did Lia see the photo?",
+    "options": [
+     "In the newspaper",
+     "On the phone",
+     "At school",
+     "On the bus"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  },
+  "e5": {
+   "rank": 4,
+   "tier": "bad",
+   "emoji": "🔑",
+   "short": "Lost key",
+   "title": "The Lost Key",
+   "scene": "locked",
+   "text": [
+    "Lia went home with the phone and the key in her bag. She didn't give them to Rafa and Bia.",
+    "That night, Rafa and Bia waited at the old cinema, but they couldn't open the door. Grandpa Manoel went home sad.",
+    "On Monday, Lia gave the phone and the key to Seu Antônio, the bus driver. “Rafa looked everywhere for this,” he said. Lia felt terrible."
+   ],
+   "event": "Rafa and Bia couldn't open the cinema",
+   "eventPt": "o Rafa e a Bia não conseguiram abrir o cinema",
+   "question": {
+    "wh": "Why",
+    "q": "Why couldn't Rafa and Bia open the door?",
+    "options": [
+     "They didn't have the key",
+     "The door was broken",
+     "Grandpa had the key",
+     "It was too late"
+    ],
+    "answer": 0,
+    "hint": "Read the first two paragraphs."
+   }
+  },
+  "e6": {
+   "rank": 5,
+   "tier": "bad",
+   "emoji": "📵",
+   "short": "Too much sharing",
+   "title": "Too Much Sharing",
+   "scene": "screen",
+   "text": [
+    "At six o'clock, Grandpa Manoel arrived at the old cinema. He smiled at Rafa and Bia. “I know everything,” he said. “I saw the messages on the internet.”",
+    "The film was beautiful, and Grandpa was happy. But it was not a surprise.",
+    "Bia looked at Lia. “Private messages are private,” she said. Lia looked down. She learned something important that day."
+   ],
+   "event": "Grandpa discovered the surprise on the internet",
+   "eventPt": "o vovô descobriu a surpresa pela internet",
+   "question": {
+    "wh": "How",
+    "q": "How did Grandpa know about the surprise?",
+    "options": [
+     "He saw the messages on the internet",
+     "Rafa told him",
+     "Lia called him",
+     "He found the box"
+    ],
+    "answer": 0,
+    "hint": "Read what Grandpa said."
+   }
+  }
+ }
+}

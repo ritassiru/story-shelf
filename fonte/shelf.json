@@ -1,0 +1,7 @@
+{
+ "title": "Story Shelf",
+ "subtitle": "Interactive graded readers · leituras interativas em inglês",
+ "books": [
+  {"slug": "the-phone-on-the-bus", "published": true}
+ ]
+}
