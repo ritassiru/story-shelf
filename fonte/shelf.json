@@ -3,6 +3,7 @@
  "subtitle": "Interactive graded readers · leituras interativas em inglês",
  "books": [
   {"slug": "the-phone-on-the-bus", "published": true},
-  {"slug": "who-posted-it", "published": true}
+  {"slug": "who-posted-it", "published": true},
+  {"slug": "the-fortune-app", "published": false}
  ]
 }

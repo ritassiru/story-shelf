@@ -7,6 +7,7 @@ Para cada livro, percorre TODOS os caminhos de leitura e verifica: metadados,
 ilustrações existentes, número de escolhas igual em todos os caminhos, finais
 alcançáveis, perguntas válidas, tamanho da leitura por caminho, variedade de
 question words, sequence words e verbo no passado nos eventos do reconto.
+Avisa também quando um "going" não está em "going to" + verbo (o balão mostraria go · went).
 """
 import json, os, re, sys
 from collections import Counter
@@ -16,6 +17,8 @@ PAST = {f.lower() for v in IR for f in v[1].split(" / ")} | {"didn't", "couldn't
 NOT_PAST = {"need", "feed", "seed", "speed", "red", "bed", "indeed", "shed"}
 SEQ = ["first", "then", "after that", "next", "suddenly", "later", "finally", "in the end"]
 META = ["slug", "title", "level", "grammar", "blurb", "cover", "chapters", "choicePrompt", "keywords"]
+# "going to" + verbo: o template mostra como futuro. A mesma regra está em template.html (GOING_TO).
+GOING_TO = re.compile(r"\b(going to)(?=\s+(?!(?:the|a|an|my|your|his|her|its|our|their|this|that|these|those|school|bed|sleep|work|church|class|town|home)\b)[a-z])", re.I)
 has_past = lambda s: any(x in PAST or (x.endswith("ed") and len(x) > 3 and x not in NOT_PAST) for x in re.findall(r"[a-z']+", s.lower()))
 
 def texto(par, flags):
@@ -58,6 +61,11 @@ def check_book(slug, pasta):
                 if t not in N and t not in E: erros.append(f"{nid}: escolha leva a '{t}', que não existe")
             if "[[" in c["label"]: erros.append(f"{nid}: rótulo de botão com [[glossário]]")
             if not has_past(c["event"]): erros.append(f"{nid}: evento sem verbo no passado: '{c['event']}'")
+    for nid, n in {**N, **E}.items():
+        frases = [p if isinstance(p, str) else p.get("text", p.get("msg", "")) for p in n["text"]] + [n.get("event", "")] + [c["event"] for c in n.get("choices", [])]
+        for f in frases:
+            solto = re.search(r"\bgoing\b", GOING_TO.sub("", re.sub(r"\[\[[^\]]+\]\]", "", f)), re.I)
+            if solto: avisos.append(f"{nid}: 'going' fora de 'going to' + verbo; o balão vai mostrar go · went. Se for futuro, marque com [[...]]: '{f[:60]}'")
     if erros: return erros, avisos, None
     paths = []
     def walk(nid, flags, trail):

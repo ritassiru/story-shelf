@@ -1,0 +1,755 @@
+{
+ "meta": {
+  "slug": "the-fortune-app",
+  "title": "The Fortune App",
+  "level": "A2",
+  "audience": "1º ano (4º bimestre)",
+  "grammar": [
+   "Simple future",
+   "Simple past",
+   "Question words"
+  ],
+  "blurb": "A free app says it knows your future, and some predictions come true... Is Léo's future already written? You decide!",
+  "cover": "phone_ad",
+  "chapters": 4,
+  "choicePrompt": "What does Léo do?",
+  "keywords": [
+   {
+    "title": "Story words",
+    "pt": "palavras da história",
+    "words": [
+     [
+      "📱",
+      "app",
+      "aplicativo"
+     ],
+     [
+      "🔮",
+      "prediction",
+      "previsão"
+     ],
+     [
+      "📝",
+      "test",
+      "prova"
+     ],
+     [
+      "💰",
+      "premium",
+      "versão paga"
+     ],
+     [
+      "🍔",
+      "lunch money",
+      "dinheiro do lanche"
+     ],
+     [
+      "🤝",
+      "trust",
+      "confiar"
+     ]
+    ]
+   },
+   {
+    "title": "Future words",
+    "pt": "palavras do futuro",
+    "words": [
+     [
+      "🔮",
+      "will",
+      "vai (futuro)"
+     ],
+     [
+      "🚫",
+      "won't",
+      "não vai"
+     ],
+     [
+      "📅",
+      "going to",
+      "vai (planos e sinais)"
+     ],
+     [
+      "🌅",
+      "tomorrow",
+      "amanhã"
+     ],
+     [
+      "🗓️",
+      "next week",
+      "semana que vem"
+     ],
+     [
+      "⏳",
+      "soon",
+      "em breve"
+     ]
+    ]
+   },
+   "sequence",
+   "question"
+  ],
+  "retell": {
+   "sentences": 5,
+   "minSequence": 3,
+   "maxHelp": 3
+  }
+ },
+ "start": "p1",
+ "nodes": {
+  "p1": {
+   "chapter": 1,
+   "title": "The App",
+   "scene": "phone_ad",
+   "text": [
+    "On Monday, Léo saw an ad on his phone: “FutureMe: Know your future today! It's free!” He was curious, so he downloaded the app.",
+    {
+     "msg": "🔮 FutureMe: It's [[going to|vai + verbo (futuro)]] rain at 4 p.m."
+    },
+    "Léo laughed. The sky was blue! But at 4 p.m., it started to rain. Suddenly, Léo wasn't laughing anymore.",
+    "That night, a new [[prediction|previsão]] arrived:",
+    {
+     "msg": "🔮 FutureMe: You will fail the math test on Friday."
+    },
+    "Léo looked at the message for a long time. Was the app right about everything?"
+   ],
+   "event": "Léo downloaded a fortune app",
+   "eventPt": "o Léo baixou um aplicativo de previsões",
+   "question": {
+    "wh": "What",
+    "q": "What did the app predict first?",
+    "options": [
+     "Rain at 4 p.m.",
+     "A math test",
+     "A new friend",
+     "A sunny day"
+    ],
+    "answer": 0,
+    "hint": "Read the first message."
+   },
+   "choices": [
+    {
+     "label": "Study for the test anyway",
+     "to": "p2a",
+     "event": "he decided to study anyway",
+     "eventPt": "ele decidiu estudar mesmo assim",
+     "set": [
+      "studied"
+     ]
+    },
+    {
+     "label": "Stop studying. It's no use!",
+     "to": "p2b",
+     "event": "he stopped studying",
+     "eventPt": "ele parou de estudar",
+     "set": [
+      "gaveup"
+     ]
+    }
+   ]
+  },
+  "p2a": {
+   "chapter": 2,
+   "title": "Study Time",
+   "scene": "study",
+   "text": [
+    "On Tuesday, Léo studied with his best friend, Nando. First, they did ten exercises. Then they watched a video about equations.",
+    "Nando laughed at the app. “An app can't see the future, Léo! It's only a program.”",
+    "But that night, the app sent a new message:",
+    {
+     "msg": "🔮 FutureMe: Do you want better predictions? Try [[premium|versão paga]]! Only R$ 20 a week."
+    },
+    "Twenty reais was all his lunch money for the week."
+   ],
+   "event": "he studied with Nando",
+   "eventPt": "ele estudou com o Nando",
+   "question": {
+    "wh": "Who",
+    "q": "Who studied with Léo?",
+    "options": [
+     "Nando",
+     "His mother",
+     "The teacher",
+     "Nobody"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   },
+   "choices": [
+    {
+     "label": "Pay for premium",
+     "to": "p3y",
+     "event": "he paid for the premium version",
+     "eventPt": "ele pagou pela versão paga",
+     "set": [
+      "paid"
+     ]
+    },
+    {
+     "label": "Ignore the offer",
+     "to": "p3x",
+     "event": "he ignored the offer",
+     "eventPt": "ele ignorou a oferta"
+    }
+   ]
+  },
+  "p2b": {
+   "chapter": 2,
+   "title": "No Use",
+   "scene": "gaming",
+   "text": [
+    "Léo closed his math book. “Why study? The app says I will fail,” he thought. So he played video games all afternoon.",
+    "On Wednesday, his mother asked: “Are you ready for Friday's test?” Léo showed her the app. She didn't laugh.",
+    "“A phone can't decide your future, Léo,” she said. “You decide.”",
+    "That night, the app sent a new message:",
+    {
+     "msg": "🔮 FutureMe: Do you want better predictions? Try [[premium|versão paga]]! Only R$ 20 a week."
+    }
+   ],
+   "event": "he played video games instead of studying",
+   "eventPt": "ele jogou videogame em vez de estudar",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Léo stop studying?",
+    "options": [
+     "The app said he was going to fail",
+     "He was sick",
+     "The test was cancelled",
+     "Nando told him to stop"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Pay for premium",
+     "to": "p3y",
+     "event": "he paid for the premium version",
+     "eventPt": "ele pagou pela versão paga",
+     "set": [
+      "paid"
+     ]
+    },
+    {
+     "label": "Delete the app",
+     "to": "p3z",
+     "event": "he deleted the app",
+     "eventPt": "ele apagou o aplicativo"
+    }
+   ]
+  },
+  "p3x": {
+   "chapter": 3,
+   "title": "About Nando",
+   "scene": "classroom",
+   "text": [
+    "On Thursday, a new prediction arrived. This time, it was about Nando.",
+    {
+     "msg": "🔮 FutureMe: Your friend Nando is [[going to|vai + verbo (futuro)]] lie to you tomorrow."
+    },
+    "Léo looked at Nando in class. Nando was his best friend. They met when they were six years old. Was he really [[going to|vai + verbo (futuro)]] lie?",
+    "After that, Léo was quiet all day. Nando noticed. “Hey, what's wrong?” he asked."
+   ],
+   "event": "the app said something bad about Nando",
+   "eventPt": "o app disse algo ruim sobre o Nando",
+   "question": {
+    "wh": "When",
+    "q": "When was Nando going to lie, according to the app?",
+    "options": [
+     "Tomorrow",
+     "Today",
+     "Next week",
+     "On Monday"
+    ],
+    "answer": 0,
+    "hint": "Read the message."
+   },
+   "choices": [
+    {
+     "label": "Show the prediction to Nando",
+     "to": "p4a",
+     "event": "he showed the prediction to Nando",
+     "eventPt": "ele mostrou a previsão ao Nando"
+    },
+    {
+     "label": "Keep it a secret",
+     "to": "p4b",
+     "event": "he kept it a secret",
+     "eventPt": "ele guardou segredo"
+    }
+   ]
+  },
+  "p3y": {
+   "chapter": 3,
+   "title": "Premium",
+   "scene": "premium",
+   "text": [
+    {
+     "if": "studied",
+     "text": "Léo paid with his lunch money. Now he had no money for snacks, but he had premium predictions."
+    },
+    {
+     "if": "gaveup",
+     "text": "Léo paid with his lunch money. He didn't study anymore, so he had a lot of time for the app."
+    },
+    "The premium predictions were long and beautiful:",
+    {
+     "msg": "🔮 FutureMe Premium: Great changes are coming. Someone special is thinking about you. Be careful on Friday."
+    },
+    "Léo read them again and again. They sounded important, but what did they really mean?",
+    "Then another message arrived:",
+    {
+     "msg": "🔮 Unlock your SECRET prediction for only R$ 50!"
+    }
+   ],
+   "event": "he read the premium predictions",
+   "eventPt": "ele leu as previsões pagas",
+   "question": {
+    "wh": "How much",
+    "q": "How much did the premium version cost?",
+    "options": [
+     "R$ 20 a week",
+     "R$ 50 a week",
+     "Nothing",
+     "R$ 5 a day"
+    ],
+    "answer": 0,
+    "hint": "Read the offer in Chapter 2."
+   },
+   "choices": [
+    {
+     "label": "Try to get the secret prediction",
+     "to": "p4c",
+     "event": "he wanted the secret prediction",
+     "eventPt": "ele quis a previsão secreta"
+    },
+    {
+     "label": "Cancel premium and think about the test",
+     "to": "p4b",
+     "event": "he cancelled premium",
+     "eventPt": "ele cancelou a versão paga"
+    }
+   ]
+  },
+  "p3z": {
+   "chapter": 3,
+   "title": "No More App",
+   "scene": "no_app",
+   "text": [
+    "Léo deleted the app. First, he felt strange. Then he felt free.",
+    "He opened his math book again. It was Wednesday night, and the test was on Friday. There was very little time.",
+    "His mother smiled at the door. “Good choice,” she said. “Do you want some coffee?”",
+    "But after one hour, Léo looked at his phone again. He missed the predictions. What was the app saying about him now?"
+   ],
+   "event": "he opened his math book again",
+   "eventPt": "ele abriu o livro de matemática de novo",
+   "question": {
+    "wh": "How",
+    "q": "How did Léo feel after he deleted the app?",
+    "options": [
+     "Strange, and then free",
+     "Very angry",
+     "Sick",
+     "Rich"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Install the app again",
+     "to": "p4d",
+     "event": "he installed the app again",
+     "eventPt": "ele instalou o app de novo"
+    },
+    {
+     "label": "Study all night",
+     "to": "p4b",
+     "event": "he studied all night",
+     "eventPt": "ele estudou a noite toda",
+     "set": [
+      "studied",
+      "lastminute"
+     ]
+    }
+   ]
+  },
+  "p4a": {
+   "chapter": 4,
+   "title": "Two Friends, One App",
+   "scene": "friends",
+   "text": [
+    "Léo showed Nando the prediction. Nando read it, and then he laughed. He took out his own phone.",
+    "“Look!” said Nando. “I installed FutureMe yesterday, to test it. It told me the same thing!”",
+    {
+     "msg": "🔮 FutureMe: Your friend Léo is [[going to|vai + verbo (futuro)]] lie to you tomorrow."
+    },
+    "The two friends looked at each other. The app sent the same kind of prediction to everybody. Only the names were different."
+   ],
+   "event": "Nando had the same prediction on his phone",
+   "eventPt": "o Nando tinha a mesma previsão no celular",
+   "question": {
+    "wh": "Whose",
+    "q": "Whose phone had the same prediction?",
+    "options": [
+     "Nando's",
+     "The teacher's",
+     "His mother's",
+     "Nobody's"
+    ],
+    "answer": 0,
+    "hint": "Read what Nando said."
+   },
+   "choices": [
+    {
+     "label": "Laugh together at the app",
+     "to": "e1",
+     "event": "they laughed together at the app",
+     "eventPt": "eles riram juntos do app"
+    },
+    {
+     "label": "Stay suspicious of Nando",
+     "to": "e6",
+     "event": "he didn't trust his friend",
+     "eventPt": "ele não confiou no amigo"
+    }
+   ]
+  },
+  "p4b": {
+   "chapter": 4,
+   "title": "Test Day",
+   "scene": "test",
+   "text": [
+    "On Friday morning, the math test started at 7:30 a.m. The teacher, Professora Ana, gave everybody the questions.",
+    {
+     "if": "studied",
+     "text": "Léo looked at the first question. He knew the answer! He studied for this."
+    },
+    {
+     "if": "lastminute",
+     "text": "He was tired after a night of study, but the equations were fresh in his mind."
+    },
+    {
+     "unless": "studied",
+     "text": "Léo looked at the first question. He didn't know the answer. His notebook at home was empty."
+    },
+    "Then his phone vibrated in his pocket. It was FutureMe:",
+    {
+     "msg": "🔮 FutureMe: Today is the day. Your future starts now."
+    }
+   ],
+   "event": "the math test started",
+   "eventPt": "a prova de matemática começou",
+   "question": {
+    "wh": "What time",
+    "q": "What time did the test start?",
+    "options": [
+     "At 7:30 a.m.",
+     "At 4 p.m.",
+     "At noon",
+     "At 10 a.m."
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   },
+   "choices": [
+    {
+     "label": "Turn off the phone and do the test",
+     "to": "e5",
+     "event": "he turned off his phone and did the test",
+     "eventPt": "ele desligou o celular e fez a prova",
+     "alt": [
+      {
+       "if": "studied",
+       "to": "e2"
+      }
+     ]
+    },
+    {
+     "label": "Show the app to the teacher after the test",
+     "to": "e5",
+     "event": "he showed the app to the teacher",
+     "eventPt": "ele mostrou o app para a professora",
+     "alt": [
+      {
+       "if": "studied",
+       "to": "e2"
+      }
+     ],
+     "set": [
+      "teacher"
+     ]
+    }
+   ]
+  },
+  "p4c": {
+   "chapter": 4,
+   "title": "The Secret Prediction",
+   "scene": "premium",
+   "text": [
+    "Léo had no more lunch money. So he asked his friend Nando for R$ 50.",
+    "“Fifty reais? For a prediction?” said Nando. “That's a lot of money, Léo! What is this app, really?”",
+    "Léo didn't answer. He looked at the golden button on the screen: UNLOCK YOUR SECRET PREDICTION.",
+    "Nando took out his phone. “Wait. Let's read what other people say about this app first.”"
+   ],
+   "event": "he asked Nando for money",
+   "eventPt": "ele pediu dinheiro ao Nando",
+   "question": {
+    "wh": "Where",
+    "q": "Where was the golden button?",
+    "options": [
+     "On the phone screen",
+     "On Nando's bag",
+     "On the test paper",
+     "On the classroom door"
+    ],
+    "answer": 0,
+    "hint": "Read the third paragraph."
+   },
+   "choices": [
+    {
+     "label": "Pay for the secret prediction",
+     "to": "e4",
+     "event": "he paid for the secret prediction",
+     "eventPt": "ele pagou pela previsão secreta"
+    },
+    {
+     "label": "Read the reviews with Nando",
+     "to": "e1",
+     "event": "he read the reviews with Nando",
+     "eventPt": "ele leu as avaliações com o Nando"
+    }
+   ]
+  },
+  "p4d": {
+   "chapter": 4,
+   "title": "Welcome Back",
+   "scene": "night",
+   "text": [
+    "Léo installed FutureMe again. In one second, a message appeared:",
+    {
+     "msg": "🔮 FutureMe: Welcome back, Léo! We missed you."
+    },
+    "Then a second message arrived:",
+    {
+     "msg": "🔮 FutureMe: You will fail the math test tomorrow. Nothing can change that."
+    },
+    "Léo's heart [[beat|bateu]] fast. “Nothing can change that?” he said. His math book was open on the bed, and it was already ten o'clock."
+   ],
+   "event": "the app predicted a bad grade",
+   "eventPt": "o app previu uma nota ruim",
+   "question": {
+    "wh": "When",
+    "q": "When was the math test?",
+    "options": [
+     "Tomorrow",
+     "Today",
+     "Next week",
+     "On Monday"
+    ],
+    "answer": 0,
+    "hint": "Read the second message."
+   },
+   "choices": [
+    {
+     "label": "Delete it for good and study a little",
+     "to": "e3",
+     "event": "he deleted the app for good",
+     "eventPt": "ele apagou o app de vez"
+    },
+    {
+     "label": "Believe it and go to sleep",
+     "to": "e5",
+     "event": "he believed the app and went to sleep",
+     "eventPt": "ele acreditou no app e foi dormir"
+    }
+   ]
+  }
+ },
+ "endings": {
+  "e1": {
+   "rank": 0,
+   "tier": "good",
+   "emoji": "🔮",
+   "short": "I decide",
+   "title": "I Decide",
+   "scene": "truth",
+   "text": [
+    "Later, Léo discovered the truth: FutureMe sent the same predictions to everybody. Nando got them. Professora Ana got them too. On the internet, thousands of users wrote the same thing: “It's a trick!”",
+    "And the rain on Monday? The app only copied the weather forecast.",
+    "Léo deleted FutureMe. Then he wrote a note in his notebook: “My future? I decide.”"
+   ],
+   "event": "Léo discovered that the predictions were a trick",
+   "eventPt": "o Léo descobriu que as previsões eram um truque",
+   "question": {
+    "wh": "Who",
+    "q": "Who else got the same predictions?",
+    "options": [
+     "Nando and Professora Ana",
+     "Only Léo",
+     "Only his mother",
+     "Nobody"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  },
+  "e2": {
+   "rank": 1,
+   "tier": "good",
+   "emoji": "📚",
+   "short": "Proved wrong",
+   "title": "Proved Wrong",
+   "scene": "grade",
+   "text": [
+    {
+     "if": "teacher",
+     "text": "After the test, Léo showed FutureMe to Professora Ana. She read the prediction and smiled. “I got the same message yesterday,” she said. “It's only a trick.”"
+    },
+    "The next week, Professora Ana returned the tests. Léo got 8.5! It was his best grade of the year.",
+    {
+     "if": "paid",
+     "text": "That night, he cancelled the premium subscription. He wanted his lunch money back."
+    },
+    "First, he took a photo of his grade. Then he opened FutureMe and wrote a review: “Your prediction was wrong. I studied, and I passed!”",
+    "Finally, he deleted the app."
+   ],
+   "event": "Léo got 8.5 on the test",
+   "eventPt": "o Léo tirou 8,5 na prova",
+   "question": {
+    "wh": "What",
+    "q": "What grade did Léo get?",
+    "options": [
+     "8.5",
+     "3.0",
+     "10",
+     "5.0"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  },
+  "e3": {
+   "rank": 2,
+   "tier": "mixed",
+   "emoji": "🤷",
+   "short": "Just an app",
+   "title": "Just an App",
+   "scene": "no_app",
+   "text": [
+    "Léo deleted FutureMe for good. Then he studied for one hour and went to sleep.",
+    "On Friday, the test was difficult, but not impossible. Léo got 6.0. It wasn't great, but he passed.",
+    "He never discovered how the app worked, and he didn't care. “It's just an app,” he thought."
+   ],
+   "event": "Léo passed with a 6.0",
+   "eventPt": "o Léo passou com 6,0",
+   "question": {
+    "wh": "What",
+    "q": "What did Léo do with the app?",
+    "options": [
+     "He deleted it for good",
+     "He paid for premium",
+     "He gave it to Nando",
+     "He showed it to the teacher"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   }
+  },
+  "e4": {
+   "rank": 3,
+   "tier": "mixed",
+   "emoji": "💸",
+   "short": "Premium trap",
+   "title": "The Premium Trap",
+   "scene": "premium",
+   "text": [
+    "Léo paid R$ 50 with Nando's money. The screen became golden, and the secret prediction appeared:",
+    {
+     "msg": "🔮 SECRET PREDICTION: Good things will happen to you soon."
+    },
+    "That was all. Léo read it three times. He lost R$ 70 in one week: twenty for premium and fifty for one sentence.",
+    "Now he had no lunch money and a debt with Nando. It was an expensive lesson, but he learned it: when an app is free, maybe YOU are the product."
+   ],
+   "event": "he lost R$ 70 on the app",
+   "eventPt": "ele perdeu R$ 70 no app",
+   "question": {
+    "wh": "How much",
+    "q": "How much money did Léo lose?",
+    "options": [
+     "R$ 70",
+     "R$ 20",
+     "R$ 50",
+     "Nothing"
+    ],
+    "answer": 0,
+    "hint": "Read the third paragraph."
+   }
+  },
+  "e5": {
+   "rank": 4,
+   "tier": "bad",
+   "emoji": "😞",
+   "short": "It came true",
+   "title": "It Came True",
+   "scene": "grade_bad",
+   "text": [
+    {
+     "if": "teacher",
+     "text": "After the test, Léo showed FutureMe to Professora Ana. She read the prediction and smiled. “I got the same message yesterday,” she said. “It's only a trick.”"
+    },
+    "The next week, Professora Ana returned the tests. Léo got 3.0.",
+    {
+     "unless": "teacher",
+     "text": "“See? The app was right,” he said to Nando. But Nando shook his head. “No, Léo. The app didn't make you fail. You believed it, and you stopped trying.”"
+    },
+    {
+     "if": "teacher",
+     "text": "“The app was a trick, but I still failed,” he said to Nando. Nando shook his head. “The app didn't make you fail. You believed it, and you stopped trying.”"
+    },
+    "Léo looked at his empty notebook. For the first time, he understood: the prediction came true because he believed it."
+   ],
+   "event": "Léo failed the test",
+   "eventPt": "o Léo foi mal na prova",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Léo really fail?",
+    "options": [
+     "He believed the app and stopped trying",
+     "The test was too long",
+     "The teacher was angry",
+     "It rained on Friday"
+    ],
+    "answer": 0,
+    "hint": "Read what Nando said."
+   }
+  },
+  "e6": {
+   "rank": 5,
+   "tier": "bad",
+   "emoji": "🧊",
+   "short": "Lost friend",
+   "title": "The Friend Who Left",
+   "scene": "friends_apart",
+   "text": [
+    "Léo didn't laugh. “Are you [[going to|vai + verbo (futuro)]] lie to me, Nando?” he asked.",
+    "Nando stopped smiling. “Do you trust an app more than you trust me?” he said. Then he walked away.",
+    "That weekend, Nando didn't answer Léo's messages. The app didn't predict a fight, but a fight happened, and Léo started it."
+   ],
+   "event": "Nando walked away",
+   "eventPt": "o Nando foi embora",
+   "question": {
+    "wh": "How",
+    "q": "How did Nando feel?",
+    "options": [
+     "Hurt",
+     "Happy",
+     "Sleepy",
+     "Excited"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  }
+ }
+}

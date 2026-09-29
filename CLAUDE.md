@@ -11,8 +11,9 @@ Público: adolescentes de nível **A1/A2**, lendo **no celular**, muitas vezes
 com internet limitada. Tudo precisa funcionar em tela pequena, no modo claro e
 no escuro, e **sem internet**.
 
-Livros hoje: `the-phone-on-the-bus` (1º ano; Simple past, question words,
-sequence words). Projeto irmão: `ritassiru/the-ceo-game` (2º ano); mantenha a
+Livros hoje: `the-phone-on-the-bus` e `who-posted-it` (1º ano; Simple past,
+question words, sequence words) e `the-fortune-app` (1º ano, 4º bimestre;
+Simple future, simple past, question words; rascunho). Projeto irmão: `ritassiru/the-ceo-game` (2º ano); mantenha a
 consistência visual entre eles.
 
 ## Arquitetura
@@ -57,6 +58,11 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 - `event`/`eventPt`: frase no **passado**, em minúscula (exceto nomes).
 - **Falsos positivos do glossário de verbos:** um substantivo com a forma de um
   verbo irregular (*costs*, *TV show*) precisa ser marcado com `[[...]]`.
+- ***going to* + verbo é reconhecido sozinho como futuro** (balão "vai + verbo
+  (futuro)", e não *go · went*). Antes de artigo, possessivo ou lugar (*going
+  to school*, *going to bed*) continua sendo o verbo *go*. A regra (`GOING_TO`)
+  está no `template.html` e no `checar.py`: se mudar, mude nos dois. O
+  `checar.py` avisa quando acha um *going* fora dessa regra.
 - Temas adequados a adolescentes, sem violência real. Lugares fictícios: não
   afirme fatos sobre lugares reais.
 - Livro novo nasce como rascunho e só vai para `"published": true` quando o

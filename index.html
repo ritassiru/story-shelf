@@ -203,7 +203,13 @@ const PAST = new Set([...IRREG.flatMap(v => v[1].toLowerCase().split(" / ")), "d
 const NOT_PAST = new Set(["need", "feed", "seed", "speed", "red", "bed", "indeed", "shed"]);
 const hasPast = s => (s.toLowerCase().match(/[a-z']+/g) || []).some(w => PAST.has(w) || (w.endsWith("ed") && w.length > 3 && !NOT_PAST.has(w)));
 
+// "going to" + verbo é futuro, não o verbo go (senão o balão mostraria go · went).
+// Antes de artigo, possessivo ou lugar ("going to school") continua sendo o verbo go.
+// A mesma regra está em checar.py (GOING_TO): se mudar aqui, mude lá.
+const GOING_TO = /\b(going to)(?=\s+(?!(?:the|a|an|my|your|his|her|its|our|their|this|that|these|those|school|bed|sleep|work|church|class|town|home)\b)[a-z])/i;
 function verbWrap(plain) {
+  const future = plain.split(GOING_TO);
+  if (future.length > 1) return future.map((part, i) => i % 2 ? `<button type="button" class="gloss" data-pt="vai + verbo (futuro)">${esc(part)}</button>` : verbWrap(part)).join("");
   return plain.split(/([A-Za-z]+(?:['’][A-Za-z]+)?)/).map((part, i) => {
     if (i % 2 === 0) return esc(part);
     const v = VERB.get(part.toLowerCase().replace("’", "'"));

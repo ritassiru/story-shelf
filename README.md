@@ -146,7 +146,8 @@ alunos. Depois:
 
 - `text`: parágrafos. `{"msg": ...}` vira um balão de mensagem de celular;
   `if`/`unless` mostram um parágrafo só para quem passou (ou não) por uma
-  escolha; `[[palavra|tradução]]` cria o glossário de toque.
+  escolha; `[[palavra|tradução]]` cria o glossário de toque. Os verbos
+  irregulares e o *going to* + verbo (futuro) ganham balão sozinhos.
 - `scene` e `sceneIf`: a ilustração, e uma troca conforme o caminho. Os nomes
   das cenas são simples, só letras, números e `_` (`phone_night`, não
   `phone-night`).
