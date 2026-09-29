@@ -101,6 +101,7 @@
    "choices": [
     {
      "label": "Read the new messages",
+     "labelPt": "Ler as mensagens novas",
      "to": "p2a",
      "event": "she read the new messages",
      "eventPt": "ela leu as novas mensagens",
@@ -110,6 +111,7 @@
     },
     {
      "label": "Give the phone to the driver",
+     "labelPt": "Entregar o celular ao motorista",
      "to": "p2b",
      "event": "she gave the phone to the driver",
      "eventPt": "ela entregou o celular ao motorista"
@@ -149,6 +151,7 @@
    "choices": [
     {
      "label": "Post a photo of the messages online",
+     "labelPt": "Postar uma foto das mensagens na internet",
      "to": "p3y",
      "event": "she posted the messages online",
      "eventPt": "ela postou as mensagens na internet",
@@ -158,6 +161,7 @@
     },
     {
      "label": "Go to the old cinema on Saturday",
+     "labelPt": "Ir ao cinema antigo no sábado",
      "to": "p3x",
      "event": "she decided to go to the old cinema",
      "eventPt": "ela decidiu ir ao cinema antigo"
@@ -195,12 +199,14 @@
    "choices": [
     {
      "label": "Take it to the school office",
+     "labelPt": "Levar o celular à secretaria da escola",
      "to": "p3z",
      "event": "she took the phone to the school office",
      "eventPt": "ela levou o celular à secretaria da escola"
     },
     {
      "label": "Look for Rafa",
+     "labelPt": "Procurar o Rafa",
      "to": "p3y",
      "event": "she looked for Rafa",
      "eventPt": "ela procurou o Rafa"
@@ -235,6 +241,7 @@
    "choices": [
     {
      "label": "Watch them and wait",
+     "labelPt": "Observar e esperar",
      "to": "p4b",
      "event": "they watched and waited",
      "eventPt": "eles observaram e esperaram",
@@ -244,6 +251,7 @@
     },
     {
      "label": "Call the police",
+     "labelPt": "Ligar para a polícia",
      "to": "p4a",
      "event": "she called the police",
      "eventPt": "ela ligou para a polícia"
@@ -294,12 +302,14 @@
    "choices": [
     {
      "label": "Meet Rafa at the bus station",
+     "labelPt": "Encontrar o Rafa na rodoviária",
      "to": "p4c",
      "event": "she went to the bus station to meet Rafa",
      "eventPt": "ela foi à rodoviária encontrar o Rafa"
     },
     {
      "label": "Go straight to the old cinema",
+     "labelPt": "Ir direto ao cinema antigo",
      "to": "p4b",
      "event": "she went straight to the old cinema",
      "eventPt": "ela foi direto ao cinema antigo"
@@ -339,12 +349,14 @@
    "choices": [
     {
      "label": "Ask Bia to come to the school",
+     "labelPt": "Pedir para a Bia vir à escola",
      "to": "p4d",
      "event": "she asked Bia to come to the school",
      "eventPt": "ela pediu para a Bia vir à escola"
     },
     {
      "label": "Take the phone to the cinema yourself",
+     "labelPt": "Levar o celular ao cinema você mesma",
      "to": "p4b",
      "event": "she took the phone to the cinema",
      "eventPt": "ela levou o celular ao cinema"
@@ -379,12 +391,14 @@
    "choices": [
     {
      "label": "Give the key to Rafa and say sorry",
+     "labelPt": "Devolver a chave ao Rafa e pedir desculpas",
      "to": "e3",
      "event": "she gave the key back and said sorry",
      "eventPt": "ela devolveu a chave e pediu desculpas"
     },
     {
      "label": "Run away with the key",
+     "labelPt": "Fugir com a chave",
      "to": "e5",
      "event": "she ran away with the key",
      "eventPt": "ela fugiu com a chave"
@@ -426,6 +440,7 @@
    "choices": [
     {
      "label": "Give them the phone and the key",
+     "labelPt": "Entregar o celular e a chave a eles",
      "to": "e1",
      "event": "she gave them the phone and the key",
      "eventPt": "ela entregou o celular e a chave a eles",
@@ -438,6 +453,7 @@
     },
     {
      "label": "Ask to see the box first",
+     "labelPt": "Pedir para ver a caixa primeiro",
      "to": "e2",
      "event": "she asked to see the box first",
      "eventPt": "ela pediu para ver a caixa primeiro"
@@ -475,6 +491,7 @@
    "choices": [
     {
      "label": "Go to the cinema with Rafa",
+     "labelPt": "Ir ao cinema com o Rafa",
      "to": "e1",
      "event": "she went to the cinema with Rafa",
      "eventPt": "ela foi ao cinema com o Rafa",
@@ -487,6 +504,7 @@
     },
     {
      "label": "Ask Rafa for a reward",
+     "labelPt": "Pedir uma recompensa ao Rafa",
      "to": "e2",
      "event": "she asked Rafa for a reward",
      "eventPt": "ela pediu uma recompensa ao Rafa"
@@ -520,12 +538,14 @@
    "choices": [
     {
      "label": "Let Dona Célia take them",
+     "labelPt": "Deixar a Dona Célia levar tudo",
      "to": "e4",
      "event": "Dona Célia took the phone and the key",
      "eventPt": "a Dona Célia levou o celular e a chave"
     },
     {
      "label": "Take them home",
+     "labelPt": "Levar o celular e a chave para casa",
      "to": "e5",
      "event": "she took the phone and the key home",
      "eventPt": "ela levou o celular e a chave para casa"

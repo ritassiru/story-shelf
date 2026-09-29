@@ -31,6 +31,7 @@ fonte/stories/<slug>/scenes.js    ilustrações do livro: SCENE_LIB["<slug>"] = 
 fonte/modelo/                     esqueleto usado por nova_historia.py (não aparece na estante)
 fonte/template.html               visual e lógica, iguais para todos os livros
 fonte/irreg.json                  verbos irregulares (o balão mostra infinitive e past)
+fonte/a1.json                     glossário Beginner (A1) da estante toda, com _cognatos e _ignorar
 fonte/build.py                    gera ../index.html (--online, --drafts, --out)
 fonte/checar.py                   valida a estante e percorre todos os caminhos de cada livro
 fonte/nova_historia.py            cria um livro novo a partir do modelo, como rascunho
@@ -62,6 +63,16 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 - **Capítulos compartilhados** precisam fazer sentido vindo de qualquer
   caminho: use `if`/`unless` e `sceneIf`.
 - `event`/`eventPt`: frase no **passado**, em minúscula (exceto nomes).
+- Toda escolha tem **`labelPt`**: o `label` em português, no imperativo
+  (*Read the new messages* → *Ler as mensagens novas*). Aparece embaixo do
+  botão no glossário Beginner. O `checar.py` avisa quando falta.
+- **Glossário Beginner (A1):** toda palavra nova nos textos e eventos precisa
+  estar em `fonte/a1.json` (tradução no sentido da história; verbo flexionado
+  como `"started": "start|começar"`), em `_cognatos` (cognatos verdadeiros:
+  *cinema, police, secret...*) ou em `_ignorar` (palavras em português na
+  história, pedaços de pronúncia). O `checar.py` avisa quais faltam. Nomes
+  próprios ficam de fora sozinhos. Falsos amigos (*library, introduce,
+  realized, question, guitar, test*) **sempre** têm tradução.
 - **Falsos positivos do glossário de verbos:** um substantivo com a forma de um
   verbo irregular (*costs*, *TV show*) precisa ser marcado com `[[...]]`.
 - ***going to* + verbo é reconhecido sozinho como futuro** (balão "vai + verbo
@@ -83,10 +94,18 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 - Glossário sublinhado só na **primeira ocorrência de cada palavra por tela**;
   o balão abre acima da palavra e não intercepta toques; a pontuação colada à
   palavra do glossário fica na mesma linha.
-- Botão **"Aa Glossary: on/off"** na barra do topo (capítulos, finais e
-  caderno): desligado, some o sublinhado e as palavras não abrem balão. A
-  escolha vale para a estante toda e fica no aparelho (`reader:gloss`). Mesmo
-  botão no `the-ceo-game`.
+- **Engrenagem de configurações** em todas as telas (estante, capa, palavras-
+  chave, capítulos, finais e caderno). Painel por cima da leitura, sem mexer
+  nela, com: glossário em três níveis (Normal = palavras difíceis; Beginner =
+  A1, quase todas as palavras + `labelPt` nos botões; Off), cores
+  (auto/claro/escuro), tamanho do texto (normal/grande/maior ainda) e
+  animações. Vale para a estante toda e fica no aparelho (`reader:gloss`,
+  `reader:theme`, `reader:size`, `reader:motion`; um `reader:gloss` antigo
+  true/false ainda é lido). Para acrescentar uma opção, edite `SETTINGS` e
+  `applySettings()` no template. Tamanhos de fonte em `rem`. Mesmo painel no
+  `the-ceo-game`.
+- Letras acentuadas fazem parte da palavra no glossário (*Sônia* não vira
+  *S* + *nia*), no template e no `checar.py`.
 - Reconto: cada frase com verbo no passado e o mínimo de sequence words
   diferentes; montador em no máximo `maxHelp` frases; editar uma frase montada
   não tira a etiqueta.
@@ -94,8 +113,9 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   o reconto não lê de novo nem abre outro livro, mesmo recarregando ou
   digitando outro `#slug`.
 - Armazenamento: finais por livro (`reader:<slug>:endings`); histórico e
-  pendência globais (`reader:history`, `reader:pending`); preferência do
-  glossário global (`reader:gloss`). Tudo em `try/catch`.
+  pendência globais (`reader:history`, `reader:pending`); configurações
+  globais (`reader:gloss`, `reader:theme`, `reader:size`, `reader:motion`).
+  Tudo em `try/catch`.
   "Apagar histórico" na capa apaga só aquele livro.
 
 ## Armadilhas já encontradas (evite repetir)

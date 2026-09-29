@@ -69,6 +69,7 @@
    "choices": [
     {
      "label": "[Choice A]",
+     "labelPt": "[Opção A]",
      "to": "p2a",
      "set": [
       "flagA"
@@ -78,6 +79,7 @@
     },
     {
      "label": "[Choice B]",
+     "labelPt": "[Opção B]",
      "to": "p2b",
      "event": "she chose option B",
      "eventPt": "ela escolheu a opção B"
@@ -113,12 +115,14 @@
    "choices": [
     {
      "label": "[Choice C]",
+     "labelPt": "[Opção C]",
      "to": "e1",
      "event": "she chose option C",
      "eventPt": "ela escolheu a opção C"
     },
     {
      "label": "[Choice D]",
+     "labelPt": "[Opção D]",
      "to": "e2",
      "event": "she chose option D",
      "eventPt": "ela escolheu a opção D"
@@ -160,6 +164,7 @@
    "choices": [
     {
      "label": "[Choice E]",
+     "labelPt": "[Opção E]",
      "to": "e2",
      "alt": [
       {
@@ -172,6 +177,7 @@
     },
     {
      "label": "[Choice F]",
+     "labelPt": "[Opção F]",
      "to": "e3",
      "event": "she chose option F",
      "eventPt": "ela escolheu a opção F"

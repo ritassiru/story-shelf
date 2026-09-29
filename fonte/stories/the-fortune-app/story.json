@@ -130,6 +130,7 @@
    "choices": [
     {
      "label": "Study for the test anyway",
+     "labelPt": "Estudar para a prova mesmo assim",
      "to": "p2a",
      "event": "he decided to study anyway",
      "eventPt": "ele decidiu estudar mesmo assim",
@@ -139,6 +140,7 @@
     },
     {
      "label": "Stop studying. It's no use!",
+     "labelPt": "Parar de estudar. Não adianta!",
      "to": "p2b",
      "event": "he stopped studying",
      "eventPt": "ele parou de estudar",
@@ -178,6 +180,7 @@
    "choices": [
     {
      "label": "Pay for premium",
+     "labelPt": "Pagar pela versão paga",
      "to": "p3y",
      "event": "he paid for the premium version",
      "eventPt": "ele pagou pela versão paga",
@@ -187,6 +190,7 @@
     },
     {
      "label": "Ignore the offer",
+     "labelPt": "Ignorar a oferta",
      "to": "p3x",
      "event": "he ignored the offer",
      "eventPt": "ele ignorou a oferta"
@@ -223,6 +227,7 @@
    "choices": [
     {
      "label": "Pay for premium",
+     "labelPt": "Pagar pela versão paga",
      "to": "p3y",
      "event": "he paid for the premium version",
      "eventPt": "ele pagou pela versão paga",
@@ -232,6 +237,7 @@
     },
     {
      "label": "Delete the app",
+     "labelPt": "Apagar o aplicativo",
      "to": "p3z",
      "event": "he deleted the app",
      "eventPt": "ele apagou o aplicativo"
@@ -267,12 +273,14 @@
    "choices": [
     {
      "label": "Show the prediction to Nando",
+     "labelPt": "Mostrar a previsão ao Nando",
      "to": "p4a",
      "event": "he showed the prediction to Nando",
      "eventPt": "ele mostrou a previsão ao Nando"
     },
     {
      "label": "Keep it a secret",
+     "labelPt": "Guardar segredo",
      "to": "p4b",
      "event": "he kept it a secret",
      "eventPt": "ele guardou segredo"
@@ -319,12 +327,14 @@
    "choices": [
     {
      "label": "Try to get the secret prediction",
+     "labelPt": "Tentar conseguir a previsão secreta",
      "to": "p4c",
      "event": "he wanted the secret prediction",
      "eventPt": "ele quis a previsão secreta"
     },
     {
      "label": "Cancel premium and think about the test",
+     "labelPt": "Cancelar a versão paga e pensar na prova",
      "to": "p4b",
      "event": "he cancelled premium",
      "eventPt": "ele cancelou a versão paga"
@@ -358,12 +368,14 @@
    "choices": [
     {
      "label": "Install the app again",
+     "labelPt": "Instalar o app de novo",
      "to": "p4d",
      "event": "he installed the app again",
      "eventPt": "ele instalou o app de novo"
     },
     {
      "label": "Study all night",
+     "labelPt": "Estudar a noite toda",
      "to": "p4b",
      "event": "he studied all night",
      "eventPt": "ele estudou a noite toda",
@@ -403,12 +415,14 @@
    "choices": [
     {
      "label": "Laugh together at the app",
+     "labelPt": "Rir do app junto com o Nando",
      "to": "e1",
      "event": "they laughed together at the app",
      "eventPt": "eles riram juntos do app"
     },
     {
      "label": "Stay suspicious of Nando",
+     "labelPt": "Continuar desconfiando do Nando",
      "to": "e6",
      "event": "he didn't trust his friend",
      "eventPt": "ele não confiou no amigo"
@@ -455,6 +469,7 @@
    "choices": [
     {
      "label": "Turn off the phone and do the test",
+     "labelPt": "Desligar o celular e fazer a prova",
      "to": "e5",
      "event": "he turned off his phone and did the test",
      "eventPt": "ele desligou o celular e fez a prova",
@@ -467,6 +482,7 @@
     },
     {
      "label": "Show the app to the teacher after the test",
+     "labelPt": "Mostrar o app à professora depois da prova",
      "to": "e5",
      "event": "he showed the app to the teacher",
      "eventPt": "ele mostrou o app para a professora",
@@ -509,12 +525,14 @@
    "choices": [
     {
      "label": "Pay for the secret prediction",
+     "labelPt": "Pagar pela previsão secreta",
      "to": "e4",
      "event": "he paid for the secret prediction",
      "eventPt": "ele pagou pela previsão secreta"
     },
     {
      "label": "Read the reviews with Nando",
+     "labelPt": "Ler as avaliações com o Nando",
      "to": "e1",
      "event": "he read the reviews with Nando",
      "eventPt": "ele leu as avaliações com o Nando"
@@ -553,12 +571,14 @@
    "choices": [
     {
      "label": "Delete it for good and study a little",
+     "labelPt": "Apagar o app de vez e estudar um pouco",
      "to": "e3",
      "event": "he deleted the app for good",
      "eventPt": "ele apagou o app de vez"
     },
     {
      "label": "Believe it and go to sleep",
+     "labelPt": "Acreditar no app e ir dormir",
      "to": "e5",
      "event": "he believed the app and went to sleep",
      "eventPt": "ele acreditou no app e foi dormir"

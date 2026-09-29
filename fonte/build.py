@@ -36,6 +36,7 @@ def main(online=False, drafts=False, out=None):
     data = {"title": shelf["title"], "subtitle": shelf["subtitle"], "books": books}
     html = (t.replace("__TITLE__", shelf["title"]).replace("__SHELF__", json.dumps(data, ensure_ascii=False))
              .replace("__IRREG__", json.dumps(json.load(open(P("irreg.json"), encoding="utf-8")), ensure_ascii=False))
+             .replace("__A1__", json.dumps({k: v for k, v in json.load(open(P("a1.json"), encoding="utf-8")).items() if not k.startswith("_")}, ensure_ascii=False))
              .replace("__SCENES__", "\n".join(scenes)))
     out = out or os.path.join(HERE, "..", "index.html")
     open(out, "w", encoding="utf-8").write(html)

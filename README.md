@@ -23,6 +23,11 @@ caderno de detetive com perguntas de compreensão e um reconto final.
 - **Capítulos curtos no passado**, com ilustração, sequence words destacadas e
   **glossário de toque**: palavras difíceis mostram a tradução, e verbos
   irregulares mostram *infinitive* e *past* (*see · saw*).
+- **Configurações** (ícone de engrenagem, em todas as telas): glossário em três
+  níveis (*Normal*, só as palavras difíceis; *Beginner*, para iniciantes totais
+  (A1), com quase todas as palavras traduzidas e tradução nos botões de
+  escolha; *Off*), cores (automático, claro ou escuro), tamanho do texto e
+  animações. Valem para a estante toda e ficam guardadas no próprio aparelho.
 - **Caderno de detetive**: depois de cada capítulo, uma pergunta com uma
   question word. O aluno só continua quando acerta; se errar, recebe uma dica e
   tenta de novo. No fim, vê quantas acertou de primeira.
@@ -69,6 +74,7 @@ fonte/
   modelo/                   esqueleto de história, usado para criar livros novos
   template.html             visual e lógica, iguais para todos os livros
   irreg.json                verbos irregulares do glossário
+  a1.json                   glossário Beginner (A1), cognatos e palavras ignoradas
   build.py                  gera o index.html
   checar.py                 confere a estante e todos os caminhos de cada livro
   nova_historia.py          cria a pasta de um livro novo a partir do modelo
@@ -141,8 +147,8 @@ alunos. Depois:
                "options": ["At IFAL", "In Maceió", "At a music school", "On the bus"],
                "answer": 0, "hint": "Read what Seu Antônio said."},
   "choices": [
-    {"label": "Take it to the school office", "to": "p3z", "event": "...", "eventPt": "..."},
-    {"label": "Look for Rafa", "to": "p3y", "set": ["looked"], "event": "...", "eventPt": "..."}
+    {"label": "Take it to the school office", "labelPt": "Levar o celular à secretaria da escola", "to": "p3z", "event": "...", "eventPt": "..."},
+    {"label": "Look for Rafa", "labelPt": "Procurar o Rafa", "to": "p3y", "set": ["looked"], "event": "...", "eventPt": "..."}
   ]
 }
 ```
@@ -161,8 +167,14 @@ alunos. Depois:
   (`"alt": [{"if": "posted", "to": "e6"}]`). Se mais de um `alt` (ou
   `sceneIf`) combinar com as marcas do leitor, vale o **último** da lista, no
   jogo e no `checar.py`.
+- `labelPt`: o texto do botão em português, no imperativo. Aparece embaixo do
+  botão quando o glossário está no nível *Beginner*.
 - `event`/`eventPt`: o que aconteceu, no passado e em português. Vão para a
   lista do reconto e para o montador de frases.
+- **Glossário Beginner:** palavras novas nos textos precisam de tradução em
+  `fonte/a1.json`, ou entrar em `_cognatos` (cognatos verdadeiros, como
+  *cinema*) ou em `_ignorar` (palavras em português na história). O
+  `checar.py` avisa quais faltam.
 - Finais (`endings`) têm também `rank` (ordem no mapa, do melhor ao pior),
   `tier` (`good`, `mixed` ou `bad`), `emoji` e `short` (nome curto do mapa).
 

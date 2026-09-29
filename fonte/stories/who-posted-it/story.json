@@ -101,6 +101,7 @@
    "choices": [
     {
      "label": "Forward it to other groups",
+     "labelPt": "Encaminhar para outros grupos",
      "to": "p2a",
      "event": "he forwarded the message to other groups",
      "eventPt": "ele encaminhou a mensagem para outros grupos",
@@ -110,6 +111,7 @@
     },
     {
      "label": "Ask the coordinator first",
+     "labelPt": "Perguntar à coordenadora primeiro",
      "to": "p2b",
      "event": "he decided to ask the coordinator",
      "eventPt": "ele decidiu perguntar à coordenadora"
@@ -143,6 +145,7 @@
    "choices": [
     {
      "label": "Say in the group that Pedro did it",
+     "labelPt": "Dizer no grupo que foi o Pedro",
      "to": "p3y",
      "event": "he said in the group that Pedro did it",
      "eventPt": "ele disse no grupo que foi o Pedro",
@@ -152,6 +155,7 @@
     },
     {
      "label": "Look for proof first",
+     "labelPt": "Procurar provas primeiro",
      "to": "p3x",
      "event": "he looked for proof first",
      "eventPt": "ele procurou provas primeiro"
@@ -185,12 +189,14 @@
    "choices": [
     {
      "label": "Investigate alone",
+     "labelPt": "Investigar sozinho",
      "to": "p3x",
      "event": "he started to investigate alone",
      "eventPt": "ele começou a investigar sozinho"
     },
     {
      "label": "Ask Lia to help",
+     "labelPt": "Pedir ajuda à Lia",
      "to": "p3z",
      "event": "he asked Lia to help",
      "eventPt": "ele pediu ajuda à Lia",
@@ -234,12 +240,14 @@
    "choices": [
     {
      "label": "Talk to Mariana alone",
+     "labelPt": "Falar com a Mariana sozinho",
      "to": "p4a",
      "event": "he went to talk to Mariana",
      "eventPt": "ele foi falar com a Mariana"
     },
     {
      "label": "Take the clues to Dona Sônia",
+     "labelPt": "Levar as pistas à Dona Sônia",
      "to": "p4b",
      "event": "he took the clues to Dona Sônia",
      "eventPt": "ele levou as pistas para a Dona Sônia"
@@ -275,12 +283,14 @@
    "choices": [
     {
      "label": "Say sorry and look for the truth",
+     "labelPt": "Pedir desculpas e procurar a verdade",
      "to": "p4b",
      "event": "he said sorry and looked for the truth",
      "eventPt": "ele pediu desculpas e procurou a verdade"
     },
     {
      "label": "Keep blaming Pedro",
+     "labelPt": "Continuar culpando o Pedro",
      "to": "p4c",
      "event": "he kept blaming Pedro",
      "eventPt": "ele continuou culpando o Pedro"
@@ -314,12 +324,14 @@
    "choices": [
     {
      "label": "Post a correction with Caio's help",
+     "labelPt": "Postar uma correção com a ajuda do Caio",
      "to": "p4d",
      "event": "they posted a correction with Caio",
      "eventPt": "eles postaram uma correção com o Caio"
     },
     {
      "label": "Take the information to Dona Sônia",
+     "labelPt": "Levar a informação à Dona Sônia",
      "to": "p4b",
      "event": "they took the information to Dona Sônia",
      "eventPt": "eles levaram a informação para a Dona Sônia"
@@ -355,12 +367,14 @@
    "choices": [
     {
      "label": "Help Mariana send the full message",
+     "labelPt": "Ajudar a Mariana a enviar a mensagem completa",
      "to": "e2",
      "event": "he helped Mariana send the full message",
      "eventPt": "ele ajudou a Mariana a enviar a mensagem completa"
     },
     {
      "label": "Say it was Mariana's fault",
+     "labelPt": "Dizer que a culpa foi da Mariana",
      "to": "e4",
      "event": "he said it was Mariana's fault",
      "eventPt": "ele disse que a culpa era da Mariana"
@@ -401,6 +415,7 @@
    "choices": [
     {
      "label": "Write an official message together",
+     "labelPt": "Escrever juntos um comunicado oficial",
      "to": "e1",
      "event": "they wrote an official message together",
      "eventPt": "eles escreveram juntos um comunicado oficial",
@@ -413,6 +428,7 @@
     },
     {
      "label": "Let Dona Sônia do it alone",
+     "labelPt": "Deixar a Dona Sônia fazer isso sozinha",
      "to": "e4",
      "event": "he let Dona Sônia do it alone",
      "eventPt": "ele deixou a Dona Sônia fazer isso sozinha",
@@ -452,12 +468,14 @@
    "choices": [
     {
      "label": "Stop and say sorry to Pedro",
+     "labelPt": "Parar e pedir desculpas ao Pedro",
      "to": "e3",
      "event": "he stopped and said sorry to Pedro",
      "eventPt": "ele parou e pediu desculpas ao Pedro"
     },
     {
      "label": "Keep fighting in the group",
+     "labelPt": "Continuar brigando no grupo",
      "to": "e6",
      "event": "he kept fighting in the group",
      "eventPt": "ele continuou brigando no grupo"
@@ -493,12 +511,14 @@
    "choices": [
     {
      "label": "Ask Dona Sônia to confirm it",
+     "labelPt": "Pedir à Dona Sônia para confirmar",
      "to": "e1",
      "event": "they asked Dona Sônia to confirm it",
      "eventPt": "eles pediram à Dona Sônia para confirmar"
     },
     {
      "label": "Post more messages in capital letters",
+     "labelPt": "Postar mais mensagens em letras maiúsculas",
      "to": "e4",
      "event": "they posted many messages in capital letters",
      "eventPt": "eles postaram muitas mensagens em letras maiúsculas"

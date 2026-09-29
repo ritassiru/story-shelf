@@ -19,6 +19,12 @@ SEQ = ["first", "then", "after that", "next", "suddenly", "later", "finally", "i
 META = ["slug", "title", "level", "grammar", "blurb", "cover", "chapters", "choicePrompt", "keywords"]
 # "going to" + verbo: o template mostra como futuro. A mesma regra está em template.html (GOING_TO).
 GOING_TO = re.compile(r"\b(going to)(?=\s+(?!(?:the|a|an|my|your|his|her|its|our|their|this|that|these|those|school|bed|sleep|work|church|class|town|home)\b)[a-z])", re.I)
+# glossário Beginner (A1): toda palavra dos textos precisa de tradução em a1.json, estar em _cognatos ou em SEM_A1
+A1 = json.load(open(os.path.join(HERE, "a1.json"), encoding="utf-8"))
+SEM_A1 = {"a", "an", "the", "i", "you", "it", "is", "are", "am", "to", "and", "of", "in", "on", "at"}
+CONHECIDAS = set(A1) | set(A1.get("_cognatos", [])) | set(A1.get("_ignorar", [])) | SEM_A1 | {"didn't", "wasn't", "weren't", "hadn't", "couldn't"}
+for _b, _p, _pp, _ in IR:
+    CONHECIDAS |= {_b, _b + "s", _b + "es", _b + "ing", _b[:-1] + "ing", _b + _b[-1] + "ing", _b[:-2] + "ying"} | set(_p.split(" / ")) | set(_pp.split(" / "))
 has_past = lambda s: any(x in PAST or (x.endswith("ed") and len(x) > 3 and x not in NOT_PAST) for x in re.findall(r"[a-z']+", s.lower()))
 
 def texto(par, flags):
@@ -68,6 +74,17 @@ def check_book(slug, pasta):
             # "going home", "going well": verbo go, sem ambiguidade. Só "going to" + artigo/lugar merece conferência.
             solto = re.search(r"\bgoing to\b", GOING_TO.sub("", re.sub(r"\[\[[^\]]+\]\]", "", f)), re.I)
             if solto: avisos.append(f"{nid}: 'going to' tratado como o verbo go (movimento), com balão go · went. Se for futuro, marque com [[...]]: '...{f[max(0, solto.start() - 20):solto.end() + 25]}...'")
+    textos = [p if isinstance(p, str) else p.get("text", p.get("msg", "")) for n in {**N, **E}.values() for p in n["text"]]
+    textos += [n.get("event", "") for n in {**N, **E}.values()] + [c["event"] for n in N.values() for c in n.get("choices", [])]
+    # nomes próprios (com maiúscula no meio da frase, e nunca em minúscula) ficam de fora, também com 's
+    limpos = [re.sub(r"\[\[[^\]]+\]\]", " ", t) for t in textos]
+    minusc = {w for t in limpos for w in re.findall(r"\b[a-zà-ÿ]+\b", t)}
+    nomes = {w.lower() for t in limpos for w in re.findall(r"(?<=[a-zà-ÿ,] )([A-ZÀ-Ý][a-zà-ÿ]+)", t)} - minusc
+    vistas = {w.lower().replace("’", "'") for t in limpos for w in re.findall(r"[A-Za-zÀ-ÿ]+(?:['’][A-Za-zÀ-ÿ]+)?", t)}
+    faltam = sorted(w for w in vistas if w not in CONHECIDAS and re.sub(r"'s$", "", w) not in nomes)
+    if faltam: avisos.append("glossário Beginner: palavras sem tradução em a1.json (ou em _cognatos): " + ", ".join(faltam))
+    sem_pt = [f"{nid}: {c['label']}" for nid, n in N.items() for c in n.get("choices", []) if not c.get("labelPt")]
+    if sem_pt: avisos.append("escolhas sem labelPt (tradução do botão no nível Beginner): " + "; ".join(sem_pt))
     if erros: return erros, avisos, None
     paths = []
     def walk(nid, flags, trail):

@@ -136,12 +136,14 @@
    "choices": [
     {
      "label": "Introduce her in English and translate for the class",
+     "labelPt": "Apresentá-la em inglês e traduzir para a turma",
      "to": "p2a",
      "event": "he introduced her in English and translated for the class",
      "eventPt": "ele a apresentou em inglês e traduziu para a turma"
     },
     {
      "label": "Let her try to introduce herself in Portuguese",
+     "labelPt": "Deixar que ela tente se apresentar em português",
      "to": "p2b",
      "event": "he let her try to speak Portuguese",
      "eventPt": "ele deixou que ela tentasse falar português"
@@ -176,6 +178,7 @@
    "choices": [
     {
      "label": "Laugh along. It's just a joke",
+     "labelPt": "Rir junto. É só uma piada",
      "to": "p3y",
      "event": "he laughed at Tiago's joke",
      "eventPt": "ele riu da piada do Tiago",
@@ -185,6 +188,7 @@
     },
     {
      "label": "Tell Tiago to stop",
+     "labelPt": "Pedir para o Tiago parar",
      "to": "p3x",
      "event": "he told Tiago to stop",
      "eventPt": "ele pediu para o Tiago parar",
@@ -221,12 +225,14 @@
    "choices": [
     {
      "label": "Tell her it's normal and offer to practice with her",
+     "labelPt": "Dizer que é normal e se oferecer para praticar com ela",
      "to": "p3x",
      "event": "he offered to practice Portuguese with her",
      "eventPt": "ele se ofereceu para praticar português com ela"
     },
     {
      "label": "Change the subject",
+     "labelPt": "Mudar de assunto",
      "to": "p3z",
      "event": "he changed the subject",
      "eventPt": "ele mudou de assunto"
@@ -267,12 +273,14 @@
    "choices": [
     {
      "label": "Take her to the town festival",
+     "labelPt": "Levá-la à festa da cidade",
      "to": "p4a",
      "event": "he took her to the town festival",
      "eventPt": "ele a levou à festa da cidade"
     },
     {
      "label": "Take her to the mall in Maceió",
+     "labelPt": "Levá-la ao shopping em Maceió",
      "to": "p4b",
      "event": "he took her to the mall in Maceió",
      "eventPt": "ele a levou ao shopping em Maceió",
@@ -309,12 +317,14 @@
    "choices": [
     {
      "label": "Apologize to Aoife",
+     "labelPt": "Pedir desculpas à Aoife",
      "to": "p4b",
      "event": "he apologized to Aoife",
      "eventPt": "ele pediu desculpas à Aoife"
     },
     {
      "label": "Ignore it. She'll get used to it",
+     "labelPt": "Ignorar. Ela vai se acostumar",
      "to": "p4c",
      "event": "he ignored the problem",
      "eventPt": "ele ignorou o problema"
@@ -348,12 +358,14 @@
    "choices": [
     {
      "label": "Invite her to study with your friends",
+     "labelPt": "Convidá-la para estudar com os seus amigos",
      "to": "p4d",
      "event": "he invited her to study with his friends",
      "eventPt": "ele a convidou para estudar com os amigos dele"
     },
     {
      "label": "Leave her alone. She seems fine",
+     "labelPt": "Deixá-la em paz. Ela parece bem",
      "to": "p4c",
      "event": "he decided to leave her alone",
      "eventPt": "ele decidiu deixá-la em paz"
@@ -386,12 +398,14 @@
    "choices": [
     {
      "label": "Tell her to stay another semester",
+     "labelPt": "Pedir para ela ficar mais um semestre",
      "to": "e1",
      "event": "he told her to stay another semester",
      "eventPt": "ele disse para ela ficar mais um semestre"
     },
     {
      "label": "Help her organize a culture afternoon at school",
+     "labelPt": "Ajudá-la a organizar uma tarde cultural na escola",
      "to": "e2",
      "event": "he helped her organize a culture afternoon",
      "eventPt": "ele a ajudou a organizar uma tarde cultural"
@@ -432,12 +446,14 @@
    "choices": [
     {
      "label": "Help her write the presentation",
+     "labelPt": "Ajudá-la a escrever a apresentação",
      "to": "e4",
      "event": "he helped her write the presentation",
      "eventPt": "ele a ajudou a escrever a apresentação"
     },
     {
      "label": "Say you're too busy",
+     "labelPt": "Dizer que você está ocupado demais",
      "to": "e3",
      "event": "he said he was too busy",
      "eventPt": "ele disse que estava ocupado demais"
@@ -474,12 +490,14 @@
    "choices": [
     {
      "label": "Go and talk to her now",
+     "labelPt": "Ir falar com ela agora",
      "to": "e3",
      "event": "he finally went to talk to her",
      "eventPt": "ele finalmente foi falar com ela"
     },
     {
      "label": "Do nothing. It's not your problem",
+     "labelPt": "Não fazer nada. O problema não é seu",
      "to": "e5",
      "event": "he did nothing",
      "eventPt": "ele não fez nada",
@@ -518,12 +536,14 @@
    "choices": [
     {
      "label": "Take her to the town festival with the group",
+     "labelPt": "Levá-la à festa da cidade com o grupo",
      "to": "e1",
      "event": "they took her to the town festival",
      "eventPt": "eles a levaram à festa da cidade"
     },
     {
      "label": "Organize a culture afternoon with the group",
+     "labelPt": "Organizar uma tarde cultural com o grupo",
      "to": "e2",
      "event": "they organized a culture afternoon",
      "eventPt": "eles organizaram uma tarde cultural"
