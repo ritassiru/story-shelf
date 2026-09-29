@@ -17,6 +17,12 @@ caderno de detetive com perguntas de compreensão e um reconto final.
 |---|---|---|---|
 | **The Phone on the Bus** | A2 | Simple past · question words · sequence words | 1º ano |
 
+## QR codes para a aula
+
+A página **https://ritassiru.github.io/story-shelf/professor.html** tem um QR code para a estante e um para cada livro, pronta para
+imprimir (vários por folha) ou projetar (um por página). Ela é gerada pelo
+`build.py` e se atualiza sozinha quando um livro novo é publicado.
+
 ## Instalar no celular e usar sem internet
 
 Depois da **primeira** visita com internet, o celular guarda o livros da estante e ele abre

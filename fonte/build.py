@@ -13,6 +13,7 @@ instalar a estante no celular e abri-la sem internet depois da primeira visita
 import base64, hashlib, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 P = lambda *p: os.path.join(HERE, *p)
+URL = "https://ritassiru.github.io/story-shelf/"   # endereço publicado (GitHub Pages), usado nos QR codes
 FACES = [("Fraunces", 600, "normal", "fraunces-latin-600-normal.woff2"), ("Fraunces", 800, "normal", "fraunces-latin-800-normal.woff2"),
          ("Atkinson Hyperlegible", 400, "normal", "atkinson-hyperlegible-latin-400-normal.woff2"),
          ("Atkinson Hyperlegible", 400, "italic", "atkinson-hyperlegible-latin-400-italic.woff2"),
@@ -47,10 +48,18 @@ def main(online=False, drafts=False, out=None):
     print(f"gerado: {out} | livros: {', '.join(b['slug'] for b in books)} | {len(html.encode()) // 1024} KB")
     if out == os.path.join(HERE, "..", "index.html"):   # só para a estante publicada (não para --out)
         arquivos_do_app(os.path.join(HERE, ".."), "story-shelf", shelf["title"], "Story Shelf", shelf["subtitle"], html)
+        # página do professor: um QR code para a estante e um para cada livro publicado (#slug abre a capa)
+        sys.path.insert(0, HERE)
+        from qr import pagina_professor
+        cartoes = [(shelf["title"], "A estante inteira · todos os livros", URL)] + [
+            (b["title"], f'{b["level"]} · {", ".join(b["grammar"])}', URL + "#" + b["slug"]) for b in books]
+        pag = pagina_professor(shelf["title"], shelf["subtitle"], cartoes)
+        open(os.path.join(HERE, "..", "professor.html"), "w", encoding="utf-8", newline="\n").write(pag)
+        print(f"professor.html gerado ({len(cartoes)} QR codes)")
 
 # ---------------- aplicativo (PWA): instalar no celular e abrir sem internet ----------------
 ICONES = ["icon-192.png", "icon-512.png", "apple-touch-icon.png"]
-SW = """// GERADO por fonte/build.py. Nunca edite à mão.
+SW = r"""// GERADO por fonte/build.py. Nunca edite à mão.
 // Guarda a estante no aparelho na primeira visita; depois ela abre mesmo sem internet.
 // A versão muda a cada build: o celular baixa a estante nova na próxima vez que abrir com internet.
 const CACHE = "__PREFIXO__-__VERSAO__";
@@ -70,7 +79,8 @@ self.addEventListener("fetch", e => {
   const r = e.request;
   if (r.method !== "GET" || new URL(r.url).origin !== location.origin) return;
   e.respondWith(caches.open(CACHE).then(c => c.match(r, { ignoreSearch: true }).then(achou => achou ||
-    fetch(r).catch(() => r.mode === "navigate" ? c.match("index.html") : Response.error()))));
+    // sem internet, só a página inicial vira o jogo guardado (professor.html, por exemplo, não)
+    fetch(r).catch(() => r.mode === "navigate" && /\/(index\.html)?$/.test(new URL(r.url).pathname) ? c.match("index.html") : Response.error()))));
 });
 """
 

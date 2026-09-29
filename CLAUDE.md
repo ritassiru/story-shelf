@@ -38,6 +38,7 @@ fonte/nova_historia.py            cria um livro novo a partir do modelo, como ra
 index.html                        GERADO. Nunca edite à mão.
 sw.js, manifest.webmanifest       GERADOS pelo build.py (aplicativo instalável, sem internet)
 icon-*.png, apple-touch-icon.png  ícones do aplicativo (fonte/icones.py)
+professor.html            GERADO: QR codes para imprimir ou projetar (fonte/qr.py, sem dependências)
 aula/<slug>/                      plano e slides de cada livro (feitos fora deste repo)
 ```
 
@@ -108,6 +109,12 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   `the-ceo-game`.
 - Letras acentuadas fazem parte da palavra no glossário (*Sônia* não vira
   *S* + *nia*), no template e no `checar.py`.
+- **Página do professor:** o `build.py` gera `professor.html` com QR codes
+  (da estante e de cada livro publicado (`#slug`)), usando `fonte/qr.py` (gerador próprio, nível M,
+  versões 1 a 10; o mesmo arquivo nos dois projetos). O endereço publicado fica
+  em `URL` no `build.py`. O `qr.py` foi conferido módulo a módulo com a
+  biblioteca `segno` e os códigos gerados foram lidos pelo OpenCV: se mexer
+  nele, repita essa conferência. A página não entra no `sw.js`.
 - **Aplicativo (PWA):** o `build.py` gera `sw.js` e `manifest.webmanifest`
   (GERADOS, nunca edite à mão) e o template registra o `sw.js` só em https ou
   localhost. O `sw.js` guarda o `index.html` e os ícones no aparelho; a versão
