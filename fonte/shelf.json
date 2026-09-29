@@ -4,6 +4,6 @@
  "books": [
   {"slug": "the-phone-on-the-bus", "published": true},
   {"slug": "who-posted-it", "published": true},
-  {"slug": "the-fortune-app", "published": false}
+  {"slug": "the-fortune-app", "published": true}
  ]
 }

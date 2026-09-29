@@ -13,7 +13,7 @@ no escuro, e **sem internet**.
 
 Livros hoje: `the-phone-on-the-bus` e `who-posted-it` (1º ano; Simple past,
 question words, sequence words) e `the-fortune-app` (1º ano, 4º bimestre;
-Simple future, simple past, question words; rascunho). Projeto irmão: `ritassiru/the-ceo-game` (2º ano); mantenha a
+Simple future, simple past, question words). Projeto irmão: `ritassiru/the-ceo-game` (2º ano); mantenha a
 consistência visual entre eles.
 
 ## Arquitetura
