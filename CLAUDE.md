@@ -124,6 +124,14 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   `state.t0`), e na estante, e a revisão em cartões abre no mesmo painel das configurações
   (`openSheet`), então não mexe na leitura nem na trava do reconto. *Not yet* zera o acerto da palavra,
   e ela volta primeiro na próxima revisão. *Clear my words* pede dois toques.
+- **Áudio:** usa a voz em inglês que já vem no aparelho (`speechSynthesis`),
+  nada é baixado nem enviado. Tocar numa palavra do glossário fala a palavra
+  (o balão continua sem receber toques); o botão *🔊 Listen* lê o título e o
+  texto visível do capítulo ou final (cada parágrafo termina numa pausa), frase
+  por frase, sem emojis. Configuração *Audio*: normal, devagar (0,7) ou
+  desligado (os botões somem). Sem voz em inglês no aparelho, a opção e os
+  botões nem aparecem. No PC de teste do professor o Chrome só tem vozes do
+  Google, que precisam de internet; no Android as vozes costumam ser locais.
 - Reconto: cada frase com verbo no passado e o mínimo de sequence words
   diferentes; montador em no máximo `maxHelp` frases; editar uma frase montada
   não tira a etiqueta.

@@ -1,7 +1,7 @@
 // GERADO por fonte/build.py. Nunca edite à mão.
 // Guarda a estante no aparelho na primeira visita; depois ela abre mesmo sem internet.
 // A versão muda a cada build: o celular baixa a estante nova na próxima vez que abrir com internet.
-const CACHE = "story-shelf-1ac33e513236";
+const CACHE = "story-shelf-f14dc0239402";
 const ARQUIVOS = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE)

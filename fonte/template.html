@@ -167,6 +167,14 @@ textarea { width: 100%; font: inherit; font-size: 1.02rem; color: var(--ink); ba
 .wcard b { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.6rem; color: var(--berry); line-height: 1.2; }
 .wcard span { display: block; margin-top: 8px; font-size: 1.1rem; }
 .wbtns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+/* áudio */
+.say { display: none; align-items: center; gap: 6px; font: inherit; font-size: 0.88rem; font-weight: 700; color: var(--berry); background: none; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 12px; margin: 0 0 10px; cursor: pointer; }
+.say span { font-weight: 400; }
+.can-speak .say { display: inline-flex; }
+.say[aria-pressed="true"] { border-color: var(--berry); background: var(--cream); }
+.say:focus-visible { outline: 3px solid var(--gold, var(--rep)); outline-offset: 2px; }
+.wcard + .say { margin: -4px auto 12px; }
+
 .wbtns .btn { text-align: center; }
 .wscore { font-weight: 700; font-size: 1.15rem; color: var(--berry); }
 .wscore span { font-weight: 400; font-size: 0.95rem; color: var(--muted); }
@@ -390,6 +398,10 @@ function screenBefore() {
   window.scrollTo(0, 0);
 }
 
+// o texto visível de um capítulo ou final, para o botão 🔊
+// cada parágrafo termina numa pausa, mesmo sem ponto final (as mensagens de celular, por exemplo)
+const textoVisivel = list => list.filter(visible).map(p => (typeof p === "string" ? p : (p.text || p.msg || "")).trim())
+  .map(t => /[.!?”"’)]$/.test(t) ? t : t + ".").join(" ");
 function paragraphs(list) {
   let first = true;
   return list.filter(visible).map(p => {
@@ -428,7 +440,7 @@ function screenNode(id) {
   let sc = n.scene; (n.sceneIf || []).forEach(a => { if (state.flags.includes(a.if)) sc = a.scene; });
   $("#app").innerHTML = topBar(`Chapter ${n.chapter} of ${book.chapters}`) + `<div class="page">${scene(book.slug, sc, n.title)}
     <div class="page-body"><p class="ch-kicker">Chapter ${n.chapter}</p><div class="ch-title">${esc(n.title)}</div>
-    <div class="story">${paragraphs(n.text)}</div><div class="pageno">— ${n.chapter * 2 + 1} —</div></div></div>
+    ${sayButton(n.title + ". " + textoVisivel(n.text))}<div class="story">${paragraphs(n.text)}</div><div class="pageno">— ${n.chapter * 2 + 1} —</div></div></div>
     ${questionHTML(n.question)}<div id="choices" hidden><p class="choose-t">${esc(book.choicePrompt)}</p><div class="choices">
       ${n.choices.map((c, i) => `<button type="button" class="btn" data-choice="${i}">${esc(c.label)}${c.labelPt ? `<span class="opt-pt">${esc(c.labelPt)}</span>` : ""}</button>`).join("")}</div></div>`;
   wireQuestion(id, n.question, () => { $("#choices").hidden = false; $("#choices").scrollIntoView({ behavior: smooth(), block: "nearest" }); });
@@ -454,7 +466,7 @@ function screenEnding(id) {
     <div class="page-body"><div class="ending-emoji" aria-hidden="true">${e.emoji}</div>
     ${isNew && found.size > 1 ? '<p class="new-end">New ending! · Final novo!</p>' : ""}
     <p class="ch-kicker">The end</p><div class="ch-title">${esc(e.title)}</div>
-    <div class="story">${paragraphs(e.text)}</div></div></div>
+    ${sayButton(e.title + " " + textoVisivel(e.text))}<div class="story">${paragraphs(e.text)}</div></div></div>
     ${questionHTML(e.question)}<div id="after" hidden></div>`;
   wireQuestion(id, e.question, () => {
     if (!state.saved) {
@@ -590,11 +602,69 @@ function historyHTML() {
     <button type="button" class="help-btn" id="clear">Clear my history <span>· apagar meu histórico deste livro</span></button></div>`;
 }
 
+/* ---------------- áudio: a voz em inglês que já vem no celular (nada é baixado nem enviado) ---------------- */
+const synth = "speechSynthesis" in window ? window.speechSynthesis : null;
+let voz = null, falando = null;   // falando: o botão 🔊 que está lendo agora
+function escolheVoz() {
+  if (!synth) return null;
+  const vs = synth.getVoices().filter(v => /^en([-_]|$)/i.test(v.lang));
+  // vozes do próprio aparelho primeiro (funcionam sem internet)
+  return vs.find(v => v.localService && /en[-_](US|GB)/i.test(v.lang)) || vs.find(v => v.localService) || vs[0] || null;
+}
+const podeFalar = () => !!(synth && (voz = voz || escolheVoz()));
+if (synth) synth.addEventListener("voiceschanged", () => { voz = escolheVoz(); applySettings(); });
+// texto que vai para a voz: sem [[glossário]], sem emojis, com o nome da empresa; "go · went" vira "go, went"
+const paraFalar = t => String(t).replace(/\[\[([^|\]]+)\|[^\]]+\]\]/g, "$1").replace(/\{name\}/g, (typeof state !== "undefined" && state && state.name) || "")
+  .replace(/\p{Extended_Pictographic}|️|‍/gu, "").replace(/\s·\s/g, ", ").replace(/\s+/g, " ").trim();
+// divide em frases só onde há pontuação seguida de espaço ("8.5" fica inteiro) e não depois de Mr./Ms./Dr. nem antes de minúscula (“Why?” she asked)
+function frases(t) {
+  const out = [];
+  t.split(/([.!?]+[”"’]?\s+)/).forEach((x, i) => {
+    if (i % 2) { out[out.length - 1] += x; return; }
+    const ant = out[out.length - 1];
+    if (ant !== undefined && (/\b(Mr|Ms|Mrs|Dr)\.\s*$/.test(ant) || /^[a-z]/.test(x))) out[out.length - 1] += x; else out.push(x);
+  });
+  return out.map(x => x.trim()).filter(Boolean);
+}
+function fala(texto, botao) {
+  if (!podeFalar() || SET.audio === "off") return;
+  try {
+    synth.cancel(); paraBotao();
+    // frase por frase: alguns navegadores cortam leituras longas no meio
+    const partes = frases(paraFalar(texto));
+    partes.forEach((p, i) => {
+      const u = new SpeechSynthesisUtterance(p);
+      u.voice = voz; u.lang = voz.lang; u.rate = SET.audio === "slow" ? 0.7 : 0.95;
+      if (botao && i === partes.length - 1) { u.onend = u.onerror = () => { if (falando === botao) paraBotao(); }; }
+      synth.speak(u);
+    });
+    if (botao) { falando = botao; botao.setAttribute("aria-pressed", "true"); botao.querySelector("span").textContent = "Stop · parar"; }
+  } catch (e) { /* sem voz: o jogo funciona igual */ }
+}
+function paraBotao() {
+  if (!falando) return;
+  falando.setAttribute("aria-pressed", "false");
+  const s = falando.querySelector("span"); if (s) s.textContent = "Listen · ouvir";
+  falando = null;
+}
+const sayButton = t => `<button type="button" class="say" data-say="${esc(paraFalar(t))}" aria-pressed="false" aria-label="Listen · ouvir o texto">🔊 <span>Listen · ouvir</span></button>`;
+document.addEventListener("click", e => {
+  const b = e.target.closest(".say");
+  if (!b) return;
+  if (b.getAttribute("aria-pressed") === "true") { try { synth.cancel(); } catch (err) { /* nada */ } paraBotao(); return; }
+  fala(b.dataset.say, b);
+});
+// ao trocar de tela, a leitura para
+new MutationObserver(() => { if (falando && !document.contains(falando)) { try { synth.cancel(); } catch (e) { /* nada */ } falando = null; } })
+  .observe(document.body, { childList: true, subtree: true });
+
 /* ---------------- configurações (engrenagem; valem para a estante toda, guardadas no aparelho) ---------------- */
 const SETTINGS = [
   // [chave, nome, nome em pt, dica, opções: [valor, rótulo, rótulo em pt]]
   ["gloss", "Glossary", "glossário", "Toque nas palavras sublinhadas para ver a tradução. No Beginner, quase todas as palavras têm tradução, e os botões também.",
     [["on", "Normal", "palavras difíceis"], ["a1", "Beginner", "iniciante (A1)"], ["off", "Off", "desligado"]]],
+  ["audio", "Audio", "áudio", "Toque numa palavra sublinhada para ouvir a pronúncia, ou use o botão 🔊 Listen para ouvir o texto.",
+    [["on", "Normal", "normal"], ["slow", "Slow", "devagar"], ["off", "Off", "desligado"]]],
   ["theme", "Colors", "cores", "",
     [["auto", "Auto", "igual ao celular"], ["light", "Light", "claro"], ["dark", "Dark", "escuro"]]],
   ["size", "Text size", "tamanho do texto", "",
@@ -617,6 +687,8 @@ function applySettings() {
   if (SET.theme === "auto") r.removeAttribute("data-theme"); else r.dataset.theme = SET.theme;
   if (SET.size === "normal") r.removeAttribute("data-size"); else r.dataset.size = SET.size;
   r.classList.toggle("no-motion", SET.motion === "off");
+  r.classList.toggle("can-speak", podeFalar() && SET.audio !== "off");
+  if (SET.audio === "off" && synth) { try { synth.cancel(); } catch (e) { /* nada */ } }
   glossTabs();
 }
 const GEAR = `<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor">${[0, 45, 90, 135].map(a =>
@@ -625,7 +697,7 @@ const gearButton = () => `<button type="button" class="gear" id="gear" aria-labe
 function settingsHTML() {
   return `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="st-t">
     <h2 id="st-t">Settings <span>· configurações</span></h2>
-    ${SETTINGS.map(([k, en, pt, hint, opts]) => `
+    ${SETTINGS.filter(([k]) => k !== "audio" || podeFalar()).map(([k, en, pt, hint, opts]) => `
       <div class="st-g" role="group" aria-labelledby="st-${k}">
         <p class="step-t" id="st-${k}">${en} <span>· ${pt}</span></p>
         ${hint ? `<p class="st-h">${hint}</p>` : ""}
@@ -760,7 +832,7 @@ function wordsHTML() {
   const w = rv.deck[rv.i];
   return `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="st-t">${head}
     <p class="hint">Card ${rv.i + 1} of ${rv.deck.length} · cartão ${rv.i + 1} de ${rv.deck.length}</p>
-    <div class="wcard" aria-live="polite"><b>${esc(w.en)}</b>${rv.shown ? `<span>= ${esc(w.pt)}</span>` : `<span class="hint">O que significa? · What does it mean?</span>`}</div>
+    <div class="wcard" aria-live="polite"><b>${esc(w.en)}</b>${rv.shown ? `<span>= ${esc(w.pt)}</span>` : `<span class="hint">O que significa? · What does it mean?</span>`}</div>${sayButton(w.en)}
     ${rv.shown ? `<div class="wbtns"><button type="button" class="btn primary" id="w-yes">I knew it ✓ <span>· eu sabia</span></button>
       <button type="button" class="btn center" id="w-no">Not yet ↻ <span>· ainda não</span></button></div>`
       : `<button type="button" class="btn primary" id="w-show">Show the translation <span>· ver a tradução</span></button>`}
@@ -799,6 +871,7 @@ document.addEventListener("click", e => {
     rememberWord("v:" + b, [b, p, pp].slice(0, verbForms()).join(" · "), pt);
   } else { tip.textContent = g.textContent + (g.dataset.base ? ` (${g.dataset.base})` : "") + " = " + g.dataset.pt; rememberWord("g:" + wordOf(g), wordOf(g), g.dataset.pt); }
   tip.classList.add("on");
+  fala(g.textContent);
   const r = g.getBoundingClientRect();
   tip.style.left = Math.max(8, Math.min(window.scrollX + r.left, window.scrollX + document.documentElement.clientWidth - tip.offsetWidth - 8)) + "px";
   const above = r.top - tip.offsetHeight - 6;

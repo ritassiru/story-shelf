@@ -38,10 +38,13 @@ próxima vez que abrir com internet (às vezes só na segunda vez).
 - **My words:** as palavras que o aluno consultou no glossário aparecem no
   caderno, no fim da leitura, e podem ser revisadas em cartões (na estante).
   Ficam só no aparelho.
+- **Áudio:** tocar numa palavra sublinhada fala a pronúncia, e o botão
+  🔊 *Listen* lê o capítulo, com a voz que já vem no celular.
 - **Configurações** (ícone de engrenagem, em todas as telas): glossário em três
   níveis (*Normal*, só as palavras difíceis; *Beginner*, para iniciantes totais
   (A1), com quase todas as palavras traduzidas e tradução nos botões de
-  escolha; *Off*), cores (automático, claro ou escuro), tamanho do texto e
+  escolha; *Off*), áudio (normal, devagar ou desligado), cores (automático, claro ou escuro),
+  tamanho do texto e
   animações. Valem para a estante toda e ficam guardadas no próprio aparelho.
 - **Caderno de detetive**: depois de cada capítulo, uma pergunta com uma
   question word. O aluno só continua quando acerta; se errar, recebe uma dica e
