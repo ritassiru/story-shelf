@@ -36,6 +36,8 @@ fonte/build.py                    gera ../index.html (--online, --drafts, --out)
 fonte/checar.py                   valida a estante e percorre todos os caminhos de cada livro
 fonte/nova_historia.py            cria um livro novo a partir do modelo, como rascunho
 index.html                        GERADO. Nunca edite à mão.
+sw.js, manifest.webmanifest       GERADOS pelo build.py (aplicativo instalável, sem internet)
+icon-*.png, apple-touch-icon.png  ícones do aplicativo (fonte/icones.py)
 aula/<slug>/                      plano e slides de cada livro (feitos fora deste repo)
 ```
 
@@ -106,6 +108,16 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   `the-ceo-game`.
 - Letras acentuadas fazem parte da palavra no glossário (*Sônia* não vira
   *S* + *nia*), no template e no `checar.py`.
+- **Aplicativo (PWA):** o `build.py` gera `sw.js` e `manifest.webmanifest`
+  (GERADOS, nunca edite à mão) e o template registra o `sw.js` só em https ou
+  localhost. O `sw.js` guarda o `index.html` e os ícones no aparelho; a versão
+  (`CACHE`) vem do conteúdo, então **todo build que muda a estante muda o `sw.js`**
+  e o celular pega a versão nova ao abrir com internet (na primeira ou na
+  segunda vez). Os dois projetos ficam no mesmo site (`ritassiru.github.io`):
+  o prefixo do cache (`ceo-game-` / `story-shelf-`) impede um de apagar o do
+  outro. Ícones: `python3 fonte/icones.py` (sem dependências). O navegador
+  embutido do app do Claude **não aceita service workers**: teste no Chrome.
+  Só a estante publicada (sem `--out`) gera esses arquivos.
 - Reconto: cada frase com verbo no passado e o mínimo de sequence words
   diferentes; montador em no máximo `maxHelp` frases; editar uma frase montada
   não tira a etiqueta.

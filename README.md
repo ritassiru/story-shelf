@@ -17,6 +17,18 @@ caderno de detetive com perguntas de compreensão e um reconto final.
 |---|---|---|---|
 | **The Phone on the Bus** | A2 | Simple past · question words · sequence words | 1º ano |
 
+## Instalar no celular e usar sem internet
+
+Depois da **primeira** visita com internet, o celular guarda o livros da estante e ele abre
+mesmo sem sinal. Para ter um ícone na tela inicial:
+
+- **Android (Chrome):** engrenagem ⚙️ → *Install the shelf*, ou menu ⋮ →
+  *Instalar app* / *Adicionar à tela inicial*.
+- **iPhone (Safari):** botão *Compartilhar* → *Adicionar à Tela de Início*.
+
+Quando você publica uma mudança, o celular baixa a versão nova sozinho na
+próxima vez que abrir com internet (às vezes só na segunda vez).
+
 ## O que todo livro tem
 
 - **Palavras-chave antes de começar**, com tradução.
