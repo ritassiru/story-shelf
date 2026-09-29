@@ -970,8 +970,28 @@ function checkSentence(s) {
   const t = s.trim();
   if (t.split(/\s+/).filter(Boolean).length < 4) return { ok: false, msg: "Write a complete sentence (at least 4 words)." };
   if (!hasPast(t)) return { ok: false, msg: "Use a verb in the past: found, went, called, looked..." };
+  // dicas (a frase passa assim mesmo): erros típicos com o passado
+  const low = t.toLowerCase().replace(/[’]/g, "'"), dicas = [];
+  // did/didn't + passado: confere a palavra seguinte e a outra (did she found)
+  const passado = w => !!w && (IRREG_PAST.has(w) || (/ed$/.test(w) && w.length > 3 && !NOT_PAST.has(w)));
+  const d = low.match(/\b(did not|didn't|did)\s+([a-z]+)(?:\s+([a-z]+))?/);
+  const dw = d && (passado(d[2]) ? d[2] : passado(d[3]) ? d[3] : null);
+  if (dw) dicas.push(`depois de ${d[1]}, o verbo fica na forma base: ${d[1]} ${IRREG_PAST.get(dw) || "+ verbo sem -ed"} (não ${d[1]} ${dw})`);
+  (low.match(/[a-z]+/g) || []).forEach(w => {
+    if (WRONG_PAST.has(w)) dicas.push(`${w} → ${WRONG_PAST.get(w)} (verbo irregular)`);
+    else if (/[^aeiou]yed$/.test(w)) dicas.push(`${w} → ${w.replace(/yed$/, "ied")} (y vira ied)`);
+  });
+  if (dicas.length) return { ok: true, msg: "Good! Tip · dica: " + [...new Set(dicas)].join("; ") + "." };
   return { ok: true, msg: "Good!" };
 }
+// apoio para as dicas: passado irregular -> forma base (went -> go) e passado "regularizado" errado (goed -> went);
+// NOT_PAST tira as palavras de verdade que a regra geraria (bed, seed)
+const IRREG_PAST = new Map(), WRONG_PAST = new Map();
+IRREG.forEach(([b, p]) => p.split(" / ").forEach(f => {
+  if (f === b) return;
+  if (!IRREG_PAST.has(f)) IRREG_PAST.set(f, b);
+  [b + "ed", b.replace(/e$/, "") + "ed", b.replace(/y$/, "ied")].forEach(w => { if (w !== f && w !== b && !NOT_PAST.has(w) && !WRONG_PAST.has(w)) WRONG_PAST.set(w, p); });
+}));
 function checkAll() {
   const cfg = R(); let all = true; const seq = new Set();
   for (let n = 1; n <= cfg.sentences; n++) {

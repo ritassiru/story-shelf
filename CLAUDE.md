@@ -132,6 +132,11 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   desligado (os botões somem). Sem voz em inglês no aparelho, a opção e os
   botões nem aparecem. No PC de teste do professor o Chrome só tem vozes do
   Google, que precisam de internet; no Android as vozes costumam ser locais.
+- **Dicas no reconto (`checkSentence`):** a frase passa, mas ganha dica para
+  *studyed* (→ *studied*), passado irregular "regularizado" (*goed*, *buyed*: a
+  lista sai do `irreg.json`) e *did/didn't* + passado (*didn't went*). As frases
+  do montador (sequence word + `event`) nunca podem receber dica: se mudar a
+  regra ou um `event`, teste todas.
 - Reconto: cada frase com verbo no passado e o mínimo de sequence words
   diferentes; montador em no máximo `maxHelp` frases; editar uma frase montada
   não tira a etiqueta.
