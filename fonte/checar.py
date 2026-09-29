@@ -7,7 +7,7 @@ Para cada livro, percorre TODOS os caminhos de leitura e verifica: metadados,
 ilustrações existentes, número de escolhas igual em todos os caminhos, finais
 alcançáveis, perguntas válidas, tamanho da leitura por caminho, variedade de
 question words, sequence words e verbo no passado nos eventos do reconto.
-Avisa também quando um "going" não está em "going to" + verbo (o balão mostraria go · went).
+Avisa também quando um "going to" não foi reconhecido como futuro (o balão mostraria go · went).
 """
 import json, os, re, sys
 from collections import Counter
@@ -36,6 +36,7 @@ def check_book(slug, pasta):
     M, N, E = S.get("meta", {}), S["nodes"], S["endings"]
     for k in META:
         if k not in M: erros.append(f"meta: falta o campo '{k}'")
+    if M.get("verbForms", 2) not in (2, 3): erros.append("meta.verbForms deve ser 2 (infinitive, past) ou 3 (com participle)")
     if M.get("slug") != slug: erros.append(f"meta.slug é '{M.get('slug')}', mas a pasta se chama '{slug}'")
     for g in M.get("keywords", []):
         if isinstance(g, str) and g not in ("sequence", "question"): erros.append(f"keywords: grupo pronto desconhecido '{g}'")
@@ -64,8 +65,9 @@ def check_book(slug, pasta):
     for nid, n in {**N, **E}.items():
         frases = [p if isinstance(p, str) else p.get("text", p.get("msg", "")) for p in n["text"]] + [n.get("event", "")] + [c["event"] for c in n.get("choices", [])]
         for f in frases:
-            solto = re.search(r"\bgoing\b", GOING_TO.sub("", re.sub(r"\[\[[^\]]+\]\]", "", f)), re.I)
-            if solto: avisos.append(f"{nid}: 'going' fora de 'going to' + verbo; o balão vai mostrar go · went. Se for futuro, marque com [[...]]: '{f[:60]}'")
+            # "going home", "going well": verbo go, sem ambiguidade. Só "going to" + artigo/lugar merece conferência.
+            solto = re.search(r"\bgoing to\b", GOING_TO.sub("", re.sub(r"\[\[[^\]]+\]\]", "", f)), re.I)
+            if solto: avisos.append(f"{nid}: 'going to' tratado como o verbo go (movimento), com balão go · went. Se for futuro, marque com [[...]]: '...{f[max(0, solto.start() - 20):solto.end() + 25]}...'")
     if erros: return erros, avisos, None
     paths = []
     def walk(nid, flags, trail):

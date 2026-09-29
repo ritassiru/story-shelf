@@ -1,0 +1,698 @@
+{
+ "meta": {
+  "slug": "the-new-student",
+  "title": "The New Student",
+  "level": "B1",
+  "audience": "2º ano",
+  "grammar": [
+   "Present perfect",
+   "Simple past",
+   "Past continuous"
+  ],
+  "verbForms": 3,
+  "blurb": "Aoife has just arrived from Ireland, and Kaio has to be her buddy. Will she feel at home in Brazil, or will she want to go back? It depends on you.",
+  "cover": "arrival",
+  "chapters": 4,
+  "choicePrompt": "What does Kaio do?",
+  "keywords": [
+   {
+    "title": "Story words",
+    "pt": "palavras da história",
+    "words": [
+     [
+      "🧳",
+      "exchange student",
+      "aluno(a) de intercâmbio"
+     ],
+     [
+      "🤝",
+      "buddy",
+      "parceiro(a) de apoio"
+     ],
+     [
+      "🗣️",
+      "accent",
+      "sotaque"
+     ],
+     [
+      "✈️",
+      "abroad",
+      "no exterior"
+     ],
+     [
+      "🏠",
+      "homesick",
+      "com saudade de casa"
+     ],
+     [
+      "🧩",
+      "to fit in",
+      "se enturmar"
+     ],
+     [
+      "😏",
+      "to make fun of",
+      "zombar de"
+     ],
+     [
+      "🎻",
+      "accordion",
+      "sanfona"
+     ]
+    ]
+   },
+   {
+    "title": "Present perfect words",
+    "pt": "palavras do present perfect",
+    "words": [
+     [
+      "❓",
+      "ever",
+      "alguma vez"
+     ],
+     [
+      "🚫",
+      "never",
+      "nunca"
+     ],
+     [
+      "✅",
+      "already",
+      "já"
+     ],
+     [
+      "⏳",
+      "yet",
+      "ainda / já (em perguntas)"
+     ],
+     [
+      "⚡",
+      "just",
+      "acabou de"
+     ],
+     [
+      "📆",
+      "for / since",
+      "há (tempo) / desde"
+     ]
+    ]
+   },
+   "sequence",
+   "question"
+  ],
+  "retell": {
+   "sentences": 6,
+   "minSequence": 4,
+   "maxHelp": 3
+  }
+ },
+ "start": "p1",
+ "nodes": {
+  "p1": {
+   "chapter": 1,
+   "title": "The Girl from Galway",
+   "scene": "arrival",
+   "text": [
+    "On the first Monday of August, Professor Marcos, the coordinator, was waiting for Kaio at the school gate. “You speak the best English in your class,” he said. “Would you like to be the [[buddy|parceiro de apoio]] of our new [[exchange student|aluna de intercâmbio]]?”",
+    "Before Kaio could answer, a tall girl with red hair got out of a car. She was carrying a huge backpack, and she looked a little [[lost|perdida]].",
+    "“Hi! I'm Aoife,” she said with a smile. “It's pronounced EE-fa. Don't worry, nobody gets it right the first time.” She was from Galway, a city on the west coast of Ireland, and she was [[going to|vai + verbo (futuro)]] study at IFAL for one semester.",
+    "In the classroom, thirty students [[stared|ficaram olhando fixamente]] at her. Then the teacher turned to Kaio. “Kaio, can you introduce our visitor?”",
+    "Kaio felt his face getting hot. Aoife knew only three words in Portuguese: obrigada, bom dia and tapioca."
+   ],
+   "event": "Kaio met Aoife, the new exchange student",
+   "eventPt": "o Kaio conheceu a Aoife, a nova aluna de intercâmbio",
+   "question": {
+    "wh": "What",
+    "q": "What is a “buddy” in this story?",
+    "options": [
+     "A student who helps a new student",
+     "A teacher from Ireland",
+     "A school coordinator",
+     "A type of backpack"
+    ],
+    "answer": 0,
+    "hint": "Read what Professor Marcos said."
+   },
+   "choices": [
+    {
+     "label": "Introduce her in English and translate for the class",
+     "to": "p2a",
+     "event": "he introduced her in English and translated for the class",
+     "eventPt": "ele a apresentou em inglês e traduziu para a turma"
+    },
+    {
+     "label": "Let her try to introduce herself in Portuguese",
+     "to": "p2b",
+     "event": "he let her try to speak Portuguese",
+     "eventPt": "ele deixou que ela tentasse falar português"
+    }
+   ]
+  },
+  "p2a": {
+   "chapter": 2,
+   "title": "Twenty Questions",
+   "scene": "classroom",
+   "text": [
+    "Kaio introduced Aoife in English and translated everything. Soon, the whole class was asking her questions.",
+    "“Have you ever eaten tapioca?” asked Júlia. “Not yet,” said Aoife, “but I've already heard a lot about it!” “Have you ever seen snow?” asked someone else. “Yes, a few times,” she laughed, “but I've never seen a beach as warm as yours.”",
+    "Then Aoife turned to Kaio. “And you? Have you ever been [[abroad|no exterior]]?” Kaio shook his head. “I've never left Alagoas,” he admitted.",
+    "At lunch, however, something happened. While Aoife was waiting in line, Tiago, the [[class clown|palhaço da turma]], started to imitate her [[accent|sotaque]]: “Hi! I'm from Ai-er-land!” A few students laughed. Aoife [[pretended|fingiu]] not to hear, but her [[cheeks|bochechas]] turned red.",
+    "After that, Tiago looked at Kaio, waiting for him to laugh too."
+   ],
+   "event": "Tiago imitated Aoife's accent at lunch",
+   "eventPt": "o Tiago imitou o sotaque da Aoife no almoço",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Aoife's cheeks turn red?",
+    "options": [
+     "She was embarrassed by Tiago's imitation",
+     "She was hot because of the sun",
+     "She was angry with Kaio",
+     "She ate spicy food"
+    ],
+    "answer": 0,
+    "hint": "Read the fourth paragraph and think about how she felt."
+   },
+   "choices": [
+    {
+     "label": "Laugh along. It's just a joke",
+     "to": "p3y",
+     "event": "he laughed at Tiago's joke",
+     "eventPt": "ele riu da piada do Tiago",
+     "set": [
+      "laughed"
+     ]
+    },
+    {
+     "label": "Tell Tiago to stop",
+     "to": "p3x",
+     "event": "he told Tiago to stop",
+     "eventPt": "ele pediu para o Tiago parar",
+     "set": [
+      "defended"
+     ]
+    }
+   ]
+  },
+  "p2b": {
+   "chapter": 2,
+   "title": "Portuguese, Please",
+   "scene": "classroom",
+   "text": [
+    "“Try in Portuguese,” Kaio [[whispered|sussurrou]]. “Everybody will love it.” First, Aoife looked at the class. Then she took a deep breath.",
+    "“Bom dia. Eu... chamar... Aoife. Eu... ser... da Irlanda,” she said slowly. For a moment, nobody said anything. Then Tiago, the [[class clown|palhaço da turma]], repeated her words with a funny voice, and half of the class laughed.",
+    "Aoife smiled, but her hands were [[shaking|tremendo]]. She sat down and didn't speak for the rest of the morning.",
+    "At the end of the day, she found Kaio at the bus stop. “I've studied Portuguese for three months,” she said quietly, in English. “And I've never felt so stupid in my life.”"
+   ],
+   "event": "Aoife tried to introduce herself in Portuguese",
+   "eventPt": "a Aoife tentou se apresentar em português",
+   "question": {
+    "wh": "How",
+    "q": "How did Aoife feel after her introduction?",
+    "options": [
+     "Embarrassed and nervous",
+     "Proud and happy",
+     "Bored and tired",
+     "Angry with the teacher"
+    ],
+    "answer": 0,
+    "hint": "Read the third and fourth paragraphs."
+   },
+   "choices": [
+    {
+     "label": "Tell her it's normal and offer to practice with her",
+     "to": "p3x",
+     "event": "he offered to practice Portuguese with her",
+     "eventPt": "ele se ofereceu para praticar português com ela"
+    },
+    {
+     "label": "Change the subject",
+     "to": "p3z",
+     "event": "he changed the subject",
+     "eventPt": "ele mudou de assunto"
+    }
+   ]
+  },
+  "p3x": {
+   "chapter": 3,
+   "title": "A Deal",
+   "scene": "deal",
+   "text": [
+    {
+     "if": "defended",
+     "text": "Tiago rolled his eyes when Kaio told him to stop, but he never imitated Aoife again. That afternoon, Aoife thanked Kaio. “Nobody has ever defended me like that,” she said."
+    },
+    {
+     "unless": "defended",
+     "text": "“Everybody feels stupid when they're learning a language,” Kaio told her. “I felt the same when I started English. Let's practice together.”"
+    },
+    "So they made a [[deal|acordo]]: every day after lunch, she taught him Irish expressions and he taught her Portuguese. In two weeks, Aoife was saying “oxente” like a real alagoana, and Kaio had learned that “grand” means “OK” in Ireland.",
+    "Later, on a Friday afternoon, Aoife asked: “What do people here do on weekends? I've been here for three weeks, and I haven't seen anything outside the school yet.”",
+    "Kaio thought about it. His grandmother was going to the town festival on Saturday. But there was also the big shopping mall in Maceió, and Aoife probably missed things from home."
+   ],
+   "event": "Kaio and Aoife made a deal to practice languages",
+   "eventPt": "o Kaio e a Aoife fizeram um acordo para praticar idiomas",
+   "question": {
+    "wh": "How long",
+    "q": "How long was Aoife in Brazil when she asked about the weekends?",
+    "options": [
+     "Three weeks",
+     "Three months",
+     "One semester",
+     "Two days"
+    ],
+    "answer": 0,
+    "hint": "Read what Aoife said on Friday."
+   },
+   "choices": [
+    {
+     "label": "Take her to the town festival",
+     "to": "p4a",
+     "event": "he took her to the town festival",
+     "eventPt": "ele a levou à festa da cidade"
+    },
+    {
+     "label": "Take her to the mall in Maceió",
+     "to": "p4b",
+     "event": "he took her to the mall in Maceió",
+     "eventPt": "ele a levou ao shopping em Maceió",
+     "set": [
+      "mall"
+     ]
+    }
+   ]
+  },
+  "p3y": {
+   "chapter": 3,
+   "title": "The Video",
+   "scene": "phone_video",
+   "text": [
+    "Kaio laughed. It was just a joke, he thought. Tiago was always joking with everybody.",
+    "But that night, Tiago posted a video of his imitation in the class group chat. By the morning, it had more than three hundred views, and people from other classes were repeating it in the corridors.",
+    "Aoife didn't say anything. However, she started eating lunch alone, with her headphones on. When Kaio sat next to her, she answered with short sentences: “Yes.” “No.” “I'm fine.”",
+    "On Thursday, Júlia [[pulled Kaio aside|chamou o Kaio num canto]]. “She saw you laughing, you know,” she said. “I think she's really hurt. Have you talked to her since Monday?” Kaio realized that he hadn't."
+   ],
+   "event": "Tiago posted the video in the group chat",
+   "eventPt": "o Tiago postou o vídeo no grupo da turma",
+   "question": {
+    "wh": "How many",
+    "q": "How many views did the video have by the morning?",
+    "options": [
+     "More than three hundred",
+     "About thirty",
+     "Only ten",
+     "More than three thousand"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   },
+   "choices": [
+    {
+     "label": "Apologize to Aoife",
+     "to": "p4b",
+     "event": "he apologized to Aoife",
+     "eventPt": "ele pediu desculpas à Aoife"
+    },
+    {
+     "label": "Ignore it. She'll get used to it",
+     "to": "p4c",
+     "event": "he ignored the problem",
+     "eventPt": "ele ignorou o problema"
+    }
+   ]
+  },
+  "p3z": {
+   "chapter": 3,
+   "title": "Silence",
+   "scene": "lunch_alone",
+   "text": [
+    "“So... do you like the food here?” Kaio asked, and the moment passed. Aoife answered politely, but she never tried to speak Portuguese in class again.",
+    "In the following weeks, she spent most of her [[breaks|intervalos]] on video calls with her mother. When the teachers asked her something, she answered in English, and after a while, the class stopped trying to talk to her.",
+    "One day, Kaio heard her on the phone near the library. Her voice was [[trembling|trêmula]]. “Mam, I've been here for a month, and I haven't made a single friend.”",
+    "Kaio stopped walking. Was that partly his fault?"
+   ],
+   "event": "Aoife became lonely at school",
+   "eventPt": "a Aoife ficou sozinha na escola",
+   "question": {
+    "wh": "Who",
+    "q": "Who was Aoife talking to on the phone near the library?",
+    "options": [
+     "Her mother",
+     "Professor Marcos",
+     "Tiago",
+     "A friend from Galway"
+    ],
+    "answer": 0,
+    "hint": "Read the third paragraph. What does “Mam” mean?"
+   },
+   "choices": [
+    {
+     "label": "Invite her to study with your friends",
+     "to": "p4d",
+     "event": "he invited her to study with his friends",
+     "eventPt": "ele a convidou para estudar com os amigos dele"
+    },
+    {
+     "label": "Leave her alone. She seems fine",
+     "to": "p4c",
+     "event": "he decided to leave her alone",
+     "eventPt": "ele decidiu deixá-la em paz"
+    }
+   ]
+  },
+  "p4a": {
+   "chapter": 4,
+   "title": "The Festival",
+   "scene": "festival",
+   "text": [
+    "On Saturday night, the town square was full of lights, music and the smell of corn. Kaio's grandmother, Vó Neide, took Aoife by the hand and taught her to dance forró. After ten minutes, Aoife was laughing so much that she could hardly breathe.",
+    "Later, a man started playing a fast song on the [[accordion|sanfona]]. Suddenly, Aoife stopped. “This sounds a bit like Irish music!” she said, and she showed them a few steps of an Irish dance. A small crowd [[gathered|se juntou]] around them and clapped.",
+    "On the way home, Aoife was quiet for a while. Then she said: “The program has asked me if I want to stay for another semester. I have to decide by Friday. What do you think?”"
+   ],
+   "event": "Aoife danced forró with Kaio's grandmother",
+   "eventPt": "a Aoife dançou forró com a avó do Kaio",
+   "question": {
+    "wh": "Where",
+    "q": "Where was the festival?",
+    "options": [
+     "In the town square",
+     "At the school",
+     "At the mall in Maceió",
+     "In Galway"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   },
+   "choices": [
+    {
+     "label": "Tell her to stay another semester",
+     "to": "e1",
+     "event": "he told her to stay another semester",
+     "eventPt": "ele disse para ela ficar mais um semestre"
+    },
+    {
+     "label": "Help her organize a culture afternoon at school",
+     "to": "e2",
+     "event": "he helped her organize a culture afternoon",
+     "eventPt": "ele a ajudou a organizar uma tarde cultural"
+    }
+   ]
+  },
+  "p4b": {
+   "chapter": 4,
+   "title": "The Invitation",
+   "scene": "library",
+   "text": [
+    {
+     "if": "mall",
+     "text": "At the mall, Aoife looked around politely. “It's... exactly like the malls at home,” she said. She bought a keychain, and they took the bus back. It was a nice day, but not a special one."
+    },
+    {
+     "if": "laughed",
+     "text": "Kaio apologized. “I shouldn't have laughed,” he said. Aoife accepted his apology, but after that, she was more careful with him."
+    },
+    "Then the weeks went by, and Aoife's Portuguese was getting better, although she still made funny mistakes.",
+    "Finally, near the end of the semester, Professor Marcos invited her to give a short presentation about Ireland to the whole school, in Portuguese. “I've never spoken in front of so many people,” she told Kaio. “And in Portuguese! Will you help me prepare it?”",
+    "Kaio [[hesitated|hesitou]]. He had two tests that week and a project for his programming class."
+   ],
+   "event": "Aoife was invited to give a presentation",
+   "eventPt": "a Aoife foi convidada para fazer uma apresentação",
+   "question": {
+    "wh": "Who",
+    "q": "Who invited Aoife to give a presentation?",
+    "options": [
+     "Professor Marcos",
+     "Tiago",
+     "Júlia",
+     "Kaio's grandmother"
+    ],
+    "answer": 0,
+    "hint": "Read the fourth paragraph."
+   },
+   "choices": [
+    {
+     "label": "Help her write the presentation",
+     "to": "e4",
+     "event": "he helped her write the presentation",
+     "eventPt": "ele a ajudou a escrever a apresentação"
+    },
+    {
+     "label": "Say you're too busy",
+     "to": "e3",
+     "event": "he said he was too busy",
+     "eventPt": "ele disse que estava ocupado demais"
+    }
+   ]
+  },
+  "p4c": {
+   "chapter": 4,
+   "title": "Too Late?",
+   "scene": "empty_desk",
+   "text": [
+    "Kaio decided not to do anything. After all, Aoife was only [[going to|vai + verbo (futuro)]] stay for one semester.",
+    {
+     "if": "laughed",
+     "text": "Meanwhile, Tiago's video kept [[circulating|circulando]]. Someone made a sticker with Aoife's face, and it appeared in every group chat at school."
+    },
+    "Aoife became quieter every week. She stopped coming to school events, and she sat alone at the back of the classroom.",
+    "One Monday, her desk was empty. Later, Kaio saw Professor Marcos in the corridor and asked about her. “She's thinking about going home early,” he said. “She has told me that she's very unhappy here. Do you know why?”"
+   ],
+   "event": "Aoife's desk was empty",
+   "eventPt": "a carteira da Aoife estava vazia",
+   "question": {
+    "wh": "When",
+    "q": "When was Aoife's desk empty?",
+    "options": [
+     "One Monday",
+     "On her first day",
+     "On the day of the festival",
+     "Last semester"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   },
+   "choices": [
+    {
+     "label": "Go and talk to her now",
+     "to": "e3",
+     "event": "he finally went to talk to her",
+     "eventPt": "ele finalmente foi falar com ela"
+    },
+    {
+     "label": "Do nothing. It's not your problem",
+     "to": "e5",
+     "event": "he did nothing",
+     "eventPt": "ele não fez nada",
+     "alt": [
+      {
+       "if": "laughed",
+       "to": "e6"
+      }
+     ]
+    }
+   ]
+  },
+  "p4d": {
+   "chapter": 4,
+   "title": "Study Group",
+   "scene": "study_group",
+   "text": [
+    "Kaio invited Aoife to study with Júlia and two other friends in the library. At first, she was shy. However, when Júlia asked for help with an English exercise, Aoife explained it so clearly that everybody applauded.",
+    "After that, the study group became a daily [[meeting|encontro]]. They helped her with Portuguese, she helped them with English, and they asked each other [[endless|sem fim]] questions: “Have you ever eaten jaca?” “Have you ever tried Irish soda bread?”",
+    "Later, one afternoon, Aoife looked at the group and smiled. “You know, I almost went home early last month,” she said. “I'm really glad I didn't.”"
+   ],
+   "event": "Aoife joined Kaio's study group",
+   "eventPt": "a Aoife entrou no grupo de estudos do Kaio",
+   "question": {
+    "wh": "Where",
+    "q": "Where did the study group meet?",
+    "options": [
+     "In the library",
+     "At Kaio's house",
+     "At the mall",
+     "In the town square"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Take her to the town festival with the group",
+     "to": "e1",
+     "event": "they took her to the town festival",
+     "eventPt": "eles a levaram à festa da cidade"
+    },
+    {
+     "label": "Organize a culture afternoon with the group",
+     "to": "e2",
+     "event": "they organized a culture afternoon",
+     "eventPt": "eles organizaram uma tarde cultural"
+    }
+   ]
+  }
+ },
+ "endings": {
+  "e1": {
+   "rank": 0,
+   "tier": "good",
+   "emoji": "🍀",
+   "short": "Best friends",
+   "title": "Best Friends",
+   "scene": "friends_photo",
+   "text": [
+    "Aoife decided to stay for another semester. When she told the class, everybody [[cheered|comemorou]], even Tiago.",
+    "Later, in December, she flew to Galway for Christmas. However, she came back in February with a [[suitcase|mala]] full of Irish chocolates and a surprise for Kaio: an invitation from her family to visit Ireland one day.",
+    "“You've never been abroad,” she said, “so our house will be your first stop.” Kaio laughed. He had never imagined that being a buddy would change his life."
+   ],
+   "event": "Aoife decided to stay for another semester",
+   "eventPt": "a Aoife decidiu ficar mais um semestre",
+   "question": {
+    "wh": "What",
+    "q": "What did Aoife's family invite Kaio to do?",
+    "options": [
+     "To visit Ireland one day",
+     "To study in Galway",
+     "To work in a restaurant",
+     "To learn Irish dance"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  },
+  "e2": {
+   "rank": 1,
+   "tier": "good",
+   "emoji": "🎶",
+   "short": "Culture swap",
+   "title": "The Culture Swap",
+   "scene": "culture_day",
+   "text": [
+    "On the last Friday of the semester, the school held its first Culture Afternoon. Kaio's classmates played forró, and Aoife taught everybody a simple Irish dance. There was tapioca on one table and Irish soda bread on the other.",
+    "More than two hundred students came. Even Tiago danced, badly but with enthusiasm.",
+    "When Aoife went home in December, she left a note on Kaio's desk: “You've shown me the real Brazil. Next time, I'll show you the real Ireland.”"
+   ],
+   "event": "the school held a Culture Afternoon",
+   "eventPt": "a escola fez uma Tarde Cultural",
+   "question": {
+    "wh": "How many",
+    "q": "How many students came to the Culture Afternoon?",
+    "options": [
+     "More than two hundred",
+     "About twenty",
+     "Only the class",
+     "Nobody"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  },
+  "e3": {
+   "rank": 2,
+   "tier": "mixed",
+   "emoji": "🙂",
+   "short": "Polite goodbye",
+   "title": "A Polite Goodbye",
+   "scene": "goodbye",
+   "text": [
+    "The semester ended quietly. On her last day, Aoife hugged some classmates and thanked Kaio for his help.",
+    "“You've been very kind,” she said. It was true, but it sounded like something people say to a neighbor, not to a friend.",
+    "A few weeks later, Kaio looked at her profile online. There were photos of Galway, her friends and the sea. Suddenly, he realized that they had never really talked about anything important. He had been her buddy, but never her friend."
+   ],
+   "event": "Aoife went home at the end of the semester",
+   "eventPt": "a Aoife voltou para casa no fim do semestre",
+   "question": {
+    "wh": "What",
+    "q": "What did Kaio realize at the end?",
+    "options": [
+     "They never became real friends",
+     "Aoife was angry with him",
+     "He wanted to move to Ireland",
+     "Aoife forgot his name"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   }
+  },
+  "e4": {
+   "rank": 3,
+   "tier": "mixed",
+   "emoji": "🗣️",
+   "short": "Lost in translation",
+   "title": "Lost in Translation",
+   "scene": "presentation",
+   "text": [
+    "Kaio and Aoife worked on the presentation for a week. On the big day, the auditorium was full, and Aoife spoke in Portuguese for ten minutes. First, she talked about Galway. Then she described the rain and the green hills. Everything was going well.",
+    "At the end, she wanted to thank the school for the delicious food. Instead of saying “Estou satisfeita,” she said proudly: “Estou cheia de vocês!” The auditorium went silent for a second, and then everybody [[burst out laughing|caiu na gargalhada]].",
+    "Aoife didn't understand, so Kaio explained: in Portuguese, her sentence also meant “I'm fed up with you all.” She laughed so hard that she cried. For the rest of the semester, “Estou cheia!” was the school's favorite joke, and Aoife never forgot the difference."
+   ],
+   "event": "Aoife made a funny mistake in Portuguese",
+   "eventPt": "a Aoife cometeu um erro engraçado em português",
+   "question": {
+    "wh": "Why",
+    "q": "Why did everybody laugh?",
+    "options": [
+     "Her sentence also meant “I'm fed up with you all”",
+     "She fell on the stage",
+     "She spoke in Irish",
+     "The microphone stopped working"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   }
+  },
+  "e5": {
+   "rank": 4,
+   "tier": "bad",
+   "emoji": "🚪",
+   "short": "Early flight",
+   "title": "Early Flight",
+   "scene": "airport",
+   "text": [
+    "Two weeks later, Aoife went back to Ireland, three months before the end of the semester.",
+    "Professor Marcos read her message to the class: “Thank you for everything. I've learned a lot in Brazil, but I've felt very alone here. I hope the next exchange student has a better experience.”",
+    "Kaio looked at the empty desk. He hadn't done anything wrong, he thought. But he hadn't done anything right, either."
+   ],
+   "event": "Aoife went back to Ireland early",
+   "eventPt": "a Aoife voltou para a Irlanda antes do tempo",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Aoife go home early?",
+    "options": [
+     "She felt very alone",
+     "She got a job in Ireland",
+     "Her family moved",
+     "She failed her exams"
+    ],
+    "answer": 0,
+    "hint": "Read her message."
+   }
+  },
+  "e6": {
+   "rank": 5,
+   "tier": "bad",
+   "emoji": "😶",
+   "short": "Just a joke",
+   "title": "Just a Joke",
+   "scene": "phone_video",
+   "text": [
+    "Aoife went home three months early. Before she left, she sent one message to the class group. It was a screenshot of Tiago's video, with a short sentence: “It was never just a joke for me.”",
+    "Nobody answered. Tiago deleted the video that night, but it was too late.",
+    "Kaio remembered the first lunch, when Tiago was looking at him, waiting for him to laugh. One different reaction could have changed everything. Finally, he understood that."
+   ],
+   "event": "Aoife left and sent a final message",
+   "eventPt": "a Aoife foi embora e mandou uma última mensagem",
+   "question": {
+    "wh": "What",
+    "q": "What did Aoife send before she left?",
+    "options": [
+     "A screenshot of Tiago's video",
+     "A photo of Galway",
+     "A thank-you letter",
+     "A song"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  }
+ }
+}

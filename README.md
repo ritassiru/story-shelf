@@ -121,6 +121,9 @@ alunos. Depois:
   são grupos prontos, iguais em todos os livros.
 - `retell`: quantas frases o reconto pede, quantas sequence words diferentes
   exige e em quantas o montador pode ajudar.
+- `verbForms` (opcional): `3` faz o balão dos verbos irregulares reconhecer
+  também o particípio (*see · saw · seen*), para livros com *present perfect*.
+  Sem o campo, o balão mostra só *infinitive* e *past*.
 
 ### Capítulos, escolhas e finais
 

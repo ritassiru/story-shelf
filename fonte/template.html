@@ -62,7 +62,7 @@ button { font: inherit; }
 .nw { white-space: nowrap; }
 #tip { position: absolute; z-index: 20; max-width: 280px; display: none; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 0.95rem; padding: 6px 10px; border-radius: 8px; }
 #tip.on { display: block; }
-#tip .vt { display: grid; grid-template-columns: repeat(2, auto); gap: 4px 14px; }
+#tip .vt { display: grid; grid-auto-flow: column; grid-auto-columns: auto; gap: 4px 14px; }
 #tip .vc { padding: 2px 6px; border-radius: 6px; border: 2px solid transparent; }
 #tip .vc.on { border-color: var(--gold); }
 #tip .vc span { display: block; font-size: 0.72rem; opacity: .8; }
@@ -159,7 +159,7 @@ textarea { width: 100%; font: inherit; font-size: 1.02rem; color: var(--ink); ba
 <div id="tip" role="tooltip"></div>
 <script>
 const SHELF = __SHELF__;   // { title, subtitle, books: [ { slug, title, level, ..., story: { start, nodes, endings } } ] }
-const IRREG = __IRREG__;   // [infinitive, past, participle, tradução]; o balão mostra só infinitive e past
+const IRREG = __IRREG__;   // [infinitive, past, participle, tradução]; o balão mostra infinitive e past (e participle nos livros com "verbForms": 3)
 const SEQ_WORDS = [["First", "primeiro"], ["Then", "então, depois"], ["After that", "depois disso"], ["Suddenly", "de repente"], ["Later", "mais tarde"], ["Finally", "finalmente"], ["In the end", "no final"]];
 const SEQ_RX = /\b(first|then|after that|next|suddenly|later|finally|in the end)\b/gi;
 const BUILTIN_KW = {
@@ -180,21 +180,24 @@ const store = {
 const KEY = { found: slug => `reader:${slug}:endings`, history: "reader:history", pending: "reader:pending" };
 const foundOf = slug => new Set(store.get(KEY.found(slug), []));
 
-/* verbos irregulares: forma escrita -> { i, cols } */
-const VERB = new Map();
-(function () {
+/* verbos irregulares: forma escrita -> { i, cols }; cols: 0 = infinitive, 1 = past, 2 = participle.
+   VERB3 também reconhece os particípios; é usado pelos livros com "verbForms": 3 nos metadados. */
+const VERB = new Map(), VERB3 = new Map();
+[VERB, VERB3].forEach(VERB => {
   const NO_BASE = new Set(["have", "do"]);
   const DOUBLE = new Set(["get", "run", "win", "put", "cut", "set", "let", "begin", "sit", "forget"]);
   const sForm = b => /(s|sh|ch|x|o)$/.test(b) ? b + "es" : /[^aeiou]y$/.test(b) ? b.slice(0, -1) + "ies" : b + "s";
   const ing = b => (b === "be" || b === "see") ? b + "ing" : DOUBLE.has(b) ? b + b.slice(-1) + "ing" : /ie$/.test(b) ? b.slice(0, -2) + "ying" : /[^e]e$/.test(b) ? b.slice(0, -1) + "ing" : b + "ing";
   const add = (k, i, col) => { if (!VERB.has(k)) VERB.set(k, { i, cols: [] }); if (col !== null && !VERB.get(k).cols.includes(col)) VERB.get(k).cols.push(col); };
-  IRREG.forEach(([b, p], i) => {
+  IRREG.forEach(([b, p, pp], i) => {
     if (!NO_BASE.has(b)) { add(b, i, 0); if (b !== "be") add(sForm(b), i, 0); add(ing(b), i, null); }
     p.split(" / ").forEach(f => add(f, i, 1));
+    if (VERB === VERB3) pp.split(" / ").forEach(f => add(f, i, 2));
   });
   const idx = b => IRREG.findIndex(v => v[0] === b);
   [["didn't", "do"], ["wasn't", "be"], ["weren't", "be"], ["hadn't", "have"], ["couldn't", "can"]].forEach(([k, b]) => { if (idx(b) >= 0) add(k, idx(b), 1); });
-})();
+});
+const verbForms = () => (book && book.verbForms === 3 ? 3 : 2);
 const PAST = new Set([...IRREG.flatMap(v => v[1].toLowerCase().split(" / ")), "didn't", "couldn't", "wasn't", "weren't", "hadn't", "could"]);
 const NOT_PAST = new Set(["need", "feed", "seed", "speed", "red", "bed", "indeed", "shed"]);
 const hasPast = s => (s.toLowerCase().match(/[a-z']+/g) || []).some(w => PAST.has(w) || (w.endsWith("ed") && w.length > 3 && !NOT_PAST.has(w)));
@@ -208,7 +211,7 @@ function verbWrap(plain) {
   if (future.length > 1) return future.map((part, i) => i % 2 ? `<button type="button" class="gloss" data-pt="vai + verbo (futuro)">${esc(part)}</button>` : verbWrap(part)).join("");
   return plain.split(/([A-Za-z]+(?:['’][A-Za-z]+)?)/).map((part, i) => {
     if (i % 2 === 0) return esc(part);
-    const v = VERB.get(part.toLowerCase().replace("’", "'"));
+    const v = (verbForms() === 3 ? VERB3 : VERB).get(part.toLowerCase().replace("’", "'"));
     return v ? `<button type="button" class="gloss verb" data-v="${v.i}" data-cols="${v.cols.join(",")}">${esc(part)}</button>` : esc(part);
   }).join("");
 }
@@ -327,7 +330,7 @@ function screenBefore() {
   $("#app").innerHTML = `<div class="card"><p class="ch-kicker">Before you read</p><h2>Key words</h2>
     <p class="hint">Palavras importantes da história. Leia antes de começar.</p>
     ${groups.map(g => `<p class="kw-g">${esc(g.title)} <span>· ${esc(g.pt)}</span></p><div class="kw-grid">${g.words.map(([e, en, pt]) => {
-      const v = IRREG.find(x => x[0] === en); return `<div class="kw"><span class="kw-e" aria-hidden="true">${e}</span><div><b>${esc(en)}</b><span class="pt">${esc(pt)}${v ? " · past: " + esc(v[1]) : ""}</span></div></div>`; }).join("")}</div>`).join("")}
+      const v = IRREG.find(x => x[0] === en); return `<div class="kw"><span class="kw-e" aria-hidden="true">${e}</span><div><b>${esc(en)}</b><span class="pt">${esc(pt)}${v ? " · past: " + esc(v[1]) + (verbForms() === 3 ? " · participle: " + esc(v[2]) : "") : ""}</span></div></div>`; }).join("")}</div>`).join("")}
     <p class="hint" style="margin-top:14px">Depois de cada capítulo, o seu <b>caderno de detetive</b> faz uma pergunta sobre o que você leu. Acerte para continuar!</p>
     <button class="btn primary" id="go">Start reading</button></div>`;
   $("#go").onclick = () => screenNode(book.story.start);
@@ -538,8 +541,8 @@ document.addEventListener("click", e => {
   const tip = $("#tip"), g = e.target.closest(".gloss");
   if (!g) { tip.classList.remove("on"); return; }
   if (g.classList.contains("verb")) {
-    const [b, p, , pt] = IRREG[+g.dataset.v], on = g.dataset.cols ? g.dataset.cols.split(",").map(Number) : [];
-    tip.innerHTML = `<div class="vt">${[["infinitive", b], ["past", p]].map(([l, f], i) => `<div class="vc${on.includes(i) ? " on" : ""}"><span>${l}</span><b>${esc(f)}</b></div>`).join("")}</div><div class="vpt">= ${esc(pt)}</div>`;
+    const [b, p, pp, pt] = IRREG[+g.dataset.v], on = g.dataset.cols ? g.dataset.cols.split(",").map(Number) : [];
+    tip.innerHTML = `<div class="vt">${[["infinitive", b], ["past", p], ["participle", pp]].slice(0, verbForms()).map(([l, f], i) => `<div class="vc${on.includes(i) ? " on" : ""}"><span>${l}</span><b>${esc(f)}</b></div>`).join("")}</div><div class="vpt">= ${esc(pt)}</div>`;
   } else tip.textContent = g.textContent + " = " + g.dataset.pt;
   tip.classList.add("on");
   const r = g.getBoundingClientRect();

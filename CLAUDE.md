@@ -13,8 +13,14 @@ no escuro, e **sem internet**.
 
 Livros hoje: `the-phone-on-the-bus` e `who-posted-it` (1º ano; Simple past,
 question words, sequence words) e `the-fortune-app` (1º ano, 4º bimestre;
-Simple future, simple past, question words). Projeto irmão: `ritassiru/the-ceo-game` (2º ano); mantenha a
-consistência visual entre eles.
+Simple future, simple past, question words) e `the-new-student` (2º ano, B1;
+Present perfect, simple past, past continuous; rascunho). Projeto irmão:
+`ritassiru/the-ceo-game` (2º ano); mantenha a consistência visual entre eles.
+
+**Particípio no balão:** `"verbForms": 3` nos metadados faz o balão reconhecer
+e mostrar o particípio (usado em `the-new-student`). Sem o campo, os livros
+mostram só *infinitive* e *past*. Ao escrever um livro com 3 formas, confira
+falsos positivos também entre os particípios.
 
 ## Arquitetura
 
