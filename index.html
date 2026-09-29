@@ -42,6 +42,13 @@ button { font: inherit; }
 .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 10px; }
 .brand { font-size: 1.05rem; color: var(--berry); }
 .step { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
+.top.top2 { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+.top2 .gtog { justify-self: end; }
+.gtog { font: inherit; font-size: 0.8rem; color: var(--muted); background: none; border: 1.5px solid var(--line); border-radius: 999px; padding: 2px 10px; cursor: pointer; white-space: nowrap; }
+.gtog[aria-pressed="true"] { color: var(--berry); border-color: var(--rose); }
+.gtog u { text-decoration: underline dotted var(--rose); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.gtog[aria-pressed="false"] u { text-decoration: none; }
+.no-gloss .gloss { text-decoration: none; cursor: inherit; pointer-events: none; }
 .dots { display: flex; gap: 5px; }
 .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); display: inline-block; }
 .dots i.on { background: var(--berry); }
@@ -91,7 +98,7 @@ button { font: inherit; }
 .btn.primary { background: var(--berry); color: var(--btn-text); text-align: center; }
 .btn.center { text-align: center; }
 .btn[disabled] { opacity: .45; cursor: not-allowed; }
-.btn:focus-visible, .opt:focus-visible, .gloss:focus-visible, .chip:focus-visible, .help-btn:focus-visible, textarea:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.btn:focus-visible, .opt:focus-visible, .gloss:focus-visible, .gtog:focus-visible, .chip:focus-visible, .help-btn:focus-visible, textarea:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-bottom: 14px; }
 .kw-g { font-weight: 700; margin: 14px 0 6px; } .kw-g span { font-weight: 400; color: var(--muted); }
@@ -181,7 +188,7 @@ const store = {
   del(k) { try { localStorage.removeItem(k); } catch (e) { /* sem armazenamento */ } }
 };
 /* armazenamento: finais por livro; histórico e reconto pendente valem para a estante toda */
-const KEY = { found: slug => `reader:${slug}:endings`, history: "reader:history", pending: "reader:pending" };
+const KEY = { found: slug => `reader:${slug}:endings`, history: "reader:history", pending: "reader:pending", gloss: "reader:gloss" };
 const foundOf = slug => new Set(store.get(KEY.found(slug), []));
 
 /* verbos irregulares: forma escrita -> { i, cols }; cols: 0 = infinitive, 1 = past, 2 = participle.
@@ -708,7 +715,7 @@ const R = () => Object.assign({ sentences: 5, minSequence: 3, maxHelp: 3 }, book
 function topBar(step) {
   const n = state.path.length, total = book.chapters + 1;
   const dots = Array.from({ length: total }, (_, i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("");
-  return `<div class="top"><div class="brand">${esc(book.title)}</div><div class="step">${step}</div></div><div class="top" style="justify-content:center"><div class="dots" aria-hidden="true">${dots}</div></div>`;
+  return `<div class="top"><div class="brand">${esc(book.title)}</div><div class="step">${step}</div></div><div class="top top2"><span></span><div class="dots" aria-hidden="true">${dots}</div>${glossButton()}</div>`;
 }
 
 /* ---------------- navegação: #slug abre direto a capa de um livro ---------------- */
@@ -973,10 +980,23 @@ function historyHTML() {
     <button type="button" class="help-btn" id="clear">Clear my history <span>· apagar meu histórico deste livro</span></button></div>`;
 }
 
+/* ---------------- glossário: liga/desliga (vale para a estante toda, guardado no aparelho) ---------------- */
+let glossOn = store.get(KEY.gloss, true) !== false;
+const glossButton = () => `<button type="button" class="gtog" id="gtog" aria-pressed="${glossOn}" title="Mostrar ou esconder o glossário · Show or hide the glossary"><u>Aa</u> Glossary: ${glossOn ? "on" : "off"}</button>`;
+function applyGloss() {
+  document.documentElement.classList.toggle("no-gloss", !glossOn);
+  const b = $("#gtog"); if (b) b.outerHTML = glossButton();
+}
+document.addEventListener("click", e => {
+  if (!e.target.closest("#gtog")) return;
+  glossOn = !glossOn; store.set(KEY.gloss, glossOn); applyGloss(); $("#gtog").focus();
+});
+applyGloss();
+
 /* ---------------- glossário: balão e 1ª ocorrência ---------------- */
 document.addEventListener("click", e => {
   const tip = $("#tip"), g = e.target.closest(".gloss");
-  if (!g) { tip.classList.remove("on"); return; }
+  if (!g || !glossOn) { tip.classList.remove("on"); return; }
   if (g.classList.contains("verb")) {
     const [b, p, pp, pt] = IRREG[+g.dataset.v], on = g.dataset.cols ? g.dataset.cols.split(",").map(Number) : [];
     tip.innerHTML = `<div class="vt">${[["infinitive", b], ["past", p], ["participle", pp]].slice(0, verbForms()).map(([l, f], i) => `<div class="vc${on.includes(i) ? " on" : ""}"><span>${l}</span><b>${esc(f)}</b></div>`).join("")}</div><div class="vpt">= ${esc(pt)}</div>`;

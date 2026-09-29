@@ -83,6 +83,10 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 - Glossário sublinhado só na **primeira ocorrência de cada palavra por tela**;
   o balão abre acima da palavra e não intercepta toques; a pontuação colada à
   palavra do glossário fica na mesma linha.
+- Botão **"Aa Glossary: on/off"** na barra do topo (capítulos, finais e
+  caderno): desligado, some o sublinhado e as palavras não abrem balão. A
+  escolha vale para a estante toda e fica no aparelho (`reader:gloss`). Mesmo
+  botão no `the-ceo-game`.
 - Reconto: cada frase com verbo no passado e o mínimo de sequence words
   diferentes; montador em no máximo `maxHelp` frases; editar uma frase montada
   não tira a etiqueta.
@@ -90,7 +94,8 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   o reconto não lê de novo nem abre outro livro, mesmo recarregando ou
   digitando outro `#slug`.
 - Armazenamento: finais por livro (`reader:<slug>:endings`); histórico e
-  pendência globais (`reader:history`, `reader:pending`). Tudo em `try/catch`.
+  pendência globais (`reader:history`, `reader:pending`); preferência do
+  glossário global (`reader:gloss`). Tudo em `try/catch`.
   "Apagar histórico" na capa apaga só aquele livro.
 
 ## Armadilhas já encontradas (evite repetir)
