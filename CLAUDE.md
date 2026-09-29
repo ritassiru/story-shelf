@@ -106,7 +106,8 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   `reader:theme`, `reader:size`, `reader:motion`; um `reader:gloss` antigo
   true/false ainda é lido). Para acrescentar uma opção, edite `SETTINGS` e
   `applySettings()` no template. Tamanhos de fonte em `rem`. Mesmo painel no
-  `the-ceo-game`.
+  `the-ceo-game`: `python3 fonte/comparar.py` (com `--detalhes`) mostra onde as
+  partes compartilhadas ficaram diferentes; parte das diferenças é de propósito.
 - Letras acentuadas fazem parte da palavra no glossário (*Sônia* não vira
   *S* + *nia*), no template e no `checar.py`.
 - **Página do professor:** o `build.py` gera `professor.html` com QR codes
@@ -177,6 +178,9 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 
 ## O que não fazer
 
+- Licença (decidida em set/2026, arquivo `LICENSE`): conteúdo em CC BY-SA 4.0,
+  código em MIT, fontes em OFL. Não mude sem o professor pedir.
+
 - Não adicionar bibliotecas externas, CDNs nem qualquer acesso à rede.
 - Não coletar nem enviar dados dos alunos.
 - Não reproduzir letras de música ou textos protegidos.
@@ -184,7 +188,6 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 
 ## Pendências e ideias
 
-- Licença do repositório ainda não definida.
 - `.github/workflows/build.yml` roda `checar.py` e `build.py` a cada push em
   `fonte/` na `main` e salva o `index.html` gerado. Se o `checar.py` falhar,
   nada é salvo.
