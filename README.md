@@ -35,6 +35,9 @@ próxima vez que abrir com internet (às vezes só na segunda vez).
 - **Capítulos curtos no passado**, com ilustração, sequence words destacadas e
   **glossário de toque**: palavras difíceis mostram a tradução, e verbos
   irregulares mostram *infinitive* e *past* (*see · saw*).
+- **My words:** as palavras que o aluno consultou no glossário aparecem no
+  caderno, no fim da leitura, e podem ser revisadas em cartões (na estante).
+  Ficam só no aparelho.
 - **Configurações** (ícone de engrenagem, em todas as telas): glossário em três
   níveis (*Normal*, só as palavras difíceis; *Beginner*, para iniciantes totais
   (A1), com quase todas as palavras traduzidas e tradução nos botões de
