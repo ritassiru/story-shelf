@@ -2,9 +2,29 @@
  "title": "Story Shelf",
  "subtitle": "Interactive graded readers · leituras interativas em inglês",
  "books": [
-  {"slug": "the-phone-on-the-bus", "published": true},
-  {"slug": "who-posted-it", "published": true},
-  {"slug": "the-fortune-app", "published": true},
-  {"slug": "the-new-student", "published": true}
+  {
+   "slug": "the-phone-on-the-bus",
+   "published": true
+  },
+  {
+   "slug": "who-posted-it",
+   "published": true
+  },
+  {
+   "slug": "the-fortune-app",
+   "published": true
+  },
+  {
+   "slug": "the-new-student",
+   "published": true
+  },
+  {
+   "slug": "the-science-fair",
+   "published": false
+  },
+  {
+   "slug": "grandmas-recipe",
+   "published": false
+  }
  ]
 }

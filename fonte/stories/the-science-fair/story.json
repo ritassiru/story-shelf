@@ -1,0 +1,635 @@
+{
+ "meta": {
+  "slug": "the-science-fair",
+  "title": "The Science Fair",
+  "level": "A2",
+  "audience": "1º ano",
+  "grammar": [
+   "Simple past",
+   "Question words",
+   "Sequence words"
+  ],
+  "blurb": "Maya and Theo built a robot for the IFAL science fair. The day before the fair, it stopped working... You decide what they do!",
+  "cover": "robot",
+  "chapters": 4,
+  "choicePrompt": "What do Maya and Theo do?",
+  "keywords": [
+   {
+    "title": "Story words",
+    "pt": "palavras da história",
+    "words": [
+     [
+      "🤖",
+      "robot",
+      "robô"
+     ],
+     [
+      "⚙️",
+      "motor",
+      "motor"
+     ],
+     [
+      "🔋",
+      "battery",
+      "bateria"
+     ],
+     [
+      "🧑‍⚖️",
+      "judges",
+      "jurados"
+     ],
+     [
+      "🏆",
+      "prize",
+      "prêmio"
+     ],
+     [
+      "🛒",
+      "market",
+      "mercado"
+     ],
+     [
+      "🔧",
+      "fix",
+      "consertar"
+     ],
+     [
+      "💨",
+      "smoke",
+      "fumaça"
+     ]
+    ]
+   },
+   "sequence",
+   "question"
+  ],
+  "retell": {
+   "sentences": 5,
+   "minSequence": 3,
+   "maxHelp": 3
+  }
+ },
+ "start": "p1",
+ "nodes": {
+  "p1": {
+   "chapter": 1,
+   "title": "The Broken Robot",
+   "scene": "robot",
+   "text": [
+    "On Thursday night, Maya and Theo finished their robot. Its name was Bolt. It was small and blue, and it could move its arms and say “Hello!”",
+    "The IFAL science fair was on Saturday. The first prize was a trip to a big science museum.",
+    "On Friday morning, Maya pressed the button. Suddenly, Bolt made a strange noise, and a little [[smoke|fumaça]] came out of its body. Then it stopped.",
+    "“Oh no!” said Theo. “The fair is tomorrow!”"
+   ],
+   "event": "Bolt stopped working the day before the fair",
+   "eventPt": "o Bolt parou de funcionar na véspera da feira",
+   "question": {
+    "wh": "What",
+    "q": "What happened to Bolt on Friday morning?",
+    "options": [
+     "It stopped working",
+     "It won a prize",
+     "It went to the museum",
+     "It said hello to the class"
+    ],
+    "answer": 0,
+    "hint": "Read the third paragraph."
+   },
+   "choices": [
+    {
+     "label": "Try to fix it at home",
+     "labelPt": "Tentar consertar em casa",
+     "to": "p2a",
+     "event": "they tried to fix the robot at home",
+     "eventPt": "eles tentaram consertar o robô em casa"
+    },
+    {
+     "label": "Ask Professora Rita for help",
+     "labelPt": "Pedir ajuda à Professora Rita",
+     "to": "p2b",
+     "event": "they asked their teacher for help",
+     "eventPt": "eles pediram ajuda à professora"
+    }
+   ]
+  },
+  "p2a": {
+   "chapter": 2,
+   "title": "A Long Night",
+   "scene": "night",
+   "text": [
+    "That night, Maya and Theo opened Bolt on the kitchen table. First, they checked the batteries. They were OK. Then they looked at the small motor in Bolt's arm. It was black, and it smelled bad.",
+    "“The motor burned,” said Maya. “We need a new one.”",
+    "Theo remembered his old toy car. “My toy car has a motor too,” he said. “But it is very old and weak.”"
+   ],
+   "event": "they found a burned motor",
+   "eventPt": "eles encontraram um motor queimado",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Bolt stop working?",
+    "options": [
+     "The motor burned",
+     "The batteries were dead",
+     "Theo broke it",
+     "It rained on the robot"
+    ],
+    "answer": 0,
+    "hint": "Read what Maya said."
+   },
+   "choices": [
+    {
+     "label": "Buy a new motor at the market",
+     "labelPt": "Comprar um motor novo no mercado",
+     "to": "p3y",
+     "event": "they decided to buy a new motor",
+     "eventPt": "eles decidiram comprar um motor novo"
+    },
+    {
+     "label": "Use the motor from the toy car",
+     "labelPt": "Usar o motor do carrinho de brinquedo",
+     "to": "p3x",
+     "event": "they used the motor from Theo's toy car",
+     "eventPt": "eles usaram o motor do carrinho do Theo"
+    }
+   ]
+  },
+  "p2b": {
+   "chapter": 2,
+   "title": "Professora Rita",
+   "scene": "lab",
+   "text": [
+    "Maya and Theo ran to the lab with Bolt. Professora Rita, the physics teacher, opened the robot with a small [[screwdriver|chave de fenda]].",
+    "“Look,” she said. “The motor burned. You need a new motor before tomorrow.”",
+    "Then she wrote two ideas on the board. First, the big market in the city center sells motors. Second, Seu Bento, an old repair man, can fix almost everything."
+   ],
+   "event": "their teacher opened the robot",
+   "eventPt": "a professora abriu o robô",
+   "question": {
+    "wh": "Who",
+    "q": "Who opened Bolt in the lab?",
+    "options": [
+     "Professora Rita",
+     "Seu Bento",
+     "Theo's brother",
+     "Maya's mother"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Buy a new motor at the market",
+     "labelPt": "Comprar um motor novo no mercado",
+     "to": "p3y",
+     "event": "they decided to buy a new motor",
+     "eventPt": "eles decidiram comprar um motor novo"
+    },
+    {
+     "label": "Visit Seu Bento",
+     "labelPt": "Visitar o Seu Bento",
+     "to": "p3z",
+     "event": "they visited Seu Bento",
+     "eventPt": "eles visitaram o Seu Bento"
+    }
+   ]
+  },
+  "p3x": {
+   "chapter": 3,
+   "title": "The Toy Car",
+   "scene": "night",
+   "text": [
+    "Theo opened his old toy car and took out the motor. First, they cleaned it. Then they put it in Bolt's arm. It was difficult, and it took two hours.",
+    "Finally, Maya pressed the button. Bolt moved! But it moved very slowly, and it made a funny noise: brrr... brrr...",
+    "“It works,” said Theo, “but it isn't very good.” It was already eleven o'clock."
+   ],
+   "event": "they put the old motor in Bolt",
+   "eventPt": "eles colocaram o motor velho no Bolt",
+   "question": {
+    "wh": "How",
+    "q": "How did Bolt move with the old motor?",
+    "options": [
+     "Very slowly",
+     "Very fast",
+     "It didn't move",
+     "It jumped"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   },
+   "choices": [
+    {
+     "label": "Take Bolt to the fair like this",
+     "labelPt": "Levar o Bolt à feira assim mesmo",
+     "to": "p4b",
+     "event": "they took the slow robot to the fair",
+     "eventPt": "eles levaram o robô lento à feira"
+    },
+    {
+     "label": "Stay up all night to make it better",
+     "labelPt": "Passar a noite acordados para melhorar o robô",
+     "to": "p4a",
+     "event": "they stayed up all night",
+     "eventPt": "eles passaram a noite acordados"
+    }
+   ]
+  },
+  "p3y": {
+   "chapter": 3,
+   "title": "At the Market",
+   "scene": "market",
+   "text": [
+    "On Friday afternoon, Maya and Theo went to the big market. After a long search, they found a small shop with motors, cables and old radios.",
+    "“This motor is perfect for your robot,” said the seller. “It's forty reais.”",
+    "Maya and Theo had only twenty-five reais. Then Theo called his big brother, Caíque. “I can [[lend|emprestar]] you the money,” said Caíque, “but you have to wash my car on Saturday morning.”",
+    "Maya looked at Theo. Maybe a simpler robot was a better idea."
+   ],
+   "event": "they went to the market",
+   "eventPt": "eles foram ao mercado",
+   "question": {
+    "wh": "Where",
+    "q": "Where did they find the motor?",
+    "options": [
+     "In a small shop at the market",
+     "In the lab",
+     "In Theo's bedroom",
+     "At the science fair"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Borrow money from Caíque",
+     "labelPt": "Pegar dinheiro emprestado com o Caíque",
+     "to": "p4c",
+     "event": "they borrowed money from Caíque",
+     "eventPt": "eles pegaram dinheiro emprestado com o Caíque"
+    },
+    {
+     "label": "Build a simpler robot",
+     "labelPt": "Construir um robô mais simples",
+     "to": "p4b",
+     "event": "they built a simpler robot",
+     "eventPt": "eles construíram um robô mais simples"
+    }
+   ]
+  },
+  "p3z": {
+   "chapter": 3,
+   "title": "Seu Bento's Shop",
+   "scene": "shop",
+   "text": [
+    "Seu Bento's shop was small and full of old clocks, radios and TVs. He looked at Bolt's motor for a long time.",
+    "“I can fix it,” he said, “but I need a special part. It arrives tomorrow at eight o'clock.”",
+    "The fair started at nine. Maya was worried. Then Theo had an idea: “Or we can build a simpler robot tonight.”"
+   ],
+   "event": "they took Bolt to Seu Bento's shop",
+   "eventPt": "eles levaram o Bolt à loja do Seu Bento",
+   "question": {
+    "wh": "When",
+    "q": "When could Seu Bento fix the motor?",
+    "options": [
+     "On Saturday at eight o'clock",
+     "On Friday night",
+     "Next week",
+     "On Thursday"
+    ],
+    "answer": 0,
+    "hint": "Read what Seu Bento said."
+   },
+   "choices": [
+    {
+     "label": "Wait for Seu Bento",
+     "labelPt": "Esperar pelo Seu Bento",
+     "to": "p4d",
+     "event": "they waited for Seu Bento",
+     "eventPt": "eles esperaram pelo Seu Bento"
+    },
+    {
+     "label": "Build a simpler robot",
+     "labelPt": "Construir um robô mais simples",
+     "to": "p4b",
+     "event": "they built a simpler robot",
+     "eventPt": "eles construíram um robô mais simples"
+    }
+   ]
+  },
+  "p4a": {
+   "chapter": 4,
+   "title": "No Sleep",
+   "scene": "night",
+   "text": [
+    "Maya and Theo worked all night. First, they changed the wheels. Then they painted Bolt again. At five in the morning, Bolt moved fast and said “Hello!” again.",
+    "But Maya and Theo were very, very tired. Their eyes were red, and Theo fell asleep on the kitchen table.",
+    "The fair started at nine."
+   ],
+   "event": "they worked all night",
+   "eventPt": "eles trabalharam a noite toda",
+   "question": {
+    "wh": "When",
+    "q": "When did Bolt finally work well?",
+    "options": [
+     "At five in the morning",
+     "At nine at night",
+     "On Thursday",
+     "After the fair"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Drink coffee and go to the fair",
+     "labelPt": "Tomar café e ir para a feira",
+     "to": "e3",
+     "event": "they drank coffee and went to the fair",
+     "eventPt": "eles tomaram café e foram para a feira"
+    },
+    {
+     "label": "Sleep for one hour",
+     "labelPt": "Dormir por uma hora",
+     "to": "e5",
+     "event": "they slept for one hour",
+     "eventPt": "eles dormiram por uma hora"
+    }
+   ]
+  },
+  "p4b": {
+   "chapter": 4,
+   "title": "In Front of the Judges",
+   "scene": "fair",
+   "text": [
+    "On Saturday, the IFAL gym was full of tables, posters and people. Maya and Theo put Bolt on their table. It wasn't the robot of their dreams: it was slow and simple.",
+    "Later, three [[judges|jurados]] came to their table. “Tell us about your robot,” said one of them.",
+    "Theo looked at Maya. She was nervous. What could they say?"
+   ],
+   "event": "they showed Bolt to the judges",
+   "eventPt": "eles mostraram o Bolt aos jurados",
+   "question": {
+    "wh": "Who",
+    "q": "Who came to their table later?",
+    "options": [
+     "Three judges",
+     "Seu Bento",
+     "Caíque",
+     "Maya's mother"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   },
+   "choices": [
+    {
+     "label": "Tell the true story",
+     "labelPt": "Contar a história verdadeira",
+     "to": "e2",
+     "event": "they told the judges the true story",
+     "eventPt": "eles contaram a história verdadeira aos jurados"
+    },
+    {
+     "label": "Say that Bolt is perfect",
+     "labelPt": "Dizer que o Bolt é perfeito",
+     "to": "e6",
+     "event": "they said Bolt was perfect",
+     "eventPt": "eles disseram que o Bolt era perfeito"
+    }
+   ]
+  },
+  "p4c": {
+   "chapter": 4,
+   "title": "A Deal with Caíque",
+   "scene": "wash",
+   "text": [
+    "Caíque lent them the money, and they bought the motor. That night, they put it in Bolt. Bolt worked perfectly!",
+    "On Saturday morning, Maya and Theo washed Caíque's car. Then they ran to the fair with Bolt in a box.",
+    "At the fair, a group of children saw Bolt. “Can we play with it?” they asked."
+   ],
+   "event": "they washed Caíque's car",
+   "eventPt": "eles lavaram o carro do Caíque",
+   "question": {
+    "wh": "How",
+    "q": "How did they pay for the motor?",
+    "options": [
+     "With money from Caíque",
+     "With their prize",
+     "Seu Bento paid",
+     "They didn't pay"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Put Bolt on the table",
+     "labelPt": "Colocar o Bolt na mesa",
+     "to": "e1",
+     "event": "they put Bolt on the table",
+     "eventPt": "eles colocaram o Bolt na mesa"
+    },
+    {
+     "label": "Let the children play with Bolt",
+     "labelPt": "Deixar as crianças brincarem com o Bolt",
+     "to": "e4",
+     "event": "they let the children play with Bolt",
+     "eventPt": "eles deixaram as crianças brincarem com o Bolt"
+    }
+   ]
+  },
+  "p4d": {
+   "chapter": 4,
+   "title": "Eight O'Clock",
+   "scene": "shop",
+   "text": [
+    "On Saturday, Maya and Theo arrived at Seu Bento's shop at seven thirty. They waited and waited. Finally, at eight o'clock, a man arrived on a motorcycle with the part.",
+    "Seu Bento worked fast. At eight forty, Bolt moved its arms and said “Hello!” Everybody smiled.",
+    "But the fair started at nine, and the school was far."
+   ],
+   "event": "Seu Bento fixed the motor",
+   "eventPt": "o Seu Bento consertou o motor",
+   "question": {
+    "wh": "Where",
+    "q": "Where were Maya and Theo at seven thirty?",
+    "options": [
+     "At Seu Bento's shop",
+     "At the fair",
+     "At home",
+     "At the market"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   },
+   "choices": [
+    {
+     "label": "Run to the fair",
+     "labelPt": "Correr para a feira",
+     "to": "e1",
+     "event": "they ran to the fair",
+     "eventPt": "eles correram para a feira"
+    },
+    {
+     "label": "Stop for breakfast first",
+     "labelPt": "Parar para tomar café da manhã antes",
+     "to": "e5",
+     "event": "they stopped for breakfast",
+     "eventPt": "eles pararam para tomar café da manhã"
+    }
+   ]
+  }
+ },
+ "endings": {
+  "e1": {
+   "rank": 0,
+   "tier": "good",
+   "emoji": "🏆",
+   "short": "First prize",
+   "title": "First Prize!",
+   "scene": "prize",
+   "text": [
+    "Bolt worked perfectly in front of the judges. It moved its arms, said “Hello!” and gave a small flag to one of the judges.",
+    "In the end, the director read the results: “First prize... Maya and Theo, with Bolt!” Everybody clapped, and Maya and Theo laughed and jumped."
+   ],
+   "event": "Maya and Theo won first prize",
+   "eventPt": "a Maya e o Theo ganharam o primeiro prêmio",
+   "question": {
+    "wh": "Who",
+    "q": "Who read the results?",
+    "options": [
+     "The director",
+     "Seu Bento",
+     "Caíque",
+     "Professora Rita"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   }
+  },
+  "e2": {
+   "rank": 1,
+   "tier": "good",
+   "emoji": "💡",
+   "short": "Best story",
+   "title": "The Best Story",
+   "scene": "prize",
+   "text": [
+    "Maya told the judges everything: the smoke, the burned motor and the long night. Theo showed them the old motor.",
+    "The judges smiled. “Robots break. Good engineers don't give up,” said one of them. In the end, Bolt didn't win first prize, but Maya and Theo won a special prize for their hard work."
+   ],
+   "event": "they won a special prize",
+   "eventPt": "eles ganharam um prêmio especial",
+   "question": {
+    "wh": "Why",
+    "q": "Why did they win a special prize?",
+    "options": [
+     "They didn't give up",
+     "Bolt was the fastest robot",
+     "They paid the judges",
+     "Bolt could fly"
+    ],
+    "answer": 0,
+    "hint": "Read what the judge said."
+   }
+  },
+  "e3": {
+   "rank": 2,
+   "tier": "mixed",
+   "emoji": "😴",
+   "short": "Sleepy team",
+   "title": "Sleepy Scientists",
+   "scene": "fair",
+   "text": [
+    "Bolt worked well at the fair, and many people liked it. But in front of the judges, Maya forgot her words, and Theo fell asleep on his chair!",
+    "In the end, they got third place. “Next time, we sleep before the fair,” said Maya with a smile."
+   ],
+   "event": "they got third place",
+   "eventPt": "eles ficaram em terceiro lugar",
+   "question": {
+    "wh": "Who",
+    "q": "Who fell asleep in front of the judges?",
+    "options": [
+     "Theo",
+     "Maya",
+     "A judge",
+     "Seu Bento"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  },
+  "e4": {
+   "rank": 3,
+   "tier": "mixed",
+   "emoji": "🧃",
+   "short": "Juice accident",
+   "title": "The Juice Accident",
+   "scene": "fair",
+   "text": [
+    "The children loved Bolt. They played with it for twenty minutes. Suddenly, a little boy dropped his juice on the robot. Bolt made a noise and stopped.",
+    "When the judges arrived, Bolt didn't work. Maya and Theo didn't win a prize, but the children's school invited them to show Bolt to their class."
+   ],
+   "event": "a boy dropped juice on Bolt",
+   "eventPt": "um menino derrubou suco no Bolt",
+   "question": {
+    "wh": "When",
+    "q": "When did Bolt stop working?",
+    "options": [
+     "After the juice fell on it",
+     "Before the fair",
+     "On Thursday",
+     "At the market"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  },
+  "e5": {
+   "rank": 4,
+   "tier": "bad",
+   "emoji": "⏰",
+   "short": "Too late",
+   "title": "Too Late",
+   "scene": "clock",
+   "text": [
+    "Maya and Theo arrived at the fair at ten fifteen. The judges were leaving the gym.",
+    "“Sorry,” said Professora Rita. “The presentations ended at ten.” Bolt worked perfectly, but the judges didn't see it. On the bus home, Theo said, “Next year, we start earlier.”"
+   ],
+   "event": "they arrived late at the fair",
+   "eventPt": "eles chegaram atrasados à feira",
+   "question": {
+    "wh": "Where",
+    "q": "Where were the judges when Maya and Theo arrived?",
+    "options": [
+     "Leaving the gym",
+     "At the market",
+     "At Seu Bento's shop",
+     "On the bus"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  },
+  "e6": {
+   "rank": 5,
+   "tier": "bad",
+   "emoji": "🤥",
+   "short": "Not perfect",
+   "title": "Not Perfect",
+   "scene": "fair",
+   "text": [
+    "“Bolt is perfect,” said Theo. “It is very fast.” Then a judge pressed the button. Bolt moved very, very slowly: brrr... brrr...",
+    "The judges looked at each other. They didn't believe Theo anymore, and they didn't give Bolt a prize. Later, Maya said, “We needed to tell the truth.”"
+   ],
+   "event": "Theo lied to the judges",
+   "eventPt": "o Theo mentiu para os jurados",
+   "question": {
+    "wh": "How",
+    "q": "How did Bolt move when the judge pressed the button?",
+    "options": [
+     "Very slowly",
+     "Very fast",
+     "It jumped",
+     "It sang"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  }
+ }
+}

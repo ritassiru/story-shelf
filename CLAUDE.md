@@ -14,7 +14,9 @@ no escuro, e **sem internet**.
 Livros hoje: `the-phone-on-the-bus` e `who-posted-it` (1º ano; Simple past,
 question words, sequence words) e `the-fortune-app` (1º ano, 4º bimestre;
 Simple future, simple past, question words) e `the-new-student` (2º ano, B1;
-Present perfect, simple past, past continuous). Projeto irmão:
+Present perfect, simple past, past continuous). **Rascunhos** (set/2026, esperando
+a aprovação do professor): `the-science-fair` e `grandmas-recipe` (1º ano, A2;
+Simple past, question words, sequence words). Projeto irmão:
 `ritassiru/the-ceo-game` (2º ano); mantenha a consistência visual entre eles.
 
 **Particípio no balão:** `"verbForms": 3` nos metadados faz o balão reconhecer

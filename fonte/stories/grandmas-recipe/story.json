@@ -1,0 +1,632 @@
+{
+ "meta": {
+  "slug": "grandmas-recipe",
+  "title": "Grandma's Recipe",
+  "level": "A2",
+  "audience": "1º ano",
+  "grammar": [
+   "Simple past",
+   "Question words",
+   "Sequence words"
+  ],
+  "blurb": "Every year, Grandma Zefa wins the cocada contest. This year, Joana must cook, but one ingredient in the old recipe is missing! You decide what she does.",
+  "cover": "kitchen",
+  "chapters": 4,
+  "choicePrompt": "What does Joana do?",
+  "keywords": [
+   {
+    "title": "Story words",
+    "pt": "palavras da história",
+    "words": [
+     [
+      "🥥",
+      "coconut",
+      "coco"
+     ],
+     [
+      "🍬",
+      "sugar",
+      "açúcar"
+     ],
+     [
+      "📓",
+      "notebook",
+      "caderno"
+     ],
+     [
+      "🧂",
+      "salt",
+      "sal"
+     ],
+     [
+      "🍋",
+      "lime",
+      "limão"
+     ],
+     [
+      "🫚",
+      "ginger",
+      "gengibre"
+     ],
+     [
+      "👵",
+      "grandma",
+      "vovó"
+     ],
+     [
+      "🏆",
+      "contest",
+      "concurso"
+     ]
+    ]
+   },
+   "sequence",
+   "question"
+  ],
+  "retell": {
+   "sentences": 5,
+   "minSequence": 3,
+   "maxHelp": 3
+  }
+ },
+ "start": "p1",
+ "nodes": {
+  "p1": {
+   "chapter": 1,
+   "title": "The Old Notebook",
+   "scene": "kitchen",
+   "text": [
+    "Every year, Vó Zefa made cocada for the cooking contest at the town festival, and every year she won. But this year, she was away. She was visiting her sister in another state.",
+    "“You can make the cocada this year,” she said to Joana on the phone. “My recipe is in the old blue notebook.”",
+    "On Friday, Joana found the notebook. But there was a coffee [[stain|mancha]] on the page, and she couldn't read one [[ingredient|ingrediente]]! The contest was on Sunday."
+   ],
+   "event": "Joana found Grandma's old notebook",
+   "eventPt": "a Joana encontrou o caderno antigo da avó",
+   "question": {
+    "wh": "What",
+    "q": "What was on the recipe page?",
+    "options": [
+     "A coffee stain",
+     "A photo of Grandma",
+     "A map",
+     "A phone number"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   },
+   "choices": [
+    {
+     "label": "Call Grandma",
+     "labelPt": "Ligar para a avó",
+     "to": "p2a",
+     "event": "she called Grandma",
+     "eventPt": "ela ligou para a avó"
+    },
+    {
+     "label": "Try to guess the ingredient",
+     "labelPt": "Tentar adivinhar o ingrediente",
+     "to": "p2b",
+     "event": "she tried to guess the ingredient",
+     "eventPt": "ela tentou adivinhar o ingrediente"
+    }
+   ]
+  },
+  "p2a": {
+   "chapter": 2,
+   "title": "A Bad Call",
+   "scene": "phone",
+   "text": [
+    "Joana called Vó Zefa. The phone line was terrible. “The secret ingredient is... is...” said Grandma. Then the call ended.",
+    "Joana tried again three times, but Grandma's phone was off. Her little brother, Nino, laughed. “Maybe the secret is chocolate!”",
+    "“It isn't chocolate,” said Joana. Then she thought about lime. Lime was in many of Grandma's recipes."
+   ],
+   "event": "the call ended",
+   "eventPt": "a ligação caiu",
+   "question": {
+    "wh": "Why",
+    "q": "Why couldn't Joana hear the secret ingredient?",
+    "options": [
+     "The phone line was terrible",
+     "Grandma forgot it",
+     "Nino was loud",
+     "Joana was at school"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Ask Dona Lurdes, the neighbor",
+     "labelPt": "Perguntar à Dona Lurdes, a vizinha",
+     "to": "p3y",
+     "event": "she asked Dona Lurdes for help",
+     "eventPt": "ela pediu ajuda à Dona Lurdes"
+    },
+    {
+     "label": "Try lime",
+     "labelPt": "Experimentar limão",
+     "to": "p3x",
+     "event": "she tried lime in the cocada",
+     "eventPt": "ela experimentou limão na cocada"
+    }
+   ]
+  },
+  "p2b": {
+   "chapter": 2,
+   "title": "The First Try",
+   "scene": "kitchen",
+   "text": [
+    "Joana made cocada with coconut, sugar and milk, but without the secret ingredient. First, she cooked everything for forty minutes. Then she waited for it to cool.",
+    "Her little brother, Nino, tasted it. “It's OK,” he said. “But Grandma's cocada is better.”",
+    "Joana looked at the notebook again. Maybe there were more pages. Or maybe Dona Lurdes, the neighbor, knew the secret. She was Grandma's old friend."
+   ],
+   "event": "she made her first cocada",
+   "eventPt": "ela fez a primeira cocada",
+   "question": {
+    "wh": "Who",
+    "q": "Who tasted the first cocada?",
+    "options": [
+     "Nino",
+     "Dona Lurdes",
+     "Grandma",
+     "The judges"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   },
+   "choices": [
+    {
+     "label": "Ask Dona Lurdes, the neighbor",
+     "labelPt": "Perguntar à Dona Lurdes, a vizinha",
+     "to": "p3y",
+     "event": "she asked Dona Lurdes for help",
+     "eventPt": "ela pediu ajuda à Dona Lurdes"
+    },
+    {
+     "label": "Look for more pages in the notebook",
+     "labelPt": "Procurar mais páginas no caderno",
+     "to": "p3z",
+     "event": "she looked for more pages",
+     "eventPt": "ela procurou mais páginas"
+    }
+   ]
+  },
+  "p3x": {
+   "chapter": 3,
+   "title": "Lime",
+   "scene": "kitchen",
+   "text": [
+    "Joana put lime in the cocada. First, she used one lime. Then she used two. Nino tasted it and made a funny face. “It's [[sour|azedo]]!” he said.",
+    "Joana tried again with less lime. It was better, but it wasn't Grandma's cocada.",
+    "It was nine o'clock on Saturday night. The contest was the next day."
+   ],
+   "event": "she used lime in the cocada",
+   "eventPt": "ela usou limão na cocada",
+   "question": {
+    "wh": "How",
+    "q": "How did the cocada with lime taste?",
+    "options": [
+     "Sour",
+     "Very sweet",
+     "Salty",
+     "Like chocolate"
+    ],
+    "answer": 0,
+    "hint": "Read what Nino said."
+   },
+   "choices": [
+    {
+     "label": "Make it your own way",
+     "labelPt": "Fazer do seu jeito",
+     "to": "p4b",
+     "event": "she decided to make her own cocada",
+     "eventPt": "ela decidiu fazer a cocada do jeito dela"
+    },
+    {
+     "label": "Cook all night",
+     "labelPt": "Cozinhar a noite toda",
+     "to": "p4a",
+     "event": "she cooked all night",
+     "eventPt": "ela cozinhou a noite toda"
+    }
+   ]
+  },
+  "p3y": {
+   "chapter": 3,
+   "title": "Dona Lurdes",
+   "scene": "neighbor",
+   "text": [
+    "Dona Lurdes opened the door with a big smile. She was in the cooking contest too! Joana showed her the notebook.",
+    "Dona Lurdes read the page for a long time. “Zefa and I were friends for fifty years,” she said. “I know this recipe. The secret is a little [[ginger|gengibre]].”",
+    "Joana was surprised. Was it true? Or did Dona Lurdes want to win the contest?"
+   ],
+   "event": "she visited Dona Lurdes",
+   "eventPt": "ela visitou a Dona Lurdes",
+   "question": {
+    "wh": "Where",
+    "q": "Where did Joana talk to Dona Lurdes?",
+    "options": [
+     "At Dona Lurdes's door",
+     "At the festival",
+     "At school",
+     "On the phone"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Trust Dona Lurdes",
+     "labelPt": "Confiar na Dona Lurdes",
+     "to": "p4c",
+     "event": "she trusted Dona Lurdes",
+     "eventPt": "ela confiou na Dona Lurdes"
+    },
+    {
+     "label": "Make it your own way",
+     "labelPt": "Fazer do seu jeito",
+     "to": "p4b",
+     "event": "she decided to make her own cocada",
+     "eventPt": "ela decidiu fazer a cocada do jeito dela"
+    }
+   ]
+  },
+  "p3z": {
+   "chapter": 3,
+   "title": "The Last Page",
+   "scene": "notebook",
+   "text": [
+    "Joana looked at every page of the old notebook. Finally, on the last page, she found a small note in Grandma's [[handwriting|letra]]:",
+    "“My cocada secret: a [[pinch|pitada]] of salt and a lot of love. — Zefa”",
+    "“Salt?” said Nino. “In a sweet?” Joana laughed. It was strange, but it was Grandma's handwriting. Then Joana looked at the clock. It was late, and she was tired."
+   ],
+   "event": "she found a note from Grandma",
+   "eventPt": "ela encontrou um bilhete da avó",
+   "question": {
+    "wh": "When",
+    "q": "When did Joana find the note?",
+    "options": [
+     "After she looked at every page",
+     "Before she opened the notebook",
+     "On Monday",
+     "When Grandma called"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Use a pinch of salt",
+     "labelPt": "Usar uma pitada de sal",
+     "to": "p4d",
+     "event": "she used a pinch of salt",
+     "eventPt": "ela usou uma pitada de sal"
+    },
+    {
+     "label": "Make it your own way",
+     "labelPt": "Fazer do seu jeito",
+     "to": "p4b",
+     "event": "she decided to make her own cocada",
+     "eventPt": "ela decidiu fazer a cocada do jeito dela"
+    }
+   ]
+  },
+  "p4a": {
+   "chapter": 4,
+   "title": "All Night",
+   "scene": "kitchen",
+   "text": [
+    "Joana cooked all night. First, she tried cocada with orange. Then she tried it with pineapple. At four in the morning, she made a cocada with passion fruit, and it was delicious!",
+    "But Joana was very tired. Her eyes were red, and her hands were full of sugar.",
+    "The contest started at ten."
+   ],
+   "event": "she made a passion fruit cocada",
+   "eventPt": "ela fez uma cocada de maracujá",
+   "question": {
+    "wh": "When",
+    "q": "When did Joana make the best cocada?",
+    "options": [
+     "At four in the morning",
+     "On Friday afternoon",
+     "At ten at night",
+     "After the contest"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Take it to the contest now",
+     "labelPt": "Levar a cocada ao concurso agora",
+     "to": "e3",
+     "event": "she took the cocada to the contest",
+     "eventPt": "ela levou a cocada ao concurso"
+    },
+    {
+     "label": "Sleep for one hour",
+     "labelPt": "Dormir por uma hora",
+     "to": "e5",
+     "event": "she slept for one hour",
+     "eventPt": "ela dormiu por uma hora"
+    }
+   ]
+  },
+  "p4b": {
+   "chapter": 4,
+   "title": "Joana's Cocada",
+   "scene": "contest",
+   "text": [
+    "On Sunday, the town square was full of music and food. Joana put her cocada on the contest table, next to Dona Lurdes's cocada and ten others.",
+    "It wasn't Grandma's recipe. It was Joana's own recipe, and she was a little nervous.",
+    "Later, the three judges tasted it. “Hmm,” said one judge. “Is this the famous Zefa recipe?”"
+   ],
+   "event": "the judges tasted her cocada",
+   "eventPt": "os jurados provaram a cocada dela",
+   "question": {
+    "wh": "Who",
+    "q": "Who tasted the cocada?",
+    "options": [
+     "Three judges",
+     "Nino",
+     "Grandma",
+     "Dona Lurdes"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   },
+   "choices": [
+    {
+     "label": "Tell the truth: it's your recipe",
+     "labelPt": "Dizer a verdade: a receita é sua",
+     "to": "e2",
+     "event": "she told the judges the truth",
+     "eventPt": "ela contou a verdade aos jurados"
+    },
+    {
+     "label": "Say it's Grandma's recipe",
+     "labelPt": "Dizer que é a receita da avó",
+     "to": "e6",
+     "event": "she said it was Grandma's recipe",
+     "eventPt": "ela disse que era a receita da avó"
+    }
+   ]
+  },
+  "p4c": {
+   "chapter": 4,
+   "title": "The Ginger",
+   "scene": "neighbor",
+   "text": [
+    "Joana put a little ginger in the cocada. Then she tasted it. It was exactly like Grandma's cocada! Dona Lurdes told the truth.",
+    "On Sunday morning, Dona Lurdes knocked on the door. “Joana, my oven broke,” she said sadly. “I can't make my cocada for the contest.”"
+   ],
+   "event": "the ginger worked",
+   "eventPt": "o gengibre deu certo",
+   "question": {
+    "wh": "How",
+    "q": "How did the cocada taste with ginger?",
+    "options": [
+     "Exactly like Grandma's",
+     "Very sour",
+     "Terrible",
+     "Like chocolate"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Invite Dona Lurdes to cook with you",
+     "labelPt": "Convidar a Dona Lurdes para cozinhar com você",
+     "to": "e1",
+     "event": "she invited Dona Lurdes to cook with her",
+     "eventPt": "ela convidou a Dona Lurdes para cozinhar com ela"
+    },
+    {
+     "label": "Enter the contest alone",
+     "labelPt": "Participar do concurso sozinha",
+     "to": "e4",
+     "event": "she entered the contest alone",
+     "eventPt": "ela participou do concurso sozinha"
+    }
+   ]
+  },
+  "p4d": {
+   "chapter": 4,
+   "title": "A Pinch of Salt",
+   "scene": "kitchen",
+   "text": [
+    "Joana made the cocada again with a pinch of salt. It was perfect! She put it in the fridge and went to bed happy.",
+    "On Sunday morning, she opened the fridge. Half of the cocada wasn't there! Nino was on the sofa with a big smile and sugar on his face.",
+    "The contest started in one hour."
+   ],
+   "event": "she made the cocada with salt",
+   "eventPt": "ela fez a cocada com sal",
+   "question": {
+    "wh": "Where",
+    "q": "Where was Nino on Sunday morning?",
+    "options": [
+     "On the sofa",
+     "At the festival",
+     "At school",
+     "At Dona Lurdes's house"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   },
+   "choices": [
+    {
+     "label": "Take what is left",
+     "labelPt": "Levar o que sobrou",
+     "to": "e1",
+     "event": "she took the rest of the cocada to the contest",
+     "eventPt": "ela levou o resto da cocada ao concurso"
+    },
+    {
+     "label": "Make a new cocada",
+     "labelPt": "Fazer uma cocada nova",
+     "to": "e5",
+     "event": "she made a new cocada",
+     "eventPt": "ela fez uma cocada nova"
+    }
+   ]
+  }
+ },
+ "endings": {
+  "e1": {
+   "rank": 0,
+   "tier": "good",
+   "emoji": "🏆",
+   "short": "First prize",
+   "title": "Grandma's Pride",
+   "scene": "prize",
+   "text": [
+    "The judges tasted the cocada and closed their eyes. “This is the real Zefa cocada!” said one of them.",
+    "In the end, Joana won first prize. That night, she called Grandma on video. Vó Zefa cried with happiness. “Now the recipe is yours too,” she said."
+   ],
+   "event": "Joana won first prize",
+   "eventPt": "a Joana ganhou o primeiro prêmio",
+   "question": {
+    "wh": "Who",
+    "q": "Who cried with happiness?",
+    "options": [
+     "Grandma",
+     "Nino",
+     "A judge",
+     "Dona Lurdes"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   }
+  },
+  "e2": {
+   "rank": 1,
+   "tier": "good",
+   "emoji": "💛",
+   "short": "New recipe",
+   "title": "A New Recipe",
+   "scene": "prize",
+   "text": [
+    "“No,” said Joana. “This is my own recipe. I didn't know Grandma's secret.” The judges smiled. They liked her honesty, and they loved the cocada.",
+    "Joana won a special prize for the best new recipe. Later, Grandma called. “Next year, you can teach me your recipe!” she said."
+   ],
+   "event": "she won a prize for a new recipe",
+   "eventPt": "ela ganhou um prêmio por uma receita nova",
+   "question": {
+    "wh": "Why",
+    "q": "Why did the judges like Joana?",
+    "options": [
+     "She was honest",
+     "She was Grandma's granddaughter",
+     "She paid them",
+     "She made chocolate"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  },
+  "e3": {
+   "rank": 2,
+   "tier": "mixed",
+   "emoji": "😴",
+   "short": "Sleepy cook",
+   "title": "The Sleepy Cook",
+   "scene": "contest",
+   "text": [
+    "The passion fruit cocada was delicious, and many people wanted to buy it. But Joana was so tired that she fell asleep on a chair next to the table.",
+    "The judges wanted to talk to her, but she didn't wake up. In the end, she got third place, and Nino sold all the cocada."
+   ],
+   "event": "she got third place",
+   "eventPt": "ela ficou em terceiro lugar",
+   "question": {
+    "wh": "Who",
+    "q": "Who sold all the cocada?",
+    "options": [
+     "Nino",
+     "Joana",
+     "Dona Lurdes",
+     "A judge"
+    ],
+    "answer": 0,
+    "hint": "Read the last sentence."
+   }
+  },
+  "e4": {
+   "rank": 3,
+   "tier": "mixed",
+   "emoji": "🥈",
+   "short": "Second place",
+   "title": "Second Place",
+   "scene": "contest",
+   "text": [
+    "Joana's cocada was great, and she won second place. But Dona Lurdes didn't enter the contest this year, and she watched it alone and sad.",
+    "Later, Joana thought about her. “Next year, we cook together,” she said. Dona Lurdes smiled for the first time that day."
+   ],
+   "event": "she won second place",
+   "eventPt": "ela ficou em segundo lugar",
+   "question": {
+    "wh": "When",
+    "q": "When did Dona Lurdes smile?",
+    "options": [
+     "When Joana talked about next year",
+     "Before the contest",
+     "When she won",
+     "On Friday"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   }
+  },
+  "e5": {
+   "rank": 4,
+   "tier": "bad",
+   "emoji": "⏰",
+   "short": "Too late",
+   "title": "Too Late",
+   "scene": "clock",
+   "text": [
+    "Joana ran to the town square with her cocada. But when she arrived, the judges were leaving. The contest ended at eleven.",
+    "Joana sat on a bench, sad. Then an old man tasted her cocada. “Delicious!” he said. It wasn't a prize, but it helped a little."
+   ],
+   "event": "she arrived late at the contest",
+   "eventPt": "ela chegou atrasada ao concurso",
+   "question": {
+    "wh": "Where",
+    "q": "Where did Joana sit?",
+    "options": [
+     "On a bench",
+     "In the kitchen",
+     "On the bus",
+     "At Dona Lurdes's house"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   }
+  },
+  "e6": {
+   "rank": 5,
+   "tier": "bad",
+   "emoji": "🤥",
+   "short": "Not Grandma's",
+   "title": "Not Grandma's",
+   "scene": "contest",
+   "text": [
+    "“Yes, it's Grandma's recipe,” said Joana. But one of the judges was Grandma's old friend. She tasted the cocada and shook her head.",
+    "“This isn't Zefa's cocada,” she said. The judges didn't give Joana a prize. Later, Joana understood: her own cocada was good, but the lie wasn't."
+   ],
+   "event": "Joana lied to the judges",
+   "eventPt": "a Joana mentiu para os jurados",
+   "question": {
+    "wh": "How",
+    "q": "How did the judge know the truth?",
+    "options": [
+     "She knew Grandma's cocada",
+     "Nino told her",
+     "She read the notebook",
+     "Grandma called her"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  }
+ }
+}
