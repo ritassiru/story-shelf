@@ -818,17 +818,18 @@ const reviewButton = () => `<button type="button" class="help-btn" id="w-review"
 // no fim da leitura (caderno): as palavras consultadas nesta leitura
 function wordsCardHTML(since) {
   const all = loadWords(), now = all.filter(w => w.t >= since);
-  if (!all.length) return "";
   return `<div class="card" id="w-end" data-since="${since}"><p class="sec-t" style="margin-top:0">My words <span>· minhas palavras</span></p>
     ${now.length ? `<p class="hint">As palavras que você consultou nesta leitura. Copie no caderno!</p>${wordsList(now)}`
-                 : `<p class="hint">Você não consultou nenhuma palavra nesta leitura.</p>`}
-    ${reviewButton()}</div>`;
+                 : `<p class="hint">Você não consultou nenhuma palavra nesta leitura.${all.length ? "" : " Toque nas palavras sublinhadas durante a leitura: elas ficam guardadas aqui para você revisar depois."}</p>`}
+    ${all.length ? reviewButton() : ""}</div>`;
 }
 // na estante: acesso à revisão
 function wordsHomeHTML() {
   const n = loadWords().length;
-  return n ? `<div class="card" id="w-home"><p class="sec-t" style="margin-top:0">My words <span>· minhas palavras</span></p>
-    <p class="hint">${n} ${n === 1 ? "palavra consultada" : "palavras consultadas"} no glossário, guardadas neste aparelho.</p>${reviewButton()}</div>` : "";
+  // aparece sempre, mesmo vazio, para o aluno descobrir o recurso
+  return `<div class="card" id="w-home"><p class="sec-t" style="margin-top:0">My words <span>· minhas palavras</span></p>
+    ${n ? `<p class="hint">${n} ${n === 1 ? "palavra consultada" : "palavras consultadas"} no glossário, guardadas neste aparelho.</p>${reviewButton()}`
+         : `<p class="hint">Toque nas palavras sublinhadas durante a leitura: elas ficam guardadas aqui para você revisar depois.</p>`}</div>`;
 }
 
 // revisão em cartões, no mesmo painel das configurações (não mexe na leitura)

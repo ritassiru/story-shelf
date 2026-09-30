@@ -126,7 +126,9 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   outro. Ícones: `python3 fonte/icones.py` (sem dependências). O navegador
   embutido do app do Claude **não aceita service workers**: teste no Chrome.
   Só a estante publicada (sem `--out`) gera esses arquivos.
-- **My words:** toda palavra cujo balão o aluno abre fica guardada no aparelho
+- **My words:** o cartão aparece **sempre** na estante e no fim, mesmo vazio
+  (aí explica como funciona e esconde o botão de revisão): escondido, ninguém
+  descobria o recurso. Toda palavra cujo balão o aluno abre fica guardada no aparelho
   (`reader:words`, vale para a estante toda), com a tradução (verbos com as formas). O cartão *My words* aparece
   no caderno, no fim da leitura (só as palavras daquela leitura, pelo
   `state.t0`), e na estante, e a revisão em cartões abre no mesmo painel das configurações
