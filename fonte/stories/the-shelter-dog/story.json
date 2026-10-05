@@ -1,0 +1,739 @@
+{
+ "meta": {
+  "slug": "the-shelter-dog",
+  "title": "The Shelter Dog",
+  "level": "B1",
+  "audience": "2º ano",
+  "grammar": [
+   "Present perfect",
+   "Simple past",
+   "Past continuous"
+  ],
+  "verbForms": 3,
+  "blurb": "Farofa is nine years old, and she has lived at the animal shelter for three years. Nobody has ever chosen her. Can Bia find her a home? It depends on you.",
+  "cover": "shelter",
+  "chapters": 4,
+  "choicePrompt": "What does Bia do?",
+  "keywords": [
+   {
+    "title": "Story words",
+    "pt": "palavras da história",
+    "words": [
+     [
+      "🏠",
+      "shelter",
+      "abrigo de animais"
+     ],
+     [
+      "🙋",
+      "volunteer",
+      "voluntário(a)"
+     ],
+     [
+      "🐶",
+      "to adopt",
+      "adotar"
+     ],
+     [
+      "🐕",
+      "puppy",
+      "filhote"
+     ],
+     [
+      "🦮",
+      "leash",
+      "guia (coleira)"
+     ],
+     [
+      "👁️",
+      "blind",
+      "cego(a)"
+     ],
+     [
+      "📱",
+      "post",
+      "publicação"
+     ],
+     [
+      "🏳️",
+      "to give up",
+      "desistir"
+     ]
+    ]
+   },
+   {
+    "title": "Present perfect words",
+    "pt": "palavras do present perfect",
+    "words": [
+     [
+      "❓",
+      "ever",
+      "alguma vez"
+     ],
+     [
+      "🚫",
+      "never",
+      "nunca"
+     ],
+     [
+      "✅",
+      "already",
+      "já"
+     ],
+     [
+      "⏳",
+      "yet",
+      "ainda / já (em perguntas)"
+     ],
+     [
+      "⚡",
+      "just",
+      "acabou de"
+     ],
+     [
+      "📆",
+      "for / since",
+      "há (tempo) / desde"
+     ]
+    ]
+   },
+   "sequence",
+   "question"
+  ],
+  "retell": {
+   "sentences": 6,
+   "minSequence": 4,
+   "maxHelp": 3
+  }
+ },
+ "start": "p1",
+ "nodes": {
+  "p1": {
+   "chapter": 1,
+   "title": "Three Years Waiting",
+   "scene": "shelter",
+   "text": [
+    "Bia had always wanted a dog, but her apartment was too small. So, for a community project at school, she chose to do [[volunteer work|trabalho voluntário]] at Patas Amigas, a small animal [[shelter|abrigo]].",
+    "On her first Saturday, Dona Célia, who runs the shelter, showed her around. First, they visited the [[puppies|filhotes]]. “Puppies never stay here for long,” she said. “Families [[adopt|adotam]] them in a few days.”",
+    "Then they stopped at the last [[kennel|baia do canil]]. An old brown dog with a gray face was lying on a blanket. She slowly moved her tail.",
+    "“This is Farofa,” said Dona Célia. “She's nine years old, and she's [[blind|cega]] in one eye. She has lived here for three years. Hundreds of families have visited us since then, but nobody has ever chosen her.”",
+    "Bia sat down next to the kennel, and Farofa put her nose against her hand. “The [[adoption fair|feira de adoção]] is next month,” said Dona Célia. “But old dogs don't usually have much luck there.”"
+   ],
+   "event": "Bia met Farofa, an old dog at the shelter",
+   "eventPt": "a Bia conheceu a Farofa, uma cadela idosa do abrigo",
+   "question": {
+    "wh": "What",
+    "q": "What is Farofa's problem in this story?",
+    "options": [
+     "Nobody has adopted her",
+     "She bites people",
+     "She has run away",
+     "She is too young"
+    ],
+    "answer": 0,
+    "hint": "Read what Dona Célia said about Farofa."
+   },
+   "choices": [
+    {
+     "label": "Post Farofa's photos on social media",
+     "labelPt": "Postar fotos da Farofa nas redes sociais",
+     "to": "p2a",
+     "event": "she decided to post Farofa's photos online",
+     "eventPt": "ela decidiu postar fotos da Farofa na internet"
+    },
+    {
+     "label": "Spend more time with Farofa",
+     "labelPt": "Passar mais tempo com a Farofa",
+     "to": "p2b",
+     "event": "she started to walk Farofa every week",
+     "eventPt": "ela começou a passear com a Farofa toda semana"
+    }
+   ]
+  },
+  "p2a": {
+   "chapter": 2,
+   "title": "The Perfect Photo",
+   "scene": "photos",
+   "text": [
+    "Bia's friend Rafa was the best photographer in their class, so she asked for his help. On Sunday, they took Farofa to the shelter's garden. However, she was too slow for action photos, and she kept closing her eyes in the sun.",
+    "After an hour, they had taken more than two hundred photos. Then Rafa found an old picture on the shelter's computer. It showed Farofa six years earlier: she was running on the beach, young and full of energy.",
+    "“Look at this one!” he said. “If we post this photo and say she's five, she'll have a family in a day. Nobody has ever adopted her with the real photos, right?”",
+    "Bia looked at the old photo, and then at the real Farofa, who was sleeping under a tree. The new photos were honest, but they weren't very exciting."
+   ],
+   "event": "Rafa found an old photo of Farofa",
+   "eventPt": "o Rafa encontrou uma foto antiga da Farofa",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Rafa want to use the old photo?",
+    "options": [
+     "Farofa looked young and full of energy in it",
+     "The new photos were lost",
+     "Dona Célia asked him to use it",
+     "It was the only photo of Farofa"
+    ],
+    "answer": 0,
+    "hint": "Read the second and third paragraphs."
+   },
+   "choices": [
+    {
+     "label": "Post the new photos and tell the whole truth",
+     "labelPt": "Postar as fotos novas e contar toda a verdade",
+     "to": "p3x",
+     "event": "she posted the new photos and told the truth",
+     "eventPt": "ela postou as fotos novas e contou a verdade",
+     "set": [
+      "honest",
+      "friend"
+     ]
+    },
+    {
+     "label": "Post the old photo and say she's five",
+     "labelPt": "Postar a foto antiga e dizer que ela tem cinco anos",
+     "to": "p3y",
+     "event": "she posted the old photo and lied about Farofa's age",
+     "eventPt": "ela postou a foto antiga e mentiu a idade da Farofa",
+     "set": [
+      "lied"
+     ]
+    }
+   ]
+  },
+  "p2b": {
+   "chapter": 2,
+   "title": "Slow Walks",
+   "scene": "walk",
+   "text": [
+    "Bia started visiting the shelter every Saturday and two afternoons a week after school. At first, Farofa walked very slowly and stopped at every tree. However, after a few weeks, she was waiting at the gate every time Bia arrived.",
+    "Bia also taught her to sit and to give her [[paw|pata]]. “Nobody has ever taught her anything,” said Dona Célia, surprised. “You've done more for her in a month than we've done in three years.”",
+    "One afternoon, while they were walking around the square, Bia noticed an old man on a bench. He was feeding the [[pigeons|pombos]], and he was watching Farofa with a smile.",
+    "“She looks like a dog I had when I was a boy,” he said. “I've lived alone for five years, you know.” His name was Seu Antônio.",
+    "Later, Bia thought about him. The adoption fair was in two weeks."
+   ],
+   "event": "Bia met Seu Antônio in the square",
+   "eventPt": "a Bia conheceu o Seu Antônio na praça",
+   "question": {
+    "wh": "How",
+    "q": "How did Farofa change after a few weeks?",
+    "options": [
+     "She waited for Bia at the gate",
+     "She started to run very fast",
+     "She stopped eating",
+     "She ran away from the shelter"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Introduce Farofa to Seu Antônio",
+     "labelPt": "Apresentar a Farofa ao Seu Antônio",
+     "to": "p3x",
+     "event": "she introduced Farofa to Seu Antônio",
+     "eventPt": "ela apresentou a Farofa ao Seu Antônio",
+     "set": [
+      "antonio",
+      "friend"
+     ]
+    },
+    {
+     "label": "Wait for the adoption fair",
+     "labelPt": "Esperar a feira de adoção",
+     "to": "p3z",
+     "event": "she decided to wait for the adoption fair",
+     "eventPt": "ela decidiu esperar a feira de adoção"
+    }
+   ]
+  },
+  "p3x": {
+   "chapter": 3,
+   "title": "A Possible Home",
+   "scene": "bench",
+   "text": [
+    {
+     "if": "honest",
+     "text": "Bia posted the new photos with an honest text: “Farofa is nine. She can't see with one eye, and she walks slowly. But she has the kindest heart in the shelter.” The post didn't get many likes. But two days later, a message arrived:"
+    },
+    {
+     "if": "honest",
+     "msg": "Hello! My name is Antônio. I'm 72, and I've lived alone for five years. My granddaughter has just shown me your post. Can I meet Farofa?"
+    },
+    {
+     "if": "antonio",
+     "text": "The next Saturday, Bia took Farofa to the square. Seu Antônio was sitting on the same bench. Farofa walked straight to him and put her head on his knee, as if they were old friends."
+    },
+    "“I've never had a dog as an adult,” Seu Antônio told Bia when they met. “Do you think I could take care of her?”",
+    "However, his son, Márcio, was worried. “Dad, you're 72,” he said. “What if she gets sick? What if you fall during a walk?”",
+    "Seu Antônio [[sighed|suspirou]]. “Maybe he's right. I haven't taken care of anyone for a long time.” Then Bia had two ideas."
+   ],
+   "event": "Seu Antônio wanted to adopt Farofa",
+   "eventPt": "o Seu Antônio quis adotar a Farofa",
+   "question": {
+    "wh": "Who",
+    "q": "Who was worried about the adoption?",
+    "options": [
+     "Seu Antônio's son",
+     "Dona Célia",
+     "Rafa",
+     "Bia's teacher"
+    ],
+    "answer": 0,
+    "hint": "Read the paragraph that starts with “However”."
+   },
+   "choices": [
+    {
+     "label": "Offer to walk Farofa with him twice a week",
+     "labelPt": "Oferecer-se para passear com ele e a Farofa duas vezes por semana",
+     "to": "p4a",
+     "event": "she offered to help Seu Antônio with the walks",
+     "eventPt": "ela se ofereceu para ajudar o Seu Antônio nos passeios"
+    },
+    {
+     "label": "Invite him and his son to the adoption fair",
+     "labelPt": "Convidar ele e o filho para a feira de adoção",
+     "to": "p4b",
+     "event": "she invited Seu Antônio and his son to the adoption fair",
+     "eventPt": "ela convidou o Seu Antônio e o filho para a feira de adoção"
+    }
+   ]
+  },
+  "p3y": {
+   "chapter": 3,
+   "title": "Five Hundred Likes",
+   "scene": "phone_likes",
+   "text": [
+    "In two days, the post had more than five hundred likes and forty shares. Bia had never seen so many hearts on her phone. “I told you!” said Rafa.",
+    "On Saturday, the Moura family arrived at the shelter: a mother, a father and two [[energetic|cheios de energia]] boys with a football. “Where's the dog from the photo?” asked the youngest boy. “We want to play football with her!”",
+    "Dona Célia brought Farofa out. She walked slowly towards the boys and [[bumped into|esbarrou em]] a chair. The father [[frowned|franziu a testa]]. “This dog isn't five,” he said. “She's old, and she can't see well!”",
+    "Later, Dona Célia called Bia into her office. “Have you ever thought about what happens when a family feels [[cheated|enganada]]?” she asked. “They bring the dog back. I've seen it many times.”"
+   ],
+   "event": "the Moura family discovered the truth about Farofa",
+   "eventPt": "a família Moura descobriu a verdade sobre a Farofa",
+   "question": {
+    "wh": "How many",
+    "q": "How many likes did the post have in two days?",
+    "options": [
+     "More than five hundred",
+     "Forty",
+     "About fifty",
+     "Two hundred"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   },
+   "choices": [
+    {
+     "label": "Apologize and tell the whole truth online",
+     "labelPt": "Pedir desculpas e contar toda a verdade na internet",
+     "to": "p4b",
+     "event": "she apologized and told the truth online",
+     "eventPt": "ela pediu desculpas e contou a verdade na internet"
+    },
+    {
+     "label": "Convince the family to take Farofa home",
+     "labelPt": "Convencer a família a levar a Farofa para casa",
+     "to": "p4c",
+     "event": "she convinced the family to take Farofa",
+     "eventPt": "ela convenceu a família a levar a Farofa"
+    }
+   ]
+  },
+  "p3z": {
+   "chapter": 3,
+   "title": "Busy Weeks",
+   "scene": "desk",
+   "text": [
+    "Bia decided to wait for the fair. Meanwhile, the end of the term arrived, and with it came tests, projects and a [[presentation|apresentação]] in her programming class. One Saturday, she stayed home to study. Then she missed another one, and another.",
+    "After three weeks, she finally returned to the shelter. Farofa didn't come to the gate. She was lying in the corner of her kennel, and she only moved her tail a little.",
+    "“She hasn't eaten well since you stopped coming,” said Dona Célia. “I think she has missed you.”",
+    "Bia felt terrible. Suddenly, she remembered something: the adoption fair was on the next Saturday, and she still had two tests that week."
+   ],
+   "event": "Bia didn't visit the shelter for three weeks",
+   "eventPt": "a Bia não visitou o abrigo por três semanas",
+   "question": {
+    "wh": "How long",
+    "q": "How long did Bia stay away from the shelter?",
+    "options": [
+     "Three weeks",
+     "Three days",
+     "Three months",
+     "One week"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   },
+   "choices": [
+    {
+     "label": "Prepare Farofa for the fair",
+     "labelPt": "Preparar a Farofa para a feira",
+     "to": "p4b",
+     "event": "she prepared Farofa for the fair",
+     "eventPt": "ela preparou a Farofa para a feira",
+     "set": [
+      "prepared"
+     ]
+    },
+    {
+     "label": "Study for the tests and skip the fair",
+     "labelPt": "Estudar para as provas e não ir à feira",
+     "to": "p4d",
+     "event": "she stayed home to study and skipped the fair",
+     "eventPt": "ela ficou em casa estudando e não foi à feira"
+    }
+   ]
+  },
+  "p4a": {
+   "chapter": 4,
+   "title": "Two Old Friends",
+   "scene": "walk_three",
+   "text": [
+    "For the next two weeks, Bia met Seu Antônio and Farofa at the square every Tuesday and Thursday. First, she showed him how to use the [[leash|guia (coleira)]]. Then she taught him Farofa's favorite words: “sit”, “paw” and “cookie”.",
+    "Seu Antônio learned fast. He bought a soft bed, a water bowl and a [[ramp|rampa]] for his front door, because Farofa couldn't climb stairs very well.",
+    "One afternoon, while they were walking, Márcio's car stopped next to them. He watched his father laughing with the old dog, and he smiled. “Dad, I haven't seen you this happy for years,” he said.",
+    "Later, Seu Antônio asked Bia: “Should I adopt her now? Or should we take her to the fair first, so people can see that old dogs are great?”"
+   ],
+   "event": "Seu Antônio learned to take care of Farofa",
+   "eventPt": "o Seu Antônio aprendeu a cuidar da Farofa",
+   "question": {
+    "wh": "Where",
+    "q": "Where did Bia meet Seu Antônio and Farofa?",
+    "options": [
+     "In the square",
+     "At the shelter",
+     "At Márcio's house",
+     "At school"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   },
+   "choices": [
+    {
+     "label": "Tell him to adopt her now",
+     "labelPt": "Dizer para ele adotá-la agora",
+     "to": "e1",
+     "event": "he adopted Farofa that week",
+     "eventPt": "ele adotou a Farofa naquela semana"
+    },
+    {
+     "label": "Take Farofa to the fair together",
+     "labelPt": "Levar a Farofa à feira juntos",
+     "to": "e2",
+     "event": "they took Farofa to the fair together",
+     "eventPt": "eles levaram a Farofa à feira juntos"
+    }
+   ]
+  },
+  "p4b": {
+   "chapter": 4,
+   "title": "The Adoption Fair",
+   "scene": "fair",
+   "text": [
+    {
+     "if": "lied",
+     "text": "Bia deleted the old post and wrote a new one: “I lied about Farofa's age, and I'm sorry. She's nine, and she's the sweetest dog I've ever met.” Some people [[criticized|criticaram]] her, but many shared the new post."
+    },
+    {
+     "if": "friend",
+     "text": "Seu Antônio and Márcio promised to come to the fair. “I want to see the dog with my own eyes,” Márcio said."
+    },
+    {
+     "if": "prepared",
+     "text": "Bia studied every night that week. Then, on Friday afternoon, she gave Farofa a bath and put a red [[bandana|lenço]] around her neck. Rafa made a sign: “9 years old. 1 good eye. 100% love.”"
+    },
+    "The fair was in the town square. It was full of noise, music and puppies. Families walked past Farofa's corner, looked at her for a second and went to the puppies.",
+    "Then, while Bia was talking to a family, a [[loudspeaker|caixa de som]] suddenly started playing music very loudly. Farofa [[trembled|tremeu]] and hid behind Bia's legs.",
+    "On the stage, Dona Célia was presenting the dogs with a microphone. Bia looked at the stage, and then at the shaking dog."
+   ],
+   "event": "Farofa got scared at the adoption fair",
+   "eventPt": "a Farofa ficou com medo na feira de adoção",
+   "question": {
+    "wh": "When",
+    "q": "When did Farofa hide behind Bia's legs?",
+    "options": [
+     "When the loudspeaker started playing loud music",
+     "When the puppies arrived",
+     "When Dona Célia called her",
+     "When it started to rain"
+    ],
+    "answer": 0,
+    "hint": "Read the paragraph that starts with “Then”."
+   },
+   "choices": [
+    {
+     "label": "Ask for the microphone and tell Farofa's story",
+     "labelPt": "Pedir o microfone e contar a história da Farofa",
+     "to": "e2",
+     "event": "she told Farofa's story on the microphone",
+     "eventPt": "ela contou a história da Farofa no microfone"
+    },
+    {
+     "label": "Take Farofa back to the quiet shelter",
+     "labelPt": "Levar a Farofa de volta para o abrigo tranquilo",
+     "to": "e4",
+     "event": "she took Farofa back to the shelter early",
+     "eventPt": "ela levou a Farofa de volta para o abrigo mais cedo"
+    }
+   ]
+  },
+  "p4c": {
+   "chapter": 4,
+   "title": "The Trial Week",
+   "scene": "house",
+   "text": [
+    "“Just try for one week,” Bia told the Mouras. “She's very sweet. You'll love her.” Finally, the father agreed, but he didn't look happy.",
+    "On the first day, the boys threw the ball for Farofa. She looked at it and lay down. On the second day, she bumped into a table and broke a vase. On the third day, she hid under a bed and didn't come out.",
+    "On the fourth day, Bia's phone rang. It was Mr. Moura. “She's a good dog,” he said, “but she isn't the dog from the photo. My kids are [[disappointed|decepcionados]], and I feel cheated. What should we do?”",
+    "Bia looked at the old photo on her phone. She had wanted to help Farofa. Had she only made things worse?"
+   ],
+   "event": "the Mouras took Farofa home for a trial week",
+   "eventPt": "os Moura levaram a Farofa para uma semana de teste",
+   "question": {
+    "wh": "How",
+    "q": "How did Mr. Moura feel?",
+    "options": [
+     "Cheated",
+     "Very happy",
+     "Proud of the dog",
+     "Bored"
+    ],
+    "answer": 0,
+    "hint": "Read what he said on the phone."
+   },
+   "choices": [
+    {
+     "label": "Bring Farofa back and tell the truth",
+     "labelPt": "Buscar a Farofa e contar a verdade",
+     "to": "e3",
+     "event": "she brought Farofa back and told the truth",
+     "eventPt": "ela trouxe a Farofa de volta e contou a verdade"
+    },
+    {
+     "label": "Ask them to keep trying",
+     "labelPt": "Pedir que eles continuem tentando",
+     "to": "e5",
+     "event": "she asked the family to keep trying",
+     "eventPt": "ela pediu à família para continuar tentando"
+    }
+   ]
+  },
+  "p4d": {
+   "chapter": 4,
+   "title": "Test Week",
+   "scene": "desk",
+   "text": [
+    "Bia studied all week. On Saturday, while the fair was happening in the square, she was sitting at her desk with her books. She got good grades on both tests. Even so, she felt strange.",
+    "On Sunday night, Rafa sent her a message:",
+    {
+     "msg": "The fair was great! 23 dogs have found homes. Farofa hasn't. Dona Célia said she spent the day lying in a corner. Are you coming back to the shelter?"
+    },
+    "Bia read the message three times. Then she put the phone down. She thought about Farofa's gray face at the gate. Then she thought about her project: she had already done all the volunteer hours. She didn't really need to go back."
+   ],
+   "event": "Farofa wasn't adopted at the fair",
+   "eventPt": "a Farofa não foi adotada na feira",
+   "question": {
+    "wh": "Why",
+    "q": "Why didn't Bia go to the fair?",
+    "options": [
+     "She stayed home to study",
+     "She was sick",
+     "It rained",
+     "She forgot about it"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   },
+   "choices": [
+    {
+     "label": "Go back to the shelter on Saturday",
+     "labelPt": "Voltar ao abrigo no sábado",
+     "to": "e4",
+     "event": "she went back to the shelter",
+     "eventPt": "ela voltou ao abrigo"
+    },
+    {
+     "label": "Stop volunteering. The project is finished",
+     "labelPt": "Parar o voluntariado. O projeto acabou",
+     "to": "e6",
+     "event": "she stopped volunteering",
+     "eventPt": "ela parou de fazer trabalho voluntário"
+    }
+   ]
+  }
+ },
+ "endings": {
+  "e1": {
+   "rank": 0,
+   "tier": "good",
+   "emoji": "🏡",
+   "short": "A home at last",
+   "title": "A Home at Last",
+   "scene": "beach",
+   "text": [
+    "Seu Antônio adopted Farofa on a Wednesday afternoon. Dona Célia cried a little when she said goodbye. “I've seen hundreds of adoptions,” she said, “but this one is special.”",
+    "Bia kept her promise. After that, every Saturday, she walked to Seu Antônio's house after her volunteer work. He was always waiting at the door with coffee, and Farofa was always waiting with her tail.",
+    "A few months later, Márcio sent Bia a photo: his father and Farofa on the beach, both with gray hair, both very happy. Under the photo, he wrote: “Thank you. You've given my father a friend.”"
+   ],
+   "event": "Seu Antônio adopted Farofa",
+   "eventPt": "o Seu Antônio adotou a Farofa",
+   "question": {
+    "wh": "Why",
+    "q": "Why did Márcio thank Bia?",
+    "options": [
+     "She gave his father a friend",
+     "She found his lost dog",
+     "She helped him at work",
+     "She sold him a dog"
+    ],
+    "answer": 0,
+    "hint": "Read the last paragraph."
+   }
+  },
+  "e2": {
+   "rank": 1,
+   "tier": "good",
+   "emoji": "🎤",
+   "short": "Star of the fair",
+   "title": "The Star of the Fair",
+   "scene": "stage",
+   "text": [
+    "At the fair, Bia took the microphone. “Everybody loves puppies,” she began. “But this is Farofa. She has lived in our shelter for three years. She's slow, and she can't see with one eye. But she has never bitten anyone, and she has waited longer than any dog here.”",
+    "The square went quiet. Then people started to clap.",
+    {
+     "if": "friend",
+     "text": "Finally, Seu Antônio walked to the stage and took the leash. “She's coming home with me,” he said. Márcio was standing next to him, smiling."
+    },
+    {
+     "unless": "friend",
+     "text": "Finally, an old woman came to the stage. “I'm seventy, and I'm slow too,” she said, laughing. “We'll be perfect together.” Her name was Dona Lúcia."
+    },
+    "In the end, five old dogs found homes that day, and the shelter started a new campaign: “Adopt an old friend.”"
+   ],
+   "event": "five old dogs found homes at the fair",
+   "eventPt": "cinco cães idosos encontraram um lar na feira",
+   "question": {
+    "wh": "Who",
+    "q": "Who told Farofa's story on the microphone?",
+    "options": [
+     "Bia",
+     "Dona Célia",
+     "Rafa",
+     "Márcio"
+    ],
+    "answer": 0,
+    "hint": "Read the first paragraph."
+   }
+  },
+  "e3": {
+   "rank": 2,
+   "tier": "mixed",
+   "emoji": "🌱",
+   "short": "A second try",
+   "title": "A Second Try",
+   "scene": "shelter",
+   "text": [
+    "Bia went to the Mouras' house and took Farofa back to the shelter. The boys were sad, but their father looked [[relieved|aliviado]]. In the car, Farofa put her head on Bia's lap and fell asleep.",
+    "That night, Bia deleted the old post. Then she wrote a new one, with the real photos and the whole truth. It didn't get five hundred likes. It got thirty-two.",
+    "However, one of those thirty-two was from a [[retired|aposentada]] teacher. “I don't want a dog for football,” she wrote. “I want a dog for long, slow afternoons. Can I visit Farofa?” This time, the right person was looking for her."
+   ],
+   "event": "Bia took Farofa back and wrote an honest post",
+   "eventPt": "a Bia levou a Farofa de volta e escreveu uma publicação sincera",
+   "question": {
+    "wh": "Where",
+    "q": "Where did Bia take Farofa?",
+    "options": [
+     "Back to the shelter",
+     "To her apartment",
+     "To the beach",
+     "To Seu Antônio's house"
+    ],
+    "answer": 0,
+    "hint": "Read the first sentence."
+   }
+  },
+  "e4": {
+   "rank": 3,
+   "tier": "mixed",
+   "emoji": "🐾",
+   "short": "The shelter's dog",
+   "title": "The Shelter's Dog",
+   "scene": "office",
+   "text": [
+    "Farofa didn't find a family at the fair. In fact, nobody adopted her that year. But Bia didn't give up, and something changed.",
+    {
+     "if": "friend",
+     "text": "Márcio still didn't like the idea of a dog in his father's house. So instead, Seu Antônio became a volunteer too, and he visited Farofa every Sunday."
+    },
+    "Dona Célia moved Farofa's bed from the kennel to her office, next to the window. From then on, Farofa [[greeted|cumprimentava]] every visitor at the door, slowly, with her tail moving like a flag.",
+    "Bia has visited her every Saturday since then. Her class has also made a website with the stories of the twelve oldest dogs in the shelter, and three of them have already found homes.",
+    "“Farofa hasn't found a family yet,” Bia told her teacher. “But she has found a home.”"
+   ],
+   "event": "Farofa became the shelter's dog",
+   "eventPt": "a Farofa virou a cadela do abrigo",
+   "question": {
+    "wh": "How many",
+    "q": "How many dogs are on the class website?",
+    "options": [
+     "Twelve",
+     "Three",
+     "Five",
+     "Nine"
+    ],
+    "answer": 0,
+    "hint": "Read the paragraph that starts with “Bia has visited”."
+   }
+  },
+  "e5": {
+   "rank": 4,
+   "tier": "bad",
+   "emoji": "🌧️",
+   "short": "Back in the kennel",
+   "title": "Back in the Kennel",
+   "scene": "rain",
+   "text": [
+    "Bia told the Mouras that Farofa only needed time. They kept her for one more month.",
+    "However, things didn't get better. The boys stopped playing with her, and she spent most of the day alone in the backyard. Then, one rainy morning in November, the father brought her back to the shelter. She was thinner, and she was afraid of everybody.",
+    "Dona Célia didn't say anything. She didn't need to. Bia looked at the old photo on her phone, the one with the young dog running on the beach, and finally deleted it. It was the first true thing she had done for Farofa in a long time."
+   ],
+   "event": "the Mouras brought Farofa back to the shelter",
+   "eventPt": "os Moura devolveram a Farofa ao abrigo",
+   "question": {
+    "wh": "When",
+    "q": "When did the father bring Farofa back?",
+    "options": [
+     "One rainy morning in November",
+     "After one day",
+     "At the adoption fair",
+     "On Christmas Eve"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  },
+  "e6": {
+   "rank": 5,
+   "tier": "bad",
+   "emoji": "🚪",
+   "short": "The empty gate",
+   "title": "The Empty Gate",
+   "scene": "gate",
+   "text": [
+    "Bia promised herself that she would go back after the tests. But then there was a birthday party, a trip to the beach and a new series to watch. Weeks became months.",
+    "In March, she walked past the shelter by chance. Through the gate, she saw a new volunteer, a boy from the first year. He was walking an old brown dog with a gray face. Farofa was still there.",
+    "Dona Célia saw Bia at the gate and waved. Bia only waved back and kept walking. She had wanted to change Farofa's life. In the end, she hadn't even said goodbye."
+   ],
+   "event": "Bia never went back to the shelter",
+   "eventPt": "a Bia nunca mais voltou ao abrigo",
+   "question": {
+    "wh": "Who",
+    "q": "Who was walking Farofa in March?",
+    "options": [
+     "A new volunteer",
+     "Bia",
+     "Dona Célia",
+     "Seu Antônio"
+    ],
+    "answer": 0,
+    "hint": "Read the second paragraph."
+   }
+  }
+ }
+}

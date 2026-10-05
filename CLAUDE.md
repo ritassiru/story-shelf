@@ -16,7 +16,8 @@ question words, sequence words) e `the-fortune-app` (1º ano, 4º bimestre;
 Simple future, simple past, question words) e `the-new-student` (2º ano, B1;
 Present perfect, simple past, past continuous). **Rascunhos** (set/2026, esperando
 a aprovação do professor): `the-science-fair` e `grandmas-recipe` (1º ano, A2;
-Simple past, question words, sequence words). Projeto irmão:
+Simple past, question words, sequence words) e, desde out/2026, `the-shelter-dog`
+(2º ano, B1; Present perfect, simple past, past continuous; par de `the-new-student`). Projeto irmão:
 `ritassiru/the-ceo-game` (2º ano); mantenha a consistência visual entre eles.
 
 **Particípio no balão:** `"verbForms": 3` nos metadados faz o balão reconhecer
