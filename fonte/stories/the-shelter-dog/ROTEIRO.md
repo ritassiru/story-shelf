@@ -1,6 +1,6 @@
 # The Shelter Dog — roteiro
 
-**Turma:** 2º ano · **Nível:** B1 · **Situação:** rascunho (out/2026), esperando a aprovação do professor
+**Turma:** 2º ano · **Nível:** B1 · **Situação:** publicado (out/2026)
 **Conteúdos:** Present perfect (*ever, never, already, yet, just, for, since*), simple past, past continuous
 **Tema de fundo:** responsabilidade e honestidade. Ajudar de verdade dá trabalho, e uma mentira "para o bem" pode piorar as coisas.
 **Formato:** 4 escolhas por leitura, 16 caminhos, 6 finais. Entre 610 e 670 palavras por caminho.
@@ -50,7 +50,7 @@ marcas `honest`, `antonio`, `friend`, `lied` e `prepared` escolhem os
 parágrafos certos. Em *The Star of the Fair*, quem adota a Farofa é o Seu
 Antônio (se a Bia o conheceu) ou a Dona Lúcia.
 
-## Para conferir na aprovação
+## Conferências feitas
 
 - Os lugares são genéricos (o abrigo Patas Amigas, a praça, a feira de adoção), sem fatos sobre lugares reais.
 - Ilustrações em `scenes.js` (14 cenas), conferidas nos modos claro e escuro.
