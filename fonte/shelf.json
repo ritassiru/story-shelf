@@ -25,6 +25,10 @@
   {
    "slug": "grandmas-recipe",
    "published": false
+  },
+  {
+   "slug": "the-shelter-dog",
+   "published": true
   }
  ]
 }
