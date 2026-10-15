@@ -381,9 +381,9 @@ jogo só mostra a diferença como curiosidade, sem contar erro.
 > Bia looks at the wall. "Where's the banner?" Everybody looks at you. 😅 Kauã
 > writes **HAPPY BIRTHDAY** on a pizza box. It's... different. 📦
 
-*Combinação com a segunda:* se `combinado_firme = false` **e**
-`promessa_familia = false`, a sexta mostra os dois atrasos numa cena só (a
-sua e a do Davi), para não repetir "você chega atrasado" duas vezes.
+*Combinação:* a cena da louça não atrasa o aluno, então ela combina com
+qualquer chegada. A regra de "uma cena só para os atrasos" está na sexta
+(**Chegada**).
 
 ---
 
@@ -734,11 +734,13 @@ expressões em qualquer ordem; *at the bakery* é opcional). Se o aluno marcou �
 > big, it's chocolate, and it says **NINA 15** on top. 🎂✨
 
 **🔑 `imprevisto_resolvido = false`**
-> At 6 p.m., the bakery is closed. 🔒 No cake! Kauã has an idea: a tower of
+> At 6 p.m., you and Davi are at the bakery. It's closed. 🔒 No cake! At 6:20,
+> you run into Bia's house with empty hands. Kauã has an idea: a tower of
 > cookies with a candle on top. 🍪🕯️ "It's... modern!" says Bia.
 
-*Combinação:* se `imprevisto_resolvido = false` **e** `combinado_firme = false`,
-o aluno chega com o Davi, os dois sem bolo e atrasados: uma cena só.
+*Combinação:* sem bolo, o aluno vai à padaria às 6 com o Davi (que prometeu ir
+junto) e os dois chegam atrasados. Essa cena substitui a do Davi atrasado: ver
+a sexta (**Chegada**).
 
 ---
 
@@ -753,7 +755,298 @@ o aluno chega com o Davi, os dois sem bolo e atrasados: uma cena só.
 
 ---
 
-## Ideias guardadas para outros dias
+## Friday — o grande dia 🎉
 
-- **Friday:** o evento (pedaços por marca, na ordem do dia) + o plano do fim de
-  semana. Na foto final, o avatar aparece com a camiseta escolhida na terça.
+**Foco:** as três formas misturadas, mais o **plano do fim de semana** do
+próprio aluno.
+**Liberação:** código do dia `PARTY` (aula 5).
+**Decisões-chave:** nenhuma nova. A sexta **mostra** as marcas da semana.
+**Duração estimada:** 10 min de jogo + 10 a 15 min de plano.
+
+**Regra da sexta:** a festa **sempre acontece** e a Nina **sempre fica feliz**.
+As marcas mudam o jeito (organizada ou caótica e engraçada), nunca viram
+fracasso. Ninguém sai da semana se sentindo culpado por um erro de terça.
+
+### Roteiro da sexta, na ordem
+
+| Hora | Momento | Tipo | De onde vem |
+|---|---|---|---|
+| 7:00 a.m. | Abertura | tela | — |
+| 7:30 a.m. | **Tarefa 1** · chat com a Nina | tarefa | — |
+| 4:00 p.m. | Na padaria | pedaço | `imprevisto_resolvido = true` (se `false`, o bolo entra na **Chegada**) |
+| 5:30 p.m. | Saída de casa | pedaço | `promessa_familia` |
+| 5:35 p.m. | **Tarefa 2** · a hora de voltar | tarefa | — |
+| 5:55 p.m. | **Chegada** | pedaço | prioridade abaixo |
+| 6:15 p.m. | A sala | pedaço | `lista_pronta` × `preparado_tempo` |
+| 6:29 p.m. | **Tarefa 3** · a porta | tarefa | — |
+| 6:30 p.m. | SURPRISE! | cena fixa | — |
+| 7:00 p.m. | **Tarefa 4** · o convite da Nina | tarefa | — |
+| 9:00 p.m. | A foto e as estrelas | tela | todas as marcas + camiseta da terça |
+| 9:30 p.m. | **Plano do fim de semana** | produção | — |
+
+**Chegada: uma cena só, pela prioridade** (é a regra de juntar os atrasos):
+1. `imprevisto_resolvido = false` → o aluno e o Davi chegam às 6:20, sem bolo
+   (pedaço da quinta);
+2. senão, `combinado_firme = false` → o Davi chega às 6:29 (pedaço da segunda);
+3. senão → todos às 5:55, inclusive o Davi (pedaço da segunda).
+
+**A sala: quatro combinações**
+- faixa ✔ + sala ✔ → os pedaços de `lista_pronta = true` e `preparado_tempo = true`;
+- faixa ✘ + sala ✔ → caixa de pizza na parede, chuva lá fora;
+- faixa ✔ + jardim → a faixa no jardim, e às 6:40 todos correm para dentro;
+- faixa ✘ + jardim → **cena única** (quarta): a caixa molha e o Kauã escreve no
+  guardanapo.
+
+### Abertura
+
+**Tela de bloqueio · Friday, 7:00 a.m.**
+
+> 💬 **Nina's Party 🤫** · 6 new messages · *TODAY!!! 🎉🎉*
+> 💬 **Nina** · 1 new message
+> 🌦️ **Weather** · Rain from 6 p.m. 🌧️
+
+**Notes · Today**
+
+> **Friday**
+> ☐ 4:00 p.m. · I'm picking up the cake. 🎂 *(a hora que o aluno marcou)*
+> ☐ 6:00 p.m. · We're meeting at Bia's house. 🎉
+> ☐ 6:30 p.m. · Nina is arriving! 🤫
+
+---
+
+### Tarefa 1 · Chat com a Nina — parabéns e segredo
+
+> **Nina:** Good morning! Today is my birthday! 🎂💛
+> **Nina:** My mom is taking me to dinner tonight. 🙄
+> **Nina:** What are you doing tonight? Do you want to come?
+
+*Instrução (pt):* Dê os parabéns e diga que você **já tem um compromisso** hoje
+à noite. Não conte o segredo!
+
+**Blocos:** `Happy birthday!` `Sorry,` `I` `'m meeting` `'ll meet` `some friends` `tonight` `😉`
+
+**Aceitas:** *Happy birthday! Sorry, I'm meeting some friends tonight. 😉*
+(com ou sem *Happy birthday!* e *Sorry,*)
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *… I'm meeting some friends tonight. 😉* | **Nina:** AGAIN? You and your friends! 🙄😂 Have fun! | — |
+| ⚠️ *… I'll meet some friends tonight.* | **Nina:** Just an idea? Come to dinner with me, then! 😄 … No? OK! 🙄 | Compromisso marcado: *I'm meeting*. Igualzinho à segunda-feira! |
+| ❌ sem *tonight* | **Nina:** Now? At 7 a.m.? 😂 | Sem expressão de tempo, *I'm meeting* quer dizer **agora**. |
+
+*Nota:* repete de propósito a tarefa 2 da segunda. O aluno percebe que já sabe
+fazer, e a Nina percebe que o amigo "sempre" tem compromisso. 😄
+
+---
+
+### Pedaço · 4:00 p.m. · Na padaria
+
+Só com `imprevisto_resolvido = true` (pedaço da quinta: o bolo **NINA 15**).
+
+### Pedaço · 5:30 p.m. · Saída de casa
+
+`promessa_familia`: a mãe leva de carro, ou primeiro a louça (pedaços da terça).
+
+---
+
+### Tarefa 2 · Chat com a mãe — a hora de voltar
+
+> **Mom:** Have fun at the party! 🎉
+> **Mom:** But come home by 10, OK? Grandma is arriving tomorrow morning! 👵
+
+*Instrução (pt):* Prometa para a sua mãe que você volta **às 10**.
+
+**Blocos:** `OK, Mom!` `I` `'ll` `'m going to` `be home` `at 10` `at 11` `. I promise!`
+
+**Aceitas:** *OK, Mom! I'll be home at 10. I promise!* (com ou sem *OK, Mom!* e
+*I promise!*)
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *I'll be home at 10. I promise!* | **Mom:** Good! Love you! 💜 | — |
+| ⚠️ *I'm going to be home at 10.* | **Mom:** Is that a promise? 🤨 … OK! Love you! 💜 | Para **prometer**, use *I'll*. Como na terça! |
+| ❌ … *at 11* | **Mom:** Eleven?! No way! TEN! 😠 | A sua mãe pediu **às 10**. |
+
+---
+
+### Pedaço · Chegada e a sala
+
+Conforme as regras acima (prioridade da chegada e as quatro combinações da sala).
+Nas cenas, todos os amigos estão de **amarelo**, e o avatar do aluno com a
+camiseta que ele escolheu na terça.
+
+---
+
+### Tarefa 3 · Na sala, luzes apagadas — a porta
+
+**6:29 p.m.** · A sala está escura. Na ilustração, a maçaneta da porta começa a
+girar e se ouve a voz da Nina lá fora.
+
+> **Bia:** *(whispering)* Shh! Everybody quiet! 🤫
+> **Nina** *(outside):* Mom, why are we at Bia's house? 🤔
+
+*Instrução (pt):* Olhe a porta! O que vai acontecer **agora mesmo**? Avise todo
+mundo, bem baixinho.
+
+**Blocos:** `Shh!` `She` `'s going to` `'ll` `open` `the door` `the window` `!`
+
+**Aceitas:** *Shh! She's going to open the door!*
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *Shh! She's going to open the door!* | **Kauã:** *(whispering)* Ready... 🤫 | — |
+| ⚠️ *Shh! She'll open the door!* | **Davi:** *(whispering)* When? Next year? 😂 **Bia:** SHH! | A maçaneta **está girando**, você está vendo: *She's going to open the door!* Como o bolo do Kauã na quarta! |
+| ❌ … *the window!* | **Maya:** *(whispering)* The window?! 😂 | A Nina está na **porta** (*the door*). |
+
+---
+
+### Cena fixa · 6:30 p.m. · SURPRISE!
+
+> The door opens. The lights go on. **"SURPRISE!!!"** 🎉🎉🎉
+> Nina looks at everybody. Her mouth is open. Then she laughs and cries at the
+> same time. "You... all of you... in YELLOW!" 💛😭
+> Everybody sings *Happy Birthday*. 🎂🎶
+
+---
+
+### Tarefa 4 · O convite da Nina
+
+**7:00 p.m.** · A Nina abraça o aluno.
+
+> **Nina:** So THIS is your "meeting with friends"! 😂
+> **Nina:** This is the best birthday ever! 💛
+> **Nina:** Hey... let's all go to the movies next Saturday! 🍿
+
+*Instrução (pt):* A Nina teve a ideia agora. Aceite e **ofereça** uma ajuda na hora.
+
+**Blocos:** `Great idea!` `I` `'ll` `'m going to` `buy` `the tickets` `the cake` `!`
+
+**Aceitas:** *Great idea! I'll buy the tickets!*
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *Great idea! I'll buy the tickets!* | **Nina:** Deal! 🤝🍿 | — |
+| ⚠️ *Great idea! I'm going to buy the tickets!* | **Nina:** You have a plan already? Another secret? 👀😂 | Oferta **na hora**: *I'll*. Igual à segunda, quando você se ofereceu para comprar os balões! |
+| ❌ … *the cake!* | **Nina:** Another cake?! 😂🎂 | Para o cinema, o que se compra são os ingressos (*the tickets*). |
+
+*Fecha o arco da semana:* na segunda, o aluno recusou o cinema com a Nina para
+guardar o segredo. Na sexta, os dois combinam o cinema de verdade.
+
+---
+
+### A foto e as estrelas · 9:00 p.m.
+
+**Photos:** a foto da festa, com todos de amarelo (ou o aluno de azul 😅), o bolo
+(ou a torre de biscoitos) e a faixa (ou a caixa de pizza).
+
+**Estrelas** (5 marcas da semana):
+
+| Marcas boas | Estrelas | Legenda |
+|---|---|---|
+| 5 | ⭐⭐⭐ | *The perfect party!* |
+| 3 ou 4 | ⭐⭐ | *A great party!* |
+| 0 a 2 | ⭐ | *A crazy party... but Nina loves it!* 😂 |
+
+**Your week** (a lista que ensina, uma linha por marca):
+
+> ✅ **Monday** · *We're meeting at Bia's house on Friday at 6.* → Davi is on time.
+> ❌ **Tuesday** · *I'll help you at 5.* → Football at 5! You wash the dishes. 🍽️
+> ✅ **Tuesday** · *I'm going to buy the balloons and the banner.* → Great banner!
+> ✅ **Wednesday** · *It's going to rain.* → Party in the living room. 🛋️
+> ✅ **Thursday** · *I'm picking it up tomorrow at 4.* → Chocolate cake! 🎂
+
+Cada linha mostra **a frase que o aluno montou** e o efeito dela. Assim ele liga
+a causa à consequência sem precisar lembrar dos dias.
+
+Mais: **first try 15/20** (acertos de primeira na semana).
+
+---
+
+### Plano do fim de semana · 9:30 p.m.
+
+**Tela:** o aluno está em casa, no quarto. O celular abre o Notes numa página nova.
+
+> **Now it's your turn! 📝**
+> **What are your plans for this weekend?**
+
+*Instrução (pt):* Agora é você, **de verdade**: escreva os **seus** planos para o
+fim de semana, em 5 frases. Use expressões de tempo diferentes!
+
+**Regras para passar** (no `event.json`: `"plan": {"sentences": 5, "minTime": 3, "maxHelp": 2}`):
+- **5 frases**, cada uma com um verbo no futuro:
+  - *will / 'll / won't* + verbo;
+  - *am/is/are going to* + verbo;
+  - *am/is/are* + *-ing* **com expressão de tempo na mesma frase** (*I'm meeting
+    my cousins on Sunday*). Isso vale também para *I'm going to the beach on
+    Saturday* (o verbo *go*, com tempo).
+- **3 expressões de tempo diferentes**, entre: *tonight, tomorrow, tomorrow
+  morning/afternoon/night, on Saturday, on Sunday, this weekend, next week, in
+  the morning/afternoon/evening, at + hora*;
+- **montador** em no máximo **2** frases. Editar uma frase montada não tira a
+  etiqueta (como no reconto).
+
+**Montador** (três toques: tempo + forma + atividade):
+- Tempo: `On Saturday,` `On Sunday,` `Tomorrow morning,` `Tonight,` `This weekend,`
+- Forma: `I'm going to` `I'll` `I won't`
+- Atividade: `sleep late` `play football` `visit my grandma` `watch a movie` `study` `help my mom` `go to the beach` `play video games`
+
+O montador só deixa juntar combinações que funcionam. Com *I won't*, ele sugere
+*sleep late* ou *study* (*I won't study on Saturday!* 😄).
+
+**Dicas sem bloquear** (a frase passa, mas ganha um aviso, como o `checkSentence`):
+
+| Escrito | Dica |
+|---|---|
+| *will to go* | Depois de *will*, o verbo vem sem *to*: *will go*. |
+| *will goes* / *will played* | Depois de *will*, o verbo fica na forma básica: *will go*, *will play*. |
+| *I going to* | Falta o *am*: *I'm going to*. |
+| *going to playing* | Depois de *going to*, verbo na forma básica: *going to play*. |
+| *I'm playing football.* (sem tempo) | Sem expressão de tempo, parece **agora**. Diga quando: *on Saturday*. |
+
+**Exemplo** (aparece se o aluno tocar em *💡 Example*):
+> On Saturday morning, I'm going to sleep late. 😴
+> In the afternoon, I'm playing football with my cousins at 3.
+> On Sunday, my grandma is visiting us.
+> I think it'll be a great day!
+> Tonight, I won't watch TV. 😄
+
+*(5 frases; tempos diferentes: on Saturday morning, in the afternoon / at 3, on
+Sunday, tonight.)*
+
+**Trava:** sem o plano, o aluno não recomeça a semana nem escolhe outro evento,
+mesmo recarregando a página (`week:pending`).
+
+**Privacidade:** o plano é pessoal e **fica só no aparelho**. Não entra no
+código de resultado. Para entregar, o aluno copia no caderno ou mostra a tela.
+
+---
+
+### Fim da semana
+
+> **My Busy Week · Surprise Party** ✅
+> ⭐⭐ *A great party!* · first try 15/20 · plan ✅
+> **Result code:** `PARTY-…` *(formato no GDD)*
+> [ **Play another event** ] [ **My words** ]
+
+---
+
+### Vocabulário novo da sexta (conferir no `a1.json`)
+
+- **Do evento:** *tonight, dinner, lights, door, window, quiet, tickets, movies,
+  photo*.
+- **Do plano:** *weekend, sleep late, cousins, early, video games*.
+- **Expressões com tradução:** *Have fun!* (divirta-se!), *come home by 10*
+  (volte para casa até as 10), *No way!* (de jeito nenhum!), *whispering*
+  (cochichando), *the best birthday ever* (o melhor aniversário de todos),
+  *Deal!* (combinado!).
+
+---
+
+## Próximos passos do roteiro
+
+- Revisão do professor, dia por dia.
+- Conferir o vocabulário de todos os dias no `a1.json` (o verificador do jogo
+  vai apontar o que falta).
+- Contar as palavras por dia e por caminho, como nos livros.
+- Desenhar as cenas: tela de bloqueio, chat, loja, cozinha do Kauã, sala de
+  aula, padaria, sala da Bia (escura, com e sem chuva, com e sem faixa), foto final.

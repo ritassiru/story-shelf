@@ -147,7 +147,13 @@ Cada um tem um traço que **gera situações de futuro**:
 - **A sexta é narrada no presente** (o evento está acontecendo).
 - **A sexta é montada em pedaços**: uma cena (ou frase) boa ou ruim **por
   marca**, na ordem do dia. Não há finais inteiros para cada combinação.
-  Fecha com uma avaliação de **1 a 3 estrelas** pelo número de marcas boas.
+  Fecha com uma avaliação de **1 a 3 estrelas** pelo número de marcas boas
+  (5 marcas: 5 = ⭐⭐⭐, 3–4 = ⭐⭐, 0–2 = ⭐) e a lista **Your week**: a frase que
+  o aluno montou em cada decisão-chave e o efeito dela.
+- **A festa sempre acontece** e o evento sempre termina bem: as marcas mudam o
+  jeito (organizado ou caótico e engraçado), nunca viram fracasso.
+- Quando duas marcas mexem na mesma cena (a chegada), vale **uma ordem de
+  prioridade** e aparece uma cena só.
 - As tarefas que não são decisões-chave contam só para os **acertos de primeira**.
 - **Só a informação muda a marca** (hora, dia, item). A forma errada com a
   informação certa gera reação e dica e conta nos acertos de primeira, mas não
@@ -308,7 +314,7 @@ O `checar.py` do jogo deve verificar, para cada evento:
 
 1. O professor revisa este GDD e fecha os pontos em aberto.
 2. Criar o repositório `ritassiru/my-busy-week` e mover este arquivo para lá.
-3. ▶ Em andamento (`docs/roteiro-surprise-party.md`, segunda a quinta prontas): escrever o **roteiro do primeiro evento** (sugestão: *Surprise Party*, que
+3. ▶ Em andamento (`docs/roteiro-surprise-party.md`, segunda a sexta prontas, aguardando revisão): escrever o **roteiro do primeiro evento** (sugestão: *Surprise Party*, que
    tem mais situações de chat), dia por dia, com tarefas, marcas e pedaços da sexta.
 4. MVP: motor do celular + montador + Monday jogável, testado em largura de celular.
 5. Completar a semana, a `professor.html`, o código de resultado e testar com
