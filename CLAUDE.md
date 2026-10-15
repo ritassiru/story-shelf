@@ -196,7 +196,8 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 - `.github/workflows/build.yml` roda `checar.py` e `build.py` a cada push em
   `fonte/` na `main` e salva o `index.html` gerado. Se o `checar.py` falhar,
   nada é salvo.
-- `docs/gdd-my-busy-week.md`: GDD de um jogo novo (1º ano, futuro), projeto
-  separado (`ritassiru/my-busy-week`, ainda não criado). Vai para o repositório
-  novo quando ele existir. Roteiro do primeiro evento:
-  `docs/roteiro-surprise-party.md` (sem simple past, nem nas falas).
+- Projeto irmão novo: `ritassiru/my-busy-week` (1º ano, futuro), feito a partir
+  deste template. O GDD e o roteiro estão em `docs/` de lá. Ele copiou daqui,
+  sem mudança, utilidades, verbos, `person()`, áudio, painel de configurações,
+  *My words* e balão do glossário: mudanças nessas partes valem para os dois.
+  Palavras novas do `a1.json` de lá também servem aqui.
