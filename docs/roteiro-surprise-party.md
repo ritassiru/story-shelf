@@ -15,9 +15,11 @@ Convenções deste roteiro:
   dizer" (em português), que mostra a frase certa.
 - Qualquer montagem que não esteja listada recebe a **reação genérica** do
   personagem (*Sorry, what? 😅*) e a dica da forma esperada.
+- Todo dia tem **4 tarefas**.
 - 🔑 marca uma **decisão-chave**, que guarda uma marca para a sexta.
 - ✅ certo · ❌ informação errada (muda a marca) · ⚠️ só a forma errada (reação
-  e dica, conta nos acertos de primeira, mas **não muda a marca**).
+  e dica, conta nos acertos de primeira, mas **não muda a marca**) · ✅ com 💡
+  as duas formas são naturais; o jogo mostra a diferença como curiosidade.
 
 **Personagens deste evento:** {name}, Bia (organizada, a festa é na casa dela),
 Davi (sempre atrasado), Maya (preocupada com o tempo), Kauã (cuida da comida),
@@ -206,9 +208,7 @@ A sexta é narrada no **presente** (o evento está acontecendo).
 de prometer.
 **Liberação:** código do dia `BALLOON` (aula 2).
 **Decisões-chave:** 🔑 `promessa_familia` (tarefa 1) e 🔑 `lista_pronta` (tarefa 2).
-**Duração estimada:** 10 a 12 min · ~190 palavras de leitura.
-**Por que só 3 tarefas:** a tarefa 3 tem uma cena maior (a loja), e a terça
-precisa caber na aula junto com a atividade em dupla.
+**Duração estimada:** 12 a 14 min · ~230 palavras de leitura.
 
 **Princípio das marcas (vale para a semana toda):** a marca depende da
 **informação** (hora, dia, item). A forma errada gera a reação e a dica e conta
@@ -317,11 +317,42 @@ de festa surpresa.
 
 ---
 
+### Tarefa 4 · Chat "Nina's Party 🤫" — a roupa da festa
+
+**Tuesday, 8:30 p.m.**
+
+> **Bia:** Idea! 💡 Nina loves yellow.
+> **Bia:** Let's all wear yellow on Friday! 💛
+> **Maya:** Yes! I'm going to wear my yellow dress. 👗
+> **Bia:** And you, {name}? What are you going to wear?
+
+*Instrução (pt):* Conte o que você vai vestir na festa. Lembre a ideia da Bia!
+
+**Blocos:** `I` `'m going to` `'ll` `'m` `wear` `wearing` `my yellow T-shirt` `my blue T-shirt` `.`
+
+**Aceitas:** *I'm going to wear my yellow T-shirt.* · *I'll wear my yellow T-shirt.*
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *I'm going to wear my yellow T-shirt.* | **Bia:** Perfect! 💛 | — |
+| ✅ *I'll wear my yellow T-shirt.* | **Bia:** Perfect! 💛 | 💡 As duas formas valem aqui: você decidiu agora (*I'll*) ou conta um plano (*I'm going to*). |
+| ❌ … *my blue T-shirt.* | **Bia:** Blue?! 😱 YELLOW, {name}! 💛 | A ideia da Bia é todo mundo de **amarelo** (*yellow*). |
+| ❌ *I'm wearing my yellow T-shirt.* (sem tempo) | **Bia:** Now? Send a photo! 📸😂 | Sem expressão de tempo, *I'm wearing* quer dizer **agora**. Use *I'm going to wear*. |
+
+**Sem marca, só no visual:** se o aluno escolher *yellow*, o avatar aparece de
+camiseta amarela nas cenas da sexta. Com *blue*, ele é o único de azul na foto
+final. 📸
+
+**💡 Legenda nova:** ✅ com 💡 = as duas formas são naturais em inglês, e o
+jogo só mostra a diferença como curiosidade, sem contar erro.
+
+---
+
 ### Fechamento · Tuesday, 9:00 p.m.
 
 **Resumo do dia:**
 
-> ✅ **Tuesday** · first try: **2/3**
+> ✅ **Tuesday** · first try: **3/4**
 > 📝 **My list:** balloons ☑ · banner ☑
 > 👵 **Saturday:** Grandma is visiting us.
 > 📖 **My words:** *candles, plates, promise...*
@@ -366,9 +397,195 @@ sua e a do Davi), para não repetir "você chega atrasado" duas vezes.
 
 ---
 
+## Wednesday — previsões
+
+**Foco:** previsão com **evidência** que se vê agora (*going to*) × **opinião**
+(*I think... will*). Ler o app do tempo.
+**Liberação:** código do dia `CLOUD` (aula 3).
+**Decisão-chave:** 🔑 `preparado_tempo` (tarefa 2).
+**Duração estimada:** 12 a 14 min · ~220 palavras de leitura.
+
+**Cuidado com esta dupla:** *will* e *going to* para previsões são a diferença
+mais sutil da semana. A própria previsão do tempo em inglês diz *It will rain*.
+Por isso:
+- o contraste **forte** (⚠️) só aparece com **evidência que se vê agora** e algo
+  prestes a acontecer (*Watch out! You're going to drop it!*), em que *will*
+  soa estranho;
+- nas outras previsões **as duas formas valem**, e o jogo mostra a nuance como
+  curiosidade (✅ com 💡). A regra do livro didático (evidência → *going to*,
+  opinião → *I think + will*) aparece no 💡, sem contar erro.
+
+### Abertura
+
+**Tela de bloqueio · Wednesday, 7:00 a.m.**
+
+> 🌦️ **Weather** · Friday: 🌧️ Rain, 80%
+> 💬 **Nina's Party 🤫** · 5 new messages
+> 💬 **Nina** · 1 new message
+
+**Notes · Today**
+
+> **Wednesday**
+> ☐ School at 7:30.
+> ☐ Science [[test|prova]] tomorrow! I'm going to study tonight. 📚
+
+**Weather · Friday** (tela que o aluno abre)
+
+> **Friday** · 🌧️ Rain · 80%
+> 2 p.m. ☁️ · 4 p.m. 🌦️ · **6 p.m. 🌧️** · 8 p.m. 🌧️ · 10 p.m. 🌦️
+
+*Instrução (pt):* Abra o app do tempo e veja a sexta-feira. Que horas é a festa?
+
+---
+
+### Tarefa 1 · Chat "Nina's Party 🤫" — ler a previsão
+
+> **Maya:** Look at the forecast for Friday! 😬
+> **Bia:** Oh no! The party is in my garden! 😱
+> **Bia:** {name}, what does the forecast say for Friday?
+
+*Instrução (pt):* Olhe o app do tempo e conte para a Bia.
+
+**Blocos:** `It` `'s going to` `'ll` `rain` `be sunny` `on Friday` `on Saturday` `.`
+
+**Aceitas:** *It's going to rain on Friday.* · *It'll rain on Friday.*
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *It's going to rain on Friday.* | **Bia:** Oh no... 🌧️😩 | 💡 A previsão é uma evidência, então *going to* é a escolha mais comum. Mas os apps e o jornal também dizem *It will rain*. |
+| ✅ *It'll rain on Friday.* | **Bia:** Oh no... 🌧️😩 | 💡 Vale! Com uma evidência na mão, como a previsão do app, *It's going to rain* é ainda mais comum. |
+| ❌ … *be sunny* … | **Bia:** Sunny? Really? 😃 **Maya:** NO! Look again! 🌧️ | Olhe o app: na sexta, chuva (*rain*), 80%. |
+| ❌ … *on Saturday* | **Bia:** Saturday? But the party is on FRIDAY! 😅 | A pergunta é sobre **sexta** (*Friday*). |
+
+---
+
+### Tarefa 2 · Chat "Nina's Party 🤫" — jardim ou sala? 🔑
+
+> **Davi:** Relax! I think it'll be sunny. Forecasts are always wrong! 😎
+> **Maya:** Davi! It's 80%! 🙄
+> **Bia:** OK, I need a decision. The garden or the living room? 🤔
+> **Bia:** {name}, what do you think?
+
+*Instrução (pt):* O Davi dá uma **opinião**. Você tem uma **evidência** (o app).
+Decida onde fazer a festa e diga por quê.
+
+**Blocos:** `It's going to rain.` `It'll be sunny.` `Let's have the party` `in the garden` `in the living room` `!`
+
+**Aceitas:** *It's going to rain. Let's have the party in the living room!*
+(as duas frases em qualquer ordem)
+
+| Montagem | Reação | Marca | Dica (pt) |
+|---|---|---|---|
+| ✅ *It's going to rain. Let's have the party in the living room!* | **Bia:** Good idea! The living room is big. 🛋️ **Maya:** Thank you!! 🙏 | `preparado_tempo = true` | — |
+| ❌ *It'll be sunny. Let's have the party in the garden!* | **Davi:** Yes! 😎 **Maya:** Oh no... 🌧️😰 | `false` | Você foi com a **opinião** do Davi, mas a **evidência** (o app, 80%) diz chuva. |
+| ❌ *It's going to rain. Let's have the party in the garden!* | **Bia:** In the rain?! 😂 | `false` | Se vai chover, o jardim não é uma boa ideia! |
+
+*Para a aula:* a fala do Davi é o exemplo de **opinião** (*I think it'll be
+sunny*), e a resposta certa é o exemplo de **evidência**. Vale projetar as
+duas lado a lado.
+
+---
+
+### Tarefa 3 · Videochamada com o Kauã — cuidado com o bolo!
+
+**Wednesday, 4:30 p.m.** · 📹 **Kauã** is calling...
+
+**Cena:** a cozinha do Kauã. Ele carrega um bolo de teste **enorme**, sem ver o
+chão. No chão, a bola de futebol do irmão. ⚽
+
+> **Kauã:** Look! My test cake! 🎂 It's HUGE!
+> **Kauã:** I'm taking it to the table. Wait...
+
+*Instrução (pt):* Olhe a cena. O que vai acontecer **agora mesmo**? Avise o Kauã!
+
+**Blocos:** `Watch out!` `You` `'re going to` `'ll` `drop` `the cake` `the ball` `!`
+
+**Aceitas:** *Watch out! You're going to drop the cake!*
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *Watch out! You're going to drop the cake!* | **Kauã:** Whoa! 😳 … Thanks! The cake is OK! 🎂😅 | — |
+| ⚠️ *Watch out! You'll drop the cake!* | **Kauã:** Will I? Maybe one day... *CRASH!* 💥 … The cake is OK... almost. 😅 | Você **está vendo** que vai acontecer agora: *You're going to drop it!* *You'll drop it* soa como uma previsão para um dia qualquer. |
+| ❌ … *drop the ball!* | **Kauã:** What ball? … *CRASH!* 💥 | O perigo é o **bolo** (*the cake*) cair. A bola está no chão! |
+
+*Sem marca:* o bolo de teste não é o da festa. A cena prepara a quinta (o forno
+do Kauã).
+
+---
+
+### Tarefa 4 · Chat com a Nina — uma opinião para animar
+
+**Wednesday, 8:00 p.m.**
+
+> **Nina:** It's going to rain on my birthday. 😢🌧️
+> **Nina:** I think Friday will be a boring day.
+
+*Instrução (pt):* Anime a Nina sem contar o segredo. Dê a **sua opinião** sobre
+a sexta-feira.
+
+**Blocos:** `Don't worry!` `I think` `it` `'ll be` `'s going to be` `a great day` `a boring day` `😉`
+
+**Aceitas:** *Don't worry! I think it'll be a great day! 😉* · *Don't worry! I
+think it's going to be a great day! 😉* (com ou sem *Don't worry!*)
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *… I think it'll be a great day! 😉* | **Nina:** Why the 😉?? 🤔 … OK! Thank you! 💛 | — |
+| ✅ *… I think it's going to be a great day! 😉* | **Nina:** Why the 😉?? 🤔 … OK! Thank you! 💛 | 💡 Vale! Para uma **opinião** (*I think*), o livro didático prefere *I think it'll be...* |
+| ❌ … *a boring day* | **Nina:** Thanks a lot... 😑 | A ideia era **animar** a Nina: *a great day*. |
+
+---
+
+### Fechamento · Wednesday, 9:30 p.m.
+
+**Resumo do dia:**
+
+> ✅ **Wednesday** · first try: **3/4**
+> 🌧️ **Friday:** rain · party in the living room 🛋️ *(ou: in the garden 🌳)*
+> 📖 **My words:** *forecast, rain, sunny, watch out...*
+
+**Gancho da quinta** (notificação):
+
+> 📞 **Kauã** · 2 missed calls 😰
+> 💬 **Kauã** · 10:05 p.m.: Big problem!! Call me tomorrow! 🆘
+
+---
+
+### Pedaços da sexta ligados à quarta
+
+**🔑 `preparado_tempo = true`**
+> Outside, it's raining a lot. 🌧️ But inside, the living room is warm and
+> bright. The music is on, and the balloons are everywhere. Nobody cares about
+> the rain!
+
+**🔑 `preparado_tempo = false`**
+> At 6:40, the first drops fall in the garden. Then... a lot of rain! 🌧️
+> Everybody runs to the living room with the cake, the plates and the juice.
+> Nina laughs. "This is the wettest party in the world!" 😂
+
+*Combinação:* se `lista_pronta = false` (a faixa de caixa de pizza) **e**
+`preparado_tempo = false`, a caixa molha na chuva e o Kauã escreve de novo no
+guardanapo: um pedaço só, para não repetir a bagunça duas vezes.
+
+---
+
+### Vocabulário novo da quarta (conferir no `a1.json`)
+
+- **Do evento:** *garden, living room, test cake, huge, ball*.
+- **Do tempo:** *forecast, rain, sunny, cloudy, 80%*.
+- **Das formas:** *I think... will, it's going to rain, watch out!*
+- **Falsos amigos traduzidos:** *[[test|prova]]* (no Notes; o *test cake* é
+  "bolo de teste" e também precisa de tradução).
+- **Expressões com tradução:** *Relax!* (relaxa!), *Watch out!* (cuidado!),
+  *I need a decision* (preciso de uma decisão), *Nobody cares* (ninguém liga),
+  *the wettest party in the world* (a festa mais molhada do mundo).
+
+---
+
 ## Ideias guardadas para outros dias
 
-- **Thursday (imprevisto):** a mãe avisa que a avó vem jantar na sexta às 7.
-  Dá para usar *I'll call grandma!* ou *I'll be home at 8, I promise!*
-- **Wednesday:** a Maya olha o céu de sexta: *It's going to rain! The party is
-  in the garden!* 🌧️
+- **Thursday (imprevisto):** o forno do Kauã quebra e o bolo da festa não sai.
+  Decisões na hora: *I'll call the bakery!* / *I'll ask my mom!* A dona da
+  padaria (convidada do evento) entra aqui, por ligação. 📞
+- A avó agora vem **no sábado** (terça), então a ideia antiga do jantar com a
+  avó na sexta não serve mais.

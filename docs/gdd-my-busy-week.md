@@ -109,7 +109,7 @@ Cada um tem um traço que **gera situações de futuro**:
 1. **Abertura**: tela de bloqueio com notificações (*3 new messages · 1 missed
    call*) e a **lista do dia** no Notes (*Today I'm meeting... / I'm going to...*).
    Ela substitui uma recapitulação no passado, que fica fora do conteúdo.
-2. **Tarefas** (3 a 5): o aluno lê uma situação num app e **monta a resposta**.
+2. **Tarefas** (4 por dia): o aluno lê uma situação num app e **monta a resposta**.
 3. **Reação**: o personagem responde e mostra se o sentido ficou certo.
 4. **Fechamento**: resumo do dia, acertos e as palavras novas no *My words*.
 
@@ -280,7 +280,7 @@ professor.html                  GERADO: QR do jogo, códigos dos dias, decodific
 ```
 
 O `checar.py` do jogo deve verificar, para cada evento:
-- todos os 5 dias completos, com 3 a 5 tarefas e as marcas previstas;
+- todos os 5 dias completos, com 4 tarefas e as marcas previstas;
 - toda marca tem pedaço bom **e** ruim na sexta;
 - toda resposta aceita usa a forma certa, e as alternativas erradas têm reação
   e dica;
@@ -290,7 +290,7 @@ O `checar.py` do jogo deve verificar, para cada evento:
 
 ## 8. Riscos e pontos em aberto
 
-- **Volume de texto:** 3 eventos × 5 dias × 3–5 tarefas, cada uma com reação
+- **Volume de texto:** 3 eventos × 5 dias × 4 tarefas, cada uma com reação
   certa e errada. Sugestão: fazer **um evento completo primeiro** (MVP), testar
   com uma turma e só depois escrever os outros dois.
 - **Sem nova tentativa:** um aluno que erra muito pode desanimar. Observar no
@@ -308,7 +308,7 @@ O `checar.py` do jogo deve verificar, para cada evento:
 
 1. O professor revisa este GDD e fecha os pontos em aberto.
 2. Criar o repositório `ritassiru/my-busy-week` e mover este arquivo para lá.
-3. ▶ Em andamento (`docs/roteiro-surprise-party.md`, segunda e terça prontas): escrever o **roteiro do primeiro evento** (sugestão: *Surprise Party*, que
+3. ▶ Em andamento (`docs/roteiro-surprise-party.md`, segunda, terça e quarta prontas): escrever o **roteiro do primeiro evento** (sugestão: *Surprise Party*, que
    tem mais situações de chat), dia por dia, com tarefas, marcas e pedaços da sexta.
 4. MVP: motor do celular + montador + Monday jogável, testado em largura de celular.
 5. Completar a semana, a `professor.html`, o código de resultado e testar com
