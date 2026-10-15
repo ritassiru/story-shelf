@@ -196,3 +196,6 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
 - `.github/workflows/build.yml` roda `checar.py` e `build.py` a cada push em
   `fonte/` na `main` e salva o `index.html` gerado. Se o `checar.py` falhar,
   nada é salvo.
+- `docs/gdd-my-busy-week.md`: GDD de um jogo novo (1º ano, futuro), projeto
+  separado (`ritassiru/my-busy-week`, ainda não criado). Vai para o repositório
+  novo quando ele existir.
