@@ -16,6 +16,8 @@ Convenções deste roteiro:
 - Qualquer montagem que não esteja listada recebe a **reação genérica** do
   personagem (*Sorry, what? 😅*) e a dica da forma esperada.
 - 🔑 marca uma **decisão-chave**, que guarda uma marca para a sexta.
+- ✅ certo · ❌ informação errada (muda a marca) · ⚠️ só a forma errada (reação
+  e dica, conta nos acertos de primeira, mas **não muda a marca**).
 
 **Personagens deste evento:** {name}, Bia (organizada, a festa é na casa dela),
 Davi (sempre atrasado), Maya (preocupada com o tempo), Kauã (cuida da comida),
@@ -73,7 +75,7 @@ marcado (*present continuous* + **quando** e **onde**).
 | Montagem | Reação | Dica (pt) |
 |---|---|---|
 | ✅ *Yes! I'll help!* | **Bia:** Yay! Thank you, {name}! 💜 | — |
-| ❌ *Yes! I'm going to help!* | **Bia:** Wait... you know about it?! 😮 Who's the [[spy|espião]]? **Kauã:** Not me! 🙈 | Você decidiu **agora**, na hora do convite: *I'll help!* O *going to* indica um plano que você **já tinha**, então pareceu que você já sabia da festa. |
+| ⚠️ *Yes! I'm going to help!* | **Bia:** Wait... you know about it?! 😮 Who's the [[spy|espião]]? **Kauã:** Not me! 🙈 | Você decidiu **agora**, na hora do convite: *I'll help!* O *going to* indica um plano que você **já tinha**, então pareceu que você já sabia da festa. |
 
 ---
 
@@ -92,7 +94,7 @@ marcado** com amigos na sexta.
 | Montagem | Reação | Dica (pt) |
 |---|---|---|
 | ✅ *Sorry, I'm meeting some friends on Friday.* | **Nina:** Oh, OK! Next week, then! 😊 | — |
-| ❌ *Sorry, I'll meet some friends on Friday.* | **Nina:** Oh, it's just an idea? So come to the movies with me! 😄 … **Nina:** No? OK... 🤨 | Para um compromisso **já marcado**, use *I'm meeting*. Com *I'll meet*, pareceu uma ideia de agora, e a Nina achou que você podia mudar de plano. |
+| ⚠️ *Sorry, I'll meet some friends on Friday.* | **Nina:** Oh, it's just an idea? So come to the movies with me! 😄 … **Nina:** No? OK... 🤨 | Para um compromisso **já marcado**, use *I'm meeting*. Com *I'll meet*, pareceu uma ideia de agora, e a Nina achou que você podia mudar de plano. |
 | ❌ *Sorry, I'm meeting some friends.* (sem *on Friday*) | **Nina:** Now? At 7 a.m.? 😂 | Sem a expressão de tempo, *I'm meeting* quer dizer **agora**. Diga quando: *on Friday*. |
 
 ---
@@ -119,7 +121,8 @@ em qualquer ordem depois do verbo)
 |---|---|---|---|
 | ✅ *We're meeting at Bia's house on Friday at 6.* | **Davi:** Got it! Friday, 6 p.m., Bia's house. 👍 | `combinado_firme = true` | — |
 | ❌ … *at 6:30* | **Davi:** 6:30, got it! 👍 **Bia:** No, Davi!! 6:30 is NINA! 😱 **Davi:** 😴 | `false` | 6:30 é a hora em que a Nina **chega**. Vocês se encontram **às 6**, antes dela. |
-| ❌ *We'll meet* … / … *maybe* … | **Davi:** Maybe? OK, maybe I'll go. 🤷 | `false` | Já está combinado, então use *We're meeting*. *Will* e *maybe* passam a ideia de que nada está certo. |
+| ❌ … *maybe* … | **Davi:** Maybe? OK, maybe I'll go. 🤷 | `false` | Já está combinado: não tem *maybe*. Com ele, o Davi achou que nada estava certo. |
+| ⚠️ *We'll meet at Bia's house on Friday at 6.* | **Davi:** OK... is it a plan or just an idea? 🤔 **Bia:** It's a PLAN, Davi! 😤 | `true` | Já está combinado, então use *We're meeting*. *We'll meet* soa como uma ideia de agora. |
 | ❌ sem *on Friday* | **Davi:** Today?! 😱 I'm running! 🏃 | `false` | Sem o dia, *We're meeting* pareceu **hoje**. Diga quando: *on Friday*. |
 | ❌ sem *at Bia's house* | **Davi:** OK, but where? 🤔 | `false` | Um compromisso precisa de **onde** e **quando**. |
 
@@ -144,7 +147,7 @@ escreveu**, inclusive a hora errada:
 | Montagem | Reação | Dica (pt) |
 |---|---|---|
 | ✅ *I'll buy them!* | **Bia:** You're the best, {name}! 🎈💜 | — |
-| ❌ *I'm going to buy them!* | **Bia:** It's already on your list? Are you a [[mind reader|leitor de mentes]]? 🔮😂 | Oferecer ajuda **na hora** é *I'll*. O *going to* parece um plano que você já tinha antes da pergunta. |
+| ⚠️ *I'm going to buy them!* | **Bia:** It's already on your list? Are you a [[mind reader|leitor de mentes]]? 🔮😂 | Oferecer ajuda **na hora** é *I'll*. O *going to* parece um plano que você já tinha antes da pergunta. |
 | ❌ *I'm buying them!* | **Bia:** Right now? In class? 😂 | Sem expressão de tempo, *I'm buying* quer dizer **agora mesmo**. Para se oferecer, use *I'll buy them!* |
 
 **Notes:** entra um item novo, que é o gancho da terça:
@@ -195,7 +198,175 @@ A sexta é narrada no **presente** (o evento está acontecendo).
   *Don't be late!* (não se atrase!), *mind reader* (leitor de mentes),
   *Next week, then!* (então semana que vem!), *spy* (espião).
 
-### Ideias guardadas para outros dias
+---
+
+## Tuesday — planos e promessas
+
+**Foco:** plano já decidido (*going to*) × promessa (*I'll*); ler a agenda antes
+de prometer.
+**Liberação:** código do dia `BALLOON` (aula 2).
+**Decisões-chave:** 🔑 `promessa_familia` (tarefa 1) e 🔑 `lista_pronta` (tarefa 2).
+**Duração estimada:** 10 a 12 min · ~190 palavras de leitura.
+**Por que só 3 tarefas:** a tarefa 3 tem uma cena maior (a loja), e a terça
+precisa caber na aula junto com a atividade em dupla.
+
+**Princípio das marcas (vale para a semana toda):** a marca depende da
+**informação** (hora, dia, item). A forma errada gera a reação e a dica e conta
+nos acertos de primeira, mas **não muda a sexta sozinha**. Assim o aluno não é
+punido duas vezes por uma diferença sutil, e a consequência sempre tem um
+motivo que ele consegue ver.
+
+### Abertura
+
+**Tela de bloqueio · Tuesday, 7:00 a.m.**
+
+> 💬 **Mom** · 2 new messages
+> 💬 **Nina's Party 🤫** · 3 new messages
+> ⏰ **Reminder** · Football practice, 5 p.m.
+
+**Notes · Today**
+
+> **Tuesday**
+> ☐ School at 7:30.
+> ☐ I'm going to buy balloons and a banner. *(veio da segunda)*
+> ☐ Football practice at 5 p.m.
+
+*Instrução (pt):* Leia a sua lista. Ela vai ser importante hoje!
+
+---
+
+### Tarefa 1 · Chat com a mãe — prometer na hora certa 🔑
+
+> **Mom:** Good morning, {name}! 🙂
+> **Mom:** Big news: Grandma is visiting us on Saturday! 👵💜
+> **Mom:** I'm cleaning the house this afternoon. Can you help me at 5?
+
+*Instrução (pt):* Confira a sua lista no Notes. Você está livre às 5? Prometa
+ajudar num horário em que você **pode mesmo**.
+
+**Blocos:** `I` `'ll` `'m going to` `help you` `at 5` `at 7` `after football` `. I promise!`
+
+**Aceitas:** *I'll help you at 7. I promise!* · *I'll help you after football.
+I promise!* (com ou sem *I promise!*)
+
+| Montagem | Reação | Marca | Dica (pt) |
+|---|---|---|---|
+| ✅ *I'll help you at 7 / after football. I promise!* | **Mom:** Deal! 🤝 Thank you! | `promessa_familia = true` | — |
+| ❌ *I'll help you at 5.* | **Mom:** Great! 😊 … *(5:20 p.m.)* **Mom:** {name}?? Where are you?! 😠 | `false` | Você prometeu ajudar às 5, mas às 5 tem futebol (está no seu Notes). Uma promessa precisa de um horário em que você esteja livre. |
+| ⚠️ *I'm going to help you at 7 / after football.* | **Mom:** Is that a promise? 🤨 … OK, OK. | `true` | Para **prometer**, use *I'll*. *I'm going to* conta um plano, mas não soa como promessa. |
+
+*Na reação do erro ❌, o jogo mostra a notificação das 5:20 p.m. por cima da
+tela, como se o tempo tivesse passado.*
+
+---
+
+### Tarefa 2 · Chat "Nina's Party 🤫" + Notes — dividir a lista 🔑
+
+> **Bia:** Shopping list for Friday! 📋
+> **Bia:** balloons 🎈 · banner · [[candles|velas]] 🕯️ · [[plates|pratos]] · juice 🧃
+> **Bia:** Who's going to buy what? Tell me your plan!
+> **Kauã:** I'm going to buy the juice! 🧃
+> **Maya:** And I'm going to buy the plates and the candles.
+> **Bia:** {name}?
+
+*Instrução (pt):* Confira no Notes o que **você já combinou** de comprar. Conte o
+seu plano para a Bia.
+
+**Blocos:** `I` `'m going to` `'ll` `buy` `the balloons` `the banner` `the juice` `and` `.`
+
+**Aceitas:** *I'm going to buy the balloons and the banner.* (os dois itens, em
+qualquer ordem)
+
+| Montagem | Reação | Marca | Dica (pt) |
+|---|---|---|---|
+| ✅ *I'm going to buy the balloons and the banner.* | **Bia:** Perfect! The list is ready! ✅ | `lista_pronta = true` | — |
+| ❌ só *the balloons* (ou só *the banner*) | **Bia:** OK! 👍 *(ninguém percebe o item que ficou faltando)* | `false` | No seu Notes estão **os dois**: *balloons and a banner*. O que ficou fora da lista ninguém vai comprar. |
+| ❌ com *the juice* | **Kauã:** Hey! The juice is MY job! 🧃😤 | `false` | O suco é do Kauã. Leia de novo as mensagens e o seu Notes. |
+| ⚠️ *I'll buy the balloons and the banner.* | **Bia:** You just decided? But it's already on your list! 😄 | `true` | Esse plano você **já tinha** desde segunda: *I'm going to*. *I'll* é para decidir na hora. |
+
+**Notes:** a lista do aluno é atualizada com o que ele escreveu (☑ ou o item
+que faltou riscado em cinza na sexta).
+
+---
+
+### Tarefa 3 · Na loja (Photos + Chat) — a Nina aparece! 😱
+
+**Cena:** *Party Shop, 4:15 p.m.* Ilustração da loja: balões em três cores e o
+aluno no caixa. A porta abre...
+
+> **Nina:** {name}!! Hi! 😃
+> **Nina:** Wow, a lot of balloons! 🎈🎈🎈 What are they for? 🤔
+
+*Instrução (pt):* Não conte da festa! Use uma informação **verdadeira** da
+mensagem da sua mãe: quem vem visitar vocês, e quando?
+
+**Blocos:** `My grandma` `is visiting` `will visit` `us` `on Saturday` `on Friday` `.`
+
+**Aceitas:** *My grandma is visiting us on Saturday.*
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *My grandma is visiting us on Saturday.* | **Nina:** Oh, how nice! Say hi to her! 👵💜 | — |
+| ❌ … *on Friday.* | **Nina:** On Friday? On my birthday? 🤨 Hmm... | A sua avó vem **no sábado** (está na mensagem da mãe). Com *Friday*, a Nina quase desconfiou! |
+| ❌ *My grandma is visiting us.* (sem dia) | **Nina:** Now? Where is she? 👀 | Sem a expressão de tempo, *is visiting* quer dizer **agora**. Diga quando. |
+| ⚠️ *My grandma will visit us on Saturday.* | **Nina:** Oh, maybe? Nice! 🙂 | A visita já está **marcada**: *is visiting*. Com *will visit*, pareceu uma ideia ainda sem data certa. |
+
+*Nota para o professor:* o aluno **não mente**. A avó vem mesmo no sábado, e a
+Nina tira a conclusão dela sozinha. Bom gancho para conversar sobre segredos
+de festa surpresa.
+
+---
+
+### Fechamento · Tuesday, 9:00 p.m.
+
+**Resumo do dia:**
+
+> ✅ **Tuesday** · first try: **2/3**
+> 📝 **My list:** balloons ☑ · banner ☑
+> 👵 **Saturday:** Grandma is visiting us.
+> 📖 **My words:** *candles, plates, promise...*
+
+**Gancho da quarta** (notificação):
+
+> 💬 **Maya** · 9:20 p.m.: Look at the forecast for Friday! 😬🌧️
+
+---
+
+### Pedaços da sexta ligados à terça
+
+**🔑 `promessa_familia = true`**
+> Mom smiles. "Your room looks great! Come on, I'm driving you to Bia's house."
+> 🚗 The balloons are in the car, safe.
+
+**🔑 `promessa_familia = false`**
+> Mom isn't happy. "First, wash the dishes. A promise is a promise!" 🍽️ You
+> wash them fast and run to Bia's house.
+
+**🔑 `lista_pronta = true`**
+> The living room looks amazing: balloons everywhere and a big banner:
+> **HAPPY BIRTHDAY, NINA!** 🎉
+
+**🔑 `lista_pronta = false`**
+> Bia looks at the wall. "Where's the banner?" Everybody looks at you. 😅 Kauã
+> writes **HAPPY BIRTHDAY** on a pizza box. It's... different. 📦
+
+*Combinação com a segunda:* se `combinado_firme = false` **e**
+`promessa_familia = false`, a sexta mostra os dois atrasos numa cena só (a
+sua e a do Davi), para não repetir "você chega atrasado" duas vezes.
+
+---
+
+### Vocabulário novo da terça (conferir no `a1.json`)
+
+- **Do evento:** *shopping list, candles, plates, juice, shop, grandma*.
+- **Das formas:** *I promise, plan, after football, this afternoon, on Saturday*.
+- **Expressões com tradução:** *Deal!* (combinado!), *Say hi to her!* (manda um
+  oi pra ela!), *A promise is a promise!* (promessa é promessa!), *What are they
+  for?* (pra que são?).
+
+---
+
+## Ideias guardadas para outros dias
 
 - **Thursday (imprevisto):** a mãe avisa que a avó vem jantar na sexta às 7.
   Dá para usar *I'll call grandma!* ou *I'll be home at 8, I promise!*
