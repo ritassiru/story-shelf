@@ -53,6 +53,9 @@ button { font: inherit; }
 .step { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
 .top.top2 { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
 .top2 .gear { justify-self: end; }
+.top2 .tb-btns { justify-self: end; display: flex; gap: 8px; }
+.kwbtn { font-size: 1.15rem; line-height: 1; }
+.kwbtn + .gear { margin-left: 0; }
 .top.bar { align-items: center; }
 .gear { flex: none; width: 40px; height: 40px; padding: 0; display: grid; place-items: center; cursor: pointer; color: var(--berry); background: none; border: 1.5px solid var(--line); border-radius: 999px; margin-left: auto; }
 .gear svg { width: 22px; height: 22px; }
@@ -875,8 +878,16 @@ const R = () => Object.assign({ sentences: 5, minSequence: 3, maxHelp: 3 }, book
 function topBar(step) {
   const n = state.path.length, total = book.chapters + 1;
   const dots = Array.from({ length: total }, (_, i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("");
-  return `<div class="top"><div class="brand">${esc(book.title)}</div><div class="step">${step}</div></div><div class="top top2"><span></span><div class="dots" aria-hidden="true">${dots}</div>${gearButton()}</div>`;
+  return `<div class="top"><div class="brand">${esc(book.title)}</div><div class="step">${step}</div></div><div class="top top2"><span></span><div class="dots" aria-hidden="true">${dots}</div><span class="tb-btns">${kwButton()}${gearButton()}</span></div>`;
 }
+
+/* palavras-chave: na tela "Before you read" e no atalho 📖 dos capítulos, finais e caderno
+   (abre por cima, no painel das configurações, sem mexer na leitura nem na trava do reconto) */
+const kwHTML = () => book.keywords.map(g => typeof g === "string" ? BUILTIN_KW[g] : g).map(g => `<p class="kw-g">${esc(g.title)} <span>· ${esc(g.pt)}</span></p><div class="kw-grid">${g.words.map(([e, en, pt]) => {
+  const v = IRREG.find(x => x[0] === en); return `<div class="kw"><span class="kw-e" aria-hidden="true">${e}</span><div><b>${esc(en)}</b><span class="pt">${esc(pt)}${v ? " · past: " + esc(v[1]) + (verbForms() === 3 ? " · participle: " + esc(v[2]) : "") : ""}</span></div></div>`; }).join("")}</div>`).join("");
+const kwButton = () => `<button type="button" class="gear kwbtn" id="kwbtn" aria-label="Key words · palavras-chave" title="Key words · palavras-chave" aria-haspopup="dialog"><span aria-hidden="true">📖</span></button>`;
+const kwSheet = () => `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="st-t"><h2 id="st-t">📖 Key words <span>· palavras-chave</span></h2>
+  ${kwHTML()}<button type="button" class="btn primary" id="st-close" style="margin-top:14px">Done <span>· pronto</span></button></div>`;
 
 /* ---------------- navegação: #slug abre direto a capa de um livro ---------------- */
 function route() {
@@ -930,11 +941,9 @@ function screenCover() {
 }
 
 function screenBefore() {
-  const groups = book.keywords.map(g => typeof g === "string" ? BUILTIN_KW[g] : g);
   $("#app").innerHTML = `<div class="top bar"><div class="brand">${esc(book.title)}</div>${gearButton()}</div><div class="card"><p class="ch-kicker">Before you read</p><h2>Key words</h2>
-    <p class="hint">Palavras importantes da história. Leia antes de começar.</p>
-    ${groups.map(g => `<p class="kw-g">${esc(g.title)} <span>· ${esc(g.pt)}</span></p><div class="kw-grid">${g.words.map(([e, en, pt]) => {
-      const v = IRREG.find(x => x[0] === en); return `<div class="kw"><span class="kw-e" aria-hidden="true">${e}</span><div><b>${esc(en)}</b><span class="pt">${esc(pt)}${v ? " · past: " + esc(v[1]) + (verbForms() === 3 ? " · participle: " + esc(v[2]) : "") : ""}</span></div></div>`; }).join("")}</div>`).join("")}
+    <p class="hint">Palavras importantes da história. Leia antes de começar. Durante a leitura, o botão 📖 no alto da tela mostra estas palavras de novo.</p>
+    ${kwHTML()}
     <p class="hint" style="margin-top:14px">Depois de cada capítulo, o seu <b>caderno de detetive</b> faz uma pergunta sobre o que você leu. Acerte para continuar!</p>
     <button class="btn primary" id="go">Start reading</button></div>`;
   $("#go").onclick = () => screenNode(book.story.start);
@@ -1314,6 +1323,8 @@ function closeSettings() {
 }
 document.addEventListener("click", e => {
   if (e.target.closest("#gear")) { openSettings(); return; }
+  // o foco vai para o "Done" (último botão): a lista volta para o começo
+  if (e.target.closest("#kwbtn")) { openSheet(kwSheet()); $("#settings").scrollTop = 0; return; }
   if (e.target.closest("#w-review")) { openWords(); return; }
   const o = $("#settings");
   if (o.hidden) return;

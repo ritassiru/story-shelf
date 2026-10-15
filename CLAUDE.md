@@ -111,6 +111,11 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   `applySettings()` no template. Tamanhos de fonte em `rem`. Mesmo painel no
   `the-ceo-game`: `python3 fonte/comparar.py` (com `--detalhes`) mostra onde as
   partes compartilhadas ficaram diferentes; parte das diferenças é de propósito.
+- **Atalho 📖 para as palavras-chave** nos capítulos, finais e caderno (no
+  `topBar()`, ao lado da engrenagem). Abre as *key words* do livro por cima, no
+  mesmo painel das configurações (`openSheet`): não mexe na leitura, na pergunta
+  do caderno nem na trava do reconto. A tela "Before you read" usa o mesmo
+  `kwHTML()`. Mesmo atalho, com os mesmos nomes, no `the-ceo-game` e no `my-busy-week`.
 - Letras acentuadas fazem parte da palavra no glossário (*Sônia* não vira
   *S* + *nia*), no template e no `checar.py`.
 - **Página do professor:** o `build.py` gera `professor.html` com QR codes
