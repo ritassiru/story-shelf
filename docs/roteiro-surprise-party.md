@@ -582,10 +582,178 @@ guardanapo: um pedaço só, para não repetir a bagunça duas vezes.
 
 ---
 
+## Thursday — o imprevisto
+
+**Foco:** decisão na hora, oferta e promessa (*I'll*, *I won't*); compromisso
+marcado por telefone (*present continuous* + hora).
+**Liberação:** código do dia `OVEN` (aula 4).
+**Decisão-chave:** 🔑 `imprevisto_resolvido` (tarefa 2).
+**Duração estimada:** 12 a 14 min · ~220 palavras de leitura.
+**Convidada do evento que entra hoje:** Dona Célia, da padaria *Sweet Corner*.
+
+### Abertura
+
+**Tela de bloqueio · Thursday, 6:50 a.m.**
+
+> 📞 **Kauã** · 2 missed calls
+> 💬 **Kauã** · Big problem!! Call me tomorrow! 🆘 *(da noite de quarta)*
+> ⏰ **Reminder** · Science [[test|prova]], 8 a.m. 📚
+
+**Notes · Today**
+
+> **Thursday**
+> ☐ Science test at 8 a.m.
+> ☐ Call Kauã!!
+> **Friday**
+> ☐ Party at Bia's house · we're meeting at 6 p.m. 🎉 *(com a hora que o aluno combinou na segunda)*
+
+*Instrução (pt):* O Kauã ligou duas vezes. Ligue de volta!
+
+---
+
+### Tarefa 1 · Ligação com o Kauã — decidir na hora
+
+📞 **Calling Kauã...**
+
+> **Kauã:** {name}! Finally! 😭
+> **Kauã:** My oven is broken! No oven, no cake! 🎂❌
+> **Kauã:** The party is TOMORROW! What are we going to do?
+
+*Instrução (pt):* O Kauã está desesperado. Tome uma decisão **agora**.
+
+**Blocos:** `Don't worry!` `I` `'ll` `'m going to` `call` `the bakery` `Nina` `.`
+
+**Aceitas:** *Don't worry! I'll call the bakery.* (com ou sem *Don't worry!*)
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *Don't worry! I'll call the bakery.* | **Kauã:** The bakery! Good idea! You're a hero! 🦸 | — |
+| ⚠️ *Don't worry! I'm going to call the bakery.* | **Kauã:** Wait, you have a plan already? Since when? 😮 | Você decidiu **agora**, ouvindo o problema: *I'll call*. O *going to* parece um plano que você já tinha. |
+| ❌ … *call Nina.* | **Kauã:** NINA?! 😱 It's a SURPRISE, {name}! | A Nina não pode saber! Quem vende bolo é a padaria (*the bakery*). |
+
+---
+
+### Tarefa 2 · Ligação com a padaria — marcar a retirada 🔑
+
+📞 **Calling Sweet Corner Bakery...**
+
+> **Dona Célia:** Good morning! Sweet Corner Bakery! 🥐
+> **Dona Célia:** A chocolate cake for tomorrow? Yes, no problem! 🍫🎂
+> **Dona Célia:** But on Friday we close at 5 p.m.
+> **Dona Célia:** When are you picking it up?
+
+*Instrução (pt):* A padaria fecha às 5 na sexta. A festa começa às 6. Marque um
+horário em que a padaria **ainda está aberta**.
+
+**Blocos:** `I` `'m picking` `'ll pick` `it up` `tomorrow` `on Friday` `at 4` `at 6` `.`
+
+**Aceitas:** *I'm picking it up tomorrow at 4.* · *I'm picking it up on Friday
+at 4.* · as mesmas com *I'll pick it up* (✅ com 💡)
+
+| Montagem | Reação | Marca | Dica (pt) |
+|---|---|---|---|
+| ✅ *I'm picking it up tomorrow at 4.* | **Dona Célia:** Perfect! See you tomorrow at 4! 😊 | `imprevisto_resolvido = true` | — |
+| ✅ *I'll pick it up tomorrow at 4.* | **Dona Célia:** Perfect! See you tomorrow at 4! 😊 | `true` | 💡 Vale! Quem marca algo **na hora**, por telefone, diz *I'll pick it up*. Depois de marcado, o combinado vira *I'm picking it up at 4*. |
+| ❌ … *at 6.* | **Dona Célia:** OK! 🙂 *(ela não lembra que fecha às 5...)* | `false` | A padaria fecha **às 5**. Às 6 ela vai estar fechada! |
+| ❌ sem dia e sem hora | **Dona Célia:** Now? The cake isn't ready! 😅 | `false` | Sem expressão de tempo, *I'm picking it up* quer dizer **agora**. Diga quando: *tomorrow at 4*. |
+
+**Calendar:** cria o evento com o que o aluno escreveu:
+`Fri · 4:00 p.m. · Pick up the cake 🎂 (Sweet Corner)` (ou `6:00 p.m.`).
+
+---
+
+### Tarefa 3 · Na escola — uma promessa para a professora
+
+**Thursday, 9:40 a.m.** · depois da prova. A professora de ciências, **Ms.
+Lima**, fala com a turma (cena da sala de aula, balão de fala, sem app).
+
+> **Ms. Lima:** Good job on the test, everybody! 👏
+> **Ms. Lima:** Remember: bring your science project on Monday.
+> **Ms. Lima:** {name}, don't forget this time! 😉
+
+*Instrução (pt):* Prometa para a professora que você **não vai esquecer**.
+
+**Blocos:** `I` `won't` `'ll` `forget` `.` `I promise!`
+
+**Aceitas:** *I won't forget. I promise!* (com ou sem *I promise!*)
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *I won't forget. I promise!* | **Ms. Lima:** Great! 👍 | — |
+| ❌ *I'll forget.* | **Ms. Lima:** You WILL? 😳 **Turma:** 😂😂😂 | *I'll forget* quer dizer "eu **vou** esquecer". Para prometer que não, use *won't* (= *will not*). |
+
+*Nota:* tarefa curta de propósito. É a primeira vez que *won't* aparece para o
+aluno montar, e a reação da turma deixa o sentido bem claro.
+
+---
+
+### Tarefa 4 · Chat "Nina's Party 🤫" — contar o plano novo
+
+**Thursday, 6:00 p.m.**
+
+> **Kauã:** Guys! The oven is broken, but {name} has a plan! 🦸
+> **Bia:** What plan? Tell us! 😮
+> **Davi:** I'll go with you! And I won't be late! 😅
+
+*Instrução (pt):* O plano **já está marcado** com a padaria. Conte para o grupo
+quando você vai buscar o bolo.
+
+**Blocos:** `I` `'m picking up` `'ll pick up` `the cake` `at the bakery` `tomorrow` `at 4` `at 6` `.`
+
+**Aceitas:** *I'm picking up the cake at the bakery tomorrow at 4.* (as
+expressões em qualquer ordem; *at the bakery* é opcional). Se o aluno marcou às
+6 na tarefa 2, a hora que vale aqui é *at 6*: o jogo segue o que ele combinou.
+
+| Montagem | Reação | Dica (pt) |
+|---|---|---|
+| ✅ *I'm picking up the cake tomorrow at 4.* | **Bia:** You're amazing! 💜 **Kauã:** 🦸🦸🦸 | — |
+| ⚠️ *I'll pick up the cake tomorrow at 4.* | **Bia:** OK... is it a plan or just an idea? 🤔 | Já está **marcado** com a padaria: *I'm picking up*. |
+| ❌ hora diferente da que o aluno marcou | **Bia:** Wait... at 4 or at 6? 🤔 | Confira no Calendar o horário que você marcou com a padaria. |
+| ❌ sem tempo | **Bia:** Now? It's 6 p.m.! 😂 | Sem expressão de tempo, *I'm picking up* quer dizer **agora**. |
+
+---
+
+### Fechamento · Thursday, 9:30 p.m.
+
+**Resumo do dia:**
+
+> ✅ **Thursday** · first try: **3/4**
+> 📅 **Tomorrow:** 4:00 p.m. cake 🎂 · 6:00 p.m. Bia's house 🎉
+> 📖 **My words:** *bakery, oven, broken, pick up, won't...*
+
+**Gancho da sexta** (notificação):
+
+> 💬 **Bia** · 9:45 p.m.: Tomorrow is the BIG day!! 🎉 See you at 6! Don't tell Nina! 🤫
+
+---
+
+### Pedaços da sexta ligados à quinta
+
+**🔑 `imprevisto_resolvido = true`**
+> At 4 p.m., you're at the bakery. Dona Célia smiles. "Here's your cake!" It's
+> big, it's chocolate, and it says **NINA 15** on top. 🎂✨
+
+**🔑 `imprevisto_resolvido = false`**
+> At 6 p.m., the bakery is closed. 🔒 No cake! Kauã has an idea: a tower of
+> cookies with a candle on top. 🍪🕯️ "It's... modern!" says Bia.
+
+*Combinação:* se `imprevisto_resolvido = false` **e** `combinado_firme = false`,
+o aluno chega com o Davi, os dois sem bolo e atrasados: uma cena só.
+
+---
+
+### Vocabulário novo da quinta (conferir no `a1.json`)
+
+- **Do evento:** *bakery, oven, broken, chocolate cake, cookies, candle, closed*.
+- **Da escola:** *science, project, [[test|prova]]*.
+- **Das formas:** *won't, I promise, pick up / picking up, tomorrow at 4*.
+- **Expressões com tradução:** *Finally!* (finalmente!), *You're a hero!*
+  (você é um herói!), *Since when?* (desde quando?), *Good job!* (bom
+  trabalho!), *this time* (desta vez), *It's... modern!* (é... moderno!).
+
+---
+
 ## Ideias guardadas para outros dias
 
-- **Thursday (imprevisto):** o forno do Kauã quebra e o bolo da festa não sai.
-  Decisões na hora: *I'll call the bakery!* / *I'll ask my mom!* A dona da
-  padaria (convidada do evento) entra aqui, por ligação. 📞
-- A avó agora vem **no sábado** (terça), então a ideia antiga do jantar com a
-  avó na sexta não serve mais.
+- **Friday:** o evento (pedaços por marca, na ordem do dia) + o plano do fim de
+  semana. Na foto final, o avatar aparece com a camiseta escolhida na terça.

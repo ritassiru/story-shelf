@@ -308,7 +308,7 @@ O `checar.py` do jogo deve verificar, para cada evento:
 
 1. O professor revisa este GDD e fecha os pontos em aberto.
 2. Criar o repositório `ritassiru/my-busy-week` e mover este arquivo para lá.
-3. ▶ Em andamento (`docs/roteiro-surprise-party.md`, segunda, terça e quarta prontas): escrever o **roteiro do primeiro evento** (sugestão: *Surprise Party*, que
+3. ▶ Em andamento (`docs/roteiro-surprise-party.md`, segunda a quinta prontas): escrever o **roteiro do primeiro evento** (sugestão: *Surprise Party*, que
    tem mais situações de chat), dia por dia, com tarefas, marcas e pedaços da sexta.
 4. MVP: motor do celular + montador + Monday jogável, testado em largura de celular.
 5. Completar a semana, a `professor.html`, o código de resultado e testar com
