@@ -198,4 +198,5 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   nada é salvo.
 - `docs/gdd-my-busy-week.md`: GDD de um jogo novo (1º ano, futuro), projeto
   separado (`ritassiru/my-busy-week`, ainda não criado). Vai para o repositório
-  novo quando ele existir.
+  novo quando ele existir. Roteiro do primeiro evento:
+  `docs/roteiro-surprise-party.md` (sem simple past, nem nas falas).

@@ -93,7 +93,7 @@ Cada um tem um traço que **gera situações de futuro**:
 ### Convidados por evento (1 ou 2 por evento)
 - *Fair*: a professora coordenadora da feira e o técnico do som;
 - *Trip*: o motorista do ônibus e a guia do passeio;
-- *Party*: o aniversariante (que não pode descobrir) e a dona da padaria.
+- *Party*: a aniversariante, **Nina** (não pode descobrir), e a dona da padaria.
 
 ### Adultos
 - **Família** (mãe, pai ou avó): pedem tarefas e o aluno promete (*I'll do it
@@ -124,6 +124,12 @@ Cada um tem um traço que **gera situações de futuro**:
   Escolher a forma faz parte da montagem. Não dá para acertar só pela ordem.
 - Mais de uma resposta pode ser aceita quando o sentido for o mesmo
   (*I'll be there* para aceitar um convite na hora também vale).
+- **Regra de ouro dos distratores:** uma forma errada só entra quando **o sentido
+  muda de verdade** e a reação do personagem mostra essa mudança. Quando duas
+  formas soam naturais em inglês, as duas são aceitas.
+- Um erro também pode estar na **informação** (hora errada, dia faltando), e não
+  só na forma. O *-ing* sem expressão de tempo quer dizer **agora**, e os
+  personagens reagem assim (*Today?! I'm running!*).
 
 ### Erro: consequência que fica
 - **Não há nova tentativa.** O personagem **reage na hora** ao sentido que a
@@ -138,6 +144,7 @@ Cada um tem um traço que **gera situações de futuro**:
   | Wed | `preparado_tempo` | leva guarda-chuva ou protetor, ou é pego de surpresa |
   | Thu | `imprevisto_resolvido` | o problema foi resolvido, ou estoura na sexta |
 
+- **A sexta é narrada no presente** (o evento está acontecendo).
 - **A sexta é montada em pedaços**: uma cena (ou frase) boa ou ruim **por
   marca**, na ordem do dia. Não há finais inteiros para cada combinação.
   Fecha com uma avaliação de **1 a 3 estrelas** pelo número de marcas boas.
@@ -146,6 +153,8 @@ Cada um tem um traço que **gera situações de futuro**:
 ### Progresso: um dia por aula
 - Cada dia é liberado por um **código do dia** (palavra curta em inglês, como
   `SUNNY`), que o professor mostra no quadro ou no QR da `professor.html`.
+- A **segunda** abre direto depois da escolha do evento e do avatar (aula 1).
+  Os códigos valem de terça a sexta.
 - Quem faltou recebe o código e joga o dia depois. Os dias são sempre jogados
   **em ordem**.
 - O código está dentro do próprio jogo: ele **organiza a turma**, mas não é
@@ -293,7 +302,7 @@ O `checar.py` do jogo deve verificar, para cada evento:
 
 1. O professor revisa este GDD e fecha os pontos em aberto.
 2. Criar o repositório `ritassiru/my-busy-week` e mover este arquivo para lá.
-3. Escrever o **roteiro do primeiro evento** (sugestão: *Surprise Party*, que
+3. ▶ Em andamento (`docs/roteiro-surprise-party.md`, segunda pronta): escrever o **roteiro do primeiro evento** (sugestão: *Surprise Party*, que
    tem mais situações de chat), dia por dia, com tarefas, marcas e pedaços da sexta.
 4. MVP: motor do celular + montador + Monday jogável, testado em largura de celular.
 5. Completar a semana, a `professor.html`, o código de resultado e testar com
