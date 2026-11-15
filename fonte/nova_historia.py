@@ -19,6 +19,11 @@ json.dump(s, open(sp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 jp = os.path.join(dest, "scenes.js"); js = open(jp, encoding="utf-8").read().replace('SCENE_LIB["modelo"]', f'SCENE_LIB["{slug}"]')
 open(jp, "w", encoding="utf-8").write(js)
 shp = os.path.join(HERE, "shelf.json"); shelf = json.load(open(shp, encoding="utf-8"))
-shelf["books"].append({"slug": slug, "published": False})
+# código de 2 letras para o código de resultado: as iniciais do título, sem repetir os que já existem
+usados = {b.get("code") for b in shelf["books"]}
+letras = [w[0].upper() for w in slug.split("-") if w not in ("the", "a", "an")] or [slug[0].upper()]
+cands = ["".join(letras[:2]).ljust(2, "X")] + [letras[0] + c for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+code = next(c for c in cands if c not in usados)
+shelf["books"].append({"slug": slug, "code": code, "published": False})
 json.dump(shelf, open(shp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"Criado stories/{slug}/ (rascunho). Edite story.json e scenes.js, depois rode:\n  python3 fonte/checar.py\n  python3 fonte/build.py --drafts")

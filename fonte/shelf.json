@@ -1,33 +1,66 @@
 {
  "title": "Story Shelf",
  "subtitle": "Interactive graded readers · leituras interativas em inglês",
+ "turmas": [
+  {
+   "id": "I1M",
+   "nome": "INFO 1º ano · matutino"
+  },
+  {
+   "id": "I1V",
+   "nome": "INFO 1º ano · vespertino"
+  },
+  {
+   "id": "A2V",
+   "nome": "ADM 2º ano · vespertino"
+  },
+  {
+   "id": "I2M",
+   "nome": "INFO 2º ano · matutino"
+  },
+  {
+   "id": "I2V",
+   "nome": "INFO 2º ano · vespertino"
+  },
+  {
+   "id": "A3V",
+   "nome": "ADM 3º ano · vespertino"
+  }
+ ],
  "books": [
   {
    "slug": "the-phone-on-the-bus",
+   "code": "PB",
    "published": true
   },
   {
    "slug": "who-posted-it",
+   "code": "WP",
    "published": true
   },
   {
    "slug": "the-fortune-app",
+   "code": "FA",
    "published": true
   },
   {
    "slug": "the-new-student",
+   "code": "NS",
    "published": true
   },
   {
    "slug": "the-science-fair",
+   "code": "SF",
    "published": false
   },
   {
    "slug": "grandmas-recipe",
+   "code": "GR",
    "published": false
   },
   {
    "slug": "the-shelter-dog",
+   "code": "SD",
    "published": true
   }
  ]

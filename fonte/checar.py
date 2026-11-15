@@ -118,6 +118,16 @@ def main():
     slugs = [b["slug"] for b in shelf["books"]]
     total_erros = 0
     if len(slugs) != len(set(slugs)): print("ERRO: slug repetido em shelf.json"); total_erros += 1
+    # cada livro tem um código de 2 letras (entra no código de resultado) e cada turma, uma sigla de 3
+    cods = [b.get("code", "") for b in shelf["books"]]
+    for b in shelf["books"]:
+        if not re.fullmatch(r"[A-Z]{2}", b.get("code", "")): print(f"ERRO: {b['slug']}: falta 'code' (2 letras maiúsculas) em shelf.json"); total_erros += 1
+    if len(cods) != len(set(cods)): print("ERRO: 'code' repetido em shelf.json"); total_erros += 1
+    tids = [t.get("id", "") for t in shelf.get("turmas", [])]
+    if len(tids) != len(set(tids)): print("ERRO: sigla de turma repetida em shelf.json"); total_erros += 1
+    for t in shelf.get("turmas", []):
+        if not re.fullmatch(r"[A-Z][A-Z0-9]{2}", t.get("id", "")) or t.get("id") == "OUT" or not t.get("nome"):
+            print(f"ERRO: turma {t.get('id')!r}: precisa de sigla de 3 letras ou números (OUT é reservada) e de 'nome'"); total_erros += 1
     pastas = {d for d in os.listdir(os.path.join(HERE, "stories")) if os.path.isdir(os.path.join(HERE, "stories", d))}
     for d in sorted(pastas - set(slugs)): print(f"AVISO: stories/{d} existe, mas não está em shelf.json")
     alvos = [(s, os.path.join(HERE, "stories", s), next(b for b in shelf["books"] if b["slug"] == s).get("published")) for s in slugs]
