@@ -28,7 +28,7 @@ falsos positivos também entre os particípios.
 ## Arquitetura
 
 ```
-fonte/shelf.json                  livros da estante, ordem e publicado/rascunho
+fonte/shelf.json                  livros da estante (ordem, código de 2 letras, publicado/rascunho) e turmas
 fonte/stories/<slug>/story.json   metadados (meta) + história de um livro
 fonte/stories/<slug>/scenes.js    ilustrações do livro: SCENE_LIB["<slug>"] = (() => { ... return { cena: () => `svg` } })();
 fonte/modelo/                     esqueleto usado por nova_historia.py (não aparece na estante)
@@ -116,6 +116,19 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   mesmo painel das configurações (`openSheet`): não mexe na leitura, na pergunta
   do caderno nem na trava do reconto. A tela "Before you read" usa o mesmo
   `kwHTML()`. Mesmo atalho, com os mesmos nomes, no `the-ceo-game` e no `my-busy-week`.
+- **Nome, turma e código de resultado (nov/2026):** antes da primeira leitura, o
+  aluno diz o nome e escolhe a turma (`shelf.json` → `turmas`: sigla de 3 letras ou
+  números e nome; *Outra turma · visitante* = `OUT`). Fica no aparelho, em
+  `week:profile`, o mesmo perfil do `my-busy-week` (é o mesmo site); o cartão
+  *Reader* na estante deixa mudar. **Não há lista de alunos** (o site é público) e
+  **nada é enviado**. Quando o reconto passa, aparece o código
+  `SS-TUR-LIVRO-final-acertos-ajudas-X`: `LIVRO` é o `code` de 2 letras do livro em
+  `shelf.json`; `final` é a posição em `story.endings`; `acertos` são os de primeira
+  no caderno; `ajudas` são as frases montadas com o *Help me write*; `X` é a letra
+  de conferência. O decodificador fica na `professor.html` (gerado pelo `build.py`,
+  sem mexer no `qr.py`) e monta uma tabela por turma. A conta está em
+  `resultCode()` (template) e em `DEC_HTML` (build.py): se mudar num, mude no outro.
+  A estante **não tem códigos de liberação**: os livros abrem direto, pelo QR code.
 - Letras acentuadas fazem parte da palavra no glossário (*Sônia* não vira
   *S* + *nia*), no template e no `checar.py`.
 - **Página do professor:** o `build.py` gera `professor.html` com QR codes
@@ -163,7 +176,8 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   digitando outro `#slug`.
 - Armazenamento: finais por livro (`reader:<slug>:endings`); histórico e
   pendência globais (`reader:history`, `reader:pending`); configurações
-  globais (`reader:gloss`, `reader:theme`, `reader:size`, `reader:motion`).
+  globais (`reader:gloss`, `reader:theme`, `reader:size`, `reader:motion`); nome e
+  turma em `week:profile`.
   Tudo em `try/catch`.
   "Apagar histórico" na capa apaga só aquele livro.
 
@@ -192,7 +206,7 @@ livros (`python3 fonte/build.py --drafts` com um rascunho criado pelo
   código em MIT, fontes em OFL. Não mude sem o professor pedir.
 
 - Não adicionar bibliotecas externas, CDNs nem qualquer acesso à rede.
-- Não coletar nem enviar dados dos alunos.
+- Não coletar nem enviar dados dos alunos (o código de resultado é copiado pelo aluno; o jogo não envia nada).
 - Não reproduzir letras de música ou textos protegidos.
 - Não editar os arquivos de `aula/` sem o professor pedir.
 

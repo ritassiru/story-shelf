@@ -160,6 +160,14 @@ textarea { width: 100%; font: inherit; font-size: 1.02rem; color: var(--ink); ba
 .pv-bar { position: sticky; bottom: env(safe-area-inset-bottom, 0px); margin: 14px -12px -12px; padding: 10px 12px 12px; background: var(--bg); border-top: 2px solid var(--line); border-radius: 0 0 10px 10px; }
 .preview { margin: 0 0 10px; padding: 10px 12px; border-radius: 10px; background: var(--cream); font-size: 1.05rem; min-height: 2.6em; }
 .done { font-weight: 700; color: var(--ok); margin: 12px 0 0; }
+/* quem lê (nome e turma) e o código de resultado */
+.me-name { width: 100%; font: inherit; font-size: 1.05rem; color: var(--ink); background: var(--bg); border: 2px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.tur-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+.tur { border: 3px solid var(--line); border-radius: 999px; padding: 6px 12px; background: var(--panel); color: var(--ink); font: inherit; font-size: .92rem; cursor: pointer; }
+.tur[aria-pressed="true"] { border-color: var(--berry); font-weight: 700; }
+.tur:focus-visible, .me-name:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.code-card { margin-top: 12px; padding: 12px; border: 2px dashed var(--line); border-radius: 12px; text-align: center; }
+.code { font: 700 1.25rem ui-monospace, Consolas, monospace; letter-spacing: .04em; color: var(--berry); margin: 4px 0; overflow-wrap: anywhere; }
 .again-hint { text-align: center; margin: 8px 0 0; }
 /* My words */
 .wlist { list-style: none; padding: 0; margin: 4px 0 8px; }
@@ -234,7 +242,7 @@ const store = {
   del(k) { try { localStorage.removeItem(k); } catch (e) { /* sem armazenamento */ } }
 };
 /* armazenamento: finais por livro; histórico e reconto pendente valem para a estante toda */
-const KEY = { found: slug => `reader:${slug}:endings`, history: "reader:history", pending: "reader:pending", gloss: "reader:gloss", theme: "reader:theme", size: "reader:size", motion: "reader:motion", words: "reader:words" };
+const KEY = { found: slug => `reader:${slug}:endings`, history: "reader:history", pending: "reader:pending", gloss: "reader:gloss", theme: "reader:theme", size: "reader:size", motion: "reader:motion", words: "reader:words", me: "week:profile" };   // me: nome e turma, o mesmo perfil do My Busy Week (é o mesmo site)
 const foundOf = slug => new Set(store.get(KEY.found(slug), []));
 
 /* verbos irregulares: forma escrita -> { i, cols }; cols: 0 = infinitive, 1 = past, 2 = participle.
@@ -362,6 +370,46 @@ window.addEventListener("hashchange", route);
 const goShelf = () => { if (location.hash) location.hash = ""; else route(); };
 const goBook = slug => { if (location.hash === "#" + slug) route(); else location.hash = slug; };
 
+/* ---------------- quem lê: nome e turma (ficam no aparelho; a turma entra no código de resultado) ---------------- */
+const TURMAS = [...(SHELF.turmas || []), { id: "OUT", nome: "Outra turma · visitante" }];
+const turmaBy = id => TURMAS.find(t => t.id === id);
+const loadMe = () => { const p = store.get(KEY.me, null); return p && typeof p === "object" ? p : {}; };
+const meOk = () => { const p = loadMe(); return !!(p.name && turmaBy(p.turma)); };
+const meLine = () => { const p = loadMe(); return meOk() ? `${p.name} · ${turmaBy(p.turma).nome}` : ""; };
+function meCardHTML() {
+  return `<div class="card" id="me-card"><p class="sec-t" style="margin-top:0">Reader <span>· quem está lendo</span></p>
+    ${meOk() ? `<p style="margin:0">👤 <b>${esc(meLine())}</b></p>` : `<p class="hint">Diga o seu nome e a sua turma: eles aparecem com o código de resultado, no fim de cada leitura.</p>`}
+    <button type="button" class="help-btn" id="me-edit">${meOk() ? "Change <span>· mudar nome ou turma</span>" : "My name and class <span>· meu nome e minha turma</span>"}</button></div>`;
+}
+function screenMe(next) {
+  const p = loadMe(); let tur = turmaBy(p.turma) ? p.turma : "";
+  $("#app").innerHTML = `<div class="top bar"><div class="brand">${esc(SHELF.title)}</div>${gearButton()}</div>
+    <div class="card"><h2>Who are you? <span class="hint">· quem é você?</span></h2>
+      <label class="lbl" for="me-name">My name <span class="hint">· meu nome</span></label>
+      <input class="me-name" id="me-name" maxlength="16" autocomplete="off" value="${esc(p.name || "")}">
+      <p class="sec-t">My class <span>· minha turma</span></p>
+      <div class="tur-row" role="group" aria-label="My class · minha turma">${TURMAS.map(t => `<button type="button" class="tur" data-tur="${esc(t.id)}" aria-pressed="${tur === t.id}">${esc(t.nome)}</button>`).join("")}</div>
+      <p class="hint">O nome fica só neste aparelho. A turma entra no código de resultado, que você copia para o professor. Nada é enviado.</p>
+      <p class="fb no" id="me-err"></p>
+      <button class="btn primary" id="me-save">Save <span>· salvar</span></button></div>`;
+  document.querySelectorAll("[data-tur]").forEach(b => b.onclick = () => { tur = b.dataset.tur; $("#me-err").textContent = "";
+    document.querySelectorAll("[data-tur]").forEach(x => x.setAttribute("aria-pressed", x === b)); });
+  $("#me-save").onclick = () => {
+    const name = $("#me-name").value.trim().replace(/\s+/g, " ");
+    if (!/^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ' -]{0,15}$/.test(name)) { $("#me-err").textContent = "Escreva o seu nome (só letras)."; $("#me-name").focus(); return; }
+    if (!turmaBy(tur)) { $("#me-err").textContent = "Escolha a sua turma."; return; }
+    store.set(KEY.me, Object.assign({}, loadMe(), { name, turma: tur })); next();
+  };
+  window.scrollTo(0, 0);
+}
+// código de resultado de uma leitura com o reconto pronto: SS-TUR-LIVRO-final-acertos-ajudas-X
+// (final = posição em story.endings; acertos de primeira no caderno, 2 dígitos; ajudas = frases montadas com o Help me write; X = conferência)
+function resultCode() {
+  const p = loadMe(), fim = Object.keys(book.story.endings).indexOf(state.ended) + 1;
+  const body = `SS-${turmaBy(p.turma) ? p.turma : "OUT"}-${book.code}-${fim}-${String(firstTry()).padStart(2, "0")}-${helped.size}`;
+  return body + "-" + String.fromCharCode(65 + [...body].reduce((s, c) => s + c.charCodeAt(0), 0) % 26);
+}
+
 /* ---------------- estante ---------------- */
 function screenShelf() {
   book = null; document.title = SHELF.title;
@@ -373,8 +421,9 @@ function screenShelf() {
         <h3>${esc(b.title)}</h3><div class="chiprow"><span class="mini lvl">${esc(b.level)}</span>${b.grammar.map(g => `<span class="mini">${esc(g)}</span>`).join("")}</div>
         <p>${esc(b.blurb)}</p><div class="prog">${found ? `🗺️ ${found} of ${total} endings found` : `${total} endings to discover`}${reads ? ` · read ${reads}×` : ""}</div>
         <button class="btn primary" data-book="${esc(b.slug)}">Read</button></div></div>`;
-    }).join("")}<div class="shelf-plank" aria-hidden="true"></div>${wordsHomeHTML()}`;
+    }).join("")}<div class="shelf-plank" aria-hidden="true"></div>${meCardHTML()}${wordsHomeHTML()}`;
   document.querySelectorAll("[data-book]").forEach(b => b.onclick = () => goBook(b.dataset.book));
+  $("#me-edit").onclick = () => screenMe(screenShelf);
   window.scrollTo(0, 0);
 }
 
@@ -388,7 +437,8 @@ function screenCover() {
       <p class="hint">${book.chapters} choices · ${total} different endings · a detective notebook</p>
       <button class="btn primary" id="go">Open the book</button></div></div>` + historyHTML();
   $("#shelf").onclick = goShelf;
-  $("#go").onclick = () => { newGame(); screenBefore(); };
+  // antes da primeira leitura, o nome e a turma (para o código de resultado)
+  $("#go").onclick = () => { const abrir = () => { newGame(); screenBefore(); }; meOk() ? abrir() : screenMe(abrir); };
   const clr = $("#clear");
   if (clr) { let armed = null; clr.onclick = () => {
     if (armed) { clearTimeout(armed); store.del(KEY.found(book.slug)); store.set(KEY.history, store.get(KEY.history, []).filter(h => h.slug !== book.slug)); screenCover(); return; }
@@ -522,7 +572,7 @@ function screenRetell() {
         <textarea id="s${n}" placeholder="${ph[Math.min(k, ph.length - 1)]}"></textarea><div class="fb" id="fb${n}"></div>
         <button type="button" class="help-btn" data-n="${n}">Help me write <span>· monte a frase com ajuda</span></button>
         <p class="own" id="own${n}" hidden>Esta frase é sua: escreva sem o montador. Use a lista de acontecimentos lá em cima.</p><div class="builder" id="b${n}" hidden></div></div>`; }).join("")}
-      <button class="btn primary" id="check">Check my story</button><p class="fb" id="overall"></p><p class="done" id="done" hidden></p></div>
+      <button class="btn primary" id="check">Check my story</button><p class="fb" id="overall"></p><p class="done" id="done" hidden></p><div class="code-card" id="code-card" hidden></div></div>
     ${wordsCardHTML(state.t0 || 0)}
     <button class="btn center" id="again" disabled>Read again: find a new ending</button>
     ${BOOKS.length > 1 ? `<button class="btn center" id="toShelf" disabled style="margin-top:8px">Choose another book</button>` : ""}
@@ -531,7 +581,7 @@ function screenRetell() {
   document.querySelectorAll(".help-btn").forEach(b => b.onclick = () => openBuilder(+b.dataset.n));
   for (let n = 1; n <= cfg.sentences; n++) $("#s" + n).addEventListener("input", () => {
     if ($("#s" + n).value.trim() === "" && helped.delete(n)) updateHelpUI();
-    $("#done").hidden = true; lockAgain(true);
+    $("#done").hidden = true; $("#code-card").hidden = true; lockAgain(true);
   });
   $("#check").onclick = checkAll;
   $("#again").onclick = () => { if ($("#again").disabled) return; newGame(); goBook(book.slug); };
@@ -577,8 +627,11 @@ function checkAll() {
   else { ov.textContent = `Sequence words: ${[...seq].join(", ")} ✓`; ov.className = "fb ok"; }
   lockAgain(!all);
   const done = $("#done");
-  if (all) { const own = cfg.sentences - helped.size; done.textContent = `Your story is ready! Copy it into your notebook. (${helped.size} com ajuda, ${own} ${own === 1 ? "escrita" : "escritas"} por você)`; done.hidden = false; }
-  else done.hidden = true;
+  const cc = $("#code-card");
+  if (all) { const own = cfg.sentences - helped.size; done.textContent = `Your story is ready! Copy it into your notebook. (${helped.size} com ajuda, ${own} ${own === 1 ? "escrita" : "escritas"} por você)`; done.hidden = false;
+    cc.innerHTML = `<p class="sec-t" style="margin-top:0">Result code <span>· código de resultado</span></p>${meLine() ? `<p class="hint" style="margin:0"><b>${esc(meLine())}</b></p>` : ""}
+      <p class="code">${resultCode()}</p><p class="hint" style="margin:0">Copie este código junto com a sua história: ele mostra ao professor como foi a sua leitura.</p>`; cc.hidden = false; }
+  else { done.hidden = true; cc.hidden = true; }
 }
 function lockAgain(locked) {
   const b = $("#again"); if (!b) return;
@@ -616,7 +669,7 @@ function renderBuilder() {
   $("#use").onclick = () => {
     const n = build.n, ta = $("#s" + n); ta.value = s; helped.add(n);
     const r = checkSentence(s), fb = $("#fb" + n); fb.textContent = r.msg; fb.className = "fb " + (r.ok ? "ok" : "no");
-    $("#done").hidden = true; lockAgain(true); openBuilder(n); updateHelpUI(); ta.focus();
+    $("#done").hidden = true; $("#code-card").hidden = true; lockAgain(true); openBuilder(n); updateHelpUI(); ta.focus();
   };
 }
 
